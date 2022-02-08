@@ -6,7 +6,7 @@ import {IKImage} from 'imagekitio-react'
 
 import { TextureLoader } from 'three';
 import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
-import EarthNormalMap from "../assets/compressed/8k_earth_normal_map.jpg"
+import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
 import EarthSpecularMap from "../assets/2k_earth_specular_map.jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 import { PointLight } from 'three';
