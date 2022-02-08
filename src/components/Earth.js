@@ -4,7 +4,7 @@ import React, {useRef} from 'react';
 import * as THREE from 'three'
 
 import { TextureLoader } from 'three';
-import EarthDayMap from "../assets/2k_earth_daymap.jpg";
+import EarthDayMap from "https://ik.imagekit.io/74qyv5bswgr/8k_earth_daymap_z76y-E3-X.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644334771711";
 import EarthNormalMap from "../assets/2k_earth_normal_map.jpg";
 import EarthSpecularMap from "../assets/2k_earth_specular_map.jpg";
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg";
