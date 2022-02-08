@@ -2,16 +2,13 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import React, {useRef} from 'react';
 import * as THREE from 'three'
-import {IKImage} from 'imagekitio-react'
 
 import { TextureLoader } from 'three';
 import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
 import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
-import EarthSpecularMap from "../assets/2k_earth_specular_map.jpg"
+import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 import { PointLight } from 'three';
-
-const urlEndpoint = '74qyv5bswgr'
 
 export function Earth(props) {
   const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(
