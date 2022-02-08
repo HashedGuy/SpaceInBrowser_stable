@@ -2,13 +2,16 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import React, {useRef} from 'react';
 import * as THREE from 'three'
+import {IKImage} from 'imagekitio-react'
 
 import { TextureLoader } from 'three';
-import EarthDayMap from "https://ik.imagekit.io/74qyv5bswgr/8k_earth_daymap_z76y-E3-X.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644334771711";
-import EarthNormalMap from "https://ik.imagekit.io/74qyv5bswgr/8k_earth_normal_map_vgmsdjjwp.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644335476798";
-import EarthSpecularMap from "https://ik.imagekit.io/74qyv5bswgr/8k_earth_specular_map_WqVu-J5bw.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644335602507";
-import EarthCloudsMap from "https://ik.imagekit.io/74qyv5bswgr/8k_earth_clouds_K2i5yarwN.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644335157938";
+import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
+import EarthNormalMap from "../assets/2k_earth_normalmap.jpg"
+import EarthSpecularMap from "../assets/2k_earth_specularmap.jpg"
+import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 import { PointLight } from 'three';
+
+const urlEndpoint = '74qyv5bswgr'
 
 export function Earth(props) {
   const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(
