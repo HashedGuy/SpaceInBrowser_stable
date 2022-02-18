@@ -3,7 +3,8 @@ import React, { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import styled from 'styled-components'
 import Earth from './components/Earth'
-import Starship from './components/starship/Starship'
+import Starship from './components/models/Starship'
+import ISS from './components/models/ISS'
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -17,6 +18,7 @@ export default function App() {
                   <Suspense fallback={null}>
                     <Earth />
                     <Starship />
+                    <ISS />
                     {/* <Images /> */}
                   </Suspense>
                 </Canvas>
