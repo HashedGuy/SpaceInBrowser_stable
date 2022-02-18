@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
 
-function Images() {
-  const urlEndpoint = '74qyv5bswgr'
+export default function Model(props) {
+  const group = useRef();
+  const { nodes, materials } = useGLTF("/suzanne.gltf");
   return (
-  <>
-      <IKImage
-        urlEndpoint={urlEndpoint}
-        path="default-image.jpg"
+    <group ref={group} {...props} dispose={null}>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Suzanne.geometry}
+        material={nodes.Suzanne.material}
+        position={[0, 0.19, -0.04]}
       />
-  </>
-  )
+    </group>
+  );
 }
 
-export default Images;
-
-
+useGLTF.preload("/suzanne.gltf");
