@@ -91,7 +91,7 @@ export function Earth(props) {
           enableZoom
           enablePan
           enableRotate
-          autoRotate
+          // autoRotate
           zoomSpeed={0.6}
           panSpeed={0.5}
           rotateSpeed={0.1}

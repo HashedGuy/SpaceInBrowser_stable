@@ -14,7 +14,7 @@ const CanvasContainer = styled.div`
 export default function App() {
         return (
               <CanvasContainer>
-                <Canvas>
+                <Canvas frameloop="demand">
                   <Suspense fallback={null}>
                     <Earth />
                     <Starship />
