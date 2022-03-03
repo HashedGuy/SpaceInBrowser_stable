@@ -1,6 +1,6 @@
 import { useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 
 import { TextureLoader } from 'three';
@@ -10,13 +10,14 @@ import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 import MoonMap from "../assets/compressed/2k_moon(1).jpg"
 import MarsMap from "../assets/compressed/2k_mars(1).jpg"
-// import { PointLight } from 'three';
 
 export function Earth(props) {
   const [colorMap, normalMap, specularMap, cloudsMap, moonMap, marsMap] = useLoader(
     TextureLoader,
     [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap, MoonMap, MarsMap]
   );
+
+  const [activeObject, setObject] = useState('')
 
   const earthRef = useRef();
   const cloudsRef = useRef();
@@ -40,7 +41,22 @@ export function Earth(props) {
         saturation={0}
         fade={true}
       />
-      <mesh ref={cloudsRef} position={[0, 0, 0]}>
+      <mesh 
+        ref={cloudsRef} 
+        position={
+          activeObject === 'moon' ? [-1, 1, 1]
+          :
+          activeObject === 'mars' ? [-6, 3, -3]
+          :
+          [0, 0, 0]
+        }
+        scale={
+          activeObject === 'earth' ? 2 
+          :
+          activeObject === 'mars' ? .1
+          : 1
+        }
+      >
         <sphereBufferGeometry args={[1.005, 32, 32]} />
         <meshPhongMaterial
           map={cloudsMap}
@@ -50,18 +66,28 @@ export function Earth(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <mesh position={[1, 1, 1]}>
-        <sphereBufferGeometry args={[0.25, 14, 14]} />
-        <meshPhongMaterial
-          map={moonMap}
-          opacity={1}
-          depthWrite={true}
-          transparent={false}
-          side={THREE.DoubleSide}
+      <mesh 
+        ref={earthRef} 
+        position={
+          activeObject === 'moon' ? [-1, 1, 1]
+          :
+          activeObject === 'mars' ? [-6, 3, -3]
+          :
+          [0, 0, 0]
+        }
+        onDoubleClick={()=>setObject('earth')}
+        scale={
+          activeObject === 'earth' ? 2 
+          :
+          activeObject === 'mars' ? .1
+          : 1
+        }
+
+      >
+        <sphereBufferGeometry 
+          args={[1, 36, 36]}          
+          
         />
-      </mesh>
-      <mesh ref={earthRef} position={[0, 0, 0]}>
-        <sphereBufferGeometry args={[1, 36, 36]} />
         <meshPhongMaterial specularMap={specularMap} />
         <meshStandardMaterial
           map={colorMap}
@@ -70,16 +96,59 @@ export function Earth(props) {
           roughness={0.7}
         />
         <OrbitControls
-          enableZoom={true}
+          enableZoom={false}
           enablePan={true}
           enableRotate={true}
-          zoomSpeed={0.6}
+          // zoomSpeed={0.6}
           panSpeed={0.5}
           rotateSpeed={.9}
+          // minZoom={1}
+          // maxZoom={1.2}
+          // maxPolarAngle={Math.PI / 3}
+          // minPolarAngle={Math.PI / 2}
         />
       </mesh>
-      <mesh position={[-12, 6, -2]}>
-        <sphereBufferGeometry args={[0.50, 16, 16]} />
+      <mesh 
+        position={
+          activeObject === 'earth' ? [2, 2, 1]
+          : 
+          activeObject === 'moon' ? [0, 0, 0]
+
+          :
+          activeObject === 'mars' ? [-6.1, 3, -3]
+
+          : [1, 1, 1]}
+        scale={
+          activeObject === 'earth' ? 2 
+          :
+          activeObject === 'mars' ? .1
+          : 1
+        }
+        onDoubleClick={()=>setObject('moon')}
+        
+      >
+        <sphereBufferGeometry args={[0.25, 32, 32]} />
+        <meshPhongMaterial
+          map={moonMap}
+          opacity={1}
+          depthWrite={true}
+          transparent={false}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+      <mesh 
+        position={
+          activeObject === 'mars' ? [0, 0, 0]
+          :[-12, 6, -2]
+        }
+        scale={
+          (activeObject === 'earth') || (activeObject === 'moon') ? .3 
+          :
+          activeObject === 'mars' ? 3
+          : 1}
+          onDoubleClick={()=>setObject('mars')}
+      >
+        <sphereBufferGeometry args={[0.50, 32, 32]} />
         <meshStandardMaterial
           map={marsMap}
           metalness={0.4}
@@ -87,15 +156,16 @@ export function Earth(props) {
         />
         
       </mesh>
-      <OrbitControls
-          enableZoom
+      {/* <OrbitControls
+          enableZoom={false}
           enablePan
           enableRotate
           // autoRotate
-          zoomSpeed={0.6}
+          // zoomSpeed={0.6}
           panSpeed={0.5}
           rotateSpeed={0.1}
-        />
+         
+        /> */}
     </>
   );
 }
