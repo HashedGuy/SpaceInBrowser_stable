@@ -1,4 +1,4 @@
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useFrame, useLoader, lineBasicMaterial } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
@@ -11,6 +11,21 @@ import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 import MoonMap from "../assets/compressed/2k_moon(1).jpg"
 import MarsMap from "../assets/compressed/2k_mars(1).jpg"
 
+function Ecliptic({ xRadius = 1, zRadius = 1 }) {
+  const points = [];
+  for (let index = 0; index < 64; index++) {
+    const angle = (index / 64) * 2 * Math.PI;
+    const x = xRadius * Math.cos(angle);
+    const z = zRadius * Math.sin(angle);
+    points.push(new THREE.Vector3(x, 0, z));
+  }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+  return (
+    <line geometry={lineGeometry}>
+      <lineBasicMaterial attach="material" color="#BFBBDA" linewidth={10} />
+    </line>
+  );
+}
+
 export function Earth(props) {
   const [colorMap, normalMap, specularMap, cloudsMap, moonMap, marsMap] = useLoader(
     TextureLoader,
@@ -21,6 +36,7 @@ export function Earth(props) {
 
   const earthRef = useRef();
   const cloudsRef = useRef();
+  const marsRef = useRef()
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -28,6 +44,29 @@ export function Earth(props) {
     earthRef.current.rotation.y = elapsedTime / 150;
     cloudsRef.current.rotation.y = elapsedTime / 150;
   });
+
+  // const handlePos = React.useMemo(
+  //   () =>
+  //     [
+  //       { x: 10, y: 0, z: -10 },
+  //       { x: 10, y: 0, z: 10 },
+  //       { x: -10, y: 0, z: 10 },
+  //       { x: -10, y: 0, z: -10 },
+  //     ].map((hand) => new THREE.Vector3(...Object.values(hand))),
+  //   []
+  // )
+
+  // const curveRef = useRef()
+
+  // const curve = React.useMemo(() => new THREE.CatmullRomCurve3([...handlePos], true, 'centripetal'), [handlePos])
+  
+  // return (
+  //   <CurveModifier ref={curveRef} curve={curve}>
+  //     <mesh>
+  //       <boxBufferGeometry args={[10, 10]} />
+  //     </mesh>
+  //   </CurveModifier>
+  // )
 
   return (
     <>
@@ -136,7 +175,9 @@ export function Earth(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
+      {/* <CurveModifier ref={curveRef} curve={curve}> */}
       <mesh 
+        // ref={marsRef} 
         position={
           activeObject === 'mars' ? [0, 0, 0]
           :[-12, 6, -2]
@@ -156,6 +197,8 @@ export function Earth(props) {
         />
         
       </mesh>
+      <Ecliptic xRadius={6} zRadius={4}/>
+      {/* </CurveModifier> */}
       {/* <OrbitControls
           enableZoom={false}
           enablePan

@@ -17,7 +17,7 @@ export default function App() {
         return (
               <CanvasContainer>
                 <TopSection/>               
-                <Canvas frameloop="demand">
+                <Canvas frameloop="demand" >
                 {/* <PerspectiveCamera near={1} far={1.1}/>  */}
                   <Suspense fallback={null}>
                 
