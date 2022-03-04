@@ -31,6 +31,19 @@ export function Mars(props) {
 
  
   const marsRef = useRef()
+  let xRadius=12
+  let zRadius=5
+
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+    
+    const x = xRadius* Math.sin(elapsedTime)
+    const z = zRadius* Math.cos(elapsedTime)
+    marsRef.current.position.x = x;
+    marsRef.current.position.z = z;
+
+  });
+
 
 //   useFrame(({ clock }) => {
 //     const elapsedTime = clock.getElapsedTime();
@@ -42,7 +55,7 @@ export function Mars(props) {
   return (
     <>
       <mesh 
-        // ref={marsRef} 
+        ref={marsRef} 
         position={
           activeObject === 'mars' ? [0, 0, 0]
           :[-12, 0, 0]
@@ -62,7 +75,7 @@ export function Mars(props) {
         />
         
       </mesh>
-      <Ecliptic xRadius={-12} zRadius={5}/>
+      <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
     </>
   );
 }

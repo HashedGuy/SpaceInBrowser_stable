@@ -29,19 +29,24 @@ export function Moon(props) {
 
   const [activeObject, setObject] = useState('')
 
- 
-//   const marsRef = useRef()
+  const moonRef = useRef()
+  let xRadius=9
+  let zRadius=3.5
 
-//   useFrame(({ clock }) => {
-//     const elapsedTime = clock.getElapsedTime();
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+    
+    const x = (xRadius + 1.5)* Math.sin(elapsedTime)
+    const z = (zRadius + 0)* Math.cos(elapsedTime)
+    moonRef.current.position.x = x;
+    moonRef.current.position.z = z;
 
-//     earthRef.current.rotation.y = elapsedTime / 150;
-//     cloudsRef.current.rotation.y = elapsedTime / 150;
-//   });
+  });
 
   return (
     <>
       <mesh 
+        ref={moonRef}
         position={
           activeObject === 'earth' ? [2, 2, 1]
           : 
@@ -69,7 +74,7 @@ export function Moon(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <Ecliptic xRadius={9} zRadius={3.5}/>
+      <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
     </>
   );
 }

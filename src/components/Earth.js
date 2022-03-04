@@ -36,7 +36,7 @@ export function Earth(props) {
 
   const earthRef = useRef();
   const cloudsRef = useRef();
-  const marsRef = useRef()
+  // const marsRef = useRef()
   let xRadius=8
   let zRadius=2
 
