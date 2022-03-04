@@ -16,7 +16,7 @@ function Ecliptic({ xRadius = 1, zRadius = 1 }) {
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
-      <lineBasicMaterial attach="material" color="gray" linewidth={1} />
+      <lineBasicMaterial attach="material" color="gray" linewidth={.1} />
     </line>
   );
 }
@@ -30,14 +30,14 @@ export function Moon(props) {
   const [activeObject, setObject] = useState('')
 
   const moonRef = useRef()
-  let xRadius=9
-  let zRadius=3.5
+  let xRadius=7.5
+  let zRadius=4.5
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
+    const elapsedTime = clock.getElapsedTime() * .006;
     
-    const x = (xRadius + 1.5)* Math.sin(elapsedTime)
-    const z = (zRadius + 0)* Math.cos(elapsedTime)
+    const x = xRadius* Math.sin(elapsedTime)
+    const z = zRadius* Math.cos(elapsedTime)
     moonRef.current.position.x = x;
     moonRef.current.position.z = z;
 

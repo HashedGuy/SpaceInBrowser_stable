@@ -16,7 +16,7 @@ function Ecliptic({ xRadius = 1, zRadius = 1 }) {
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
-      <lineBasicMaterial attach="material" color="red" linewidth={1} />
+      <lineBasicMaterial attach="material" color="red" linewidth={.1} />
     </line>
   );
 }
@@ -32,15 +32,16 @@ export function Mars(props) {
  
   const marsRef = useRef()
   let xRadius=12
-  let zRadius=5
+  let zRadius= 7
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
+    const elapsedTime = clock.getElapsedTime() * .004;
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
     marsRef.current.position.x = x;
     marsRef.current.position.z = z;
+    marsRef.current.rotation.y += .01;
 
   });
 

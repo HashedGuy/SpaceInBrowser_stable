@@ -21,7 +21,7 @@ function Ecliptic({ xRadius = 1, zRadius = 1 }) {
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
-      <lineBasicMaterial attach="material" color="yellow" linewidth={1} />
+      <lineBasicMaterial attach="material" color="yellow" linewidth={.1} />
     </line>
   );
 }
@@ -37,11 +37,11 @@ export function Earth(props) {
   const earthRef = useRef();
   const cloudsRef = useRef();
   // const marsRef = useRef()
-  let xRadius=8
-  let zRadius=2
+  let xRadius=6
+  let zRadius=3.5
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
+    const elapsedTime = clock.getElapsedTime() * .006;
     
     const x = xRadius * Math.sin(elapsedTime)
     const z = zRadius * Math.cos(elapsedTime)
@@ -50,14 +50,14 @@ export function Earth(props) {
     earthRef.current.position.z = z;
     cloudsRef.current.position.z = z;
 
-    earthRef.current.rotation.y = elapsedTime / 150;
-    cloudsRef.current.rotation.y = elapsedTime / 150;
+    earthRef.current.rotation.y += .01;
+    cloudsRef.current.rotation.y += .01;
   });
 
   return (
     <>
       {/* <ambientLight intensity={1} /> */}
-      <pointLight color="#f6f3ea" position={[2, 2, 5]} intensity={1.1} />
+      <pointLight color="#f6f3ea" position={[0, 0, 0]} intensity={1.1} />
       <Stars
         radius={300}
         depth={60}
@@ -121,7 +121,7 @@ export function Earth(props) {
           roughness={0.7}
         />
         <OrbitControls
-          enableZoom={false}
+          enableZoom={true}
           enablePan={true}
           enableRotate={true}
           // zoomSpeed={0.6}
