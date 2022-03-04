@@ -21,7 +21,7 @@ function Ecliptic({ xRadius = 1, zRadius = 1 }) {
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
-      <lineBasicMaterial attach="material" color="#BFBBDA" linewidth={10} />
+      <lineBasicMaterial attach="material" color="yellow" linewidth={1} />
     </line>
   );
 }
@@ -37,36 +37,22 @@ export function Earth(props) {
   const earthRef = useRef();
   const cloudsRef = useRef();
   const marsRef = useRef()
+  let xRadius=8
+  let zRadius=2
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
+    
+    const x = xRadius * Math.sin(elapsedTime)
+    const z = zRadius * Math.cos(elapsedTime)
+    earthRef.current.position.x = x;
+    cloudsRef.current.position.x = x;
+    earthRef.current.position.z = z;
+    cloudsRef.current.position.z = z;
 
     earthRef.current.rotation.y = elapsedTime / 150;
     cloudsRef.current.rotation.y = elapsedTime / 150;
   });
-
-  // const handlePos = React.useMemo(
-  //   () =>
-  //     [
-  //       { x: 10, y: 0, z: -10 },
-  //       { x: 10, y: 0, z: 10 },
-  //       { x: -10, y: 0, z: 10 },
-  //       { x: -10, y: 0, z: -10 },
-  //     ].map((hand) => new THREE.Vector3(...Object.values(hand))),
-  //   []
-  // )
-
-  // const curveRef = useRef()
-
-  // const curve = React.useMemo(() => new THREE.CatmullRomCurve3([...handlePos], true, 'centripetal'), [handlePos])
-  
-  // return (
-  //   <CurveModifier ref={curveRef} curve={curve}>
-  //     <mesh>
-  //       <boxBufferGeometry args={[10, 10]} />
-  //     </mesh>
-  //   </CurveModifier>
-  // )
 
   return (
     <>
@@ -87,13 +73,13 @@ export function Earth(props) {
           :
           activeObject === 'mars' ? [-6, 3, -3]
           :
-          [0, 0, 0]
+          [0, 0, 2]
         }
         scale={
           activeObject === 'earth' ? 2 
           :
           activeObject === 'mars' ? .1
-          : 1
+          : .6
         }
       >
         <sphereBufferGeometry args={[1.005, 32, 32]} />
@@ -112,14 +98,14 @@ export function Earth(props) {
           :
           activeObject === 'mars' ? [-6, 3, -3]
           :
-          [0, 0, 0]
+          [0, 0, 2]
         }
         onDoubleClick={()=>setObject('earth')}
         scale={
           activeObject === 'earth' ? 2 
           :
           activeObject === 'mars' ? .1
-          : 1
+          : .6
         }
 
       >
@@ -147,7 +133,7 @@ export function Earth(props) {
           // minPolarAngle={Math.PI / 2}
         />
       </mesh>
-      <mesh 
+      {/* <mesh 
         position={
           activeObject === 'earth' ? [2, 2, 1]
           : 
@@ -174,13 +160,13 @@ export function Earth(props) {
           transparent={false}
           side={THREE.DoubleSide}
         />
-      </mesh>
+      </mesh> */}
       {/* <CurveModifier ref={curveRef} curve={curve}> */}
-      <mesh 
+      {/* <mesh 
         // ref={marsRef} 
         position={
           activeObject === 'mars' ? [0, 0, 0]
-          :[-12, 6, -2]
+          :[-12, 0, 0]
         }
         scale={
           (activeObject === 'earth') || (activeObject === 'moon') ? .3 
@@ -196,8 +182,9 @@ export function Earth(props) {
           roughness={0.7}
         />
         
-      </mesh>
-      <Ecliptic xRadius={6} zRadius={4}/>
+      </mesh> */}
+      <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
+      {/* <Ecliptic xRadius={8} zRadius={2}/> */}
       {/* </CurveModifier> */}
       {/* <OrbitControls
           enableZoom={false}

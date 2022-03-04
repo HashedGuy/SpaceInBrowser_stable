@@ -7,6 +7,8 @@ import Earth from './components/Earth'
 import Starship from './components/models/Starship'
 import ISS from './components/models/ISS'
 import { TopSection } from './components/Landing'
+import Mars from './components/Mars'
+import Moon from './components/Moon'
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -22,6 +24,8 @@ export default function App() {
                   <Suspense fallback={null}>
                 
                     <Earth />
+                    <Mars />
+                    <Moon />
                     <Starship />
                     <ISS />
                   </Suspense>
