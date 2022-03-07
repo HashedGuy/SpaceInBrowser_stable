@@ -5,6 +5,8 @@ import * as THREE from 'three'
 
 import { TextureLoader } from 'three';
 import MarsMap from "../assets/compressed/2k_mars(1).jpg"
+import { useRecoilState } from 'recoil';
+import { clickedCBState } from './globalState';
 
 function Ecliptic({ xRadius = 1, zRadius = 1 }) {
   const points = [];
@@ -27,12 +29,15 @@ export function Mars(props) {
     [MarsMap]
   );
 
-  const [activeObject, setObject] = useState('')
+  const [activeObject, setObject] = useRecoilState(clickedCBState)
 
  
   const marsRef = useRef()
-  let xRadius=12
-  let zRadius= 7
+  let xRadius
+  let zRadius
+
+  activeObject === 'earth' ? xRadius=18 : xRadius=12
+  activeObject === 'earth' ? zRadius= 14 : zRadius=7
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .004;
@@ -44,14 +49,6 @@ export function Mars(props) {
     marsRef.current.rotation.y += .01;
 
   });
-
-
-//   useFrame(({ clock }) => {
-//     const elapsedTime = clock.getElapsedTime();
-
-//     earthRef.current.rotation.y = elapsedTime / 150;
-//     cloudsRef.current.rotation.y = elapsedTime / 150;
-//   });
 
   return (
     <>
@@ -77,6 +74,7 @@ export function Mars(props) {
         
       </mesh>
       <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
+    
     </>
   );
 }

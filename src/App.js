@@ -1,8 +1,9 @@
-import ReactDOM from 'react-dom'
-import React, { Suspense, useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+
+import React, { Suspense } from 'react'
+import { Canvas } from '@react-three/fiber'
 import styled from 'styled-components'
-import { PerspectiveCamera } from '@react-three/drei'
+import { RecoilRoot } from 'recoil'
+
 import Earth from './components/Earth'
 import Starship from './components/models/Starship'
 import ISS from './components/models/ISS'
@@ -20,6 +21,7 @@ export default function App() {
               <CanvasContainer>
                 <TopSection/>               
                 <Canvas frameloop="demand" >
+                  <RecoilRoot>
                 {/* <PerspectiveCamera near={1} far={1.1}/>  */}
                   <Suspense fallback={null}>
                 
@@ -29,6 +31,7 @@ export default function App() {
                     <Starship />
                     <ISS />
                   </Suspense>
+                  </RecoilRoot>
                 </Canvas>
               </CanvasContainer>
         )

@@ -5,14 +5,17 @@ import * as THREE from 'three'
 
 import { TextureLoader } from 'three';
 import MoonMap from "../assets/compressed/2k_moon(1).jpg"
+import { useRecoilState } from 'recoil';
+import { clickedCBState } from './globalState';
 
-function Ecliptic({ xRadius = 1, zRadius = 1 }) {
+function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
   const points = [];
   for (let index = 0; index < 64; index++) {
     const angle = (index / 64) * 2 * Math.PI;
     const x = xRadius * Math.cos(angle);
     const z = zRadius * Math.sin(angle);
-    points.push(new THREE.Vector3(x, 0, z));
+    const y = yRadius * Math.sin(angle);
+    points.push(new THREE.Vector3(x, y, z));
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
@@ -27,19 +30,29 @@ export function Moon(props) {
     [MoonMap]
   );
 
-  const [activeObject, setObject] = useState('')
+  const [activeObject, setObject] = useRecoilState(clickedCBState)
 
   const moonRef = useRef()
-  let xRadius=7.5
-  let zRadius=4.5
+  let zRadius
+  let xRadius
+  let yRadius
+  activeObject === '' ? (xRadius=9.5) : (xRadius=6)
+  activeObject === '' ? (zRadius=4.5) : (zRadius=3.5)
+  activeObject === '' ? (yRadius=0) : (yRadius=0)
+
+ 
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .006;
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
+    const y = yRadius* Math.cos(elapsedTime)
     moonRef.current.position.x = x;
     moonRef.current.position.z = z;
+    moonRef.current.position.y = y;
+
+    moonRef.current.rotation.y += .0001;
 
   });
 
@@ -48,8 +61,8 @@ export function Moon(props) {
       <mesh 
         ref={moonRef}
         position={
-          activeObject === 'earth' ? [2, 2, 1]
-          : 
+          // activeObject === 'earth' ? [2, 2, 1]
+          // : 
           activeObject === 'moon' ? [0, 0, 0]
 
           :
@@ -74,7 +87,7 @@ export function Moon(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
+      <Ecliptic xRadius={xRadius} zRadius={zRadius} yRadius={yRadius}/>
     </>
   );
 }
