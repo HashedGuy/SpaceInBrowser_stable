@@ -24,3 +24,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+audio {
+  width: 90%;
+  margin-bottom: 1em;
+}
+
+.annotation {
+  color:aliceblue;
+  /* position: absolute; */
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    transform: translate3d(0%, 0%, 0px) scale(1) !important;
+    transform-origin: 0px 0px;
+    z-index: 16639014;
+    padding:1em;
+    border-radius: 5%;
+    background-color: rgba(28, 28, 28, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    /* z-index:10; */
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.addInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoBox p {
+  margin-bottom: 2em;
+}
+
+.home-btn {
+  cursor: pointer;
+  border: 1px solid whitesmoke;
+  padding: .5em;
+  border-radius: 10px;
+  margin-top: .5em;
+}
+
+.credits {
+  font-size: 70%;
+}

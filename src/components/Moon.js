@@ -14,8 +14,8 @@ function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
     const angle = (index / 64) * 2 * Math.PI;
     const x = xRadius * Math.cos(angle);
     const z = zRadius * Math.sin(angle);
-    const y = yRadius * Math.sin(angle);
-    points.push(new THREE.Vector3(x, y, z));
+    // const y = yRadius * Math.sin(angle);
+    points.push(new THREE.Vector3(x, 0, z));
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
@@ -36,14 +36,25 @@ export function Moon(props) {
   let zRadius
   let xRadius
   let yRadius
-  activeObject === '' ? (xRadius=9.5) : (xRadius=6)
-  activeObject === '' ? (zRadius=4.5) : (zRadius=3.5)
-  activeObject === '' ? (yRadius=0) : (yRadius=0)
+  activeObject === '' ? (xRadius=9.5) 
+    : activeObject === 'earth' ? (xRadius=6)
+    : activeObject === 'mars' ? (xRadius=-3)
+    : (xRadius=0)
+  activeObject === '' ? (zRadius=4.5) 
+    : activeObject === 'earth' ? (zRadius=3.5)
+    : activeObject === 'mars' ? (zRadius=0) 
+    : (zRadius=0)
+  activeObject === '' ? (yRadius=0) 
+    : activeObject === 'earth' ? (yRadius=0) 
+    : (yRadius=0)
 
  
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime() * .006;
+    let elapsedTime
+    activeObject === 'mars'?
+    (elapsedTime = clock.getElapsedTime() * 0) 
+    : (elapsedTime = clock.getElapsedTime() * 0.006)
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -60,20 +71,22 @@ export function Moon(props) {
     <>
       <mesh 
         ref={moonRef}
-        position={
-          // activeObject === 'earth' ? [2, 2, 1]
-          // : 
-          activeObject === 'moon' ? [0, 0, 0]
+        // position={
+        //   // activeObject === 'earth' ? [2, 2, 1]
+        //   // : 
+        //   activeObject === 'moon' ? [0, 0, 0]
 
-          :
-          activeObject === 'mars' ? [-6.1, 3, -3]
+        //   :
+        //   activeObject === 'mars' ? [-6.1, 3, -3]
 
-          : [0, 0, 3.5]}
+        //   : [0, 0, 3.5]}
         scale={
+          activeObject === '' ? 1 
+          :
           activeObject === 'earth' ? 2 
           :
           activeObject === 'mars' ? .1
-          : 1
+          : 6
         }
         onDoubleClick={()=>setObject('moon')}
         
@@ -87,7 +100,7 @@ export function Moon(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <Ecliptic xRadius={xRadius} zRadius={zRadius} yRadius={yRadius}/>
+      {activeObject === 'mars' ? '' : <Ecliptic xRadius={xRadius} zRadius={zRadius}/>}
     </>
   );
 }

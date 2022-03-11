@@ -36,8 +36,13 @@ export function Mars(props) {
   let xRadius
   let zRadius
 
-  activeObject === 'earth' ? xRadius=18 : xRadius=12
-  activeObject === 'earth' ? zRadius= 14 : zRadius=7
+  (activeObject === 'mars') ? xRadius=0
+  : (activeObject === 'moon') ? xRadius=-22
+  : (activeObject === 'LEO') ? xRadius=-28 
+    : xRadius=18
+  activeObject === 'earth' ? zRadius= 14 
+    : activeObject === '' ? zRadius=7 
+    :zRadius=0
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .004;
@@ -46,7 +51,7 @@ export function Mars(props) {
     const z = zRadius* Math.cos(elapsedTime)
     marsRef.current.position.x = x;
     marsRef.current.position.z = z;
-    marsRef.current.rotation.y += .01;
+    activeObject === 'mars' ? (marsRef.current.rotation.y += .005) : (marsRef.current.rotation.y += .01)
 
   });
 
@@ -54,14 +59,12 @@ export function Mars(props) {
     <>
       <mesh 
         ref={marsRef} 
-        position={
-          activeObject === 'mars' ? [0, 0, 0]
-          :[-12, 0, 0]
-        }
         scale={
-          (activeObject === 'earth') || (activeObject === 'moon') ? .3 
+          (activeObject === 'earth') || (activeObject === 'moon') ? .1 
           :
-          activeObject === 'mars' ? 3
+          activeObject === 'LEO' ? .05
+          :
+          activeObject === 'mars' ? 4
           : 1}
           onDoubleClick={()=>setObject('mars')}
       >
@@ -73,7 +76,7 @@ export function Mars(props) {
         />
         
       </mesh>
-      <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
+      {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
     
     </>
   );

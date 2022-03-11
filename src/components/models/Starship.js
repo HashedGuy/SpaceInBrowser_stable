@@ -20,7 +20,7 @@ export default function Model({ ...props }) {
   activeObject === '' ? (yRadius=0) : (yRadius=.4)
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime() * .4;
+    const elapsedTime = clock.getElapsedTime() * .01;
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -32,9 +32,12 @@ export default function Model({ ...props }) {
   });
 
   return (
-    <mesh position={[.7, .7, .7]}  scale={.000005} ref={starshipRef}>
+    <mesh 
+      position={[.7, .7, .7]}  
+      scale={(activeObject==='mars') || (activeObject==='moon') || (activeObject==='')?0 : .000025} 
+      ref={starshipRef}>
     <group ref={group} {...props} dispose={null}>
-      <group rotation={[Math.PI / 2, 1, 0]}>
+      <group rotation={[Math.PI/6 , 1, 0]}>
         <group position={[0, 42.38, -5293.18]} rotation={[-Math.PI, 0, 0]}>
           <group rotation={[-Math.PI, 0, 0]}>
             <group rotation={[0, 0, Math.PI / 2]} scale={[100, 100, 100]}>

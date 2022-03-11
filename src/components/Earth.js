@@ -1,9 +1,10 @@
 import { useFrame, useLoader, lineBasicMaterial } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { OrbitControls, Stars, Html } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 import { useRecoilState } from 'recoil';
 import { clickedCBState } from './globalState';
+import { InfoBox } from './Landing';
 
 import { TextureLoader } from 'three';
 import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
@@ -49,19 +50,34 @@ export function Earth(props) {
     
     const x = xRadius * Math.sin(elapsedTime)
     const z = zRadius * Math.cos(elapsedTime)
-    activeObject === '' ? (earthRef.current.position.x = x) : (earthRef.current.position.x = 0)
-    activeObject === '' ? (cloudsRef.current.position.x = x) : (cloudsRef.current.position.x = 0)
+    activeObject === '' ? (earthRef.current.position.x = x) 
+      : activeObject === 'moon' ? (earthRef.current.position.x = 9) 
+      : activeObject === 'mars' ? (earthRef.current.position.x = -9) 
+      : (earthRef.current.position.x = 0)    
+    activeObject === '' ? (cloudsRef.current.position.x = x) 
+      : activeObject === 'moon' ? (cloudsRef.current.position.x = 9)
+      : activeObject === 'mars' ? (cloudsRef.current.position.x = -9) 
+      : (cloudsRef.current.position.x = 0)
    
-    activeObject === '' ? (earthRef.current.position.z = z) : (earthRef.current.position.z = 0)
-    activeObject === '' ? (cloudsRef.current.position.z = z) : (cloudsRef.current.position.z = 0)
+    activeObject === '' ? (earthRef.current.position.z = z) 
+      : activeObject === 'moon' ? (earthRef.current.position.z = 2)
+      : activeObject === 'mars' ? (earthRef.current.position.z = -2) 
+      : (earthRef.current.position.z = 0)
+    activeObject === '' ? (cloudsRef.current.position.z = z) 
+      : activeObject === 'moon' ? (cloudsRef.current.position.z = 2)
+      : activeObject === 'mars' ? (cloudsRef.current.position.z = -2) 
+      : (cloudsRef.current.position.z = 0)
   
 
-    activeObject === '' ? (earthRef.current.rotation.y += .01) : (earthRef.current.rotation.y += .005) 
-    activeObject === '' ? (cloudsRef.current.rotation.y += .01) : (cloudsRef.current.rotation.y += .005)
+    activeObject === '' ? (earthRef.current.rotation.y += .01) 
+      : (earthRef.current.rotation.y += .005) 
+    activeObject === '' ? (cloudsRef.current.rotation.y += .01) 
+      : (cloudsRef.current.rotation.y += .005)
   });
 
   return (
     <>
+      <InfoBox />
       <pointLight 
         color="#f6f3ea" 
         position={
@@ -79,17 +95,14 @@ export function Earth(props) {
       />
       <mesh 
         ref={cloudsRef} 
-        position={
-          activeObject === 'moon' ? [-1, 1, 1]
-          :
-          activeObject === 'mars' ? [-6, 3, -3]
-          :
-          [0, 0, 2]
-        }
         scale={
           activeObject === 'earth' ? 2 
           :
+          activeObject === 'moon' ? 2 
+          :
           activeObject === 'mars' ? .1
+          :
+          activeObject === 'LEO' ? 3
           : .6
         }
       >
@@ -104,18 +117,15 @@ export function Earth(props) {
       </mesh>
       <mesh 
         ref={earthRef} 
-        position={
-          activeObject === 'moon' ? [-1, 1, 1]
-          :
-          activeObject === 'mars' ? [-6, 3, -3]
-          :
-          [0, 0, 2]
-        }
         onDoubleClick={()=>setObject('earth')}
         scale={
           activeObject === 'earth' ? 2 
           :
+          activeObject === 'moon' ? 2 
+          :
           activeObject === 'mars' ? .1
+          :
+          activeObject === 'LEO' ? 3
           : .6
         }
 
@@ -132,14 +142,14 @@ export function Earth(props) {
           roughness={0.7}
         />
         <OrbitControls
-          enableZoom={true}
+          enableZoom={false}
           enablePan={true}
           enableRotate={true}
           panSpeed={0.5}
           rotateSpeed={.9}
         />
       </mesh>
-      <Ecliptic xRadius={xRadius} zRadius={zRadius}/>
+      {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
       {activeObject === 'earth' ? 
       
       <Ecliptic xRadius={2.2} zRadius={2.2} yRadius={0}/>

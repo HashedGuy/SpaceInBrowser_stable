@@ -29,7 +29,7 @@ export default function Model({ ...props }) {
   
   return (
     <>
-    <mesh position={[2.12, 0, 2.12]} scale={.005} ref={issRef}>
+    <mesh position={[2.12, 0, 2.12]} scale={(activeObject==='mars') || (activeObject==='moon') || (activeObject==='')?0 : .005} ref={issRef}>
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
