@@ -27,6 +27,7 @@ export function InfoBox() {
           activeObject === 'earth' ? 'Earth' 
           : activeObject === 'moon' ? 'Moon'
           : activeObject === 'mars' ? 'Mars'
+          : activeObject === 'LEO' ? 'Low Earth Orbit'
           : 'Multiplanetary map'            }
           </h1>
           
@@ -34,18 +35,29 @@ export function InfoBox() {
             activeObject === 'earth' ? 'Our current home' 
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
             : activeObject === 'mars' ? "The planet we're colonizing next" 
-            : 'Double-click to discover your next destination'}
+            : activeObject === 'LEO' ? "This is the place where the most of the crew missions happening."
+            : 'You can either double-click or choose one of the below cellestial bodies to discover your next destination'}
           </h4>
+
+          {activeObject === '' ? 
+          <>
+            <a className='home-btn' onClick={()=>setObject('earth')}>Earth</a>
+            <a className='home-btn' onClick={()=>setObject('moon')}>Moon</a>
+            <a className='home-btn' onClick={()=>setObject('mars')}>Mars</a>
+          </>
+          : ''}
           {activeObject === 'mars' ? <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em>.</p> 
           : activeObject === 'moon' ? <p>Let's listen to famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
-          : activeObject === 'earth' ?<p>There're 7 billions of us here, and only few of us has left the ground and hanging out somewhere in <em>Low Earth Orbit (LEO)</em></p>
+          : activeObject === 'earth' ? <p>There're 7 billions of us here, and only few of us has left the ground and hanging out somewhere in <em>Low Earth Orbit (LEO)</em></p>
+          : activeObject === 'LEO' ? <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
           : ''          }
           {(activeObject === '') || (activeObject === 'earth') ? '' : 
             <audio 
               controls 
               src={
                 activeObject === 'mars' ? MarsSound : 
-                activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" : ''}>
+                activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
+                activeObject === 'LEO' ? 'https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3'  : ''}>
             </audio>
           }
           {activeObject === 'earth' ? <a className='home-btn' onClick={()=>setObject('LEO')}>Discover Low Earth Orbit</a>
