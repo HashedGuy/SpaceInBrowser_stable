@@ -85,3 +85,8 @@ audio {
 .credits {
   font-size: 70%;
 }
+
+.viewDiv {
+  display: flex;
+  flex-direction: column;
+}

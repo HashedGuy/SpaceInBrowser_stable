@@ -13,8 +13,8 @@ export default function Model({ ...props }) {
   const issRef = useRef()
   let zRadius
   let xRadius
-  activeObject === '' ? (xRadius=0) : (xRadius=2.2)
-  activeObject === '' ? (zRadius=0) : (zRadius=2.2)
+  activeObject === '' ? (xRadius=0) : activeObject === 'LEO' ? xRadius=3.8 : xRadius=2.2
+  activeObject === '' ? (zRadius=0) : activeObject === 'LEO' ? zRadius=3.8 : zRadius=2.2
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .6;
@@ -29,7 +29,14 @@ export default function Model({ ...props }) {
   
   return (
     <>
-    <mesh position={[2.12, 0, 2.12]} scale={(activeObject==='mars') || (activeObject==='moon') || (activeObject==='')?0 : .005} ref={issRef}>
+    <mesh 
+      position={[2.12, 0, 2.12]} 
+      scale={
+        (activeObject==='mars') || (activeObject==='moon') || (activeObject==='')? 0 : 
+        (activeObject==='LEO') ? 0.015 
+        : .005} 
+      ref={issRef}
+    >
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>

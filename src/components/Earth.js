@@ -102,7 +102,7 @@ export function Earth(props) {
           :
           activeObject === 'mars' ? .1
           :
-          activeObject === 'LEO' ? 3
+          activeObject === 'LEO' ? 3.5
           : .6
         }
       >
@@ -125,7 +125,7 @@ export function Earth(props) {
           :
           activeObject === 'mars' ? .1
           :
-          activeObject === 'LEO' ? 3
+          activeObject === 'LEO' ? 3.5
           : .6
         }
 
@@ -152,7 +152,10 @@ export function Earth(props) {
       {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
       {activeObject === 'earth' ? 
       
-      <Ecliptic xRadius={2.2} zRadius={2.2} yRadius={0}/>
+      <Ecliptic xRadius={2.2} zRadius={2.2} yRadius={0}/> :
+
+      activeObject === 'LEO' ? 
+      <Ecliptic xRadius={3.8} zRadius={3.8} yRadius={0}/>
       
       : <Ecliptic xRadius={0} zRadius={0}/>  }
        {activeObject === 'earth' ? 

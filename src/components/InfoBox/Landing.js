@@ -55,6 +55,12 @@ export function InfoBox() {
           : ''
 
           }
+
+          {activeObject === 'LEO' ? 
+          <div className='viewDiv'>
+            <a className='home-btn'>ISS view to the Earth</a>
+            <a className='home-btn'>View from Dragon capsule</a>
+          </div> : ''}
           </div>
           <div className='addInfo'>
             {activeObject === 'earth' ? <a className='home-btn'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
