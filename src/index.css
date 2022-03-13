@@ -49,6 +49,13 @@ audio {
     /* z-index:10; */
 }
 
+.infoBorders {
+  padding: .5em;
+}
+.infoBorders h5 {
+  margin-bottom: 2em;
+}
+
 .infoBox {
   display: flex;
   flex-direction: column;

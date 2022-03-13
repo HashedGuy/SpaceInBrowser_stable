@@ -4,7 +4,7 @@ import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 import { useRecoilState } from 'recoil';
 import { clickedCBState } from './globalState';
-import { InfoBox } from './Landing';
+import { InfoBox } from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
 import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"

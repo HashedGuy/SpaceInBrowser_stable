@@ -7,11 +7,9 @@ import { RecoilRoot, useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState, u
 import Earth from './components/Earth'
 import Starship from './components/models/Starship'
 import ISS from './components/models/ISS'
-import { TopSection } from './components/Landing'
 import Mars from './components/Mars'
 import Moon from './components/Moon'
 import { clickedCBState } from './components/globalState'
-import { useContextBridge } from '@react-three/drei'
 
 const CanvasContainer = styled.div`
   width: 100%;
