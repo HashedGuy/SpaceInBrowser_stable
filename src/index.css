@@ -95,3 +95,7 @@ audio {
   display: flex;
   flex-direction: column;
 }
+
+.populationInfo li{
+  list-style-type: none;
+}

@@ -7,6 +7,7 @@ import axios from 'axios'
 
 export function InfoBox() {
     const [activeObject, setObject] = useRecoilState(clickedCBState)
+    const [activeButton, setButton] = useState(false)
     return(
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
@@ -34,12 +35,12 @@ export function InfoBox() {
             <a className='home-btn' onClick={()=>setObject('mars')}>Mars</a>
           </>
           : ''}
-          {activeObject === 'mars' ? <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em>.</p> 
-          : activeObject === 'moon' ? <p>Let's listen to famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
-          : activeObject === 'earth' ? <p>There're 7 billions of us here, and only few of us has left the ground and hanging out somewhere in <em>Low Earth Orbit (LEO)</em></p>
-          : activeObject === 'LEO' ? <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
+          {activeObject === 'mars' && !activeButton ? <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em>.</p> 
+          : activeObject === 'moon' && !activeButton ? <p>Let's listen to famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+          : activeObject === 'earth' && !activeButton ? <p>There're 7 billions of us here, and only few of us has left the ground and hanging out somewhere in <em>Low Earth Orbit (LEO)</em></p>
+          : activeObject === 'LEO' && !activeButton ? <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
           : ''          }
-          {(activeObject === '') || (activeObject === 'earth') ? '' : 
+          {(activeObject === '') || (activeObject === 'earth') || (activeButton) ? '' : 
             <>
             <audio 
               controls 
@@ -64,9 +65,28 @@ export function InfoBox() {
           </div>
           <div className='addInfo'>
             {activeObject === 'earth' ? <a className='home-btn'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
-            : activeObject === 'moon' ? <a className='home-btn'>Population: 12<br/><em className='credits'>Credit: NASA</em></a>
+            : activeObject === 'moon' ? <a className='home-btn' onClick={()=> setButton(!activeButton)}>Population: 12<br/><em className='credits'>Credit: NASA</em></a>
             : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
             : ''}
+
+            {(activeObject === 'moon') && (activeButton) ? 
+            <div className='populationInfo'>
+              <p>As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface, from which six drove Lunar Roving Vehicles as part of the last three missions.</p>
+              <ul>
+                <li>Neil Armstrong</li>
+                <li>Buzz Aldrin</li>
+                <li>Pete Conrad</li>
+                <li>Alan Bean</li>
+                <li>Alan Shepard</li>
+                <li>Edgar Mitchell</li>
+                <li>David Scott</li>
+                <li>James Irwin</li>
+                <li>John Young</li>
+                <li>Charles Duke</li>
+                <li>Eugene Cernan</li>
+                <li>Harrison Schmitt</li>
+              </ul>
+            </div> : ''}
             {activeObject === '' ? '' : <a className="home-btn" onClick={()=>setObject('')}>Home</a>}
           </div>
         </div>
