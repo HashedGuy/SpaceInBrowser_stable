@@ -82,6 +82,11 @@ audio {
   margin-right: .5em;
 }
 
+.home-btn:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
 .credits {
   font-size: 70%;
 }
