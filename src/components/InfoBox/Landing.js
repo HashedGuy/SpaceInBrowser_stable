@@ -1,12 +1,12 @@
 import { Html } from '@react-three/drei'
 import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { clickedCBState } from '../globalState'
+import { clickedCBState, showActions } from '../globalState'
 import MarsSound from  "../../assets/mars-sound.wav"
-import axios from 'axios'
 
 export function InfoBox() {
     const [activeObject, setObject] = useRecoilState(clickedCBState)
+    const [showAction, setAction] = useRecoilState(showActions)
     const [activeButton, setButton] = useState(false)
     return(
         <Html wrapperClass="annotation" >
@@ -61,6 +61,8 @@ export function InfoBox() {
           <div className='viewDiv'>
             <a className='home-btn'>ISS view to the Earth</a>
             <a className='home-btn'>View from Dragon capsule</a>
+            <a className='home-btn' onClick={()=>setAction('launchpad')}>Show launchpads</a>
+            <a className='home-btn' onClick={()=>setAction('')}>Hide launchpads</a>
           </div> : ''}
           </div>
           <div className='addInfo'>
@@ -71,20 +73,14 @@ export function InfoBox() {
 
             {(activeObject === 'moon') && (activeButton) ? 
             <div className='populationInfo'>
-              <p>As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface, from which six drove Lunar Roving Vehicles as part of the last three missions.</p>
+              <p>As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               <ul>
-                <li>Neil Armstrong</li>
-                <li>Buzz Aldrin</li>
-                <li>Pete Conrad</li>
-                <li>Alan Bean</li>
-                <li>Alan Shepard</li>
-                <li>Edgar Mitchell</li>
-                <li>David Scott</li>
-                <li>James Irwin</li>
-                <li>John Young</li>
-                <li>Charles Duke</li>
-                <li>Eugene Cernan</li>
-                <li>Harrison Schmitt</li>
+                <li><a className="home-btn">Apollo 11</a></li>
+                <li><a className="home-btn">Apollo 12</a></li>
+                <li><a className="home-btn">Apollo 14</a></li>
+                <li><a className="home-btn">Apollo 15</a></li>
+                <li><a className="home-btn">Apollo 16</a></li>
+                <li><a className="home-btn">Apollo 17</a></li>
               </ul>
             </div> : ''}
             {activeObject === '' ? '' : <a className="home-btn" onClick={()=>setObject('')}>Home</a>}

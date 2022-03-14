@@ -47,8 +47,13 @@ export function Moon(props) {
   activeObject === '' ? (yRadius=0) 
     : activeObject === 'earth' ? (yRadius=0) 
     : (yRadius=0)
-
+  
+  let lan = -69.6000 * Math.PI/180
+  let lat = 18.4500 * Math.PI/180
  
+  let xP = Math.cos(lan)*Math.sin(lat)
+  let yP = Math.sin(lan)*Math.cos(lat)
+  let zP = Math.cos(lat)
 
   useFrame(({ clock }) => {
     let elapsedTime
@@ -71,15 +76,6 @@ export function Moon(props) {
     <>
       <mesh 
         ref={moonRef}
-        // position={
-        //   // activeObject === 'earth' ? [2, 2, 1]
-        //   // : 
-        //   activeObject === 'moon' ? [0, 0, 0]
-
-        //   :
-        //   activeObject === 'mars' ? [-6.1, 3, -3]
-
-        //   : [0, 0, 3.5]}
         scale={
           activeObject === '' ? 1 
           :
@@ -98,8 +94,16 @@ export function Moon(props) {
           depthWrite={true}
           transparent={false}
           side={THREE.DoubleSide}
-        />
+        />       
       </mesh>
+
+      {/* Adding pins */}
+      {/* <mesh
+        position={[xP,yP,zP]}
+      >
+        <sphereBufferGeometry args={[0.1, 30, 30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh> */}
       {activeObject === 'mars' ? '' : <Ecliptic xRadius={xRadius} zRadius={zRadius}/>}
     </>
   );

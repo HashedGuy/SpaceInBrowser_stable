@@ -2,8 +2,8 @@ import { useFrame, useLoader, lineBasicMaterial } from '@react-three/fiber';
 import { OrbitControls, Stars, Html } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
-import { useRecoilState } from 'recoil';
-import { clickedCBState } from './globalState';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { clickedCBState, showActions } from './globalState';
 import { InfoBox } from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
@@ -37,13 +37,56 @@ export function Earth(props) {
   );
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const showAction = useRecoilValue(showActions)
 
   const earthRef = useRef();
   const cloudsRef = useRef();
+  const pinRef = useRef()
 
   let xRadius=6
   let zRadius=3.5
   let yRadius=0
+
+  function calcPosFromLatLngRad(lat, lng) {
+    var phi = (90 - lat)*(Math.PI/180)
+    var theta = (lng+180)*(Math.PI/180)
+    let x = -(Math.sin(phi)*Math.cos(theta))*3.5
+    let z = (Math.sin(phi)*Math.sin(theta)) *3.5
+    let y = (Math.cos(phi))*3.5
+    return {x, y, z}
+  }
+
+  let pointKSS = {
+    lat:28.573469,
+    lng:	-80.651070 
+  }
+
+  let pointStarbase = {
+    lat: 25.997053 ,
+    lng:	-97.155281 
+  }
+  
+  let pointCCSC= {
+    lat: 28.410351,
+    lng:	-80.618813
+  }
+
+  let pointGSS= {
+    lat: 5.167713,
+    lng:	-52.683994
+  }
+  
+  let pointBSS= {
+    lat: 45.616669,
+    lng: 63.316666
+  }
+  
+
+  let posKSS = calcPosFromLatLngRad(pointKSS.lat, pointKSS.lng)
+  let posStarbase = calcPosFromLatLngRad(pointStarbase.lat, pointStarbase.lng)
+  let posCCSC = calcPosFromLatLngRad(pointCCSC.lat, pointCCSC.lng)
+  let posGSS = calcPosFromLatLngRad(pointGSS.lat, pointGSS.lng)
+  let posBSS = calcPosFromLatLngRad(pointBSS.lat, pointBSS.lng)
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .006;
@@ -69,10 +112,12 @@ export function Earth(props) {
       : (cloudsRef.current.position.z = 0)
   
 
-    activeObject === '' ? (earthRef.current.rotation.y += .01) 
-      : (earthRef.current.rotation.y += .005) 
-    activeObject === '' ? (cloudsRef.current.rotation.y += .01) 
-      : (cloudsRef.current.rotation.y += .005)
+    // activeObject === '' ? (earthRef.current.rotation.y += .01) 
+    //   : (earthRef.current.rotation.y += .005) 
+    // activeObject === '' ? (cloudsRef.current.rotation.y += .01) 
+    //   : (cloudsRef.current.rotation.y += .005)
+      // activeObject === '' ? (pinRef.current.rotation.y += .01) 
+      // : (pinRef.current.rotation.y += .005)
   });
 
   return (
@@ -96,7 +141,7 @@ export function Earth(props) {
       <mesh 
         ref={cloudsRef} 
         scale={
-          activeObject === 'earth' ? 2 
+          activeObject === 'earth' ? 1 
           :
           activeObject === 'moon' ? 2 
           :
@@ -106,6 +151,7 @@ export function Earth(props) {
           : .6
         }
       >
+        
         <sphereBufferGeometry args={[1.005, 32, 32]} />
         <meshPhongMaterial
           map={cloudsMap}
@@ -119,7 +165,7 @@ export function Earth(props) {
         ref={earthRef} 
         onDoubleClick={()=>setObject('earth')}
         scale={
-          activeObject === 'earth' ? 2 
+          activeObject === 'earth' ? 1 
           :
           activeObject === 'moon' ? 2 
           :
@@ -142,13 +188,58 @@ export function Earth(props) {
           roughness={0.7}
         />
         <OrbitControls
-          enableZoom={false}
+          enableZoom={true}
           enablePan={true}
           enableRotate={true}
           panSpeed={0.5}
           rotateSpeed={.9}
         />
       </mesh>
+       {/* {showAction === 'launchpad' ? 
+      <> */}
+          <mesh
+       ref={pinRef}
+        position={[posKSS.x,posKSS.y,posKSS.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posStarbase.x,posStarbase.y,posStarbase.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posCCSC.x,posCCSC.y,posCCSC.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posGSS.x,posGSS.y,posGSS.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posBSS.x,posBSS.y,posBSS.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+      {/* </>
+      :''} */}
+     
+
       {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
       {activeObject === 'earth' ? 
       

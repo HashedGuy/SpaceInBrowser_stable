@@ -98,4 +98,5 @@ audio {
 
 .populationInfo li{
   list-style-type: none;
+  margin-bottom: 1.5em;
 }
