@@ -80,6 +80,31 @@ export function Earth(props) {
     lat: 45.616669,
     lng: 63.316666
   }
+
+  let pointVSFB= {
+    lat: 34.77204,
+    lng: -120.60124
+  }
+  
+  let pointWSLC= {
+    lat: 19.6291,
+    lng: 110.955
+  }
+
+  let pointSDSC= {
+    lat: 13.73740,
+    lng: 80.23510
+  }
+
+  let pointUSC= {
+    lat: 31.25186,
+    lng: 131.07914
+  }
+
+  let pointTSC= {
+    lat: 30.39096,
+    lng: 130.96813
+  }
   
 
   let posKSS = calcPosFromLatLngRad(pointKSS.lat, pointKSS.lng)
@@ -87,6 +112,11 @@ export function Earth(props) {
   let posCCSC = calcPosFromLatLngRad(pointCCSC.lat, pointCCSC.lng)
   let posGSS = calcPosFromLatLngRad(pointGSS.lat, pointGSS.lng)
   let posBSS = calcPosFromLatLngRad(pointBSS.lat, pointBSS.lng)
+  let posVSFB = calcPosFromLatLngRad(pointVSFB.lat, pointVSFB.lng)
+  let posWSLC = calcPosFromLatLngRad(pointWSLC.lat, pointWSLC.lng)
+  let posSDSC = calcPosFromLatLngRad(pointSDSC.lat, pointSDSC.lng)
+  let posUSC = calcPosFromLatLngRad(pointUSC.lat, pointUSC.lng)
+  let posTSC = calcPosFromLatLngRad(pointTSC.lat, pointTSC.lng)
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .006;
@@ -188,7 +218,7 @@ export function Earth(props) {
           roughness={0.7}
         />
         <OrbitControls
-          enableZoom={true}
+          enableZoom={false}
           enablePan={true}
           enableRotate={true}
           panSpeed={0.5}
@@ -201,7 +231,7 @@ export function Earth(props) {
        ref={pinRef}
         position={[posKSS.x,posKSS.y,posKSS.z]}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -209,7 +239,7 @@ export function Earth(props) {
        ref={pinRef}
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -217,7 +247,7 @@ export function Earth(props) {
        ref={pinRef}
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -225,7 +255,7 @@ export function Earth(props) {
        ref={pinRef}
         position={[posGSS.x,posGSS.y,posGSS.z]}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -233,11 +263,49 @@ export function Earth(props) {
        ref={pinRef}
         position={[posBSS.x,posBSS.y,posBSS.z]}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.01, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
-      {/* </>
-      :''} */}
+
+      <mesh
+       ref={pinRef}
+        position={[posVSFB.x,posVSFB.y,posVSFB.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posWSLC.x,posWSLC.y,posWSLC.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posSDSC.x,posSDSC.y,posSDSC.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posUSC.x,posUSC.y,posUSC.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posTSC.x,posTSC.y,posTSC.z]}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
      
 
       {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}

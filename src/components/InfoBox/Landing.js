@@ -61,8 +61,8 @@ export function InfoBox() {
           <div className='viewDiv'>
             <a className='home-btn'>ISS view to the Earth</a>
             <a className='home-btn'>View from Dragon capsule</a>
-            <a className='home-btn' onClick={()=>setAction('launchpad')}>Show launchpads</a>
-            <a className='home-btn' onClick={()=>setAction('')}>Hide launchpads</a>
+            <a className='home-btn' onClick={()=>setAction('launchpad')}>Show launch sites</a>
+            <a className='home-btn' onClick={()=>setAction('')}>Hide launch sites</a>
           </div> : ''}
           </div>
           <div className='addInfo'>
@@ -83,7 +83,13 @@ export function InfoBox() {
                 <li><a className="home-btn">Apollo 17</a></li>
               </ul>
             </div> : ''}
-            {activeObject === '' ? '' : <a className="home-btn" onClick={()=>setObject('')}>Home</a>}
+            {activeObject === '' ? '' : 
+              <a 
+                className="home-btn" 
+                onClick={()=>{
+                  setAction('')
+                  setObject('')}}
+                  >Home</a>}
           </div>
         </div>
       </Html>
