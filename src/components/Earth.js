@@ -124,11 +124,11 @@ export function Earth(props) {
     const x = xRadius * Math.sin(elapsedTime)
     const z = zRadius * Math.cos(elapsedTime)
     activeObject === '' ? (earthRef.current.position.x = x) 
-      : activeObject === 'moon' ? (earthRef.current.position.x = 9) 
+      : activeObject === 'moon' ? (earthRef.current.position.x = 15) 
       : activeObject === 'mars' ? (earthRef.current.position.x = -9) 
       : (earthRef.current.position.x = 0)    
     activeObject === '' ? (cloudsRef.current.position.x = x) 
-      : activeObject === 'moon' ? (cloudsRef.current.position.x = 9)
+      : activeObject === 'moon' ? (cloudsRef.current.position.x = 15)
       : activeObject === 'mars' ? (cloudsRef.current.position.x = -9) 
       : (cloudsRef.current.position.x = 0)
    
@@ -311,7 +311,7 @@ export function Earth(props) {
       {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
       {activeObject === 'earth' ? 
       
-      <Ecliptic xRadius={2.2} zRadius={2.2} yRadius={0}/> :
+      <Ecliptic xRadius={1.05} zRadius={1.05} yRadius={0}/> :
 
       activeObject === 'LEO' ? 
       <Ecliptic xRadius={3.8} zRadius={3.8} yRadius={0}/>
@@ -319,7 +319,7 @@ export function Earth(props) {
       : <Ecliptic xRadius={0} zRadius={0}/>  }
        {activeObject === 'earth' ? 
       
-      <Ecliptic xRadius={2.5} zRadius={2.2} yRadius={.4}/>
+      <Ecliptic xRadius={1.05} zRadius={1.05} yRadius={.4}/>
       
       : <Ecliptic xRadius={0} zRadius={0}/>  }
      

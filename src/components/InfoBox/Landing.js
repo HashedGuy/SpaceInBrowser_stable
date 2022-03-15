@@ -59,8 +59,8 @@ export function InfoBox() {
 
           {activeObject === 'LEO' ? 
           <div className='viewDiv'>
-            <a className='home-btn'>ISS view to the Earth</a>
-            <a className='home-btn'>View from Dragon capsule</a>
+            <a className='home-btn inActive'>ISS view to the Earth</a>
+            <a className='home-btn inActive'>View from Dragon capsule</a>
             <a className='home-btn' onClick={()=>setAction('launchpad')}>Show launch sites</a>
             <a className='home-btn' onClick={()=>setAction('')}>Hide launch sites</a>
           </div> : ''}

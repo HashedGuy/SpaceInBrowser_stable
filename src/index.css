@@ -27,6 +27,9 @@ code {
 
 audio {
   width: 90%;
+  height: 12%;
+  box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+  border-radius: 90px;
   margin-bottom: 1em;
 }
 
@@ -87,6 +90,11 @@ audio {
   color: black;
 }
 
+.inActive {
+  pointer-events: none;
+  cursor: default;
+  opacity: .5;
+}
 .credits {
   font-size: 70%;
 }

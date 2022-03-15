@@ -15,8 +15,8 @@ export default function Model({ ...props }) {
   let zRadius
   let xRadius
   let yRadius
-  activeObject === '' ? (xRadius=0) : (xRadius=2.3)
-  activeObject === '' ? (zRadius=0) : (zRadius=2.2)
+  activeObject === '' ? (xRadius=0) : (xRadius=1.05)
+  activeObject === '' ? (zRadius=0) : (zRadius=1.05)
   activeObject === '' ? (yRadius=0) : (yRadius=.4)
 
   useFrame(({ clock }) => {
@@ -34,7 +34,7 @@ export default function Model({ ...props }) {
   return (
     <mesh 
       position={[.7, .7, .7]}  
-      scale={(activeObject==='mars') || (activeObject==='moon') || (activeObject==='')?0 : .000025} 
+      scale={(activeObject==='mars') || (activeObject==='moon') || (activeObject==='')?0 : .0000025} 
       ref={starshipRef}>
     <group ref={group} {...props} dispose={null}>
       <group rotation={[Math.PI/6 , 1, 0]}>

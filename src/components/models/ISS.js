@@ -13,8 +13,8 @@ export default function Model({ ...props }) {
   const issRef = useRef()
   let zRadius
   let xRadius
-  activeObject === '' ? (xRadius=0) : activeObject === 'LEO' ? xRadius=3.8 : xRadius=2.2
-  activeObject === '' ? (zRadius=0) : activeObject === 'LEO' ? zRadius=3.8 : zRadius=2.2
+  activeObject === '' ? (xRadius=0) : activeObject === 'LEO' ? xRadius=3.8 : xRadius=1.05
+  activeObject === '' ? (zRadius=0) : activeObject === 'LEO' ? zRadius=3.8 : zRadius=1.05
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .6;

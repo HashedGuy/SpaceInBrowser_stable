@@ -41,7 +41,7 @@ export function Moon(props) {
     : activeObject === 'mars' ? (xRadius=-3)
     : (xRadius=0)
   activeObject === '' ? (zRadius=4.5) 
-    : activeObject === 'earth' ? (zRadius=3.5)
+    : activeObject === 'earth' ? (zRadius=5.5)
     : activeObject === 'mars' ? (zRadius=0) 
     : (zRadius=0)
   activeObject === '' ? (yRadius=0) 
