@@ -67,23 +67,40 @@ export function InfoBox() {
           </div>
           <div className='addInfo'>
             {activeObject === 'earth' ? <a className='home-btn'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
-            : activeObject === 'moon' ? <a className='home-btn' onClick={()=> setButton(!activeButton)}>Population: 12<br/><em className='credits'>Credit: NASA</em></a>
+            : activeObject === 'moon' ? <a className={showAction===''?"home-btn" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>Population: 12<br/><em className='credits'>Credit: NASA</em></a>
             : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
             : ''}
 
             {(activeObject === 'moon') && (activeButton) ? 
             <div className='populationInfo'>
+              {showAction === '' ? 
               <p>As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
+              :''}
               <ul>
-                <li><a className={showAction==='apollo11'? "home-btn btn-selected": "home-btn"} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
-                <li><a className={showAction==='apollo12'? "home-btn btn-selected":"home-btn"} onClick={()=>setAction('apollo12')}>Apollo 12</a></li>
-                <li><a className={showAction==='apollo14'? "home-btn btn-selected":"home-btn"} onClick={()=>setAction('apollo14')}>Apollo 14</a></li>
-                <li><a className={showAction==='apollo15'? "home-btn btn-selected":"home-btn"} onClick={()=>setAction('apollo15')}>Apollo 15</a></li>
-                <li><a className={showAction==='apollo16'? "home-btn btn-selected":"home-btn"} onClick={()=>setAction('apollo16')}>Apollo 16</a></li>
-                <li><a className={showAction==='apollo17'? "home-btn btn-selected":"home-btn"} onClick={()=>setAction('apollo17')}>Apollo 17</a></li>
-                <li><a className={showAction==='artemis'? "home-btn btn-selected":"home-btn"} onClick={()=>setAction('artemis')}>Artemis III</a></li>
+                <li><a className={showAction==='apollo11'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
+                <li><a className={showAction==='apollo12'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo12')}>Apollo 12</a></li>
+                <li><a className={showAction==='apollo14'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo14')}>Apollo 14</a></li>
+                <li><a className={showAction==='apollo15'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo15')}>Apollo 15</a></li>
+                <li><a className={showAction==='apollo16'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo16')}>Apollo 16</a></li>
+                <li><a className={showAction==='apollo17'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo17')}>Apollo 17</a></li>
+                <li><a className={showAction==='artemis'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('artemis')}>Artemis III</a></li>
               </ul>
+
+              {showAction === 'apollo11' ? 
+                <>
+                <p>Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed humans on the Moon. </p> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg" className='infoPic'/>
+                <p>Commander Neil Armstrong and lunar module pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC, and Armstrong became the first person to step onto the Moon's surface six hours and 39 minutes later, on July 21 at 02:56 UTC. Aldrin joined him 19 minutes later, and they spent about two and a quarter hours together exploring the site they had named Tranquility Base upon landing.</p>
+                
+                </>
+              : showAction === 'apollo12' ? <p></p>
+              : showAction === 'apollo14' ? <p></p>
+              : showAction === 'apollo15' ? <p></p>
+              : showAction === 'apollo16' ? <p></p>
+              : showAction === 'apollo17' ? <p></p>
+              : ''}
             </div> : ''}
+            <a className={showAction===''?"hidden-btn":'home-btn'} onClick={()=>setAction('')}>All missions</a>
             {activeObject === '' ? '' : 
               <a 
                 className="home-btn" 
