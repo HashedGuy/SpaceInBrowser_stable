@@ -33,7 +33,7 @@ export default function Model({ ...props }) {
       position={[2.12, 0, 2.12]} 
       scale={
         (activeObject==='mars') || (activeObject==='moon') || (activeObject==='')? 0 : 
-        (activeObject==='LEO') ? 0.015 
+        (activeObject==='LEO') ? 0.01 
         : .005} 
       ref={issRef}
     >

@@ -36,13 +36,15 @@ export function Mars(props) {
   let xRadius
   let zRadius
 
-  (activeObject === 'mars') ? xRadius=0
-  : (activeObject === 'moon') ? xRadius=-22
-  : (activeObject === 'LEO') ? xRadius=-28 
+  activeObject === 'mars' ? xRadius=0
+  : activeObject === 'moon' ? xRadius=-22
+  : activeObject === 'LEO' ? xRadius=-28 
     : xRadius=18
-  activeObject === 'earth' ? zRadius= 14 
+  
+  activeObject === 'mars' ? zRadius=0
+  : activeObject === 'earth' ? zRadius= 14 
     : activeObject === '' ? zRadius=7 
-    :zRadius=0
+    :zRadius=15
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .004;
@@ -51,7 +53,7 @@ export function Mars(props) {
     const z = zRadius* Math.cos(elapsedTime)
     marsRef.current.position.x = x;
     marsRef.current.position.z = z;
-    activeObject === 'mars' ? (marsRef.current.rotation.y += .005) : (marsRef.current.rotation.y += .01)
+    activeObject === 'mars' ? (marsRef.current.rotation.y += .005) : (marsRef.current.rotation.y += 0)
 
   });
 

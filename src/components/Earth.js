@@ -142,12 +142,15 @@ export function Earth(props) {
       : (cloudsRef.current.position.z = 0)
   
 
-    // activeObject === '' ? (earthRef.current.rotation.y += .01) 
+    // activeObject === '' ? (earthRef.current.rotation.y += .01) :
+    // activeObject === 'LEO' ?  (earthRef.current.rotation.y += 0)
     //   : (earthRef.current.rotation.y += .005) 
-    // activeObject === '' ? (cloudsRef.current.rotation.y += .01) 
+
+    // activeObject === '' ? (cloudsRef.current.rotation.y += .01) :
+    // activeObject === 'LEO' ?  (cloudsRef.current.rotation.y += .001)
     //   : (cloudsRef.current.rotation.y += .005)
-      // activeObject === '' ? (pinRef.current.rotation.y += .01) 
-      // : (pinRef.current.rotation.y += .005)
+    
+    // activeObject === 'LEO' ? (pinRef.current.position.x = 3) : (pinRef.current.position.x = 0)
   });
 
   return (
@@ -225,9 +228,8 @@ export function Earth(props) {
           rotateSpeed={.9}
         />
       </mesh>
-       {/* {showAction === 'launchpad' ? 
-      <> */}
-          <mesh
+
+      <mesh
        ref={pinRef}
         position={[posKSS.x,posKSS.y,posKSS.z]}
       >

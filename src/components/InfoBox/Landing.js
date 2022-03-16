@@ -75,12 +75,12 @@ export function InfoBox() {
             <div className='populationInfo'>
               <p>As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               <ul>
-                <li><a className="home-btn">Apollo 11</a></li>
-                <li><a className="home-btn">Apollo 12</a></li>
-                <li><a className="home-btn">Apollo 14</a></li>
-                <li><a className="home-btn">Apollo 15</a></li>
-                <li><a className="home-btn">Apollo 16</a></li>
-                <li><a className="home-btn">Apollo 17</a></li>
+                <li><a className="home-btn" onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
+                <li><a className="home-btn" onClick={()=>setAction('apollo12')}>Apollo 12</a></li>
+                <li><a className="home-btn" onClick={()=>setAction('apollo14')}>Apollo 14</a></li>
+                <li><a className="home-btn" onClick={()=>setAction('apollo15')}>Apollo 15</a></li>
+                <li><a className="home-btn" onClick={()=>setAction('apollo16')}>Apollo 16</a></li>
+                <li><a className="home-btn" onClick={()=>setAction('apollo17')}>Apollo 17</a></li>
               </ul>
             </div> : ''}
             {activeObject === '' ? '' : 

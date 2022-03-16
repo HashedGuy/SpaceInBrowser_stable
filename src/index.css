@@ -59,7 +59,7 @@ audio {
   margin-bottom: 2em;
 }
 
-.infoBorders p {
+.infoBorders p, .populationInfo p {
   font-size: 70%;
 }
 

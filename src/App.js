@@ -21,7 +21,7 @@ export default function App() {
         return (
               <CanvasContainer>
                 
-                <Canvas frameloop="demand" >
+                <Canvas >
                   <RecoilRoot>
                 {/* <PerspectiveCamera near={1} far={1.1}/>  */}
                   <Suspense fallback={null}>

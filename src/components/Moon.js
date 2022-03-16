@@ -5,8 +5,8 @@ import * as THREE from 'three'
 
 import { TextureLoader } from 'three';
 import MoonMap from "../assets/compressed/2k_moon(1).jpg"
-import { useRecoilState } from 'recoil';
-import { clickedCBState } from './globalState';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { clickedCBState, showActions } from './globalState';
 
 function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
   const points = [];
@@ -47,13 +47,7 @@ export function Moon(props) {
   activeObject === '' ? (yRadius=0) 
     : activeObject === 'earth' ? (yRadius=0) 
     : (yRadius=0)
-  
-  let lan = -69.6000 * Math.PI/180
-  let lat = 18.4500 * Math.PI/180
- 
-  let xP = Math.cos(lan)*Math.sin(lat)
-  let yP = Math.sin(lan)*Math.cos(lat)
-  let zP = Math.cos(lat)
+
 
   useFrame(({ clock }) => {
     let elapsedTime
@@ -68,9 +62,57 @@ export function Moon(props) {
     moonRef.current.position.z = z;
     moonRef.current.position.y = y;
 
-    moonRef.current.rotation.y += .0001;
+    // activeObject === 'moon' ? moonRef.current.rotation.y += .001 : moonRef.current.rotation.y += .0001;
 
   });
+
+  const showAction = useRecoilValue(showActions)
+
+  function calcPosFromLatLngRad(lat, lng) {
+    var phi = (90 - lat)*(Math.PI/180)
+    var theta = (lng+180)*(Math.PI/180)
+    let x = -(Math.sin(phi)*Math.cos(theta))*1.5
+    let z = (Math.sin(phi)*Math.sin(theta)) *1.5
+    let y = (Math.cos(phi))*1.5
+    return {x, y, z}
+  }
+
+  let pointApollo11 = {
+    lat:0.67345,
+    lng:	23.47307
+  }
+
+  let pointApollo12 = {
+    lat:-3.0098,
+    lng:	-23.4249
+  }
+
+  let pointApollo14 = {
+    lat:-3.64417,
+    lng:	-17.47865
+  }
+
+  let pointApollo15 = {
+    lat:26.13341,
+    lng:	3.62850
+  }
+
+  let pointApollo16 = {
+    lat:-8.9759,
+    lng:	15.4986
+  }
+
+  let pointApollo17 = {
+    lat:20.1923,
+    lng:	30.7655
+  }
+
+  let posApollo11 = calcPosFromLatLngRad(pointApollo11.lat, pointApollo11.lng)
+  let posApollo12 = calcPosFromLatLngRad(pointApollo12.lat, pointApollo12.lng)
+  let posApollo14 = calcPosFromLatLngRad(pointApollo14.lat, pointApollo14.lng)
+  let posApollo15 = calcPosFromLatLngRad(pointApollo15.lat, pointApollo15.lng)
+  let posApollo16 = calcPosFromLatLngRad(pointApollo16.lat, pointApollo16.lng)
+  let posApollo17 = calcPosFromLatLngRad(pointApollo17.lat, pointApollo17.lng)
 
   return (
     <>
@@ -97,13 +139,47 @@ export function Moon(props) {
         />       
       </mesh>
 
-      {/* Adding pins */}
-      {/* <mesh
-        position={[xP,yP,zP]}
+      <mesh
+        position={[posApollo11.x,posApollo11.y,posApollo11.z]}
       >
-        <sphereBufferGeometry args={[0.1, 30, 30]}/>
+        <sphereBufferGeometry args={showAction==='apollo11'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
-      </mesh> */}
+      </mesh>
+
+      <mesh
+        position={[posApollo12.x,posApollo12.y,posApollo12.z]}
+      >
+        <sphereBufferGeometry args={showAction==='apollo12'? [0.03, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posApollo14.x,posApollo14.y,posApollo14.z]}
+      >
+        <sphereBufferGeometry args={showAction==='apollo14'? [0.03, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posApollo15.x,posApollo15.y,posApollo15.z]}
+      >
+        <sphereBufferGeometry args={showAction==='apollo15'? [0.03, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posApollo16.x,posApollo16.y,posApollo16.z]}
+      >
+        <sphereBufferGeometry args={showAction==='apollo16'? [0.03, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posApollo17.x,posApollo17.y,posApollo17.z]}
+      >
+        <sphereBufferGeometry args={showAction==='apollo17'? [0.03, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
       {activeObject === 'mars' ? '' : <Ecliptic xRadius={xRadius} zRadius={zRadius}/>}
     </>
   );
