@@ -93,11 +93,22 @@ export function InfoBox() {
                 <p>Commander Neil Armstrong and lunar module pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC, and Armstrong became the first person to step onto the Moon's surface six hours and 39 minutes later, on July 21 at 02:56 UTC. Aldrin joined him 19 minutes later, and they spent about two and a quarter hours together exploring the site they had named Tranquility Base upon landing.</p>
                 
                 </>
-              : showAction === 'apollo12' ? <p></p>
-              : showAction === 'apollo14' ? <p></p>
-              : showAction === 'apollo15' ? <p></p>
-              : showAction === 'apollo16' ? <p></p>
-              : showAction === 'apollo17' ? <p></p>
+              : showAction === 'apollo12' ? 
+                <>
+                  <p></p>
+                  <img src="" className='infoPic'/>
+                  <p></p>
+                </>
+              : showAction === 'apollo14' ? <><p></p></>
+              : showAction === 'apollo15' ? <><p></p></>
+              : showAction === 'apollo16' ? <><p></p></>
+              : showAction === 'apollo17' ? <><p></p></>
+              : showAction === 'artemis' ? 
+              <>
+                <p>Artemis 3 (officially Artemis III) is the first crewed Moon landing mission of the Artemis program and the third planned flight of NASA's Orion spacecraft on the Space Launch System (SLS).</p>
+                  <img src="https://spacenews.com/wp-content/uploads/2021/04/starship-lander-879x485.jpg" className='infoPic'/>
+                <p>Scheduled for launch in 2025, Artemis 3 is planned to be the second crewed Artemis mission and the first crewed lunar landing since Apollo 17 in 1972.</p>
+              </>
               : ''}
             </div> : ''}
             <a className={showAction===''?"hidden-btn":'home-btn'} onClick={()=>setAction('')}>All missions</a>
