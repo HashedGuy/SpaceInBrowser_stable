@@ -4,7 +4,7 @@ import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 
 import { TextureLoader } from 'three';
-import MoonMap from "../assets/compressed/2k_moon(1).jpg"
+import MoonMap from "../assets/8k_moon.jpeg"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, showActions } from './globalState';
 
@@ -71,9 +71,9 @@ export function Moon(props) {
   function calcPosFromLatLngRad(lat, lng) {
     var phi = (90 - lat)*(Math.PI/180)
     var theta = (lng+180)*(Math.PI/180)
-    let x = -(Math.sin(phi)*Math.cos(theta))*1.5
-    let z = (Math.sin(phi)*Math.sin(theta)) *1.5
-    let y = (Math.cos(phi))*1.5
+    let x = -(Math.sin(phi)*Math.cos(theta))*2.5
+    let z = (Math.sin(phi)*Math.sin(theta)) *2.5
+    let y = (Math.cos(phi))*2.5
     return {x, y, z}
   }
 
@@ -124,7 +124,7 @@ export function Moon(props) {
           activeObject === 'earth' ? 2 
           :
           activeObject === 'mars' ? .1
-          : 6
+          : 10
         }
         onDoubleClick={()=>setObject('moon')}
         

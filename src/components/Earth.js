@@ -159,7 +159,7 @@ export function Earth(props) {
       <pointLight 
         color="#f6f3ea" 
         position={
-          activeObject === '' ? [0, 0, 0]
+          activeObject === '' ? [0, 0, 0] : activeObject === 'moon' ? [39, 0, 9]
           : [2, 0, 6]} 
         intensity={1.1} 
       />

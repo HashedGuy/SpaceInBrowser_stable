@@ -94,6 +94,11 @@ audio {
   color: black;
 }
 
+.btn-selected {
+  color: black;
+  background-color: aliceblue;
+}
+
 .inActive {
   pointer-events: none;
   cursor: default;
