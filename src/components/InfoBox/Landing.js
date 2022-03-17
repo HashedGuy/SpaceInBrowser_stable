@@ -67,14 +67,20 @@ export function InfoBox() {
           </div>
           <div className='addInfo'>
             {activeObject === 'earth' ? <a className='home-btn'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
-            : activeObject === 'moon' ? <a className={showAction===''?"home-btn" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>Population: 12<br/><em className='credits'>Credit: NASA</em></a>
+            : activeObject === 'moon' ? 
+              <a className={showAction===''?"home-btn" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
+                  Population: 0 (12)
+                  <br/>
+                  <em className='credits'>Credit: NASA</em>
+                  {/* <span style={{"color":'white;', "marginLeft": '3em'}}>&#9651;</span> */}
+              </a>
             : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
             : ''}
 
             {(activeObject === 'moon') && (activeButton) ? 
             <div className='populationInfo'>
               {showAction === '' ? 
-              <p>As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
+              <p>There's nobody currently living on the Moon but... As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               :''}
               <ul>
                 <li><a className={showAction==='apollo11'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
@@ -133,7 +139,7 @@ export function InfoBox() {
               </>
               : ''}
             </div> : ''}
-            <a className={showAction===''?"hidden-btn":'home-btn'} onClick={()=>setAction('')}>All missions</a>
+            <a className={showAction===''?"hidden-btn":'home-btn'} onClick={()=>setAction('')}>All lunar crew missions</a>
             {activeObject === '' ? '' : 
               <a 
                 className="home-btn" 
@@ -144,9 +150,35 @@ export function InfoBox() {
           </div>
         </div>
 
-        {showAction === '' ? '' : 
+        
         <div className='extraInfo'>
-                  <p>Click and rotate the Moon to find the exact location {showAction==='artemis' ? <strong>&#128994;</strong> : <strong>&#128308;</strong>} for <em>Apollo11</em>.</p>
-        </div>}
+        {(activeObject === 'moon') && (showAction === '') ? 
+        <>
+        <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+        <audio 
+              controls 
+              src={
+                activeObject === 'mars' ? MarsSound : 
+                activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
+                activeObject === 'LEO' ? 'https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3'  : ''}>
+            </audio>
+            <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+        </>
+        : 
+                 
+                  <p>Click and rotate the Moon to find the exact location 
+                    {showAction==='artemis' ? <strong> &#128994;</strong> : <strong> &#128308;</strong>} for  
+                    {showAction==='apollo11' ? <em> Apollo 11 mission</em>:
+                    showAction==='apollo12' ? <em> Apollo 12 mission</em>:
+                    showAction==='apollo14' ? <em> Apollo 14 mission</em>:
+                    showAction==='apollo15' ? <em> Apollo 15 mission</em>:
+                    showAction==='apollo16' ? <em> Apollo 16 mission</em>:
+                    showAction==='apollo17' ? <em> Apollo 17 mission</em>:
+                    showAction==='artemis' ? <em> Artemis 3 mission</em>       
+                       
+                  : ''}.
+                  
+                  </p>}
+        </div>
       </Html>
     )}
