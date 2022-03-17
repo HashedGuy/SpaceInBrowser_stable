@@ -36,11 +36,11 @@ export function InfoBox() {
           </>
           : ''}
           {activeObject === 'mars' && !activeButton ? <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em>.</p> 
-          : activeObject === 'moon' && !activeButton ? <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+          
           : activeObject === 'earth' && !activeButton ? <p>There're 7 billions of us here, and only few of us has left the ground and hanging out somewhere in <em>Low Earth Orbit (LEO)</em></p>
           : activeObject === 'LEO' && !activeButton ? <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
           : ''          }
-          {(activeObject === '') || (activeObject === 'earth') || (activeButton) ? '' : 
+          {/* {(activeObject === '') || (activeObject === 'earth') || (activeButton) ? '' : 
             <>
             <audio 
               controls 
@@ -51,7 +51,7 @@ export function InfoBox() {
             </audio>
             <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
             </>
-          }
+          } */}
           {activeObject === 'earth' ? <a className='home-btn' onClick={()=>setObject('LEO')}>Discover Low Earth Orbit</a>
           : ''
 
@@ -68,7 +68,7 @@ export function InfoBox() {
           <div className='addInfo'>
             {activeObject === 'earth' ? <a className='home-btn'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
             : activeObject === 'moon' ? 
-              <a className={showAction===''?"home-btn" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
+              <a className={showAction===''?"home-btn inActive" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
                   Population: 0 (12)
                   <br/>
                   <em className='credits'>Credit: NASA</em>
@@ -77,7 +77,7 @@ export function InfoBox() {
             : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
             : ''}
 
-            {(activeObject === 'moon') && (activeButton) ? 
+            {(activeObject === 'moon') ? 
             <div className='populationInfo'>
               {showAction === '' ? 
               <p>There's nobody currently living on the Moon but... As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>

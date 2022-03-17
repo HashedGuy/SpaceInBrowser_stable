@@ -35,7 +35,6 @@ audio {
 
 .annotation {
   color:aliceblue;
-  /* position: absolute; */
     width: 30vh;
     height: 100%;
     position: absolute;
@@ -49,7 +48,6 @@ audio {
     flex-direction: column;
     align-items: center;
     align-self: center;
-    /* z-index:10; */
 }
 
 .extraInfo {
@@ -71,7 +69,13 @@ audio {
 }
 
 .extraInfo p {
-  font-size: 90%;
+  font-size: 80%;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.extraInfo .credits {
+  font-size: 50%;
 }
 
 .infoBorders {
@@ -128,7 +132,7 @@ audio {
 .inActive {
   pointer-events: none;
   cursor: default;
-  opacity: .5;
+  /* opacity: .5; */
 }
 .credits {
   font-size: 70%;
