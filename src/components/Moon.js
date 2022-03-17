@@ -107,12 +107,18 @@ export function Moon(props) {
     lng:	30.7655
   }
 
+  let pointArtemis3 = {
+    lat:-65.1923,
+    lng:	15.7655
+  }
+
   let posApollo11 = calcPosFromLatLngRad(pointApollo11.lat, pointApollo11.lng)
   let posApollo12 = calcPosFromLatLngRad(pointApollo12.lat, pointApollo12.lng)
   let posApollo14 = calcPosFromLatLngRad(pointApollo14.lat, pointApollo14.lng)
   let posApollo15 = calcPosFromLatLngRad(pointApollo15.lat, pointApollo15.lng)
   let posApollo16 = calcPosFromLatLngRad(pointApollo16.lat, pointApollo16.lng)
   let posApollo17 = calcPosFromLatLngRad(pointApollo17.lat, pointApollo17.lng)
+  let posArtemis3 = calcPosFromLatLngRad(pointArtemis3.lat, pointArtemis3.lng)
 
   return (
     <>
@@ -179,6 +185,13 @@ export function Moon(props) {
       >
         <sphereBufferGeometry args={showAction==='apollo17'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posArtemis3.x,posArtemis3.y,posArtemis3.z]}
+      >
+        <sphereBufferGeometry args={showAction==='artemis'? [0.03, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
       </mesh>
       {activeObject === 'mars' ? '' : <Ecliptic xRadius={xRadius} zRadius={zRadius}/>}
     </>

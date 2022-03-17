@@ -52,6 +52,27 @@ audio {
     /* z-index:10; */
 }
 
+.extraInfo {
+  position: absolute;
+  transform: translate3d(0%, 0%, 0px) scale(1) !important;
+  transform-origin: 0px 0px;
+  z-index: 16639014;
+  top: 80%;
+  left: 410% !important;
+  width: 30vh;
+  height: 15vh;
+  padding:1em;
+  border-radius: 5%;
+  background-color: rgba(28, 28, 28, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.extraInfo p {
+  font-size: 90%;
+}
+
 .infoBorders {
   padding: .5em;
 }
