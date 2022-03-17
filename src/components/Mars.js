@@ -43,7 +43,7 @@ export function Mars(props) {
   
   activeObject === 'mars' ? zRadius=0
   : activeObject === 'earth' ? zRadius= 14 
-    : activeObject === '' ? zRadius=7 
+    : activeObject === '' ? zRadius=12 
     :zRadius=15
 
   useFrame(({ clock }) => {
