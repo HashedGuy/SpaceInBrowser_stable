@@ -52,8 +52,6 @@ audio {
 
 .extraInfo {
   position: absolute;
-  transform: translate3d(0%, 0%, 0px) scale(1) !important;
-  transform-origin: 0px 0px;
   z-index: 16639014;
   top: 70%;
   left: 410% !important;
@@ -68,10 +66,19 @@ audio {
   align-items: center;
 }
 
+.extraWeird {
+  left: 487% !important;
+}
+
 .extraInfo p {
   font-size: 80%;
   margin-bottom: 2em;
   text-align: center;
+}
+
+.extraInfo a {
+  text-decoration: none;
+  color: goldenrod;
 }
 
 .extraInfo .credits {
@@ -134,6 +141,7 @@ audio {
   cursor: default;
   /* opacity: .5; */
 }
+
 .credits {
   font-size: 70%;
 }
@@ -151,4 +159,17 @@ audio {
 .infoPic {
   background-size: cover;
   width: 80%;
+}
+
+.Patreon {
+  color: aliceblue;
+}
+
+.iconSection p {
+  font-size: 50%;
+  margin-bottom: 0;
+  margin-right: 1em;
+}
+.iconSection a {
+  margin-right: 1em;
 }

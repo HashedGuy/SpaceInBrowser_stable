@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, showActions } from '../globalState'
 import MarsSound from  "../../assets/mars-sound.wav"
+// import marsIcon from "../../assets/marsIcon.png"
 
 export function InfoBox() {
     const [activeObject, setObject] = useRecoilState(clickedCBState)
@@ -25,33 +26,19 @@ export function InfoBox() {
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
             : activeObject === 'mars' ? "The planet we're colonizing next" 
             : activeObject === 'LEO' ? "This is the place where the most of the crew missions happening."
-            : 'You can either double-click the cellestial body or press one of the below buttons to discover your next destination'}
+            : ''}
           </h5>
 
           {activeObject === '' ? 
           <>
-            <a className='home-btn' onClick={()=>setObject('earth')}>Earth</a>
-            <a className='home-btn' onClick={()=>setObject('moon')}>Moon</a>
+            <a className='home-btn' onClick={()=>setObject('earth')}>
+            <i className="fa-solid fa-earth-americas"></i></a>
+            <a className='home-btn' onClick={()=>setObject('moon')}>
+            <i className="fa-solid fa-moon"></i></a>
             <a className='home-btn' onClick={()=>setObject('mars')}>Mars</a>
+            {/* <img src={marsIcon}/> */}
           </>
           : ''}
-          {activeObject === 'mars' && !activeButton ? <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em>.</p> 
-          
-          : activeObject === 'earth' && !activeButton ? <p>There're 7 billions of us here, and only few of us has left the ground and hanging out somewhere in <em>Low Earth Orbit (LEO)</em></p>
-          : activeObject === 'LEO' && !activeButton ? <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
-          : ''          }
-          {/* {(activeObject === '') || (activeObject === 'earth') || (activeButton) ? '' : 
-            <>
-            <audio 
-              controls 
-              src={
-                activeObject === 'mars' ? MarsSound : 
-                activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
-                activeObject === 'LEO' ? 'https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3'  : ''}>
-            </audio>
-            <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
-            </>
-          } */}
           {activeObject === 'earth' ? <a className='home-btn' onClick={()=>setObject('LEO')}>Discover Low Earth Orbit</a>
           : ''
 
@@ -83,13 +70,13 @@ export function InfoBox() {
               <p>There's nobody currently living on the Moon but... As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               :''}
               <ul>
-                <li><a className={showAction==='apollo11'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
-                <li><a className={showAction==='apollo12'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo12')}>Apollo 12</a></li>
-                <li><a className={showAction==='apollo14'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo14')}>Apollo 14</a></li>
-                <li><a className={showAction==='apollo15'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo15')}>Apollo 15</a></li>
-                <li><a className={showAction==='apollo16'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo16')}>Apollo 16</a></li>
-                <li><a className={showAction==='apollo17'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo17')}>Apollo 17</a></li>
-                <li><a className={showAction==='artemis'? "home-btn btn-selected": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('artemis')}>Artemis III</a></li>
+                <li><a className={showAction==='apollo11'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
+                <li><a className={showAction==='apollo12'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo12')}>Apollo 12</a></li>
+                <li><a className={showAction==='apollo14'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo14')}>Apollo 14</a></li>
+                <li><a className={showAction==='apollo15'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo15')}>Apollo 15</a></li>
+                <li><a className={showAction==='apollo16'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo16')}>Apollo 16</a></li>
+                <li><a className={showAction==='apollo17'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo17')}>Apollo 17</a></li>
+                <li><a className={showAction==='artemis'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('artemis')}>Artemis III</a></li>
               </ul>
 
               {showAction === 'apollo11' ? 
@@ -140,32 +127,60 @@ export function InfoBox() {
               : ''}
             </div> : ''}
             <a className={showAction===''?"hidden-btn":'home-btn'} onClick={()=>setAction('')}>All lunar crew missions</a>
-            {activeObject === '' ? '' : 
+            {activeObject === '' ? 
+          
+            <div className='iconSection'>
+              <a href='https://www.patreon.com/multiplanetary' target="_blank"><i className="fab fa-patreon" style={{"color":"white"}}></i></a>
+
+              <a href='' target="_blank"><i className="fab fa-twitter" style={{"color":"white"}}></i> </a>
+              <a href='' target="_blank"><i className="fab fa-youtube" style={{"color":"white"}}></i> </a>
+              <p>Built by arbus</p>
+            </div>
+             :
               <a 
                 className="home-btn" 
                 onClick={()=>{
                   setAction('')
                   setObject('')}}
-                  >Home</a>}
+                  ><i class="fab fa-solar-system" style={{"color":"white"}}></i>Home</a>}
           </div>
         </div>
 
         
-        <div className='extraInfo'>
+        <div className={activeObject==='mars'?'extraInfo extraWeird' : 'extraInfo'}>
         {(activeObject === 'moon') && (showAction === '') ? 
-        <>
-        <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
-        <audio 
-              controls 
-              src={
-                activeObject === 'mars' ? MarsSound : 
-                activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
-                activeObject === 'LEO' ? 'https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3'  : ''}>
-            </audio>
-            <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
-        </>
+          <>
+            <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+            <audio 
+                  controls 
+                  src="https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3">
+              </audio>
+              <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+          </>
+        :
+        (activeObject === 'mars') ? 
+          <>
+            <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em></p>
+            <audio 
+                controls 
+                src={MarsSound}>
+              </audio>
+              <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+          </>
+        :
+        (activeObject === 'LEO') && (showAction === '') ? 
+          <>
+            <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
+            <audio 
+                controls 
+                src='https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3'>
+              </audio>
+              <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+          </>
         : 
-                 
+        (activeObject === 'moon') && (showAction != '') ? 
+                <>
+                  <i className="fa-solid fa-location-dot" style={{"color":"white", "fontSize":"250%"}}></i>
                   <p>Click and rotate the Moon to find the exact location 
                     {showAction==='artemis' ? <strong> &#128994;</strong> : <strong> &#128308;</strong>} for  
                     {showAction==='apollo11' ? <em> Apollo 11 mission</em>:
@@ -177,8 +192,16 @@ export function InfoBox() {
                     showAction==='artemis' ? <em> Artemis 3 mission</em>       
                        
                   : ''}.
-                  
-                  </p>}
+                  </p>
+                  {showAction==='artemis' ? 
+                  <p style={{"fontSize":'70%'}}>The exact coordinates for Artemis 3 mission are not announced yet but it's somewhere around the south polar region. <a target="_blank" href="https://www.nasa.gov/specials/artemis/">More...</a></p> : ''}
+                </>
+                :
+                <>
+                <i class="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
+                  <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>
+                </>
+          }
         </div>
       </Html>
     )}

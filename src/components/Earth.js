@@ -43,7 +43,7 @@ export function Earth(props) {
   const cloudsRef = useRef();
   const pinRef = useRef()
 
-  let xRadius=6
+  let xRadius=5
   let zRadius=3.5
   let yRadius=0
 

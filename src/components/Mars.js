@@ -53,7 +53,7 @@ export function Mars(props) {
     const z = zRadius* Math.cos(elapsedTime)
     marsRef.current.position.x = x;
     marsRef.current.position.z = z;
-    activeObject === 'mars' ? (marsRef.current.rotation.y += .005) : (marsRef.current.rotation.y += 0)
+    // activeObject === 'mars' ? (marsRef.current.rotation.y += .005) : (marsRef.current.rotation.y += 0)
 
   });
 
