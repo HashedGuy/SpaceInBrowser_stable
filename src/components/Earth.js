@@ -11,8 +11,6 @@ import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
 import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
 import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
-import MoonMap from "../assets/compressed/2k_moon(1).jpg"
-import MarsMap from "../assets/compressed/2k_mars(1).jpg"
 
 function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 0 }) {
   const points = [];
@@ -31,9 +29,9 @@ function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 0 }) {
 }
 
 export function Earth(props) {
-  const [colorMap, normalMap, specularMap, cloudsMap, moonMap, marsMap] = useLoader(
+  const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(
     TextureLoader,
-    [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap, MoonMap, MarsMap]
+    [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap]
   );
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)

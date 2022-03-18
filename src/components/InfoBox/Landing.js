@@ -59,8 +59,10 @@ export function InfoBox() {
             : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
             : ''}
 
-            {(activeObject === 'moon') ? 
+            
             <div className='populationInfo'>
+            {(activeObject === 'moon') ? 
+            <>
               {showAction === '' ? 
               <p>There's nobody currently living on the Moon but...as part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               :''}
@@ -119,15 +121,32 @@ export function InfoBox() {
                 <p>Scheduled for launch in 2025, Artemis 3 is planned to be the second crewed Artemis mission and the first crewed lunar landing since Apollo 17 in 1972.</p>
                 <p>Artemis 3 will land a crew at the Moon's south polar region. It is planned to have two astronauts on the surface of the Moon for about one week. The mission is intended to be the first to place a woman on the Moon.</p>
               </>
-              : ''}
-            </div> : ''}
+
+              
+             
+              :''}
+              </>
+               :              
+               activeObject === 'mars'?
+               <>
+                 <p>Yes, we haven't made it to Mars yet...</p>
+               </>
+               :              
+               activeObject === 'earth'?
+               <>
+                 <p>Yes, life is here...</p>
+               </>
+               : ''}
+            </div>
+            
+          
             <a className={showAction===''?"hidden-btn":'home-btn'} onClick={()=>setAction('')}>All lunar crew missions</a>
             {activeObject === '' ? 
           
             <div className='iconSection'>
               <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'><i className="fab fa-patreon"></i></a>
 
-              <a target="_blank" className='twitterBtn' title='coming soon...'><i className="fab fa-twitter"></i></a>
+              <a href="https://twitter.com/multiplanet_guy" target="_blank" className='twitterBtn' title='coming soon...'><i className="fab fa-twitter"></i></a>
               <a target="_blank" className='youtubeBtn' title='coming soon...'><i className="fab fa-youtube"></i> </a>
               <p>Built by arbus</p>
             </div>
@@ -142,7 +161,7 @@ export function InfoBox() {
         </div>
 
         
-        <div className={activeObject==='mars'?'extraInfo extraWeird' : 'extraInfo'}>
+        <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
         {(activeObject === 'moon') && (showAction === '') ? 
           <>
             <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
@@ -193,7 +212,7 @@ export function InfoBox() {
                 </>
                 :
                 <>
-                  <i class="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
+                  <i className="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
                   <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>
                   <div style={{"display":"flex"}}>
                   <a className='home-btn earthBtn' onClick={()=>setObject('earth')} title="Earth">
@@ -201,7 +220,7 @@ export function InfoBox() {
                   <a className='home-btn moonBtn' onClick={()=>setObject('moon')} title="Moon">
                   <i className="fa-solid fa-moon"></i></a>
                   <a className='home-btn marsBtn' onClick={()=>setObject('mars')} title="Mars">
-                  <i class="fa-solid fa-bowling-ball"></i>
+                  <i className="fa-solid fa-bowling-ball"></i>
                   </a>
                   </div>
                 </>
