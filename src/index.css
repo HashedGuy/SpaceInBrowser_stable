@@ -78,7 +78,6 @@ audio {
 
 .extraInfo a {
   text-decoration: none;
-  color: goldenrod;
 }
 
 .extraInfo .credits {
@@ -172,4 +171,33 @@ audio {
 }
 .iconSection a {
   margin-right: 1em;
+}
+
+.earthBtn:hover {
+  color: rgb(45, 87, 226);
+}
+
+.moonBtn:hover {
+  color: orange;
+}
+
+.marsBtn:hover {
+  color: #9C2E35;
+}
+
+.patreonBtn, .twitterBtn, .youtubeBtn {
+  color: aliceblue;
+}
+
+.patreonBtn:hover {
+  color: #f96854;
+  scale: 1.5;
+}
+
+.twitterBtn:hover {
+  color: #1DA1F2;
+}
+
+.youtubeBtn:hover {
+  color: #FF0000;
 }

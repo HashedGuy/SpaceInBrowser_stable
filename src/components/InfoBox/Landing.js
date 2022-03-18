@@ -31,12 +31,7 @@ export function InfoBox() {
 
           {activeObject === '' ? 
           <>
-            <a className='home-btn' onClick={()=>setObject('earth')}>
-            <i className="fa-solid fa-earth-americas"></i></a>
-            <a className='home-btn' onClick={()=>setObject('moon')}>
-            <i className="fa-solid fa-moon"></i></a>
-            <a className='home-btn' onClick={()=>setObject('mars')}>Mars</a>
-            {/* <img src={marsIcon}/> */}
+          
           </>
           : ''}
           {activeObject === 'earth' ? <a className='home-btn' onClick={()=>setObject('LEO')}>Discover Low Earth Orbit</a>
@@ -67,7 +62,7 @@ export function InfoBox() {
             {(activeObject === 'moon') ? 
             <div className='populationInfo'>
               {showAction === '' ? 
-              <p>There's nobody currently living on the Moon but... As part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
+              <p>There's nobody currently living on the Moon but...as part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               :''}
               <ul>
                 <li><a className={showAction==='apollo11'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
@@ -130,10 +125,10 @@ export function InfoBox() {
             {activeObject === '' ? 
           
             <div className='iconSection'>
-              <a href='https://www.patreon.com/multiplanetary' target="_blank"><i className="fab fa-patreon" style={{"color":"white"}}></i></a>
+              <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'><i className="fab fa-patreon"></i></a>
 
-              <a href='' target="_blank"><i className="fab fa-twitter" style={{"color":"white"}}></i> </a>
-              <a href='' target="_blank"><i className="fab fa-youtube" style={{"color":"white"}}></i> </a>
+              <a target="_blank" className='twitterBtn' title='coming soon...'><i className="fab fa-twitter"></i></a>
+              <a target="_blank" className='youtubeBtn' title='coming soon...'><i className="fab fa-youtube"></i> </a>
               <p>Built by arbus</p>
             </div>
              :
@@ -194,12 +189,21 @@ export function InfoBox() {
                   : ''}.
                   </p>
                   {showAction==='artemis' ? 
-                  <p style={{"fontSize":'70%'}}>The exact coordinates for Artemis 3 mission are not announced yet but it's somewhere around the south polar region. <a target="_blank" href="https://www.nasa.gov/specials/artemis/">More...</a></p> : ''}
+                  <p style={{"fontSize":'70%'}}>The exact coordinates for Artemis 3 mission are not announced yet but it's somewhere around the south polar region. <a target="_blank" style={{"color":"goldenrod"}}href="https://www.nasa.gov/specials/artemis/">More...</a></p> : ''}
                 </>
                 :
                 <>
-                <i class="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
+                  <i class="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
                   <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>
+                  <div style={{"display":"flex"}}>
+                  <a className='home-btn earthBtn' onClick={()=>setObject('earth')} title="Earth">
+                  <i className="fa-solid fa-earth-americas"></i></a>
+                  <a className='home-btn moonBtn' onClick={()=>setObject('moon')} title="Moon">
+                  <i className="fa-solid fa-moon"></i></a>
+                  <a className='home-btn marsBtn' onClick={()=>setObject('mars')} title="Mars">
+                  <i class="fa-solid fa-bowling-ball"></i>
+                  </a>
+                  </div>
                 </>
           }
         </div>
