@@ -3,12 +3,26 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, showActions } from '../globalState'
 import MarsSound from  "../../assets/mars-sound.wav"
-// import marsIcon from "../../assets/marsIcon.png"
+import {Howl} from "howler"
 
 export function InfoBox() {
     const [activeObject, setObject] = useRecoilState(clickedCBState)
     const [showAction, setAction] = useRecoilState(showActions)
     const [activeButton, setButton] = useState(false)
+    const [disabledSpan, setSpan] = useState(true)
+    const [activeAudioPlayer, setAudioPlayer] = useState('')
+
+    const MarsSound2 = "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3"
+
+    const soundPlay = (src) => {
+      const sound = new Howl({
+        src: activeObject === '' ? "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3" : "https://www.nasa.gov/mp3/574928main_houston_problem.mp3",
+        autoplay:true,
+        html5:true,
+        onend:()=>setAudioPlayer('')
+      })
+      sound.play()
+    }
     return(
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
@@ -159,7 +173,21 @@ export function InfoBox() {
                   ><i class="fab fa-solar-system" style={{"color":"white"}}></i>Home</a>}
           </div>
         </div>
-
+        
+        <div className='audioSection'>
+       
+       <a className={activeAudioPlayer==='playing'? 'home-btn inActive':'home-btn'} 
+       onClick={()=> {
+         soundPlay()
+         setAudioPlayer('playing')
+         }}>{activeAudioPlayer==='' ? <i class="fa-solid fa-circle-play"></i> : <i class="fa-solid fa-circle-pause"></i>}</a>
+       {activeObject === '' ? 
+       <>
+        <p>We're in outer space right now. There's no sound here:( <a onClick={()=>setSpan(!disabledSpan)}>You wanna know why?</a></p>
+        <p className={disabledSpan ? 'disabledSpan': 'enabledSpan'}>Sound travels in waves like light or heat does, but unlike them, sound travels by making molecules vibrate. So, in order for sound to travel, there has to be something with molecules for it to travel through. On Earth, sound travels to your ears by vibrating air molecules. In deep space, the large empty areas between stars and planets, there are no molecules to vibrate.</p>
+        </>
+        : ''}
+        </div>
         
         <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
         {(activeObject === 'moon') && (showAction === '') ? 
