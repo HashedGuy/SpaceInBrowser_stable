@@ -168,9 +168,9 @@ export function InfoBox() {
               
               </>
 
-              <span className='twBtn'>
+              <a className='twBtn'>
                 <i className="fab fa-twitter" aria-hidden='false'></i>
-              </span>
+              </a>
              
               <p>Built by arbus</p>
             </div>
