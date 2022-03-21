@@ -16,7 +16,12 @@ export function InfoBox() {
 
     const soundPlay = (src) => {
       const sound = new Howl({
-        src: activeObject === '' ? "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3" : "https://www.nasa.gov/mp3/574928main_houston_problem.mp3",
+        src: 
+        activeObject === '' ? "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3" :
+        activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
+        activeObject === 'mars' ? "https://www.nasa.gov/specials/sounds/SCAM_MIC_SOL004_RUN001.wav" :
+        activeObject === 'LEO' ? "https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3"
+        : "https://www.nasa.gov/mp3/574928main_houston_problem.mp3",
         autoplay:true,
         html5:true,
         onend:()=>setAudioPlayer('')
@@ -174,16 +179,12 @@ export function InfoBox() {
               <p>Built by arbus</p>
             </div>
              :
-              <a 
-                className="home-btn" 
-                onClick={()=>{
-                  setAction('')
-                  setObject('')}}
-                  ><i className="fab fa-solar-system" style={{"color":"white"}}></i>Home</a>}
+              ''}
           </div>
         </div>
         
-        <div className='audioSection'>
+        <div className={
+          (activeObject==='mars') || (activeObject==='earth') ? 'audioSection extraWeird' : 'audioSection'}>
         <i className="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>
        
        {activeObject === '' ? 
@@ -191,46 +192,50 @@ export function InfoBox() {
         <p>We're in outer space right now. There's no sound here:( <a onClick={()=>setSpan(!disabledSpan)}>You wanna know why?</a></p>
         <p className={disabledSpan ? 'disabledSpan': 'enabledSpan'}>Sound travels in waves like light or heat does, but unlike them, sound travels by making molecules vibrate. So, in order for sound to travel, there has to be something with molecules for it to travel through. On Earth, sound travels to your ears by vibrating air molecules. In deep space, the large empty areas between stars and planets, there are no molecules to vibrate.</p>
         </>
-        : ''}
+        :
+        
+        activeObject === 'moon' ? 
+        <>
+        <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+        </>
+        :
+        
+        activeObject === 'mars' ? 
+        <>
+        <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em></p>
+        </>
+        :
+        
+        activeObject === 'LEO' ? 
+        <>
+         <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
+        </>
+       :''}
         
        {activeObject===''?'':
-       <a className={activeAudioPlayer==='playing'? 'home-btn inActive':'home-btn'} 
+       <a className={activeAudioPlayer==='playing'? 'audioBtn inActive':'audioBtn'} 
        onClick={()=> {
          soundPlay()
          setAudioPlayer('playing')
-         }}>{activeAudioPlayer==='' ? <i className="fa-solid fa-circle-play"></i> : <i className="fa-solid fa-circle-pause"></i>}</a>}
-        
+         }}>{activeAudioPlayer==='' ? <i className="fa-solid fa-circle-play"></i> : <i className="fa-solid fa-circle-pause" style={{"color":"darkred"}}></i>}</a>}
+        {(activeObject==='moon') || (activeObject==='mars') || (activeObject==='LEO')? 
+        <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> : ''}
         </div>
         
         <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
         {(activeObject === 'moon') && (showAction === '') ? 
-          <>
-            <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
-            <audio 
-                  controls 
-                  src="https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3">
-              </audio>
-              <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+          <> 
+              
           </>
         :
         (activeObject === 'mars') ? 
           <>
-            <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em></p>
-            <audio 
-                controls 
-                src={MarsSound}>
-              </audio>
-              <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+            
           </>
         :
         (activeObject === 'LEO') && (showAction === '') ? 
           <>
-            <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
-            <audio 
-                controls 
-                src='https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3'>
-              </audio>
-              <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p>
+
           </>
         : 
         (activeObject === 'moon') && (showAction != '') ? 
@@ -255,17 +260,25 @@ export function InfoBox() {
                 <>
                   <i className="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
                   <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>
-                  <div style={{"display":"flex"}}>
-                  <a className='home-btn earthBtn' onClick={()=>setObject('earth')} title="Earth">
-                  <i className="fa-solid fa-earth-americas"></i></a>
-                  <a className='home-btn moonBtn' onClick={()=>setObject('moon')} title="Moon">
-                  <i className="fa-solid fa-moon"></i></a>
-                  <a className='home-btn marsBtn' onClick={()=>setObject('mars')} title="Mars">
-                  <i className="fa-solid fa-bowling-ball"></i>
-                  </a>
-                  </div>
+                 
                 </>
           }
+           <div style={{"display":"flex"}}>
+                    {activeObject==='earth' ? '' : 
+                    <a className='home-btn earthBtn' onClick={()=>setObject('earth')} title="Earth">
+                    <i className="fa-solid fa-earth-americas"></i></a>}
+                    {activeObject==='moon' ? '' : 
+                    <a className='home-btn moonBtn' onClick={()=>setObject('moon')} title="Moon">
+                    <i className="fa-solid fa-moon"></i></a>}
+                    {activeObject==='mars' ? '' : 
+                    <a className='home-btn marsBtn' onClick={()=>setObject('mars')} title="Mars">
+                    <i className="fa-solid fa-bowling-ball"></i>
+                    </a>}
+                    {activeObject===''?'':
+                    <a className='home-btn homeBtn' onClick={()=>setObject('')} title="Home">
+                    <i className="fas fa-home"></i>
+                    </a>}
+                  </div>
         </div>
       </Html>
     )}

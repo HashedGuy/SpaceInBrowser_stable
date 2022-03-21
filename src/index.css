@@ -240,3 +240,17 @@ audio {
 .twBtn {
   cursor: pointer;
 }
+
+.homeBtn:hover {
+  color: rgb(40, 150, 46);
+}
+
+.audioBtn {
+  cursor: pointer;
+  font-size: 150%;
+  color: green;
+}
+
+.audioSection .credits {
+  font-size: 40%;
+}

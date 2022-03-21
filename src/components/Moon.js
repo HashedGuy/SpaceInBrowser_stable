@@ -9,6 +9,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, showActions } from './globalState';
 
 function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
+  const [activeObject, setObject] = useRecoilState(clickedCBState)
   const points = [];
   for (let index = 0; index < 64; index++) {
     const angle = (index / 64) * 2 * Math.PI;
@@ -19,7 +20,7 @@ function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
-      <lineBasicMaterial attach="material" color="gray" linewidth={.1} />
+      <lineBasicMaterial attach="material" color={activeObject===''?"black":"gray"} linewidth={.1} />
     </line>
   );
 }
