@@ -220,7 +220,7 @@ audio {
   color: #9C2E35;
 }
 
-.patreonBtn, .twitterBtn, .youtubeBtn {
+.patreonBtn, .tBtn, .youtubeBtn {
   color: aliceblue;
 }
 
@@ -229,10 +229,14 @@ audio {
   scale: 1.5;
 }
 
-.twitterBtn:hover {
+/* .twBtn:hover {
   color: #1DA1F2;
-}
+} */
 
 .youtubeBtn:hover {
   color: #FF0000;
+}
+
+.twBtn {
+  cursor: pointer;
 }

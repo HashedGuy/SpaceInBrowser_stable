@@ -158,10 +158,20 @@ export function InfoBox() {
             {activeObject === '' ? 
           
             <div className='iconSection'>
-              <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'><i className="fab fa-patreon"></i></a>
+              <>
+              <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'>
+                <i className="fab fa-patreon"></i>
+              </a>
+                <a target="_blank" className='youtubeBtn' title='coming soon...'>
+                <i className="fab fa-youtube"></i> 
+              </a>
+              
+              </>
 
-              <a href="https://twitter.com/multiplanet_guy" target="_blank" className='twitterBtn' title='coming soon...'><i className="fab fa-twitter"></i></a>
-              <a target="_blank" className='youtubeBtn' title='coming soon...'><i className="fab fa-youtube"></i> </a>
+              <span className='twBtn'>
+                <i className="fab fa-twitter" aria-hidden='false'></i>
+              </span>
+             
               <p>Built by arbus</p>
             </div>
              :
@@ -170,12 +180,12 @@ export function InfoBox() {
                 onClick={()=>{
                   setAction('')
                   setObject('')}}
-                  ><i class="fab fa-solar-system" style={{"color":"white"}}></i>Home</a>}
+                  ><i className="fab fa-solar-system" style={{"color":"white"}}></i>Home</a>}
           </div>
         </div>
         
         <div className='audioSection'>
-        <i class="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>
+        <i className="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>
        
        {activeObject === '' ? 
        <>
@@ -189,7 +199,8 @@ export function InfoBox() {
        onClick={()=> {
          soundPlay()
          setAudioPlayer('playing')
-         }}>{activeAudioPlayer==='' ? <i class="fa-solid fa-circle-play"></i> : <i class="fa-solid fa-circle-pause"></i>}</a>}
+         }}>{activeAudioPlayer==='' ? <i className="fa-solid fa-circle-play"></i> : <i className="fa-solid fa-circle-pause"></i>}</a>}
+        
         </div>
         
         <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
