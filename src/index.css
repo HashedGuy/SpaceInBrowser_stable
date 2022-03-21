@@ -220,7 +220,7 @@ audio {
   color: #9C2E35;
 }
 
-.patreonBtn, .tBtn, .youtubeBtn {
+.patreonBtn, .twBtn, .youtubeBtn {
   color: aliceblue;
 }
 
@@ -229,9 +229,9 @@ audio {
   scale: 1.5;
 }
 
-/* .twBtn:hover {
+.twBtn:hover {
   color: #1DA1F2;
-} */
+}
 
 .youtubeBtn:hover {
   color: #FF0000;
@@ -239,5 +239,4 @@ audio {
 
 .twBtn {
   cursor: pointer;
-  display: block !important;
 }

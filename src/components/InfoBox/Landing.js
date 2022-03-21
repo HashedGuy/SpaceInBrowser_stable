@@ -158,15 +158,14 @@ export function InfoBox() {
             {activeObject === '' ? 
           
             <div className='iconSection'>
-              <>
+             
               <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'>
                 <i className="fab fa-patreon"></i>
               </a>
-                <a target="_blank" className='youtubeBtn' title='coming soon...'>
+
+              <a target="_blank" className='youtubeBtn' title='coming soon...'>
                 <i className="fab fa-youtube"></i> 
               </a>
-              
-              </>
 
               <a  className='twBtn' href="https://twitter.com/multiplanet_guy" target="_blank">
                 <i className="fab fa-twitter"></i>
