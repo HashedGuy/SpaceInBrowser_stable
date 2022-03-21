@@ -239,4 +239,5 @@ audio {
 
 .twBtn {
   cursor: pointer;
+  display: block !important;
 }

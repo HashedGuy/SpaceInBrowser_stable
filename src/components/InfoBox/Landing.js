@@ -168,8 +168,8 @@ export function InfoBox() {
               
               </>
 
-              <a  className='twBtn'>
-                <i className="fab fa-twitter" href="https://twitter.com/multiplanet_guy" target="_blank"></i>
+              <a  className='twBtn' href="https://twitter.com/multiplanet_guy" target="_blank">
+                <i className="fab fa-twitter"></i>
               </a>
              
               <p>Built by arbus</p>
