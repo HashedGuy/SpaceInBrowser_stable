@@ -175,18 +175,21 @@ export function InfoBox() {
         </div>
         
         <div className='audioSection'>
+        <i class="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>
        
-       <a className={activeAudioPlayer==='playing'? 'home-btn inActive':'home-btn'} 
-       onClick={()=> {
-         soundPlay()
-         setAudioPlayer('playing')
-         }}>{activeAudioPlayer==='' ? <i class="fa-solid fa-circle-play"></i> : <i class="fa-solid fa-circle-pause"></i>}</a>
        {activeObject === '' ? 
        <>
         <p>We're in outer space right now. There's no sound here:( <a onClick={()=>setSpan(!disabledSpan)}>You wanna know why?</a></p>
         <p className={disabledSpan ? 'disabledSpan': 'enabledSpan'}>Sound travels in waves like light or heat does, but unlike them, sound travels by making molecules vibrate. So, in order for sound to travel, there has to be something with molecules for it to travel through. On Earth, sound travels to your ears by vibrating air molecules. In deep space, the large empty areas between stars and planets, there are no molecules to vibrate.</p>
         </>
         : ''}
+        
+       {activeObject===''?'':
+       <a className={activeAudioPlayer==='playing'? 'home-btn inActive':'home-btn'} 
+       onClick={()=> {
+         soundPlay()
+         setAudioPlayer('playing')
+         }}>{activeAudioPlayer==='' ? <i class="fa-solid fa-circle-play"></i> : <i class="fa-solid fa-circle-pause"></i>}</a>}
         </div>
         
         <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
