@@ -12,7 +12,7 @@ export function InfoBox() {
     const [disabledSpan, setSpan] = useState(true)
     const [activeAudioPlayer, setAudioPlayer] = useState('')
     const [activeLight, setLight] = useRecoilState(lights)
-    const activeLaunchPad = useRecoilValue(launchpads)
+    const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
 
     const MarsSound2 = "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3"
 
@@ -72,9 +72,9 @@ export function InfoBox() {
             <a className='home-btn' 
             onClick={()=>{
               setAction('launchpad') 
-              setLight('ambient')}}><i class="fa-solid fa-rocket"></i></a>
+              setLight('ambient')}}>Rocket launch sites <i class="fa-solid fa-rocket"></i></a>
             {/* <a className='home-btn' onClick={()=>setAction('')}>Hide</a> */}
-            <a className='home-btn launchpad'>{activeLaunchPad}</a>
+            {activeLaunchPad==='' ? '' : <a className='home-btn launchpad'>{activeLaunchPad}</a>}
 
             {activeLaunchPad==='KSS' ? 
             <>
@@ -84,7 +84,6 @@ export function InfoBox() {
             <p>Although Kennedy is the NASA's main launch site, the center also is home to facilities that research and develop innovative solutions that government and commercial space ventures need for working and living on the surfaces of the Moon and other bodies in our solar system.</p>
             </>
             :
-
             activeLaunchPad==='CCSFS' ? 
             <>
             <p>Cape Canaveral Space Force Station is an installation of the United States Space Force's Space Launch Delta 45, located on Cape Canaveral in Brevard County, Florida.</p>
@@ -116,8 +115,46 @@ export function InfoBox() {
              <p style={{"fontSize":"50%"}}><em>Credit: Camille Gévaudan</em></p>
              <p>The European Space Agency (ESA), the European Union Agency for the Space Programme (EUSPA), the French space agency CNES (National Centre for Space Studies), and the commercial companies Arianespace and Azercosmos conduct launches from Kourou. It was used by the ESA to send supplies to the International Space Station using the Automated Transfer Vehicle.</p>
              </>
-            
-          
+             :
+             activeLaunchPad==='BSS' ? 
+             <>
+             <p>The Baikonur Cosmodrome (Kazakh: Байқоңыр ғарыш айлағы) is a spaceport in an area of southern Kazakhstan leased to Russia. </p>
+             <img src={"https://upload.wikimedia.org/wikipedia/commons/5/59/Soyuz_expedition_19_launch_pad.jpg"} className='infoPic'/>
+             <p style={{"fontSize":"50%"}}><em>Credit: NASA KSC Media Archive</em></p>
+             <p>The Cosmodrome is the world's first spaceport for orbital and human launches and the largest (in area) operational space launch facility. All crewed Russian spaceflights are launched from Baikonur.</p>
+             </>
+              :
+            activeLaunchPad==='SDSC' ? 
+            <>
+            <p>Satish Dhawan Space Centre is a rocket launch centre (spaceport) operated by Indian Space Research Organisation (ISRO). It is located in Sriharikota in Andhra Pradesh.</p>
+            <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2a/PSLV_C45_EMISAT_campaign_23.jpg"} className='infoPic'/>
+            <p style={{"fontSize":"50%"}}><em>Credit: Indian Space Research Organisation</em></p>
+            <p>The  Centre has  the  facilities for  solid propellant  processing,  static  testing  of  solid  motors,  launch  vehicle  integration  and  launch operations, range operations comprising telemetry, tracking and command network and mission control centre.</p>
+            </>
+             :
+             activeLaunchPad==='WSLC' ? 
+             <>
+             <p>The Xichang Satellite Launch Center (XSLC), also known as the Xichang Space Center, is a spaceport of China. It is located in Zeyuan Town (泽远镇) in Sichuan.</p>
+             <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2e/Tianwen-1_launch_04_%28cropped%29.jpg"} className='infoPic'/>
+             <p style={{"fontSize":"50%"}}><em>Credit: China News Service</em></p>
+             <p>The facility became operational in 1984 and is used to launch numerous civil, scientific, and military payloads annually. It is notable as the site of Sino-European space cooperation, with the launch of the first of two Double Star scientific satellites in December 2003.</p>
+             </>
+             :
+             activeLaunchPad==='TSC' ? 
+             <>
+             <p>The Tanegashima Space Center (種子島宇宙センター, Tanegashima Uchū Sentā) is the largest rocket-launch complex in Japan. It is located on the southeast coast of Tanegashima island.</p>
+             <img src={"https://upload.wikimedia.org/wikipedia/commons/c/c9/Osaki_Range.jpg"} className='infoPic'/>
+             <p style={{"fontSize":"50%"}}><em>Credit: ウニウニ </em></p>
+             <p>It was established in 1969 when the National Space Development Agency of Japan (NASDA) was formed, and is now run by JAXA. The activities that take place at TNSC include assembly, testing, launching, and tracking satellites, as well as rocket engine firing tests.</p>
+             </>
+              :
+              activeLaunchPad==='USC' ? 
+              <>
+              <p>The Uchinoura Space Center (内之浦宇宙空間観測所, Uchinoura Uchū Kūkan Kansokusho) is a space launch facility in the Japanese town of Kimotsuki, Kagoshima Prefecture. </p>
+              <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ab/M-V_with_Astro-E_satellite.jpg"} className='infoPic'/>
+              <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
+              <p>All of Japan's scientific satellites were launched from Uchinoura prior to the M-V launch vehicles being decommissioned in 2006. It continues to be used for suborbital launches, and has also been used for the Epsilon orbital launch vehicle. Additionally, the center has antennas for communication with interplanetary space probes.</p>
+              </>
             :''}
           </div> : ''}
           </div>
@@ -128,7 +165,6 @@ export function InfoBox() {
                   Population: 0 (12)
                   <br/>
                   <em className='credits'>Credit: NASA</em>
-                  {/* <span style={{"color":'white;', "marginLeft": '3em'}}>&#9651;</span> */}
               </a>
             : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
             : ''}
@@ -202,9 +238,6 @@ export function InfoBox() {
                 <p>Scheduled for launch in 2025, Artemis 3 is planned to be the second crewed Artemis mission and the first crewed lunar landing since Apollo 17 in 1972.</p>
                 <p>Artemis 3 will land a crew at the Moon's south polar region. It is planned to have two astronauts on the surface of the Moon for about one week. The mission is intended to be the first to place a woman on the Moon.</p>
               </>
-
-              
-             
               :''}
               </>
                :              
@@ -319,15 +352,16 @@ export function InfoBox() {
         (activeObject === 'moon') && (showAction === '') ?
           <>
             {activeLight==='ambient' ? 
-            <p>Enough enlightenment. Click the yellow lightbulb to see the real Moon with its dark side.</p> :
-            <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb to see!</p>}
-            {activeLight==='' ?
-            <a className='lightBtn' onClick={()=>setLight('ambient')}>
-                <i className="fas fa-lightbulb" style={activeLight==='ambient' ? {"color":"yellow"}: {}}></i>
-            </a> :
-            <a className='lightBtn' onClick={()=>setLight('')}>
-                <i className="fas fa-lightbulb" style={activeLight==='ambient' ? {"color":"yellow"}: {}}></i>
-            </a>} 
+              <p>Enough enlightenment. Click the yellow lightbulb to see the real Moon with its dark side.</p> :
+              <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb to see!</p>}
+              {activeLight==='' ?
+              <a className='lightBtn' onClick={()=>setLight('ambient')}>
+                  <i className="fas fa-lightbulb" style={activeLight==='ambient' ? {"color":"yellow"}: {}}></i>
+              </a> :
+              <a className='lightBtn' onClick={()=>setLight('')}>
+                  <i className="fas fa-lightbulb" style={activeLight==='ambient' ? {"color":"yellow"}: {}}></i>
+              </a>
+            } 
           </>
         :
           <>
@@ -356,7 +390,8 @@ export function InfoBox() {
                       onClick={()=>{
                         setObject('')
                         setLight('')
-                        setAction('')}} title="Home">
+                        setAction('')
+                        setLaunchPad('')}} title="Home">
                     <i className="fas fa-home"></i>
                     </a>}
                   </div>
