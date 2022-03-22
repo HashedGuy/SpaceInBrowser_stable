@@ -3,7 +3,7 @@ import { OrbitControls, Stars, Html } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { clickedCBState, showActions } from './globalState';
+import { clickedCBState, launchpads, lights, showActions } from './globalState';
 import { InfoBox } from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
@@ -35,7 +35,9 @@ export function Earth(props) {
   );
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
   const showAction = useRecoilValue(showActions)
+  const light = useRecoilValue(lights)
 
   const earthRef = useRef();
   const cloudsRef = useRef();
@@ -55,7 +57,7 @@ export function Earth(props) {
   }
 
   let pointKSS = {
-    lat:28.573469,
+    lat:28.973469,
     lng:	-80.651070 
   }
 
@@ -65,7 +67,7 @@ export function Earth(props) {
   }
   
   let pointCCSC= {
-    lat: 28.410351,
+    lat: 28.210351,
     lng:	-80.618813
   }
 
@@ -138,29 +140,20 @@ export function Earth(props) {
       : activeObject === 'moon' ? (cloudsRef.current.position.z = 2)
       : activeObject === 'mars' ? (cloudsRef.current.position.z = -2) 
       : (cloudsRef.current.position.z = 0)
-  
-
-    // activeObject === '' ? (earthRef.current.rotation.y += .01) :
-    // activeObject === 'LEO' ?  (earthRef.current.rotation.y += 0)
-    //   : (earthRef.current.rotation.y += .005) 
-
-    // activeObject === '' ? (cloudsRef.current.rotation.y += .01) :
-    // activeObject === 'LEO' ?  (cloudsRef.current.rotation.y += .001)
-    //   : (cloudsRef.current.rotation.y += .005)
-    
-    // activeObject === 'LEO' ? (pinRef.current.position.x = 3) : (pinRef.current.position.x = 0)
   });
 
   return (
     <>
       <InfoBox />
+      {light === 'ambient' ?
+      <ambientLight/> : 
       <pointLight 
         color="#f6f3ea" 
         position={
           activeObject === '' ? [0, 0, 0] : activeObject === 'moon' ? [39, 0, 9]
           : [2, 0, 6]} 
         intensity={1.1} 
-      />
+      />}
       <Stars
         radius={300}
         depth={60}
@@ -230,6 +223,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posKSS.x,posKSS.y,posKSS.z]}
+        onClick={()=>setLaunchPad('KSS')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
@@ -238,6 +232,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
+        onClick={()=>setLaunchPad('Starbase')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
@@ -246,6 +241,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
+        onClick={()=>setLaunchPad('CCSFS')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -254,6 +250,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posGSS.x,posGSS.y,posGSS.z]}
+        onClick={()=>setLaunchPad('GSS')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -262,6 +259,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posBSS.x,posBSS.y,posBSS.z]}
+        onClick={()=>setLaunchPad('BSS')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -270,6 +268,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posVSFB.x,posVSFB.y,posVSFB.z]}
+        onClick={()=>setLaunchPad('SLC-4/VSFB')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -278,6 +277,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posWSLC.x,posWSLC.y,posWSLC.z]}
+        onClick={()=>setLaunchPad('WSLC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -286,6 +286,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posSDSC.x,posSDSC.y,posSDSC.z]}
+        onClick={()=>setLaunchPad('SDSC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -294,6 +295,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posUSC.x,posUSC.y,posUSC.z]}
+        onClick={()=>setLaunchPad('USC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -302,6 +304,7 @@ export function Earth(props) {
       <mesh
        ref={pinRef}
         position={[posTSC.x,posTSC.y,posTSC.z]}
+        onClick={()=>setLaunchPad('TSC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>

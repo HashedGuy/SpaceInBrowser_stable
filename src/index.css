@@ -107,8 +107,11 @@ audio {
 
 .extraInfo p {
   font-size: 80%;
-  margin-bottom: 2em;
   text-align: center;
+}
+
+.extraInfo p:last-child {
+  margin-bottom: 2em;
 }
 
 .extraInfo a {
@@ -193,6 +196,8 @@ audio {
 .infoPic {
   background-size: cover;
   width: 80%;
+  align-self: center;
+  border-radius: 5px;
 }
 
 .Patreon {
@@ -253,4 +258,14 @@ audio {
 
 .audioSection .credits {
   font-size: 40%;
+}
+
+.lightBtn:hover {
+  color: yellow;
+}
+
+.launchpad {
+  color: black;
+  background-color: aliceblue;
+  cursor: default;
 }

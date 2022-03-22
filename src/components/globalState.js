@@ -10,3 +10,14 @@ export const showActions = atom({
     key: 'showActions',
     default:''
 })
+
+export const lights = atom({
+    key: 'lights',
+    default:''
+})
+
+export const launchpads = atom({
+    key: 'launchpads',
+    default:''
+})
+
