@@ -275,7 +275,7 @@ export function Earth(props) {
         position={[posKSS.x,posKSS.y,posKSS.z]}
         onClick={()=>setLaunchPad('KSS')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -284,7 +284,7 @@ export function Earth(props) {
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
         onClick={()=>setLaunchPad('Starbase')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -293,7 +293,7 @@ export function Earth(props) {
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
         onClick={()=>setLaunchPad('CCSFS')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -302,7 +302,7 @@ export function Earth(props) {
         position={[posGSS.x,posGSS.y,posGSS.z]}
         onClick={()=>setLaunchPad('GSS')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -311,7 +311,7 @@ export function Earth(props) {
         position={[posBSS.x,posBSS.y,posBSS.z]}
         onClick={()=>setLaunchPad('BSS')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -320,7 +320,7 @@ export function Earth(props) {
         position={[posVSFB.x,posVSFB.y,posVSFB.z]}
         onClick={()=>setLaunchPad('SLC-4/VSFB')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -329,7 +329,7 @@ export function Earth(props) {
         position={[posWSLC.x,posWSLC.y,posWSLC.z]}
         onClick={()=>setLaunchPad('WSLC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -338,7 +338,7 @@ export function Earth(props) {
         position={[posSDSC.x,posSDSC.y,posSDSC.z]}
         onClick={()=>setLaunchPad('SDSC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -347,7 +347,7 @@ export function Earth(props) {
         position={[posUSC.x,posUSC.y,posUSC.z]}
         onClick={()=>setLaunchPad('USC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -356,7 +356,7 @@ export function Earth(props) {
         position={[posTSC.x,posTSC.y,posTSC.z]}
         onClick={()=>setLaunchPad('TSC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -365,7 +365,7 @@ export function Earth(props) {
         position={[posJSLC.x,posJSLC.y,posJSLC.z]}
         onClick={()=>setLaunchPad('JSLC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
@@ -374,7 +374,7 @@ export function Earth(props) {
         position={[posXSLC.x,posXSLC.y,posXSLC.z]}
         onClick={()=>setLaunchPad('XSLC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -383,7 +383,7 @@ export function Earth(props) {
         position={[posTSLC.x,posTSLC.y,posTSLC.z]}
         onClick={()=>setLaunchPad('TSLC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -392,7 +392,7 @@ export function Earth(props) {
         position={[posPalmachim.x,posPalmachim.y,posPalmachim.z]}
         onClick={()=>setLaunchPad('Palmachim')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad' ? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -401,7 +401,7 @@ export function Earth(props) {
         position={[posPSC.x,posPSC.y,posPSC.z]}
         onClick={()=>setLaunchPad('PSC')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -410,7 +410,7 @@ export function Earth(props) {
         position={[posYasny.x,posYasny.y,posYasny.z]}
         onClick={()=>setLaunchPad('Yasny')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -419,7 +419,7 @@ export function Earth(props) {
         position={[posMARS.x,posMARS.y,posMARS.z]}
         onClick={()=>setLaunchPad('MARS')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -428,7 +428,7 @@ export function Earth(props) {
         position={[posSemnan.x,posSemnan.y,posSemnan.z]}
         onClick={()=>setLaunchPad('Semnan')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -437,7 +437,7 @@ export function Earth(props) {
         position={[posSohae.x,posSohae.y,posSohae.z]}
         onClick={()=>setLaunchPad('Sohae')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -446,7 +446,7 @@ export function Earth(props) {
         position={[posNaro.x,posNaro.y,posNaro.z]}
         onClick={()=>setLaunchPad('Naro')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -455,7 +455,7 @@ export function Earth(props) {
         position={[posVostochny.x,posVostochny.y,posVostochny.z]}
         onClick={()=>setLaunchPad('Vostochny')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -464,7 +464,7 @@ export function Earth(props) {
         position={[posRocketLab.x,posRocketLab.y,posRocketLab.z]}
         onClick={()=>setLaunchPad('RocketLab')}
       >
-        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
      

@@ -139,6 +139,7 @@ audio {
   height: 95vh;
   text-align: center;
   justify-content: space-between;
+  overflow: scroll;
 }
 
 .addInfo {

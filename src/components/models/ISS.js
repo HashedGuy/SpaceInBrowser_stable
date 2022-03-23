@@ -17,7 +17,8 @@ export default function Model({ ...props }) {
   activeObject === '' ? (zRadius=0) : activeObject === 'LEO' ? zRadius=3.8 : zRadius=1.05
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime() * .6;
+    let elapsedTime
+   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .6)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -33,7 +34,7 @@ export default function Model({ ...props }) {
       position={[2.12, 0, 2.12]} 
       scale={
         (activeObject==='mars') || (activeObject==='moon') || (activeObject==='')? 0 : 
-        (activeObject==='LEO') ? 0.01 
+        (activeObject==='LEO') ? 0.005 
         : .005} 
       ref={issRef}
     >

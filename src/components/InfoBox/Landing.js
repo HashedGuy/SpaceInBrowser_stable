@@ -63,17 +63,31 @@ export function InfoBox() {
 
           {activeObject === 'LEO' ? 
           <div className='viewDiv'>
-            {showAction==='launchpad' ? '' : 
+            {(activeLaunchPad!='') || (showAction==='spaceStation') ? '' : <a className={(showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') ? 'home-btn launchpad' : 'home-btn'} 
+              onClick={()=>{
+                setAction('launchpad') 
+                setLight('ambient')}}>
+              Rocket launch sites
+            </a>}
+            {showAction==='' ? <a className='home-btn' onClick={() => setAction('spaceStation')}>Space stations</a> : ''}
+            {showAction==='spaceStation' ? 
             <>
-            <a className='home-btn inActive'>ISS view to the Earth</a>
-            <a className='home-btn inActive'>View from Dragon capsule</a>
+              <a className='home-btn inActive'>ISS view to the Earth</a>
+              <a className='home-btn inActive'>View from Dragon capsule</a>
+            </> : ''}
+           
+            
+            {(showAction==='launchpad') || ((showAction==='crewPad') && (activeLaunchPad==='')) || ((showAction==='satellitePad') && (activeLaunchPad==='')) ? 
+            <>
+            <p>Some info...</p>
+            <a className='home-btn' onClick={()=>setAction('crewPad')}>With crew mission launches</a>
+            <a className='home-btn' onClick={()=>setAction('satellitePad')}>With satellite launches only</a>
+            
             </>
-            }
-            <a className='home-btn' 
-            onClick={()=>{
-              setAction('launchpad') 
-              setLight('ambient')}}>Rocket launch sites <i class="fa-solid fa-rocket"></i></a>
-            {/* <a className='home-btn' onClick={()=>setAction('')}>Hide</a> */}
+
+            :''}
+            {(showAction==='') || (activeLaunchPad!='') ? '' : <a className='home-btn' onClick={()=>setAction('')}>&#x2190; Back</a>} 
+
             {activeLaunchPad==='' ? '' : <a className='home-btn launchpad'>{activeLaunchPad}</a>}
 
             {activeLaunchPad==='KSS' ? 
@@ -253,6 +267,8 @@ export function InfoBox() {
                </>
 
             :''}
+
+            {activeLaunchPad != '' ? <a onClick={()=>setLaunchPad('')} className="home-btn">Close &#x2715;</a> : ''}
           </div> : ''}
           </div>
           <div className='addInfo'>
