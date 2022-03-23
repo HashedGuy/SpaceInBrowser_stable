@@ -60,52 +60,90 @@ export function Earth(props) {
     lat:28.973469,
     lng:	-80.651070 
   }
-
   let pointStarbase = {
     lat: 25.997053 ,
     lng:	-97.155281 
   }
-  
   let pointCCSC= {
     lat: 28.210351,
     lng:	-80.618813
   }
-
   let pointGSS= {
     lat: 5.167713,
     lng:	-52.683994
   }
-  
   let pointBSS= {
     lat: 45.616669,
     lng: 63.316666
   }
-
   let pointVSFB= {
     lat: 34.77204,
     lng: -120.60124
   }
-  
   let pointWSLC= {
     lat: 19.6291,
     lng: 110.955
   }
-
   let pointSDSC= {
     lat: 13.73740,
     lng: 80.23510
   }
-
   let pointUSC= {
     lat: 31.25186,
     lng: 131.07914
   }
-
   let pointTSC= {
     lat: 30.39096,
     lng: 130.96813
   }
-  
+  let pointJSLC= {
+    lat: 40.958056,
+    lng: 100.291111
+  }
+  let pointXSLC= {
+    lat: 28.246017,
+    lng: 102.026556
+  }
+  let pointTSLC= {
+    lat: 38.849086,
+    lng: 111.608497
+  }
+  let pointPalmachim= {
+    lat: 31.897778,
+    lng: 34.690556
+  }
+  let pointPSC= {
+    lat: 57.435833,
+    lng: -152.337778
+  }
+  let pointYasny= {
+    lat: 51.093889,
+    lng: 59.842222
+  }
+  let pointMARS= {
+    lat: 37.843333,
+    lng: -75.478056
+  }
+  let pointSemnan= {
+    lat: 35.2346,
+    lng: 53.9221
+  }
+  let pointSohae= {
+    lat: 39.66,
+    lng: 124.705
+  }
+  let pointNaro= {
+    lat: 34.431944,
+    lng: 127.535
+  }
+  let pointVostochny= {
+    lat: 51.884395,
+    lng: 128.333932
+  }
+  let pointRocketLab= {
+    lat: -39.2615,
+    lng: 177.864876
+  }
 
   let posKSS = calcPosFromLatLngRad(pointKSS.lat, pointKSS.lng)
   let posStarbase = calcPosFromLatLngRad(pointStarbase.lat, pointStarbase.lng)
@@ -117,6 +155,18 @@ export function Earth(props) {
   let posSDSC = calcPosFromLatLngRad(pointSDSC.lat, pointSDSC.lng)
   let posUSC = calcPosFromLatLngRad(pointUSC.lat, pointUSC.lng)
   let posTSC = calcPosFromLatLngRad(pointTSC.lat, pointTSC.lng)
+  let posJSLC = calcPosFromLatLngRad(pointJSLC.lat, pointJSLC.lng)
+  let posXSLC = calcPosFromLatLngRad(pointXSLC.lat, pointXSLC.lng)
+  let posTSLC = calcPosFromLatLngRad(pointTSLC.lat, pointTSLC.lng)
+  let posPalmachim = calcPosFromLatLngRad(pointPalmachim.lat, pointPalmachim.lng)
+  let posPSC = calcPosFromLatLngRad(pointPSC.lat, pointPSC.lng)
+  let posYasny = calcPosFromLatLngRad(pointYasny.lat, pointYasny.lng)
+  let posMARS = calcPosFromLatLngRad(pointMARS.lat, pointMARS.lng)
+  let posSemnan = calcPosFromLatLngRad(pointSemnan.lat, pointSemnan.lng)
+  let posSohae = calcPosFromLatLngRad(pointSohae.lat, pointSohae.lng)
+  let posNaro = calcPosFromLatLngRad(pointNaro.lat, pointNaro.lng)
+  let posVostochny = calcPosFromLatLngRad(pointVostochny.lat, pointVostochny.lng)
+  let posRocketLab = calcPosFromLatLngRad(pointRocketLab.lat, pointRocketLab.lng)
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .006;
@@ -226,7 +276,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('KSS')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0xff0000}/>
+        <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
@@ -235,7 +285,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('Starbase')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0xff0000}/>
+        <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
@@ -253,7 +303,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('GSS')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0x00ff00}/>
+        <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
@@ -271,7 +321,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('SLC-4/VSFB')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0x00ff00}/>
+        <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
@@ -280,7 +330,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('WSLC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0x00ff00}/>
+        <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
@@ -289,7 +339,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('SDSC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0x00ff00}/>
+        <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
@@ -298,7 +348,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('USC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0x00ff00}/>
+        <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
@@ -307,7 +357,115 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('TSC')}
       >
         <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posJSLC.x,posJSLC.y,posJSLC.z]}
+        onClick={()=>setLaunchPad('JSLC')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posXSLC.x,posXSLC.y,posXSLC.z]}
+        onClick={()=>setLaunchPad('XSLC')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posTSLC.x,posTSLC.y,posTSLC.z]}
+        onClick={()=>setLaunchPad('TSLC')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posPalmachim.x,posPalmachim.y,posPalmachim.z]}
+        onClick={()=>setLaunchPad('Palmachim')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posPSC.x,posPSC.y,posPSC.z]}
+        onClick={()=>setLaunchPad('PSC')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posYasny.x,posYasny.y,posYasny.z]}
+        onClick={()=>setLaunchPad('Yasny')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posMARS.x,posMARS.y,posMARS.z]}
+        onClick={()=>setLaunchPad('MARS')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posSemnan.x,posSemnan.y,posSemnan.z]}
+        onClick={()=>setLaunchPad('Semnan')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posSohae.x,posSohae.y,posSohae.z]}
+        onClick={()=>setLaunchPad('Sohae')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posNaro.x,posNaro.y,posNaro.z]}
+        onClick={()=>setLaunchPad('Naro')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posVostochny.x,posVostochny.y,posVostochny.z]}
+        onClick={()=>setLaunchPad('Vostochny')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posRocketLab.x,posRocketLab.y,posRocketLab.z]}
+        onClick={()=>setLaunchPad('RocketLab')}
+      >
+        <sphereBufferGeometry args={showAction==='launchpad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0xff0000}/>
       </mesh>
      
 
