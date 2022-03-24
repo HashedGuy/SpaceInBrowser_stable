@@ -53,11 +53,11 @@ audio {
 .extraInfo {
   position: absolute;
   z-index: 16639014;
-  top: 70%;
+  top: 67%;
   left: 410% !important;
   width: 30vh;
-  height: 25vh;
-  padding:1em;
+  height: 30vh;
+  padding: .5em;
   border-radius: 5%;
   background-color: rgba(28, 28, 28, 0.3);
   display: flex;
@@ -214,6 +214,10 @@ audio {
   margin-right: 1em;
 }
 
+.earthBtn, .marsBtn, .homeBtn, .moonBtn {
+  margin-top: .5em !important;
+}
+
 .earthBtn:hover {
   color: rgb(45, 87, 226);
 }
@@ -269,4 +273,9 @@ audio {
   color: black;
   background-color: aliceblue;
   cursor: default;
+}
+
+.infoLight {
+  align-self: end;
+  cursor: pointer;
 }

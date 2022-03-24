@@ -4,6 +4,10 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, launchpads, lights, showActions } from '../globalState'
 import MarsSound from  "../../assets/mars-sound.wav"
 import {Howl} from "howler"
+import ReactPlayer from 'react-player'
+import {GiMoonOrbit} from 'react-icons/gi'
+import AudioPlayer from '../AudioPlayer'
+
 
 export function InfoBox() {
     const [activeObject, setObject] = useRecoilState(clickedCBState)
@@ -15,22 +19,7 @@ export function InfoBox() {
     const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
 
     const MarsSound2 = "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3"
-
-    const soundPlay = (src) => {
-      const sound = new Howl({
-        src: 
-        activeObject === '' ? "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3" :
-        activeObject === 'moon' ? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
-        activeObject === 'mars' ? "https://www.nasa.gov/specials/sounds/SCAM_MIC_SOL004_RUN001.wav" :
-        activeObject === 'LEO' ? "https://www.nasa.gov/mp3/693857main_emfisis_chorus_1.mp3"
-        : "https://www.nasa.gov/mp3/574928main_houston_problem.mp3",
-        autoplay:true,
-        html5:true,
-        onend:()=>setAudioPlayer('')
-      })
-      sound.play()
-    }
-    console.log(showAction, activeObject)
+    
     return(
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
@@ -319,7 +308,7 @@ export function InfoBox() {
                 <p>Apollo 14 (January 31, 1971 – February 9, 1971) was the eighth crewed mission in the United States Apollo program, the third to land on the Moon, and the first to land in the lunar highlands. </p>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Apollo_14_Shepard.jpg/1920px-Apollo_14_Shepard.jpg" className='infoPic'/>
                 <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
-                <p>It was the last of the "H missions", landings at specific sites of scientific interest on the Moon for two-day stays with two lunar extravehicular activities (EVAs or moonwalks).</p>
+                <p>It was the last of the "H missions", landings at specific sites of scientific interest on the Moon for two-day stays with two lunar givehicular activities (EVAs or moonwalks).</p>
               </>
               : showAction === 'apollo15' ? 
               <>
@@ -423,16 +412,17 @@ export function InfoBox() {
        :''}
         
        {activeObject===''?'':
-       <a className={activeAudioPlayer==='playing'? 'audioBtn inActive':'audioBtn'} 
-       onClick={()=> {
-         soundPlay()
-         setAudioPlayer('playing')
-         }}>{activeAudioPlayer==='' ? <i className="fa-solid fa-circle-play"></i> : <i className="fa-solid fa-circle-pause" style={{"color":"darkred"}}></i>}</a>}
-        {(activeObject==='moon') || (activeObject==='mars') || (activeObject==='LEO')? 
+       <AudioPlayer />
+       }
+        {(activeObject==='moon') || (activeObject==='mars') || (activeObject==='LEO') ? 
         <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> : ''}
         </div>
         
         <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
+        {(showAction==='') || (showAction==='launchpad') ? '' : 
+        <p className="infoLight" title="follow instructions for interactivity" style={activeLaunchPad!=''?{"opacity":.3}:{}}>
+             &#128994;
+          </p>}
         {(activeObject === 'mars') ? 
           <>
             
@@ -479,25 +469,30 @@ export function InfoBox() {
         :
           <>
             <i className="fa-solid fa-computer-mouse" style={{"color":"white", "fontSize":"250%"}}></i>
-            {(activeObject==='LEO') && (showAction==='launchpad') ? 
+            {(showAction==='crewPad') || (showAction==='satellitePad') ? 
             <>
               <p>Click and drag the Earth to see all available inter-planetary launchpads.</p>
-              <p>Click the launchpad (green or red ball) to have more information about them.</p>
+              <p>Click the launchpads (green or red ball) to have more information about them.</p>
             </>
             : <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>}
           </>
           }
            <div style={{"display":"flex"}}>
-                    {activeObject==='earth' ? '' : 
-                    <a className='home-btn earthBtn' onClick={()=>setObject('earth')} title="Earth">
+                    {activeObject==='LEO' ? '' : 
+                    <a className='home-btn earthBtn' onClick={()=>setObject('LEO')} title="Low Earth Orbit">
                     <i className="fa-solid fa-earth-americas"></i></a>}
                     {activeObject==='moon' ? '' :
                     <a className='home-btn moonBtn' onClick={()=>setObject('moon')} title="Moon">
                     <i className="fa-solid fa-moon"></i></a>}
                     {activeObject==='mars' ? '' : 
+                    <>
                     <a className='home-btn marsBtn' onClick={()=>setObject('mars')} title="Mars">
                     <i className="fa-solid fa-bowling-ball"></i>
-                    </a>}
+                    </a>                    
+                    <a className='home-btn marsBtn' onClick={()=>setObject('earth')} title="Earth">
+                    <GiMoonOrbit/>
+                    </a>
+                    </>}
                     {activeObject===''?'':
                     <a className='home-btn homeBtn' 
                       onClick={()=>{
