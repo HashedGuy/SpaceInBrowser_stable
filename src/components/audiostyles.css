@@ -50,7 +50,7 @@
     --seek-before-width: 0;
     --seek-before-color: #1DB954;
     --knobby: #d2d8e7;
-    --selectedKnobby: #26c9c3;
+    --selectedKnobby: #ffffff;
   
     appearance: none;
     background: transparent;

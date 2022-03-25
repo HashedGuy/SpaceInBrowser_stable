@@ -1,12 +1,11 @@
 import { Html } from '@react-three/drei'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, launchpads, lights, showActions } from '../globalState'
-import MarsSound from  "../../assets/mars-sound.wav"
-import {Howl} from "howler"
-import ReactPlayer from 'react-player'
+import audiostyles from "../audiostyles.css";
+import { FaPlay } from "react-icons/fa"
+import { FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
-import AudioPlayer from '../AudioPlayer'
 
 
 export function InfoBox() {
@@ -17,8 +16,94 @@ export function InfoBox() {
     const [activeAudioPlayer, setAudioPlayer] = useState('')
     const [activeLight, setLight] = useRecoilState(lights)
     const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
+  
+    const AudioPlayer = () => {
 
-    const MarsSound2 = "https://www.nasa.gov/mp3/640165main_Lookin%20At%20It.mp3"
+      // state
+      const [isPlaying, setIsPlaying] = useState(false);
+      const [duration, setDuration] = useState(0);
+      const [currentTime, setCurrentTime] = useState(0);
+    
+      // references
+      const audioPlayer = useRef();   // reference our audio component
+      const progressBar = useRef();   // reference our progress bar
+      const animationRef = useRef();  // reference the animation
+    
+      useEffect(() => {
+        const seconds = Math.floor(audioPlayer.current.duration);
+        setDuration(seconds);
+        progressBar.current.max = seconds;
+      }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+    
+      const calculateTime = (secs) => {
+        const minutes = Math.floor(secs / 60);
+        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const seconds = Math.floor(secs % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        return `${returnedMinutes}:${returnedSeconds}`;
+      }
+    
+      const togglePlayPause = () => {
+        const prevValue = isPlaying;
+        setIsPlaying(!prevValue);
+        if (!prevValue) {
+          audioPlayer.current.play();
+          animationRef.current = requestAnimationFrame(whilePlaying)
+        } else {
+          audioPlayer.current.pause();
+          cancelAnimationFrame(animationRef.current);
+        }
+      }
+    
+      const whilePlaying = () => {
+        progressBar.current.value = audioPlayer.current.currentTime;
+        changePlayerCurrentTime();
+        animationRef.current = requestAnimationFrame(whilePlaying);
+      }
+    
+      const changeRange = () => {
+        audioPlayer.current.currentTime = progressBar.current.value;
+        changePlayerCurrentTime();
+      }
+    
+      const changePlayerCurrentTime = () => {
+        progressBar.current.style.setProperty('--seek-before-width', `${progressBar.current.value / duration * 100}%`)
+        setCurrentTime(progressBar.current.value);
+      }
+    
+      const onLoadedMetadata = () => {
+        const seconds = Math.floor(audioPlayer.current.duration);
+        setDuration(seconds);
+        progressBar.current.max = seconds;
+      };
+      return (
+        <div className="audioPlayer">
+          <audio 
+            onLoadedMetadata={onLoadedMetadata} 
+            ref={audioPlayer} 
+            src={(activeObject==='moon') && (showAction==='')? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
+            (activeObject==='moon') && (showAction==='apollo11') ? "https://images-assets.nasa.gov/audio/Apollo11Highlights/Apollo11Highlights~128k.mp3" :
+            (activeObject==='moon') && (showAction==='apollo12') ? "https://images-assets.nasa.gov/audio/Apollo12Highlights/Apollo12Highlights~128k.mp3" :
+            (activeObject==='moon') && (showAction==='apollo14') ? "https://images-assets.nasa.gov/audio/Apollo14Highlights/Apollo14Highlights~128k.mp3" :
+            (activeObject==='moon') && (showAction==='apollo15') ? "https://images-assets.nasa.gov/audio/Apollo15Highlights/Apollo15Highlights~128k.mp3" :
+            (activeObject==='moon') && (showAction==='apollo16') ? "https://images-assets.nasa.gov/audio/Apollo16Highlights/Apollo16Highlights~128k.mp3" :
+            (activeObject==='moon') && (showAction==='apollo17') ? "https://images-assets.nasa.gov/audio/Apollo17Highlights/Apollo17Highlights~128k.mp3" :
+            (activeObject==='moon') && (showAction==='artemis') ? "https://images-assets.nasa.gov/audio/Ep116_Apollo%20vs%20ARTEMIS/Ep116_Apollo%20vs%20ARTEMIS~128k.mp3"
+            : "https://www.nasa.gov/mp3/577774main_STS-135Launchringtone-v2.mp3"} 
+            preload="metadata">
+            
+        </audio>
+          <button onClick={togglePlayPause} className="playPause">
+            {isPlaying ? <FaPause style={{"fontSize":"50%"}}/> : <FaPlay className="play" />}
+          </button>
+          <div className="currentTime">{calculateTime(currentTime)}</div>
+          <div>
+            <input type="range" className="progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+          </div>
+          <div className="duration">{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
+        </div>
+      )
+    }
     
     return(
         <Html wrapperClass="annotation" >
@@ -29,7 +114,12 @@ export function InfoBox() {
           : activeObject === 'moon' ? 'Moon'
           : activeObject === 'mars' ? 'Mars'
           : activeObject === 'LEO' ? 'Low Earth Orbit'
-          : 'Multiplanetary map'            }
+          : 
+          <>
+            <GiMoonOrbit /> 
+            <span style={{"fontWeight":"500", "marginLeft":"2%"}}>Multiplanetary map</span>
+            <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta version 1.0</p>
+          </>            }
           </h1>
           
           <h5>{
@@ -85,6 +175,8 @@ export function InfoBox() {
             <img src={"https://upload.wikimedia.org/wikipedia/commons/a/a0/VAB_and_SLS.jpg"} className='infoPic'/>
             <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
             <p>Although Kennedy is the NASA's main launch site, the center also is home to facilities that research and develop innovative solutions that government and commercial space ventures need for working and living on the surfaces of the Moon and other bodies in our solar system.</p>
+            <h5>Next mission:</h5> 
+            <p className="nextMission">SpaceX Falcon 9 Axiom Mission 1 (Ax-1)</p>
             </>
             :
             activeLaunchPad==='CCSFS' ? 
@@ -93,6 +185,8 @@ export function InfoBox() {
             <img src={"https://media.defense.gov/2021/Dec/07/2002904591/-1/-1/0/211203-X-KD758-1071.JPG"} className='infoPic'/>
             <p style={{"fontSize":"50%"}}><em>Credit: Patrick Space Force Base</em></p>
             <p>A number of American space exploration pioneers were launched from CCSFS, including the first U.S. Earth satellite in 1958, first U.S. astronaut (1961), first U.S. astronaut in orbit (1962), first two-man U.S. spacecraft (1965), first U.S. unmanned lunar landing (1966), and first three-man U.S. spacecraft (1968).</p>
+            <h5>Next mission:</h5> 
+            <p className="nextMission">ULA Atlas V Boeing CST-100 Starliner Orbital Flight Test 2 (UNCREWED)</p>
             </>
             :
             activeLaunchPad==='Starbase' ? 
@@ -125,6 +219,8 @@ export function InfoBox() {
              <img src={"https://upload.wikimedia.org/wikipedia/commons/5/59/Soyuz_expedition_19_launch_pad.jpg"} className='infoPic'/>
              <p style={{"fontSize":"50%"}}><em>Credit: NASA KSC Media Archive</em></p>
              <p>The Cosmodrome is the world's first spaceport for orbital and human launches and the largest (in area) operational space launch facility. All crewed Russian spaceflights are launched from Baikonur.</p>
+             <h5>Next mission:</h5> 
+             <p className="nextMission">Progress MS-20</p>
             </>
               :
             activeLaunchPad==='SDSC' ? 
@@ -261,7 +357,7 @@ export function InfoBox() {
           </div> : ''}
           </div>
           <div className='addInfo'>
-            {activeObject === 'earth' ? <a className='home-btn'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
+            {(activeObject === 'earth') || (activeObject === 'LEO')? <a className='home-btn inActive'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
             : activeObject === 'moon' ? 
               <a className={showAction===''?"home-btn inActive" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
                   Population: 0 (12)
@@ -367,15 +463,15 @@ export function InfoBox() {
                 <i className="fab fa-patreon"></i>
               </a>
 
-              <a target="_blank" className='youtubeBtn' title='coming soon...'>
+              {/* <a target="_blank" className='youtubeBtn' title='coming soon...'>
                 <i className="fab fa-youtube"></i> 
-              </a>
+              </a> */}
 
               <a  className='twBtn' href="https://twitter.com/multiplanet_guy" target="_blank">
                 <i className="fab fa-twitter"></i>
               </a>
              
-              <p>Built by arbus</p>
+              <p style={{'marginRight':'8%'}}>Built by arbus</p>
             </div>
              :
               ''}
@@ -393,9 +489,58 @@ export function InfoBox() {
         </>
         :
         
-        activeObject === 'moon' ? 
+        (activeObject === 'moon') && (showAction==='') ? 
         <>
         <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='apollo11') ? 
+        <>
+        <p>Apollo 11 Mission Audio</p>
+        <p style={{"fontSize":"70%"}}> <em>All Highlights</em></p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='apollo12') ? 
+        <>
+        <p>Apollo 12 Mission Audio</p>
+        <p style={{"fontSize":"70%"}}><em>All Highlights</em></p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='apollo14') ? 
+        <>
+        <p>Apollo 14 Mission Audio</p>
+        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='apollo15') ? 
+        <>
+        <p>Apollo 15 Mission Audio</p>
+        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='apollo16') ? 
+        <>
+        <p>Apollo 16 Mission Audio</p>
+        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='apollo17') ? 
+        <>
+        <p>Apollo 17 Mission Audio</p>
+        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        </>
+        :
+
+        (activeObject === 'moon') && (showAction==='artemis') ? 
+        <>
+        <p>Houston We Have a Podcast by NASA</p>
+        <p style={{"fontSize":"70%"}}><em>Apollo vs Artemis</em></p>
         </>
         :
         
@@ -412,7 +557,7 @@ export function InfoBox() {
        :''}
         
        {activeObject===''?'':
-       <AudioPlayer />
+        <AudioPlayer/>
        }
         {(activeObject==='moon') || (activeObject==='mars') || (activeObject==='LEO') ? 
         <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> : ''}

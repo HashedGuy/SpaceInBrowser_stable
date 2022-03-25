@@ -70,12 +70,12 @@ audio {
   position: absolute;
   z-index: 16639014;
   top: 1%;
-  left: 410% !important;
-  width: 30vh;
+  left: 400% !important;
+  width: 35vh;
   height: 25vh;
   padding:1em;
   border-radius: 5%;
-  background-color: rgba(214, 11, 11, 0);
+  background-color: rgba(28, 28, 28, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,6 +187,15 @@ audio {
 .viewDiv {
   display: flex;
   flex-direction: column;
+}
+
+.viewDiv h5 {
+  margin: 0;
+  color: #1DA1F2;
+}
+
+.nextMission {
+  color: #4ab2f3;
 }
 
 .populationInfo li{
