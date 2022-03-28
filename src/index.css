@@ -223,11 +223,11 @@ audio {
   margin-right: 1em;
 }
 
-.earthBtn, .marsBtn, .homeBtn, .moonBtn {
+.earthBtn, .marsBtn, .homeBtn, .moonBtn, .earthMoonBtn {
   margin-top: .5em !important;
 }
 
-.earthBtn:hover {
+.earthBtn:hover, .earthMoonBtn:hover {
   color: rgb(45, 87, 226);
 }
 
@@ -286,5 +286,11 @@ audio {
 
 .infoLight {
   align-self: end;
+  cursor: pointer;
+}
+
+.logoTitle {
+  text-align: center;
+  margin-left: 5%;
   cursor: pointer;
 }

@@ -128,7 +128,7 @@ export function Moon(props) {
         scale={
           activeObject === '' ? 1 
           :
-          activeObject === 'earth' ? 2 
+          activeObject === 'earth' ? 1.3 
           :
           activeObject === 'mars' ? .1
           : 10

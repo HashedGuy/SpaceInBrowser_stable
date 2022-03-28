@@ -3,9 +3,9 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, launchpads, lights, showActions } from '../globalState'
 import audiostyles from "../audiostyles.css";
-import { FaPlay } from "react-icons/fa"
-import { FaPause } from "react-icons/fa"
+import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
+import {BsLightbulb, BsLightbulbOff} from 'react-icons/bs'
 
 
 export function InfoBox() {
@@ -109,6 +109,14 @@ export function InfoBox() {
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
           <div className='infoBorders'>
+          {activeObject==='' ? '' : 
+          <>
+            <p className="logoTitle" onClick={()=>setObject('')}>
+            <GiMoonOrbit/>
+            <span style={{"fontWeight":"500", "marginLeft":"2%"}}>Multiplanetary map</span>
+            <span style={{"fontWeight":"200", "marginLeft":"2%"}}>Beta 1.0</span>
+            </p>
+          </>}
           <h1>{
           activeObject === 'earth' ? 'Earth' 
           : activeObject === 'moon' ? 'Moon'
@@ -488,68 +496,58 @@ export function InfoBox() {
         <p className={disabledSpan ? 'disabledSpan': 'enabledSpan'}>Sound travels in waves like light or heat does, but unlike them, sound travels by making molecules vibrate. So, in order for sound to travel, there has to be something with molecules for it to travel through. On Earth, sound travels to your ears by vibrating air molecules. In deep space, the large empty areas between stars and planets, there are no molecules to vibrate.</p>
         </>
         :
-        
         (activeObject === 'moon') && (showAction==='') ? 
         <>
         <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='apollo11') ? 
         <>
         <p>Apollo 11 Mission Audio</p>
         <p style={{"fontSize":"70%"}}> <em>All Highlights</em></p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='apollo12') ? 
         <>
         <p>Apollo 12 Mission Audio</p>
         <p style={{"fontSize":"70%"}}><em>All Highlights</em></p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='apollo14') ? 
         <>
         <p>Apollo 14 Mission Audio</p>
         <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='apollo15') ? 
         <>
         <p>Apollo 15 Mission Audio</p>
         <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='apollo16') ? 
         <>
         <p>Apollo 16 Mission Audio</p>
         <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='apollo17') ? 
         <>
         <p>Apollo 17 Mission Audio</p>
         <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
         </>
         :
-
         (activeObject === 'moon') && (showAction==='artemis') ? 
         <>
         <p>Houston We Have a Podcast by NASA</p>
         <p style={{"fontSize":"70%"}}><em>Apollo vs Artemis</em></p>
         </>
         :
-        
         activeObject === 'mars' ? 
         <>
         <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em></p>
         </>
         :
-        
         activeObject === 'LEO' ? 
         <>
          <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
@@ -560,7 +558,7 @@ export function InfoBox() {
         <AudioPlayer/>
        }
         {(activeObject==='moon') || (activeObject==='mars') || (activeObject==='LEO') ? 
-        <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> : ''}
+          <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> : ''}
         </div>
         
         <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
@@ -570,12 +568,10 @@ export function InfoBox() {
           </p>}
         {(activeObject === 'mars') ? 
           <>
-            
           </>
         :
         (activeObject === 'LEO') && (showAction === '') ? 
           <>
-
           </>
         : 
         (activeObject === 'moon') && (showAction != '') ? 
@@ -599,17 +595,19 @@ export function InfoBox() {
         :
         (activeObject === 'moon') && (showAction === '') ?
           <>
-            {activeLight==='ambient' ? 
-              <p>Enough enlightenment. Click the yellow lightbulb to see the real Moon with its dark side.</p> :
-              <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb to see!</p>}
-              {activeLight==='' ?
+            {activeLight==='' ?
               <a className='lightBtn' onClick={()=>setLight('ambient')}>
-                  <i className="fas fa-lightbulb" style={activeLight==='ambient' ? {"color":"yellow"}: {}}></i>
+                  <BsLightbulb style={{"color":"yellow", "cursor":"pointer"}} title="Lighten the dark side"/>
               </a> :
               <a className='lightBtn' onClick={()=>setLight('')}>
-                  <i className="fas fa-lightbulb" style={activeLight==='ambient' ? {"color":"yellow"}: {}}></i>
+                  <BsLightbulbOff style={{"color":"yellow", "cursor":"pointer"}} title="Back to the dark side"/>
               </a>
-            } 
+            }
+            {activeLight==='ambient' ? 
+              
+              <p>Enough enlightenment. Click the yellow lightbulb to see the real Moon with its dark side.</p> :
+              <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb to see!</p>}
+               
           </>
         :
           <>
@@ -624,29 +622,69 @@ export function InfoBox() {
           }
            <div style={{"display":"flex"}}>
                     {activeObject==='LEO' ? '' : 
-                    <a className='home-btn earthBtn' onClick={()=>setObject('LEO')} title="Low Earth Orbit">
-                    <i className="fa-solid fa-earth-americas"></i></a>}
-                    {activeObject==='moon' ? '' :
-                    <a className='home-btn moonBtn' onClick={()=>setObject('moon')} title="Moon">
-                    <i className="fa-solid fa-moon"></i></a>}
-                    {activeObject==='mars' ? '' : 
                     <>
-                    <a className='home-btn marsBtn' onClick={()=>setObject('mars')} title="Mars">
-                    <i className="fa-solid fa-bowling-ball"></i>
-                    </a>                    
-                    <a className='home-btn marsBtn' onClick={()=>setObject('earth')} title="Earth">
-                    <GiMoonOrbit/>
+                    <a className='home-btn earthBtn' 
+                       onClick={()=>{
+                         setObject('LEO')
+                         setLight('')
+                         setAction('')
+                         setLaunchPad('')
+                        }} 
+                       title="Low Earth Orbit">
+                      <i className="fa-solid fa-earth-americas"></i>
                     </a>
                     </>}
+                    {activeObject==='moon' ? '' :
+                    <>
+                    <a className='home-btn moonBtn' 
+                       onClick={()=>{
+                         setObject('moon')
+                         setLight('')
+                         setAction('')
+                         setLaunchPad('')
+                        }} 
+                       title="Moon">
+                      <i className="fa-solid fa-moon"></i>
+                    </a>
+                    </>}
+                    {activeObject==='mars' ? '' : 
+                    <>
+                    <a className='home-btn marsBtn' 
+                       onClick={()=>{
+                         setObject('mars')
+                         setLight('')
+                         setAction('')
+                         setLaunchPad('')
+                        }} 
+                       title="Mars">
+                    <i className="fa-solid fa-bowling-ball"></i>
+                    </a>   
+                    </>}
+                    {activeObject==='earth' ? '' : 
+                    <>
+                      <a className='home-btn earthMoonBtn' 
+                        onClick={()=>{
+                          setObject('earth')
+                          setLight('')
+                          setAction('')
+                          setLaunchPad('')
+                        }} 
+                      title="Moon orbiting Earth">
+                      <GiMoonOrbit/>
+                      </a>
+                    </>}
                     {activeObject===''?'':
+                    <>
                     <a className='home-btn homeBtn' 
                       onClick={()=>{
                         setObject('')
                         setLight('')
                         setAction('')
-                        setLaunchPad('')}} title="Home">
+                        setLaunchPad('')}} 
+                      title="Home">
                     <i className="fas fa-home"></i>
-                    </a>}
+                    </a>
+                    </>}
                   </div>
         </div>
       </Html>
