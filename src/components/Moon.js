@@ -131,6 +131,8 @@ export function Moon(props) {
           activeObject === 'earth' ? 1.3 
           :
           activeObject === 'mars' ? .1
+          :
+          activeObject === 'LEO' ? 0
           : 10
         }
         onDoubleClick={()=>setObject('moon')}

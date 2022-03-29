@@ -59,11 +59,19 @@ audio {
   height: 30vh;
   padding: .5em;
   border-radius: 5%;
-  background-color: rgba(28, 28, 28, 0.3);
+  background-color: rgba(15, 56, 31, 0.205);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.usefulInfo {
+  background-color: rgba(15, 56, 31, 0.363) !important;
+}
+
+.usefulX {
+  box-shadow: 5px 5px 5px #1da0f2af;
 }
 
 .audioSection {
@@ -72,7 +80,7 @@ audio {
   top: 1%;
   left: 400% !important;
   width: 35vh;
-  height: 25vh;
+  height: 35vh;
   padding:1em;
   border-radius: 5%;
   background-color: rgba(28, 28, 28, 0.3);
@@ -97,7 +105,7 @@ audio {
 }
 
 .enabledSpan {
-  font-size: 50%;
+  font-size: 20% !important;
   opacity: .7;
 }
 
@@ -147,8 +155,13 @@ audio {
   flex-direction: column;
 }
 
-.infoBox p {
+.infoBox p:last-child {
   margin-bottom: 2em;
+}
+
+.viewDiv p:first-child {
+  margin-top: 2em;
+  margin-bottom: .5em;
 }
 
 .home-btn {
@@ -292,5 +305,45 @@ audio {
 .logoTitle {
   text-align: center;
   margin-left: 5%;
+  cursor: pointer;
+}
+
+.closeBtn {
+  align-self: flex-end;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.mouseBtn {
+  position: absolute;
+  z-index: 16639014;
+  top: 87%;
+  left: 480% !important;
+  width: 5vh;
+  height: 5vh;
+  padding: .5em;
+  border-radius: 20%;
+  background-color: rgba(15, 56, 31, 0.205);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.headphoneBtn {
+  position: absolute;
+  z-index: 16639014;
+  top: 1%;
+  left: 480% !important;
+  width: 5vh;
+  height:  5vh;
+  padding: .5em;
+  border-radius: 20%;
+  background-color: rgba(28, 28, 28, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }

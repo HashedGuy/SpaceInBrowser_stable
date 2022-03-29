@@ -2,10 +2,14 @@ import { Html } from '@react-three/drei'
 import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, launchpads, lights, showActions } from '../globalState'
+import Whistler from '../../assets/sounds/Whistler.wav'
+
 import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
-import {BsLightbulb, BsLightbulbOff} from 'react-icons/bs'
+import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones} from 'react-icons/bs'
+import {AiOutlineCloseCircle} from 'react-icons/ai'
+
 
 
 export function InfoBox() {
@@ -16,6 +20,8 @@ export function InfoBox() {
     const [activeAudioPlayer, setAudioPlayer] = useState('')
     const [activeLight, setLight] = useRecoilState(lights)
     const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
+    const [closed, setClose] = useState(false)
+    const [closedAudio, setCloseAudio] = useState(false)
   
     const AudioPlayer = () => {
 
@@ -81,15 +87,17 @@ export function InfoBox() {
           <audio 
             onLoadedMetadata={onLoadedMetadata} 
             ref={audioPlayer} 
-            src={(activeObject==='moon') && (showAction==='')? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
-            (activeObject==='moon') && (showAction==='apollo11') ? "https://images-assets.nasa.gov/audio/Apollo11Highlights/Apollo11Highlights~128k.mp3" :
-            (activeObject==='moon') && (showAction==='apollo12') ? "https://images-assets.nasa.gov/audio/Apollo12Highlights/Apollo12Highlights~128k.mp3" :
-            (activeObject==='moon') && (showAction==='apollo14') ? "https://images-assets.nasa.gov/audio/Apollo14Highlights/Apollo14Highlights~128k.mp3" :
-            (activeObject==='moon') && (showAction==='apollo15') ? "https://images-assets.nasa.gov/audio/Apollo15Highlights/Apollo15Highlights~128k.mp3" :
-            (activeObject==='moon') && (showAction==='apollo16') ? "https://images-assets.nasa.gov/audio/Apollo16Highlights/Apollo16Highlights~128k.mp3" :
-            (activeObject==='moon') && (showAction==='apollo17') ? "https://images-assets.nasa.gov/audio/Apollo17Highlights/Apollo17Highlights~128k.mp3" :
-            (activeObject==='moon') && (showAction==='artemis') ? "https://images-assets.nasa.gov/audio/Ep116_Apollo%20vs%20ARTEMIS/Ep116_Apollo%20vs%20ARTEMIS~128k.mp3"
-            : "https://www.nasa.gov/mp3/577774main_STS-135Launchringtone-v2.mp3"} 
+            src={
+              (activeObject==='moon') && (showAction==='')? "https://www.nasa.gov/mp3/590325main_ringtone_kennedy_WeChoose.mp3" :
+              (activeObject==='moon') && (showAction==='apollo11') ? "https://images-assets.nasa.gov/audio/Apollo11Highlights/Apollo11Highlights~128k.mp3" :
+              (activeObject==='moon') && (showAction==='apollo12') ? "https://images-assets.nasa.gov/audio/Apollo12Highlights/Apollo12Highlights~128k.mp3" :
+              (activeObject==='moon') && (showAction==='apollo14') ? "https://images-assets.nasa.gov/audio/Apollo14Highlights/Apollo14Highlights~128k.mp3" :
+              (activeObject==='moon') && (showAction==='apollo15') ? "https://images-assets.nasa.gov/audio/Apollo15Highlights/Apollo15Highlights~128k.mp3" :
+              (activeObject==='moon') && (showAction==='apollo16') ? "https://images-assets.nasa.gov/audio/Apollo16Highlights/Apollo16Highlights~128k.mp3" :
+              (activeObject==='moon') && (showAction==='apollo17') ? "https://images-assets.nasa.gov/audio/Apollo17Highlights/Apollo17Highlights~128k.mp3" :
+              (activeObject==='moon') && (showAction==='artemis') ? "https://images-assets.nasa.gov/audio/Ep116_Apollo%20vs%20ARTEMIS/Ep116_Apollo%20vs%20ARTEMIS~128k.mp3" :
+              (activeObject==='LEO') ? Whistler
+              : "https://www.nasa.gov/mp3/577774main_STS-135Launchringtone-v2.mp3"} 
             preload="metadata">
             
         </audio>
@@ -111,7 +119,12 @@ export function InfoBox() {
           <div className='infoBorders'>
           {activeObject==='' ? '' : 
           <>
-            <p className="logoTitle" onClick={()=>setObject('')}>
+            <p className="logoTitle" 
+               onClick={()=>{
+                setObject('')
+                setLight('')
+                setAction('')
+                setLaunchPad('')}}>
             <GiMoonOrbit/>
             <span style={{"fontWeight":"500", "marginLeft":"2%"}}>Multiplanetary map</span>
             <span style={{"fontWeight":"200", "marginLeft":"2%"}}>Beta 1.0</span>
@@ -126,7 +139,7 @@ export function InfoBox() {
           <>
             <GiMoonOrbit /> 
             <span style={{"fontWeight":"500", "marginLeft":"2%"}}>Multiplanetary map</span>
-            <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta version 1.0</p>
+            <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta Version 1.0</p>
           </>            }
           </h1>
           
@@ -134,7 +147,7 @@ export function InfoBox() {
             activeObject === 'earth' ? 'Our current home' 
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
             : activeObject === 'mars' ? "The planet we're colonizing next" 
-            : activeObject === 'LEO' ? "This is the place where the most of the crew missions happening."
+            : activeObject === 'LEO' ? "This is where the most of the crew missions happening."
             : ''}
           </h5>
 
@@ -156,24 +169,45 @@ export function InfoBox() {
                 setLight('ambient')}}>
               Rocket launch sites
             </a>}
-            {showAction==='' ? <a className='home-btn' onClick={() => setAction('spaceStation')}>Space stations</a> : ''}
+            {(showAction==='') || (showAction==='spaceStation') ? 
+              <a className={showAction==='spaceStation'?'home-btn launchpad':'home-btn'} 
+                 onClick={() => setAction('spaceStation')}>Space stations</a> : ''}
             {showAction==='spaceStation' ? 
             <>
-              <a className='home-btn inActive'>ISS view to the Earth</a>
-              <a className='home-btn inActive'>View from Dragon capsule</a>
+              <p>The space station is a spacecraft, which support a human crew to stay in space for a long time. It is also known as orbital stations as it circles the Earth.</p>
+              <p>Currently, two active space stations serve as a base for people in space. You can see them travelling around the earth (in yellow orbits <span style={{"color":"yellow"}}>----</span>).</p>
+              <a className='home-btn inActive'>International Space Station</a>
+              <a className='home-btn inActive'>Tiangong Space Station</a>
             </> : ''}
            
             
             {(showAction==='launchpad') || ((showAction==='crewPad') && (activeLaunchPad==='')) || ((showAction==='satellitePad') && (activeLaunchPad==='')) ? 
             <>
-            <p>Some info...</p>
-            <a className='home-btn' onClick={()=>setAction('crewPad')}>With crew mission launches</a>
-            <a className='home-btn' onClick={()=>setAction('satellitePad')}>With satellite launches only</a>
+            <p>To get to space, humankind relies on key launch sites scattered around the world.</p>
+            <p>Dozens of sites around the world host spaceports, the specialized facilities built to send and receive rocket-powered vehicles on flights into the cosmos.</p>
             
+            <a className='home-btn' onClick={()=>setAction('crewPad')}>Show sites with crew launch</a>
+            {showAction==='crewPad' ? 
+              <>
+                <p>Green circles &#128994; on the surface of the Earth show the rocket launch sites with confirmed crew mission launches.</p>
+              </>
+            : ''}
+            <a className='home-btn' onClick={()=>setAction('satellitePad')}>Show sites with satellite launch</a>
+            {showAction==='satellitePad' ? 
+              <>
+                <p>Red circles 	&#128308; on the surface of the Earth show the rocket launch sites with confirmed satellite launches only (without crew mission launches).</p>
+              </>
+              : ''}
             </>
 
             :''}
-            {(showAction==='') || (activeLaunchPad!='') ? '' : <a className='home-btn' onClick={()=>setAction('')}>&#x2190; Back</a>} 
+            {(showAction==='') || (activeLaunchPad!='') ? '' : 
+              <a className='home-btn' 
+                 onClick={()=>{
+                   setAction('')
+                   setLight('')
+                  }}
+              >&#x2190; Back</a>} 
 
             {activeLaunchPad==='' ? '' : <a className='home-btn launchpad'>{activeLaunchPad}</a>}
 
@@ -486,8 +520,14 @@ export function InfoBox() {
           </div>
         </div>
         
+        {closedAudio ? 
+          <BsHeadphones 
+            className={(showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? "headphoneBtn usefulX" : "headphoneBtn"}
+            onClick={()=>setCloseAudio(false)}
+          />:
         <div className={
           (activeObject==='mars') || (activeObject==='earth') ? 'audioSection extraWeird' : 'audioSection'}>
+            <AiOutlineCloseCircle className='closeBtn' onClick={()=>setCloseAudio(true)}/>
         <i className="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>
        
        {activeObject === '' ? 
@@ -550,22 +590,33 @@ export function InfoBox() {
         :
         activeObject === 'LEO' ? 
         <>
-         <p>Let's listen to Chorus Radio Waves within Earth's Atmosphere</p>
+         <p>Atmospheric squeaking</p>
+         <p style={{"fontSize":"70%"}}>A 'whistler' is audibly emitted in the atmosphere.<a onClick={()=>setSpan(!disabledSpan)}>But what are 'whistlers' exactly?</a></p>
+         <p className={disabledSpan ? 'disabledSpan': 'enabledSpan'}>They are electromagnetic emissions produced in the atmosphere, but their cause is still partly unclear. They originate from thunderstorms or meteorites, or even after earthquakes. Once produced, the sounds travel along closed magnetic field lines from one hemisphere to the other.</p>
+        
         </>
        :''}
         
        {activeObject===''?'':
         <AudioPlayer/>
        }
-        {(activeObject==='moon') || (activeObject==='mars') || (activeObject==='LEO') ? 
-          <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> : ''}
-        </div>
-        
-        <div className={(activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' : 'extraInfo'}>
-        {(showAction==='') || (showAction==='launchpad') ? '' : 
-        <p className="infoLight" title="follow instructions for interactivity" style={activeLaunchPad!=''?{"opacity":.3}:{}}>
-             &#128994;
-          </p>}
+        {(activeObject==='moon') || (activeObject==='mars') ? 
+          <p className='credits'><em>Credit: NASA/JPL-Caltech/SwRI/Univ of Iowa</em></p> :
+          (activeObject==='LEO') ? 
+          <p className='credits'><em>Credit: Cluster (University of Iowa)</em></p> : ''}
+        </div>}
+
+        {closed ? 
+          <BsFillMouse2Fill 
+            className={(showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? "mouseBtn usefulX" : "mouseBtn"} 
+            onClick={()=>setClose(false)}
+          /> :
+        <div className={
+          (activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' :
+          (showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? 'extraInfo usefulInfo'
+          
+          : 'extraInfo'}>
+        <AiOutlineCloseCircle className='closeBtn' onClick={()=>setClose(true)}/>
         {(activeObject === 'mars') ? 
           <>
           </>
@@ -686,6 +737,6 @@ export function InfoBox() {
                     </a>
                     </>}
                   </div>
-        </div>
+        </div>}
       </Html>
     )}

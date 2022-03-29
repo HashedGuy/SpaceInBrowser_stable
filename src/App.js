@@ -7,6 +7,7 @@ import { RecoilRoot, useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState, u
 import Earth from './components/Earth'
 import Starship from './components/models/Starship'
 import ISS from './components/models/ISS'
+import TSS from './components/models/TSS'
 import Mars from './components/Mars'
 import Moon from './components/Moon'
 import { clickedCBState } from './components/globalState'
@@ -29,7 +30,8 @@ export default function App() {
                     <Mars />
                     <Moon />
                     <Starship />
-                     <ISS />
+                    <ISS />
+                    <TSS />
                   </Suspense>
                   </RecoilRoot>
                 </Canvas>

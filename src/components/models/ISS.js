@@ -13,17 +13,21 @@ export default function Model({ ...props }) {
   const issRef = useRef()
   let zRadius
   let xRadius
+  let yRadius
   activeObject === '' ? (xRadius=0) : activeObject === 'LEO' ? xRadius=3.8 : xRadius=1.05
   activeObject === '' ? (zRadius=0) : activeObject === 'LEO' ? zRadius=3.8 : zRadius=1.05
+  activeObject === '' ? (yRadius=0) : activeObject === 'LEO' ? yRadius=.2 : yRadius=.3
 
   useFrame(({ clock }) => {
     let elapsedTime
-   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .6)}
+   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .05)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
+    const y = yRadius* Math.cos(elapsedTime)
     issRef.current.position.x = x;
     issRef.current.position.z = z;
+    issRef.current.position.y = y;
 
   });
 

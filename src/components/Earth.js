@@ -12,7 +12,7 @@ import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
 import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 
-function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 0 }) {
+function Ecliptic({ xRadius, zRadius, yRadius, color }) {
   const points = [];
   for (let index = 0; index < 64; index++) {
     const angle = (index / 64) * 2 * Math.PI;
@@ -23,7 +23,7 @@ function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 0 }) {
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
     <line geometry={lineGeometry}>
-      <lineBasicMaterial attach="material" color="yellow" linewidth={.1} />
+      <lineBasicMaterial attach="material" color={color} linewidth={.1} />
     </line>
   );
 }
@@ -472,17 +472,19 @@ export function Earth(props) {
       {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
       {activeObject === 'earth' ? 
       
-      <Ecliptic xRadius={1.05} zRadius={1.05} yRadius={0}/> :
+      <Ecliptic xRadius={1.05} zRadius={1.05} yRadius={.3}/> :
 
       activeObject === 'LEO' ? 
-      <Ecliptic xRadius={3.8} zRadius={3.8} yRadius={0}/>
+      <Ecliptic xRadius={3.8} zRadius={3.8} yRadius={.2}/>
       
       : <Ecliptic xRadius={0} zRadius={0}/>  }
-       {activeObject === 'earth' ? 
       
-      <Ecliptic xRadius={1.05} zRadius={1.05} yRadius={.4}/>
-      
-      : <Ecliptic xRadius={0} zRadius={0}/>  }
+      {activeObject === 'earth' ? 
+        <Ecliptic color={'red'} xRadius={1.052} zRadius={1.052} yRadius={-.4}/>
+        :
+        activeObject === 'LEO' ? 
+        <Ecliptic xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
+        : <Ecliptic xRadius={0} zRadius={0}/>  }
      
     </>
   );
