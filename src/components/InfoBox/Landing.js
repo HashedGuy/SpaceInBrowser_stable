@@ -1,7 +1,7 @@
 import { Html } from '@react-three/drei'
 import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { clickedCBState, launchpads, lights, showActions } from '../globalState'
+import { clickedCBState, launchpads, lights, showActions, stations } from '../globalState'
 import Whistler from '../../assets/sounds/Whistler.wav'
 
 import audiostyles from "../audiostyles.css";
@@ -20,6 +20,7 @@ export function InfoBox() {
     const [activeAudioPlayer, setAudioPlayer] = useState('')
     const [activeLight, setLight] = useRecoilState(lights)
     const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
+    const [activeStation, setStation] = useRecoilState(stations)
     const [closed, setClose] = useState(false)
     const [closedAudio, setCloseAudio] = useState(false)
   
@@ -169,15 +170,30 @@ export function InfoBox() {
                 setLight('ambient')}}>
               Rocket launch sites
             </a>}
-            {(showAction==='') || (showAction==='spaceStation') ? 
+            {(showAction==='') || (showAction==='spaceStation') && (activeStation==='') ? 
               <a className={showAction==='spaceStation'?'home-btn launchpad':'home-btn'} 
                  onClick={() => setAction('spaceStation')}>Space stations</a> : ''}
             {showAction==='spaceStation' ? 
-            <>
+              <>
+              {activeStation==='' ? 
+              <>
               <p>The space station is a spacecraft, which support a human crew to stay in space for a long time. It is also known as orbital stations as it circles the Earth.</p>
               <p>Currently, two active space stations serve as a base for people in space. You can see them travelling around the earth (in yellow orbits <span style={{"color":"yellow"}}>----</span>).</p>
-              <a className='home-btn inActive'>International Space Station</a>
-              <a className='home-btn inActive'>Tiangong Space Station</a>
+              </> : ''}
+              <a className='home-btn' onClick={()=>setStation('ISS')}>International Space Station</a>
+              {activeStation==='ISS' ? 
+              <>
+                <p>The largest and most sophisticated of space station is the International Space Station (ISS).</p> 
+                <p>Since the first module was launched into low Earth orbit in 1998, the ISS has grown with modular additions from the principal space agencies involved in building and operating the space station: NASA, Roscosmos, the European Space Agency (ESA), the Japan Aerospace Exploration Agency (JAXA) and the Canadian Space Agency (CSA). To date, 237 astronauts from 18 countries have visited the ISS.</p>
+              </>
+              :''}
+              <a className='home-btn' onClick={()=>setStation('TSS')}>Tiangong Space Station</a>
+              {activeStation==='TSS' ? 
+              <>
+                <p>Tiangong (Chinese: 天宫, 'Palace in the Sky'), officially the Tiangong space station (Chinese: 天宫空间站), is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>
+                <p>The construction of the station is based on the experience gained from its precursors, Tiangong-1 and Tiangong-2. The first module, the Tianhe ("Harmony of the Heavens") core module, was launched on 29 April 2021, followed by multiple crewed and uncrewed missions and two more modules to be launched by 2022. Chinese leaders have expressed the hope that the research conducted on the station will improve researchers' ability to conduct science experiments in space, beyond the duration and capacity offered by China's existing space laboratories.</p>
+              </>
+              :''}
             </> : ''}
            
             

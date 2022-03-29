@@ -21,3 +21,8 @@ export const launchpads = atom({
     default:''
 })
 
+export const stations = atom({
+    key: 'stations',
+    default:''
+})
+
