@@ -20,7 +20,7 @@ export default function Model({ ...props }) {
 
   useFrame(({ clock }) => {
     let elapsedTime
-    {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .06)}
+    {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .009) : (elapsedTime = clock.getElapsedTime() * .06)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)

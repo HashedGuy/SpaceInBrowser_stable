@@ -469,13 +469,14 @@ export function Earth(props) {
       </mesh>
      
 
-      {activeObject === '' ? <Ecliptic xRadius={xRadius} zRadius={zRadius}/> : ''}
+      {activeObject === '' ? 
+      <Ecliptic color={'transparent'} xRadius={5} zRadius={3.5} yRadius={0}/> : ''}
       {activeObject === 'earth' ? 
       
-      <Ecliptic xRadius={1.05} zRadius={1.05} yRadius={.3}/> :
+      <Ecliptic color={'orange'} xRadius={1.05} zRadius={1.05} yRadius={.3}/> :
 
       activeObject === 'LEO' ? 
-      <Ecliptic xRadius={3.8} zRadius={3.8} yRadius={.2}/>
+      <Ecliptic color={'orange'} xRadius={3.8} zRadius={3.8} yRadius={.2}/>
       
       : <Ecliptic xRadius={0} zRadius={0}/>  }
       
@@ -483,7 +484,7 @@ export function Earth(props) {
         <Ecliptic color={'red'} xRadius={1.052} zRadius={1.052} yRadius={-.4}/>
         :
         activeObject === 'LEO' ? 
-        <Ecliptic xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
+        <Ecliptic color={'red'} xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
         : <Ecliptic xRadius={0} zRadius={0}/>  }
      
     </>

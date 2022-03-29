@@ -78,7 +78,7 @@ audio {
   position: absolute;
   z-index: 16639014;
   top: 1%;
-  left: 400% !important;
+  left: 395% !important;
   width: 35vh;
   height: 35vh;
   padding:1em;
@@ -105,12 +105,12 @@ audio {
 }
 
 .enabledSpan {
-  font-size: 20% !important;
+  font-size: 60% !important;
   opacity: .7;
 }
 
 .extraWeird {
-  left: 487% !important;
+  left: 477% !important;
 }
 
 .extraInfo p {

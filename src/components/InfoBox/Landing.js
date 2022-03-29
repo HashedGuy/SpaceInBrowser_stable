@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, launchpads, lights, showActions, stations } from '../globalState'
 import Whistler from '../../assets/sounds/Whistler.wav'
+import MartianWind from '../../assets/sounds/martianWind.mp3'
 
 import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
@@ -97,7 +98,8 @@ export function InfoBox() {
               (activeObject==='moon') && (showAction==='apollo16') ? "https://images-assets.nasa.gov/audio/Apollo16Highlights/Apollo16Highlights~128k.mp3" :
               (activeObject==='moon') && (showAction==='apollo17') ? "https://images-assets.nasa.gov/audio/Apollo17Highlights/Apollo17Highlights~128k.mp3" :
               (activeObject==='moon') && (showAction==='artemis') ? "https://images-assets.nasa.gov/audio/Ep116_Apollo%20vs%20ARTEMIS/Ep116_Apollo%20vs%20ARTEMIS~128k.mp3" :
-              (activeObject==='LEO') ? Whistler
+              (activeObject==='LEO') ? Whistler :
+              (activeObject==='mars') ? MartianWind
               : "https://www.nasa.gov/mp3/577774main_STS-135Launchringtone-v2.mp3"} 
             preload="metadata">
             
@@ -145,9 +147,9 @@ export function InfoBox() {
           </h1>
           
           <h5>{
-            activeObject === 'earth' ? 'Our current home' 
+            activeObject === 'earth' ? 'Our current home. Yes pls add smth here very soon.' 
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
-            : activeObject === 'mars' ? "The planet we're colonizing next" 
+            : activeObject === 'mars' ? "The planet we're colonizing next. Yes pls add smth here." 
             : activeObject === 'LEO' ? "This is where the most of the crew missions happening."
             : ''}
           </h5>
@@ -180,17 +182,21 @@ export function InfoBox() {
               <p>The space station is a spacecraft, which support a human crew to stay in space for a long time. It is also known as orbital stations as it circles the Earth.</p>
               <p>Currently, two active space stations serve as a base for people in space. You can see them travelling around the earth (in yellow orbits <span style={{"color":"yellow"}}>----</span>).</p>
               </> : ''}
-              <a className='home-btn' onClick={()=>setStation('ISS')}>International Space Station</a>
+              {activeStation==='TSS' ? '' : <a className={activeStation==='ISS' ? 'home-btn launchpad' : 'home-btn'} onClick={()=>setStation('ISS')}>International Space Station</a>}
               {activeStation==='ISS' ? 
               <>
                 <p>The largest and most sophisticated of space station is the International Space Station (ISS).</p> 
+                <img src={"https://upload.wikimedia.org/wikipedia/commons/e/e1/The_station_pictured_from_the_SpaceX_Crew_Dragon_5_%28cropped%29.jpg"} className='infoPic'/>
+                <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
                 <p>Since the first module was launched into low Earth orbit in 1998, the ISS has grown with modular additions from the principal space agencies involved in building and operating the space station: NASA, Roscosmos, the European Space Agency (ESA), the Japan Aerospace Exploration Agency (JAXA) and the Canadian Space Agency (CSA). To date, 237 astronauts from 18 countries have visited the ISS.</p>
               </>
               :''}
-              <a className='home-btn' onClick={()=>setStation('TSS')}>Tiangong Space Station</a>
+              {activeStation==='ISS' ? '' : <a className={activeStation==='TSS' ? 'home-btn launchpad' : 'home-btn'}  onClick={()=>setStation('TSS')}>Tiangong Space Station</a>}
               {activeStation==='TSS' ? 
               <>
-                <p>Tiangong (Chinese: 天宫, 'Palace in the Sky'), officially the Tiangong space station (Chinese: 天宫空间站), is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>
+                <p>Tiangong (Chinese: 天宫, 'Palace in the Sky') is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>
+                <img src={"https://upload.wikimedia.org/wikipedia/commons/1/1a/Tiangong_Space_Station_Rendering_2021.10.png"} className='infoPic'/>
+                <p style={{"fontSize":"50%"}}><em>Credit: Shujianyang</em></p>
                 <p>The construction of the station is based on the experience gained from its precursors, Tiangong-1 and Tiangong-2. The first module, the Tianhe ("Harmony of the Heavens") core module, was launched on 29 April 2021, followed by multiple crewed and uncrewed missions and two more modules to be launched by 2022. Chinese leaders have expressed the hope that the research conducted on the station will improve researchers' ability to conduct science experiments in space, beyond the duration and capacity offered by China's existing space laboratories.</p>
               </>
               :''}
@@ -217,7 +223,8 @@ export function InfoBox() {
             </>
 
             :''}
-            {(showAction==='') || (activeLaunchPad!='') ? '' : 
+            {(activeStation==='ISS') || (activeStation==='TSS') ? <a onClick={()=>setStation('')} className="home-btn">Close &#x2715;</a>:''}
+            {(showAction==='') || (activeLaunchPad!='') || (activeStation!='') ? '' : 
               <a className='home-btn' 
                  onClick={()=>{
                    setAction('')
@@ -541,8 +548,7 @@ export function InfoBox() {
             className={(showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? "headphoneBtn usefulX" : "headphoneBtn"}
             onClick={()=>setCloseAudio(false)}
           />:
-        <div className={
-          (activeObject==='mars') || (activeObject==='earth') ? 'audioSection extraWeird' : 'audioSection'}>
+        <div className={'audioSection'}>
             <AiOutlineCloseCircle className='closeBtn' onClick={()=>setCloseAudio(true)}/>
         <i className="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>
        
@@ -554,6 +560,7 @@ export function InfoBox() {
         :
         (activeObject === 'moon') && (showAction==='') ? 
         <>
+        <p>We Choose to Go to the Moon</p>
         <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
         </>
         :
@@ -601,7 +608,8 @@ export function InfoBox() {
         :
         activeObject === 'mars' ? 
         <>
-        <p>Let's to listen to Martian wind captured by <em>Perseverance Rover’s SuperCam</em></p>
+        <p>Martian wind</p>
+        <p style={{"fontSize":"70%"}}>This recording was made on Feb. 22, 2021, on the fourth sol (Martian day) by the SuperCam instrument on NASA's Perseverance rover after deployment of the rover's mast.</p>
         </>
         :
         activeObject === 'LEO' ? 
@@ -628,7 +636,6 @@ export function InfoBox() {
             onClick={()=>setClose(false)}
           /> :
         <div className={
-          (activeObject==='mars') || (activeObject==='earth')?'extraInfo extraWeird' :
           (showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? 'extraInfo usefulInfo'
           
           : 'extraInfo'}>
@@ -673,7 +680,7 @@ export function InfoBox() {
             {activeLight==='ambient' ? 
               
               <p>Enough enlightenment. Click the yellow lightbulb to see the real Moon with its dark side.</p> :
-              <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb to see!</p>}
+              <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb and rotate to see!</p>}
                
           </>
         :
