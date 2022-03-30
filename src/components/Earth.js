@@ -1,4 +1,4 @@
-import { useFrame, useLoader, lineBasicMaterial } from '@react-three/fiber';
+import { useFrame, useLoader, lineBasicMaterial, extend } from '@react-three/fiber';
 import { OrbitControls, Stars, Html } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
@@ -11,6 +11,11 @@ import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
 import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
 import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import Font from "../assets/font.json"
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+
+extend({ TextGeometry })
 
 function Ecliptic({ xRadius, zRadius, yRadius, color }) {
   const points = [];
@@ -55,6 +60,14 @@ export function Earth(props) {
     let y = (Math.cos(phi))*3.5
     return {x, y, z}
   }
+
+  const font = new FontLoader().parse(Font);
+
+  const textOptions = {
+    font,
+    size: .035,
+    height: .009
+  };
 
   let pointKSS = {
     lat:28.973469,
@@ -196,7 +209,7 @@ export function Earth(props) {
     <>
       <InfoBox />
       {light === 'ambient' ?
-      <ambientLight/> : 
+      <ambientLight intensity={1} color="#f6f3ea"/> : 
       <pointLight 
         color="#f6f3ea" 
         position={
@@ -281,8 +294,36 @@ export function Earth(props) {
 
       <mesh
        ref={pinRef}
+        position={[posKSS.x,posKSS.y,posKSS.z]}
+        onClick={()=>setLaunchPad('KSS')}
+      >
+        
+        <textGeometry attach='geometry' args={['LIVE', textOptions]} />
+        <meshStandardMaterial attach='material' color={'red'} />
+      </mesh>
+
+      <mesh
+       ref={pinRef}
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
         onClick={()=>setLaunchPad('Starbase')}
+      >
+        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
+        <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posStarbase.x,posStarbase.y,posStarbase.z]}
+        onClick={()=>setLaunchPad('Starbase')}
+      >
+        <textGeometry attach='geometry' args={['LIVE', textOptions]} />
+        <meshStandardMaterial attach='material' color={'red'} />
+      </mesh>
+
+      <mesh
+       ref={pinRef}
+        position={[posCCSC.x,posCCSC.y,posCCSC.z]}
+        onClick={()=>setLaunchPad('CCSFS')}
       >
         <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
@@ -293,8 +334,8 @@ export function Earth(props) {
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
         onClick={()=>setLaunchPad('CCSFS')}
       >
-        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
-        <meshBasicMaterial color={0x00ff00}/>
+         <textGeometry attach='geometry' args={['LIVE', textOptions]} />
+        <meshStandardMaterial attach='material' color={'red'} />
       </mesh>
 
       <mesh

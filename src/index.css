@@ -223,6 +223,28 @@ audio {
   border-radius: 5px;
 }
 
+.bioPic {
+  background-size: cover;
+  width: 20%;
+  cursor: pointer;
+  margin-left: 2%;
+}
+
+.bioPicR {
+  background-size: cover;
+  width: 15%;
+  cursor: pointer;
+  margin-left: 4%;
+  opacity: .7;
+}
+
+.bioPicC {
+  background-size: cover;
+  width: 20%;
+  cursor: pointer;
+  margin-left: 7%;
+}
+
 .Patreon {
   color: aliceblue;
 }
@@ -346,4 +368,8 @@ audio {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.stream {
+  border-radius: 20px;
 }
