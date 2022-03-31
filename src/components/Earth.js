@@ -12,7 +12,7 @@ import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
 import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/2k_earth_clouds.jpg"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
-import Font from "../assets/font.json"
+import Font from "../assets/fontLight.json"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 
 extend({ TextGeometry })
@@ -65,7 +65,7 @@ export function Earth(props) {
 
   const textOptions = {
     font,
-    size: .035,
+    size: showAction==='crewPad' ? .035: 0,
     height: .009
   };
 
@@ -298,7 +298,7 @@ export function Earth(props) {
         onClick={()=>setLaunchPad('KSS')}
       >
         
-        <textGeometry attach='geometry' args={['LIVE', textOptions]} />
+        <textGeometry attach='geometry' args={['   LIVE', textOptions]} />
         <meshStandardMaterial attach='material' color={'red'} />
       </mesh>
 
@@ -316,7 +316,7 @@ export function Earth(props) {
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
         onClick={()=>setLaunchPad('Starbase')}
       >
-        <textGeometry attach='geometry' args={['LIVE', textOptions]} />
+        <textGeometry attach='geometry' args={['   LIVE', textOptions]} />
         <meshStandardMaterial attach='material' color={'red'} />
       </mesh>
 
@@ -334,7 +334,7 @@ export function Earth(props) {
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
         onClick={()=>setLaunchPad('CCSFS')}
       >
-         <textGeometry attach='geometry' args={['LIVE', textOptions]} />
+         <textGeometry attach='geometry' args={['    LIVE', textOptions]} />
         <meshStandardMaterial attach='material' color={'red'} />
       </mesh>
 

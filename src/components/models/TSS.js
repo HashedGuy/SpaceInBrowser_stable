@@ -2,7 +2,12 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei' 
 import { useRecoilState } from 'recoil'
 import { clickedCBState } from '../globalState'
-import { useFrame } from '@react-three/fiber';
+import { useFrame, extend } from '@react-three/fiber';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import Font from "../../assets/fontMedium.json"
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+
+extend({ TextGeometry })
 
 export default function Model({ ...props }) {
   const group = useRef()
@@ -11,6 +16,8 @@ export default function Model({ ...props }) {
   const [activeObject, setObject] = useRecoilState(clickedCBState)
 
   const tssRef = useRef()
+  const tssTextRef = useRef()
+
   let zRadius
   let xRadius
   let yRadius
@@ -30,7 +37,39 @@ export default function Model({ ...props }) {
     tssRef.current.position.y = y;
 
   });
+
+  useFrame(({ clock }) => {
+    let elapsedTime
+    {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .009) : (elapsedTime = clock.getElapsedTime() * .06)}
+    
+    const x = xRadius* Math.sin(elapsedTime)
+    const z = zRadius* Math.cos(elapsedTime)
+    const y = yRadius* Math.cos(elapsedTime)
+    tssTextRef.current.position.x = x;
+    tssTextRef.current.position.z = z;
+    tssTextRef.current.position.y = y;
+
+  });
+
+  const font = new FontLoader().parse(Font);
+
+  const textOptions = {
+    font,
+    size: .04,
+    height: .009
+  };
+  
+
   return (
+    <>
+    <mesh
+      ref={tssTextRef}
+      position={[xRadius, yRadius, zRadius]}
+    >
+       <textGeometry attach='geometry' args={['    TSS', textOptions]} />
+        <meshStandardMaterial attach='material' color={'white'} />
+    </mesh>
+
     <mesh 
       scale={(activeObject==='LEO') || (activeObject==='earth') ? .001 : 0}
       position={[.7, .7, .7]} 
@@ -146,6 +185,7 @@ export default function Model({ ...props }) {
       </group>
     </group>
     </mesh>
+    </>
   )
 }
 

@@ -2,7 +2,12 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { clickedCBState } from '../globalState';
 import { useRecoilState } from 'recoil';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, extend } from '@react-three/fiber';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import Font from "../../assets/fontMedium.json"
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+
+extend({ TextGeometry })
 
 export default function Model({ ...props }) {
   const group = useRef()
@@ -11,6 +16,7 @@ export default function Model({ ...props }) {
   const [activeObject, setObject] = useRecoilState(clickedCBState)
 
   const issRef = useRef()
+  const issTextRef = useRef()
   let zRadius
   let xRadius
   let yRadius
@@ -31,9 +37,38 @@ export default function Model({ ...props }) {
 
   });
 
+  useFrame(({ clock }) => {
+    let elapsedTime
+   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .05)}
+    
+    const x = xRadius* Math.sin(elapsedTime)
+    const z = zRadius* Math.cos(elapsedTime)
+    const y = yRadius* Math.cos(elapsedTime)
+    issTextRef.current.position.x = x;
+    issTextRef.current.position.z = z;
+    issTextRef.current.position.y = y;
+
+  });
+
+  const font = new FontLoader().parse(Font);
+
+  const textOptions = {
+    font,
+    size: .04,
+    height: .009
+  };
   
   return (
     <>
+
+    <mesh
+      ref={issTextRef}
+      position={[xRadius, yRadius, zRadius]}
+    >
+       <textGeometry attach='geometry' args={['    ISS', textOptions]} />
+        <meshStandardMaterial attach='material' color={'white'} />
+    </mesh>
+    
     <mesh 
       position={[2.12, 0, 2.12]} 
       scale={
@@ -383,7 +418,8 @@ export default function Model({ ...props }) {
       </group>
     </group>
     </mesh>
-    {/* <Ecliptic xRadius={xRadius} zRadius={zRadius}/> */}
+
+    
     </>
   )
 }

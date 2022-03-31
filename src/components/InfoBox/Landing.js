@@ -246,7 +246,7 @@ export function InfoBox() {
             <a className='home-btn' onClick={()=>setAction('crewPad')}>Show sites with crew launch</a>
             {showAction==='crewPad' ? 
               <>
-                <p>Green circles &#128994; on the surface of the Earth show the rocket launch sites with confirmed crew mission launches.</p>
+                <p>Green circles &#128994; on the surface of the Earth show the rocket launch sites with confirmed crew mission launches. Some of them provide <span style={{"color": "red"}}>LIVE</span> streams!</p>
               </>
             : ''}
             <a className='home-btn' onClick={()=>setAction('satellitePad')}>Show sites with satellite launch</a>

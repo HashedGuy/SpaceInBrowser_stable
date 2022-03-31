@@ -1,12 +1,17 @@
-import { useFrame, useLoader, lineBasicMaterial } from '@react-three/fiber';
+import { useFrame, useLoader, lineBasicMaterial, extend } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import Font from "../assets/fontMedium.json"
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 
 import { TextureLoader } from 'three';
 import MoonMap from "../assets/8k_moon.jpeg"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, showActions } from './globalState';
+
+extend({ TextGeometry })
 
 function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
   const [activeObject, setObject] = useRecoilState(clickedCBState)
@@ -62,12 +67,11 @@ export function Moon(props) {
     moonRef.current.position.x = x;
     moonRef.current.position.z = z;
     moonRef.current.position.y = y;
-
-    // activeObject === 'moon' ? moonRef.current.rotation.y += .001 : moonRef.current.rotation.y += .0001;
-
   });
 
   const showAction = useRecoilValue(showActions)
+
+
 
   function calcPosFromLatLngRad(lat, lng) {
     var phi = (90 - lat)*(Math.PI/180)
@@ -77,6 +81,14 @@ export function Moon(props) {
     let y = (Math.cos(phi))*2.5
     return {x, y, z}
   }
+
+  const font = new FontLoader().parse(Font);
+
+  const textOptions = {
+    font,
+    size: .06,
+    height: .009
+  };
 
   let pointApollo11 = {
     lat:0.67345,
@@ -156,10 +168,24 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        position={[posApollo11.x,posApollo11.y,posApollo11.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='apollo11' ? ['   <-- Apollo 11', textOptions] : ['', textOptions]}  />
+        <meshStandardMaterial attach='material' color={'white'} />
+      </mesh>
+
+      <mesh
         position={[posApollo12.x,posApollo12.y,posApollo12.z]}
       >
         <sphereBufferGeometry args={showAction==='apollo12'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posApollo12.x,posApollo12.y,posApollo12.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='apollo12' ? ['   <-- Apollo 12', textOptions] : ['', textOptions]} />
+        <meshStandardMaterial attach='material' color={'white'} />
       </mesh>
 
       <mesh
@@ -170,10 +196,24 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        position={[posApollo14.x,posApollo14.y,posApollo14.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='apollo14' ? ['   <-- Apollo 14', textOptions] : ['', textOptions]}  />
+        <meshStandardMaterial attach='material' color={'white'} />
+      </mesh>
+
+      <mesh
         position={[posApollo15.x,posApollo15.y,posApollo15.z]}
       >
         <sphereBufferGeometry args={showAction==='apollo15'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
+      </mesh>
+
+      <mesh
+        position={[posApollo15.x,posApollo15.y,posApollo15.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='apollo15' ? ['   <-- Apollo 15', textOptions] : ['', textOptions]}  />
+        <meshStandardMaterial attach='material' color={'white'} />
       </mesh>
 
       <mesh
@@ -184,6 +224,13 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        position={[posApollo16.x,posApollo16.y,posApollo16.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='apollo16' ? ['   <-- Apollo 16', textOptions] : ['', textOptions]}  />
+        <meshStandardMaterial attach='material' color={'white'} />
+      </mesh>
+
+      <mesh
         position={[posApollo17.x,posApollo17.y,posApollo17.z]}
       >
         <sphereBufferGeometry args={showAction==='apollo17'? [0.03, 30, 30] : [0, 30,30]}/>
@@ -191,10 +238,24 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        position={[posApollo17.x,posApollo17.y,posApollo17.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='apollo17' ? ['   <-- Apollo 17', textOptions] : ['', textOptions]}  />
+        <meshStandardMaterial attach='material' color={'white'} />
+      </mesh>
+
+      <mesh
         position={[posArtemis3.x,posArtemis3.y,posArtemis3.z]}
       >
         <sphereBufferGeometry args={showAction==='artemis'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
+      </mesh>
+
+      <mesh
+        position={[posArtemis3.x,posArtemis3.y,posArtemis3.z]}
+      >
+        <textGeometry attach='geometry' args={showAction==='artemis' ? ['   <-- Artemis 3', textOptions] : ['', textOptions]}  />
+        <meshStandardMaterial attach='material' color={'white'} />
       </mesh>
       {activeObject === 'mars' ? '' : <Ecliptic xRadius={xRadius} zRadius={zRadius}/>}
     </>
