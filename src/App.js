@@ -26,7 +26,7 @@ function Loader() {
       <div className='loadingContainer'>
         <GiMoonOrbit style={{"fontSize":"250%"}}/>
         <h1>The universe is loading...</h1>
-        <p>{progress} % loaded</p>
+        <p>{progress} % </p>
       </div>
     </Html>)
 }
