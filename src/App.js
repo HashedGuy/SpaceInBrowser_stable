@@ -12,6 +12,7 @@ import TSS from './components/models/TSS'
 import Mars from './components/Mars'
 import Moon from './components/Moon'
 import { clickedCBState } from './components/globalState'
+import {GiMoonOrbit} from 'react-icons/gi'
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -22,8 +23,11 @@ function Loader() {
   const { progress } = useProgress()
   return (
     <Html center>
-      <p style={{"color":"white"}}>The universe is loading...</p>
-      <p style={{"color":"white"}}>{progress} % loaded</p>
+      <div className='loadingContainer'>
+        <GiMoonOrbit style={{"fontSize":"250%"}}/>
+        <h1>The universe is loading...</h1>
+        <p>{progress} % loaded</p>
+      </div>
     </Html>)
 }
 

@@ -397,3 +397,18 @@ audio {
   color: #10ca1f;
   margin-top: 2em;
 }
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  height: 50vh;
+  justify-content: center;
+align-items: center;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.loadingContainer p {
+  color: #c6dd43;
+}
