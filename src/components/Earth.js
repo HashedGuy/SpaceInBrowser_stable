@@ -3,7 +3,7 @@ import { OrbitControls, Stars, Html } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { clickedCBState, launchpads, lights, showActions } from './globalState';
+import { clickedCBState, launchpads, lights, showActions, stations } from './globalState';
 import { InfoBox } from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
@@ -43,6 +43,7 @@ export function Earth(props) {
   const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
   const showAction = useRecoilValue(showActions)
   const light = useRecoilValue(lights)
+  const station = useRecoilValue(stations)
 
   const earthRef = useRef();
   const cloudsRef = useRef();
@@ -234,7 +235,9 @@ export function Earth(props) {
           :
           activeObject === 'mars' ? .1
           :
-          activeObject === 'LEO' ? 3.5
+          (activeObject === 'LEO') && (station === '') ? 3.5
+          :
+          (activeObject === 'LEO') && (station != '') ? 4
           : .6
         }
       >
@@ -258,7 +261,9 @@ export function Earth(props) {
           :
           activeObject === 'mars' ? .1
           :
-          activeObject === 'LEO' ? 3.5
+          (activeObject === 'LEO') && (station === '') ? 3.5
+          :
+          (activeObject === 'LEO') && (station != '') ? 4
           : .6
         }
 
@@ -516,16 +521,22 @@ export function Earth(props) {
       
       <Ecliptic color={'orange'} xRadius={1.05} zRadius={1.05} yRadius={.3}/> :
 
-      activeObject === 'LEO' ? 
-      <Ecliptic color={'orange'} xRadius={3.8} zRadius={3.8} yRadius={.2}/>
+      // activeObject === 'LEO' ? 
+      // <Ecliptic color={'orange'} xRadius={3.8} zRadius={3.8} yRadius={.2}/>
+      (activeObject === 'LEO') && (station === '') ? <Ecliptic color={'orange'} xRadius={3.8} zRadius={3.8} yRadius={.2}/>
+      :
+      (activeObject === 'LEO') && (station !='') ? <Ecliptic color={'orange'} xRadius={4.2} zRadius={4.2} yRadius={.2}/>
       
       : <Ecliptic xRadius={0} zRadius={0}/>  }
       
       {activeObject === 'earth' ? 
         <Ecliptic color={'red'} xRadius={1.052} zRadius={1.052} yRadius={-.4}/>
         :
-        activeObject === 'LEO' ? 
-        <Ecliptic color={'red'} xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
+        // activeObject === 'LEO' ? 
+        // <Ecliptic color={'red'} xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
+        (activeObject === 'LEO') && (station === '') ? <Ecliptic color={'red'} xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
+        :
+        (activeObject === 'LEO') && (station !='') ? <Ecliptic color={'red'} xRadius={4.2} zRadius={4.2} yRadius={-1.5}/>
         : <Ecliptic xRadius={0} zRadius={0}/>  }
      
     </>

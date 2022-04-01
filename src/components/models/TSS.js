@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei' 
-import { useRecoilState } from 'recoil'
-import { clickedCBState } from '../globalState'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { clickedCBState, stations } from '../globalState'
 import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../../assets/fontMedium.json"
@@ -14,6 +14,7 @@ export default function Model({ ...props }) {
   const { nodes, materials } = useGLTF('/tiangong_1/scene.gltf')
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const station = useRecoilValue(stations)
 
   const tssRef = useRef()
   const tssTextRef = useRef()
@@ -21,8 +22,10 @@ export default function Model({ ...props }) {
   let zRadius
   let xRadius
   let yRadius
-  activeObject==='LEO' ? xRadius= 3.85 : xRadius= 1.052
-  activeObject==='LEO' ? zRadius= 3.85 : zRadius= 1.052
+  // activeObject==='LEO' ? xRadius= 3.85 : xRadius= 1.052
+  // activeObject==='LEO' ? zRadius= 3.85 : zRadius= 1.052
+  activeObject === '' ? (xRadius=0) : (activeObject === 'LEO') && (station==='') ? xRadius=3.85 : (activeObject === 'LEO') && (station!='') ? xRadius=4.2 : xRadius=1.052
+  activeObject === '' ? (zRadius=0) : (activeObject === 'LEO') && (station==='') ? zRadius=3.85 : (activeObject === 'LEO') && (station!='') ? zRadius=4.2 : zRadius=1.052
   activeObject==='LEO' ? yRadius= -1.5 : yRadius= -.4
 
   useFrame(({ clock }) => {

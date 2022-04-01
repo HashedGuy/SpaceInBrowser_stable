@@ -70,8 +70,12 @@ audio {
   background-color: rgba(15, 56, 31, 0.363) !important;
 }
 
-.usefulX {
-  box-shadow: 5px 5px 5px #1da0f2af;
+.alertLive {
+  box-shadow: 5px 5px 5px #922714af;
+}
+
+.alertAudio {
+  box-shadow: 5px 5px 5px #149214af;
 }
 
 .audioSection {
@@ -372,4 +376,24 @@ audio {
 
 .stream {
   border-radius: 20px;
+}
+
+.hoverName {
+  margin-top: 1em;
+  margin-bottom: 0 !important;
+  opacity: .6;
+}
+
+.headphoneInfo {
+  font-size: 10%;
+  margin-bottom: 0;
+  color: #FF0000;
+  margin-top: 2em;
+}
+
+.headphoneInfoAudio {
+  font-size: 10%;
+  margin-bottom: 0;
+  color: #10ca1f;
+  margin-top: 2em;
 }

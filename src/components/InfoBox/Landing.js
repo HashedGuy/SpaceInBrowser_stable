@@ -213,6 +213,7 @@ export function InfoBox() {
                     <img src={Denis} className='bioPicR' title='Denis Matveev'/>
                     <img src={Sergey} className='bioPicR' title='Sergey Korsakov'/>
                   </div>
+                  <p className='hoverName'>Hover to see their names</p>
 
                 {/* <ReactPlayer width='240px' height='180px' url="https://www.ustream.tv/channel/17074538" /> */}
                 </div>
@@ -232,6 +233,7 @@ export function InfoBox() {
                     <img src={Wang} className='bioPicC' title='Wang Yaping'/>
                     <img src={Ye} className='bioPicC' title='Ye Guangfu'/>
                   </div>
+                  <p className='hoverName'>Hover to see their names</p>
                 </div>
               </>
               :''}
@@ -579,10 +581,22 @@ export function InfoBox() {
         </div>
         
         {closedAudio ? 
-          <BsHeadphones 
-            className={(showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? "headphoneBtn usefulX" : "headphoneBtn"}
+          <>
+          <div 
+            className={
+              
+              ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') ? "headphoneBtn alertAudio" :
+              (activeLaunchPad==='Starbase') || (activeLaunchPad==='KSS') || (activeLaunchPad==='CCSFS') ? "headphoneBtn alertLive" 
+              : "headphoneBtn"}
             onClick={()=>setCloseAudio(false)}
-          />:
+          >
+          <BsHeadphones style={{"fontSize":"150%"}}/>
+          {(activeLaunchPad==='Starbase') || (activeLaunchPad==='KSS') || (activeLaunchPad==='CCSFS') ? <p className="headphoneInfo">LIVE</p> :
+           ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') ? <p className="headphoneInfoAudio ">AUDIO</p>         
+          : ''}
+          </div>
+          </>
+          :
         <div className={'audioSection'}>
             <AiOutlineCloseCircle className='closeBtn' onClick={()=>setCloseAudio(true)}/>
         <i className="fa-solid fa-headphones" style={{"color":"white", "fontSize":"250%"}}></i>

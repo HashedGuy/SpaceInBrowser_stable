@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { clickedCBState } from '../globalState';
-import { useRecoilState } from 'recoil';
+import { clickedCBState, stations } from '../globalState';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../../assets/fontMedium.json"
@@ -14,14 +14,15 @@ export default function Model({ ...props }) {
   const { nodes, materials } = useGLTF('/iss/scene.gltf')
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const station = useRecoilValue(stations)
 
   const issRef = useRef()
   const issTextRef = useRef()
   let zRadius
   let xRadius
   let yRadius
-  activeObject === '' ? (xRadius=0) : activeObject === 'LEO' ? xRadius=3.8 : xRadius=1.05
-  activeObject === '' ? (zRadius=0) : activeObject === 'LEO' ? zRadius=3.8 : zRadius=1.05
+  activeObject === '' ? (xRadius=0) : (activeObject === 'LEO') && (station==='') ? xRadius=3.8 : (activeObject === 'LEO') && (station!='') ? xRadius=4.2 : xRadius=1.05
+  activeObject === '' ? (zRadius=0) : (activeObject === 'LEO') && (station==='') ? zRadius=3.8 : (activeObject === 'LEO') && (station!='') ? zRadius=4.2 : zRadius=1.05
   activeObject === '' ? (yRadius=0) : activeObject === 'LEO' ? yRadius=.2 : yRadius=.3
 
   useFrame(({ clock }) => {
