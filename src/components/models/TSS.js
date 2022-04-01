@@ -58,7 +58,7 @@ export default function Model({ ...props }) {
 
   const textOptions = {
     font,
-    size: .04,
+    size: (activeObject==='LEO') || (activeObject==='earth') ? .04: 0,
     height: .009
   };
   

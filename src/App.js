@@ -1,6 +1,7 @@
 
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { Html, useProgress } from '@react-three/drei'
 import styled from 'styled-components'
 import { RecoilRoot, useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState, useRecoilValue } from 'recoil'
 
@@ -17,6 +18,15 @@ const CanvasContainer = styled.div`
   height: 100%;
 `
 
+function Loader() {
+  const { progress } = useProgress()
+  return (
+    <Html center>
+      <p style={{"color":"white"}}>The universe is loading...</p>
+      <p style={{"color":"white"}}>{progress} % loaded</p>
+    </Html>)
+}
+
 export default function App() {
   const activeObject = useRecoilValue(clickedCBState)
         return (
@@ -25,7 +35,7 @@ export default function App() {
                 <Canvas >
                   <RecoilRoot>
                 {/* <PerspectiveCamera near={1} far={1.1}/>  */}
-                  <Suspense fallback={null}>
+                  <Suspense fallback={<Loader/>}>
                     <Earth />
                     <Mars />
                     <Moon />
