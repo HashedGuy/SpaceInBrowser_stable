@@ -34,7 +34,7 @@ export function InfoBox() {
     const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
     const [activeStation, setStation] = useRecoilState(stations)
     const [closed, setClose] = useState(false)
-    const [closedAudio, setCloseAudio] = useState(false)
+    const [closedAudio, setCloseAudio] = useState(true)
   
     const AudioPlayer = () => {
 
