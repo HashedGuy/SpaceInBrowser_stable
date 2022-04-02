@@ -39,7 +39,7 @@ export default function App() {
                 <Canvas frameloop="demand">
                   <RecoilRoot>
                 {/* <PerspectiveCamera near={1} far={1.1}/>  */}
-                  <Suspense fallback={<Loader/>>}>
+                  <Suspense fallback={<Loader/>}>
                     <Earth />
                     <Mars />
                     <Moon />
