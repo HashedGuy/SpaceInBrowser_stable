@@ -21,12 +21,13 @@ const CanvasContainer = styled.div`
 
 function Loader() {
   const { progress } = useProgress()
+  const prog = Math.floor(progress)
   return (
     <Html center>
       <div className='loadingContainer'>
         <GiMoonOrbit style={{"fontSize":"250%"}}/>
         <h1>The universe is loading...</h1>
-        <p>{progress} % </p>
+        <p>{prog} % </p>
       </div>
     </Html>)
 }
