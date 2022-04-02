@@ -206,6 +206,8 @@ export function Earth(props) {
       : (cloudsRef.current.position.z = 0)
   });
 
+  const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
+
   return (
     <>
       <InfoBox />
@@ -228,6 +230,8 @@ export function Earth(props) {
       />
       <mesh 
         ref={cloudsRef} 
+        geometry={sphere(1.001)}
+        // args={[1.05, 36, 36]}
         scale={
           activeObject === 'earth' ? 1 
           :
@@ -241,8 +245,6 @@ export function Earth(props) {
           : .6
         }
       >
-        
-        <sphereBufferGeometry args={[1.005, 32, 32]} />
         <meshPhongMaterial
           map={cloudsMap}
           opacity={0.4}
@@ -253,6 +255,7 @@ export function Earth(props) {
       </mesh>
       <mesh 
         ref={earthRef} 
+        geometry={sphere(1)}
         onDoubleClick={()=>setObject('earth')}
         scale={
           activeObject === 'earth' ? 1 
@@ -268,10 +271,6 @@ export function Earth(props) {
         }
 
       >
-        <sphereBufferGeometry 
-          args={[1, 36, 36]}          
-          
-        />
         <meshPhongMaterial specularMap={specularMap} />
         <meshStandardMaterial
           map={colorMap}
@@ -289,16 +288,14 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posKSS.x,posKSS.y,posKSS.z]}
         onClick={()=>setLaunchPad('KSS')}
+        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posKSS.x,posKSS.y,posKSS.z]}
         onClick={()=>setLaunchPad('KSS')}
       >
@@ -308,16 +305,14 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
         onClick={()=>setLaunchPad('Starbase')}
+        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
         onClick={()=>setLaunchPad('Starbase')}
       >
@@ -326,16 +321,14 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
         onClick={()=>setLaunchPad('CCSFS')}
+        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posCCSC.x,posCCSC.y,posCCSC.z]}
         onClick={()=>setLaunchPad('CCSFS')}
       >
@@ -344,173 +337,154 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posGSS.x,posGSS.y,posGSS.z]}
         onClick={()=>setLaunchPad('GSS')}
+        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posBSS.x,posBSS.y,posBSS.z]}
         onClick={()=>setLaunchPad('BSS')}
+        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posVSFB.x,posVSFB.y,posVSFB.z]}
         onClick={()=>setLaunchPad('SLC-4/VSFB')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posWSLC.x,posWSLC.y,posWSLC.z]}
         onClick={()=>setLaunchPad('WSLC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posSDSC.x,posSDSC.y,posSDSC.z]}
         onClick={()=>setLaunchPad('SDSC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posUSC.x,posUSC.y,posUSC.z]}
         onClick={()=>setLaunchPad('USC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posTSC.x,posTSC.y,posTSC.z]}
         onClick={()=>setLaunchPad('TSC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posJSLC.x,posJSLC.y,posJSLC.z]}
         onClick={()=>setLaunchPad('JSLC')}
+        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='crewPad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posXSLC.x,posXSLC.y,posXSLC.z]}
         onClick={()=>setLaunchPad('XSLC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posTSLC.x,posTSLC.y,posTSLC.z]}
         onClick={()=>setLaunchPad('TSLC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posPalmachim.x,posPalmachim.y,posPalmachim.z]}
         onClick={()=>setLaunchPad('Palmachim')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad' ? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posPSC.x,posPSC.y,posPSC.z]}
         onClick={()=>setLaunchPad('PSC')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posYasny.x,posYasny.y,posYasny.z]}
         onClick={()=>setLaunchPad('Yasny')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posMARS.x,posMARS.y,posMARS.z]}
         onClick={()=>setLaunchPad('MARS')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posSemnan.x,posSemnan.y,posSemnan.z]}
         onClick={()=>setLaunchPad('Semnan')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posSohae.x,posSohae.y,posSohae.z]}
         onClick={()=>setLaunchPad('Sohae')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posNaro.x,posNaro.y,posNaro.z]}
         onClick={()=>setLaunchPad('Naro')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posVostochny.x,posVostochny.y,posVostochny.z]}
         onClick={()=>setLaunchPad('Vostochny')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-       ref={pinRef}
         position={[posRocketLab.x,posRocketLab.y,posRocketLab.z]}
         onClick={()=>setLaunchPad('RocketLab')}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
-        <sphereBufferGeometry args={showAction==='satellitePad'? [0.02, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
      
