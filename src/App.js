@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { RecoilRoot, useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState, useRecoilValue } from 'recoil'
 
 import Earth from './components/Earth'
-import Starship from './components/models/Starship'
+// import Starship from './components/models/Starship'
 import ISS from './components/models/ISS'
 import TSS from './components/models/TSS'
 import Mars from './components/Mars'
@@ -36,14 +36,14 @@ export default function App() {
         return (
               <CanvasContainer>
                 
-                <Canvas frameloop="demand">
+                <Canvas>
                   <RecoilRoot>
                 {/* <PerspectiveCamera near={1} far={1.1}/>  */}
                   <Suspense fallback={<Loader/>}>
                     <Earth />
                     <Mars />
                     <Moon />
-                    <Starship />
+                    {/* <Starship /> */}
                     <ISS />
                     <TSS />
                   </Suspense>

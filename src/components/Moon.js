@@ -7,7 +7,7 @@ import Font from "../assets/fontMedium.json"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 
 import { TextureLoader } from 'three';
-import MoonMap from "../assets/8k_moon.jpeg"
+import MoonMap from "../assets/2k_moon.jpeg"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, showActions } from './globalState';
 
