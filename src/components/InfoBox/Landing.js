@@ -704,7 +704,7 @@ export function InfoBox() {
        (activeStation==='TSS') ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=TlRPB_FNSF8" className="stream"/> :
         activeLaunchPad==='Starbase' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=mhJRzQsLZGg" className="stream"/> :
         activeLaunchPad==='CCSFS' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=gnt2wZBg89g" className="stream"/> :
-        activeLaunchPad==='KSS' ? <ReactPlayer width='220px' controls height='130px' url="https://www.youtube.com/watch?v=VdWyaxlUJr8" className="stream"/>
+        activeLaunchPad==='KSS' ? <ReactPlayer width='220px' controls height='130px' url="https://www.youtube.com/watch?v=B6OJZsTJuTA" className="stream"/>
        : <AudioPlayer/>
        }
         {(activeObject==='moon') || (activeObject==='mars') ? 

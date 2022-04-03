@@ -207,6 +207,7 @@ export function Earth(props) {
   });
 
   const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
+  // const text = new THREE.TextGeometry('LIVE', textOptions)
 
   return (
     <>
@@ -339,7 +340,7 @@ export function Earth(props) {
       <mesh
         position={[posGSS.x,posGSS.y,posGSS.z]}
         onClick={()=>setLaunchPad('GSS')}
-        geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
+        geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
       </mesh>

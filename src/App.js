@@ -27,6 +27,7 @@ function Loader() {
       <div className='loadingContainer'>
         <GiMoonOrbit style={{"fontSize":"250%"}}/>
         <h1>The universe is loading...</h1>
+        <p>At least it doesn't take 13.8 billion years :) </p>
         <p>{prog} % </p>
       </div>
     </Html>)

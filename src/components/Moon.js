@@ -49,7 +49,7 @@ export function Moon(props) {
   activeObject === '' ? (zRadius=4.5) 
     : activeObject === 'earth' ? (zRadius=5.5)
     : activeObject === 'mars' ? (zRadius=0) 
-    : (zRadius=0)
+    : (zRadius=-0)
   activeObject === '' ? (yRadius=0) 
     : activeObject === 'earth' ? (yRadius=0) 
     : (yRadius=0)
@@ -133,10 +133,13 @@ export function Moon(props) {
   let posApollo17 = calcPosFromLatLngRad(pointApollo17.lat, pointApollo17.lng)
   let posArtemis3 = calcPosFromLatLngRad(pointArtemis3.lat, pointArtemis3.lng)
 
+  const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
+
   return (
     <>
       <mesh 
         ref={moonRef}
+        geometry={sphere(0.25)}
         scale={
           activeObject === '' ? 1 
           :
@@ -150,7 +153,6 @@ export function Moon(props) {
         onDoubleClick={()=>setObject('moon')}
         
       >
-        <sphereBufferGeometry args={[0.25, 32, 32]} />
         <meshPhongMaterial
           map={moonMap}
           opacity={1}
@@ -161,9 +163,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='apollo11' ? sphere(0.03) : sphere(0)}
         position={[posApollo11.x,posApollo11.y,posApollo11.z]}
       >
-        <sphereBufferGeometry args={showAction==='apollo11'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -175,9 +177,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='apollo12' ? sphere(0.03) : sphere(0)}
         position={[posApollo12.x,posApollo12.y,posApollo12.z]}
       >
-        <sphereBufferGeometry args={showAction==='apollo12'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -189,9 +191,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='apollo14' ? sphere(0.03) : sphere(0)}
         position={[posApollo14.x,posApollo14.y,posApollo14.z]}
       >
-        <sphereBufferGeometry args={showAction==='apollo14'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -203,9 +205,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='apollo15' ? sphere(0.03) : sphere(0)}
         position={[posApollo15.x,posApollo15.y,posApollo15.z]}
       >
-        <sphereBufferGeometry args={showAction==='apollo15'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -217,9 +219,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='apollo16' ? sphere(0.03) : sphere(0)}
         position={[posApollo16.x,posApollo16.y,posApollo16.z]}
       >
-        <sphereBufferGeometry args={showAction==='apollo16'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -231,9 +233,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='apollo17' ? sphere(0.03) : sphere(0)}
         position={[posApollo17.x,posApollo17.y,posApollo17.z]}
       >
-        <sphereBufferGeometry args={showAction==='apollo17'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
@@ -245,9 +247,9 @@ export function Moon(props) {
       </mesh>
 
       <mesh
+        geometry={showAction==='artemis' ? sphere(0.03) : sphere(0)}
         position={[posArtemis3.x,posArtemis3.y,posArtemis3.z]}
       >
-        <sphereBufferGeometry args={showAction==='artemis'? [0.03, 30, 30] : [0, 30,30]}/>
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
