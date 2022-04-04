@@ -562,7 +562,10 @@ export function InfoBox() {
               {showAction === 'apollo11' ? 
                 <>
                 <p>Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed humans on the Moon. </p> 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg" className='infoPic'/>
+                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg" className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Aldrin_Apollo_11_original_ycH08Gxy4.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
                 <p>Commander Neil Armstrong and lunar module pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC, and Armstrong became the first person to step onto the Moon's surface six hours and 39 minutes later, on July 21 at 02:56 UTC. Aldrin joined him 19 minutes later, and they spent about two and a quarter hours together exploring the site they had named Tranquility Base upon landing.</p>
                 
@@ -570,21 +573,30 @@ export function InfoBox() {
               : showAction === 'apollo12' ? 
                 <>
                   <p>Apollo 12 (November 14 – 24, 1969) was the sixth crewed flight in the United States Apollo program and the second to land on the Moon.</p>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Surveyor_3-Apollo_12.jpg/1920px-Surveyor_3-Apollo_12.jpg" className='infoPic'/>
+                  {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Surveyor_3-Apollo_12.jpg/1920px-Surveyor_3-Apollo_12.jpg" className='infoPic'/> */}
+                  <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                    <IKImage path="/Surveyor_3-Apollo_12_vGA6dZIFF.jpeg" className='infoPic'/>  
+                  </IKContext>
                   <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
                   <p>It was launched on November 14, 1969, from the Kennedy Space Center, Florida. Commander Charles "Pete" Conrad and Lunar Module Pilot Alan L. Bean performed just over one day and seven hours of lunar surface activity while Command Module Pilot Richard F. Gordon remained in lunar orbit.</p>
                 </>
               : showAction === 'apollo14' ? 
               <>
                 <p>Apollo 14 (January 31, 1971 – February 9, 1971) was the eighth crewed mission in the United States Apollo program, the third to land on the Moon, and the first to land in the lunar highlands. </p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Apollo_14_Shepard.jpg/1920px-Apollo_14_Shepard.jpg" className='infoPic'/>
+                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Apollo_14_Shepard.jpg/1920px-Apollo_14_Shepard.jpg" className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Apollo_14_Shepard_nN-skDi91.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
                 <p>It was the last of the "H missions", landings at specific sites of scientific interest on the Moon for two-day stays with two lunar givehicular activities (EVAs or moonwalks).</p>
               </>
               : showAction === 'apollo15' ? 
               <>
                 <p>Apollo 15 (July 26 – August 7, 1971) was the ninth crewed mission in the United States' Apollo program and the fourth to land on the Moon. </p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/AS15-88-11866_-_Apollo_15_flag%2C_rover%2C_LM%2C_Irwin_-_restoration1.jpg" className='infoPic'/>
+                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/AS15-88-11866_-_Apollo_15_flag%2C_rover%2C_LM%2C_Irwin_-_restoration1.jpg" className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/AS15-88-11866_-_Apollo_15_flag__rover__LM__Irwin_-_restoration1_Sr6q02sR-.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
                 <p> It was the first J mission, with a longer stay on the Moon and a greater focus on science than earlier landings. Apollo 15 saw the first use of the Lunar Roving Vehicle.</p>
                 
@@ -592,21 +604,30 @@ export function InfoBox() {
               : showAction === 'apollo16' ? 
               <>
                 <p>Apollo 16 (April 16 – 27, 1972) was the tenth crewed mission in the United States Apollo space program, administered by NASA, and the fifth and next-to-last to land on the Moon.</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/John_W._Young_on_the_Moon.jpg/1920px-John_W._Young_on_the_Moon.jpg" className="infoPic"/>  
+                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/John_W._Young_on_the_Moon.jpg/1920px-John_W._Young_on_the_Moon.jpg" className="infoPic"/>   */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/John_W._Young_on_the_Moon_643917BPyg.jpg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
                 <p>It was the second of Apollo's "J missions", with an extended stay on the lunar surface, a focus on science, and the use of the Lunar Roving Vehicle (LRV). The landing and exploration were in the Descartes Highlands, a site chosen because some scientists expected it to be an area formed by volcanic action, though this proved to not be the case.</p>
               </>
               : showAction === 'apollo17' ? 
               <>
                 <p>Apollo 17 (December 7 – 19, 1972) was the final mission of NASA's Apollo program, the most recent time humans have set foot on the Moon or traveled beyond low Earth orbit.</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg/1920px-Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg" className='infoPic'/>
+                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg/1920px-Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg" className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Eugene_Cernan_at_the_LM__Apollo_17_eibvGpjcJ.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
                 <p>Commander Eugene Cernan and Lunar Module Pilot Harrison Schmitt walked on the Moon, while Command Module Pilot Ronald Evans orbited above. The mission's heavy emphasis on science meant the inclusion of a number of new experiments, including a biological experiment containing five mice carried in the command module.</p>
               </>
               : showAction === 'artemis' ? 
               <>
                 <p>Artemis 3 (officially Artemis III) is the first crewed Moon landing mission of the Artemis program and the third planned flight of NASA's Orion spacecraft on the Space Launch System (SLS).</p>
-                <img src="https://spacenews.com/wp-content/uploads/2021/04/starship-lander-879x485.jpg" className='infoPic'/>
+                {/* <img src="https://spacenews.com/wp-content/uploads/2021/04/starship-lander-879x485.jpg" className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/starship-lander-879x485_yLrwIC7yf.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit:SpaceX</em></p>
                 <p>Scheduled for launch in 2025, Artemis 3 is planned to be the second crewed Artemis mission and the first crewed lunar landing since Apollo 17 in 1972.</p>
                 <p>Artemis 3 will land a crew at the Moon's south polar region. It is planned to have two astronauts on the surface of the Moon for about one week. The mission is intended to be the first to place a woman on the Moon.</p>
