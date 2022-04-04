@@ -730,12 +730,14 @@ export function InfoBox() {
           
           : 'extraInfo'}>
         <AiOutlineCloseCircle className='closeBtn' onClick={()=>setClose(true)}/>
-        {(activeObject === 'mars') ? 
+        {
+        // (activeObject === 'mars') ? 
+        //   <>
+        //   </>
+        // :
+        (activeObject === 'LEO') && (showAction === '') || (showAction === 'launchpad') || (showAction==='spaceStation') ? 
           <>
-          </>
-        :
-        (activeObject === 'LEO') && (showAction === '') ? 
-          <>
+          <p>You can observe two space stations travelling around the Earth by following yellow and red orbits.</p>
           </>
         : 
         (activeObject === 'moon') && (showAction != '') ? 
@@ -757,7 +759,7 @@ export function InfoBox() {
             <p style={{"fontSize":'70%'}}>The exact coordinates for Artemis 3 mission are not announced yet but it's somewhere around the south polar region. <a target="_blank" style={{"color":"goldenrod"}}href="https://www.nasa.gov/specials/artemis/">More...</a></p> : ''}
           </>
         :
-        (activeObject === 'moon') && (showAction === '') ?
+        ((activeObject === 'moon') && (showAction === '')) || (activeObject==='mars') ?
           <>
             {activeLight==='' ?
               <a className='lightBtn' onClick={()=>setLight('ambient')}>
@@ -769,8 +771,8 @@ export function InfoBox() {
             }
             {activeLight==='ambient' ? 
               
-              <p>Enough enlightenment. Click the yellow lightbulb to see the real Moon with its dark side.</p> :
-              <p>Have you ever wondered how the Dark Side of the Moon look like? Click the lightbulb and rotate to see!</p>}
+              <p>Click the yellow lightbulb to see the real {activeObject==='moon'? 'Moon' : 'Mars'} with its dark side.</p> :
+              <p>{activeObject==='moon'? 'Have you ever wondered how the Dark Side of the Moon look like' : 'Wanna see the dark side'}? Click the lightbulb and rotate to see!</p>}
                
           </>
         :
