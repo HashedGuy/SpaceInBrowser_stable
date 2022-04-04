@@ -21,6 +21,7 @@ import {GiMoonOrbit} from 'react-icons/gi'
 import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones} from 'react-icons/bs'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import ReactPlayer from 'react-player'
+import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 
 
 
@@ -197,7 +198,10 @@ export function InfoBox() {
               {activeStation==='ISS' ? 
               <>
                 <p>The largest and most sophisticated of space station is the International Space Station (ISS).</p> 
-                <img src={"https://upload.wikimedia.org/wikipedia/commons/e/e1/The_station_pictured_from_the_SpaceX_Crew_Dragon_5_%28cropped%29.jpg"} className='infoPic'/>
+                {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/e/e1/The_station_pictured_from_the_SpaceX_Crew_Dragon_5_%28cropped%29.jpg"} className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/iss_2Y2vU27Mh.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
                 <p>Since the first module was launched into low Earth orbit in 1998, the ISS has grown with modular additions from the principal space agencies involved in building and operating the space station: NASA, Roscosmos, ESA, JAXA and CSA. To date, 237 astronauts from 18 countries have visited the ISS.</p>
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
@@ -223,7 +227,10 @@ export function InfoBox() {
               {activeStation==='TSS' ? 
               <>
                 <p>Tiangong (Chinese: 天宫, 'Palace in the Sky') is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>
-                <img src={"https://upload.wikimedia.org/wikipedia/commons/1/1a/Tiangong_Space_Station_Rendering_2021.10.png"} className='infoPic'/>
+                {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/1/1a/Tiangong_Space_Station_Rendering_2021.10.png"} className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/tss_9bzokhBix.png" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit: Shujianyang</em></p>
                 <p>The first module, the Tianhe ("Harmony of the Heavens") core module, was launched on 29 April 2021, followed by multiple crewed and uncrewed missions and two more modules to be launched by 2022. The research conducted on the station will improve researchers' ability to conduct science experiments in space, beyond the duration and capacity offered by China's existing space laboratories.</p>
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
@@ -274,7 +281,10 @@ export function InfoBox() {
             {activeLaunchPad==='KSS' ? 
             <>
             <p>Kennedy Space Center, one of 10 NASA field centers, is a premier multi-user spaceport with more than 90 private-sector partners and nearly 250 partnership agreements.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/a/a0/VAB_and_SLS.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/a0/VAB_and_SLS.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+              <IKImage path="/VAB_and_SLS_vWeAvJ4pC.jpeg" className='infoPic'/>  
+            </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
             <p>Although Kennedy is the NASA's main launch site, the center also is home to facilities that research and develop innovative solutions that government and commercial space ventures need for working and living on the surfaces of the Moon and other bodies in our solar system.</p>
             <h5>Next mission:</h5> 
@@ -284,7 +294,10 @@ export function InfoBox() {
             activeLaunchPad==='CCSFS' ? 
             <>
             <p>Cape Canaveral Space Force Station is an installation of the United States Space Force's Space Launch Delta 45, located on Cape Canaveral in Brevard County, Florida.</p>
-            <img src={"https://media.defense.gov/2021/Dec/07/2002904591/-1/-1/0/211203-X-KD758-1071.JPG"} className='infoPic'/>
+            {/* <img src={"https://media.defense.gov/2021/Dec/07/2002904591/-1/-1/0/211203-X-KD758-1071.JPG"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+              <IKImage path="/CCSFS_klnuRorxI.jpeg" className='infoPic'/>  
+            </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: Patrick Space Force Base</em></p>
             <p>A number of American space exploration pioneers were launched from CCSFS, including the first U.S. Earth satellite in 1958, first U.S. astronaut (1961), first U.S. astronaut in orbit (1962), first two-man U.S. spacecraft (1965), first U.S. unmanned lunar landing (1966), and first three-man U.S. spacecraft (1968).</p>
             <h5>Next mission:</h5> 
@@ -294,7 +307,10 @@ export function InfoBox() {
             activeLaunchPad==='Starbase' ? 
             <>
             <p>Starbase is a private rocket production facility, test site, and spaceport constructed by SpaceX, located at Boca Chica approximately 32 km (20 mi) east of Brownsville, Texas, on the US Gulf Coast.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/a/af/USA_-_Texas_-_Boca_Chica_-_Starbase_%2851287072615%29.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/af/USA_-_Texas_-_Boca_Chica_-_Starbase_%2851287072615%29.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+              <IKImage path="/USA_-_Texas_-_Boca_Chica_-_Starbase__51287072615__iZdM4e3T2.jpeg" className='infoPic'/>  
+            </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: Alexander Hatley from Spring, Texas, USA</em></p>
             <p>The launch site was originally intended to support launches of the Falcon 9 and Falcon Heavy launch vehicles as well as "a variety of reusable suborbital launch vehicles", but in early 2018, SpaceX announced a change of plans, stating that the launch site would be used exclusively for SpaceX's next-generation launch vehicle, Starship.</p>
             </>
@@ -302,7 +318,10 @@ export function InfoBox() {
             activeLaunchPad==='SLC-4/VSFB' ? 
             <>
             <p>Space Launch Complex 4 (SLC-4) is a launch and landing site at Vandenberg Space Force Base, California, U.S.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/d/d4/Iridium-1_Mission_%2831450835954%29.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/d/d4/Iridium-1_Mission_%2831450835954%29.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Iridium-1_Mission__31450835954__TOxEeRQSk.jpeg" className='infoPic'/>  
+                </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: SpaceX</em></p>
             <p>It has two pads, both of which are used by SpaceX for Falcon 9, one for launch operations, and other as Landing Zone 4 (LZ-4) for SpaceX landings.</p>
             </>
@@ -310,7 +329,10 @@ export function InfoBox() {
             activeLaunchPad==='GSS' ? 
             <>
              <p>The Guiana Space Centre (French: Centre spatial guyanais; CSG), also called Europe's Spaceport, is an European spaceport to the northwest of Kourou in French Guiana, a overseas territory of France in South America.</p>
-             <img src={"https://upload.wikimedia.org/wikipedia/commons/5/54/Ensemble_de_lancement_Vega.jpg"} className='infoPic'/>
+             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/5/54/Ensemble_de_lancement_Vega.jpg"} className='infoPic'/> */}
+             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Ensemble_de_lancement_Vega_IaYTz2mFXF.jpeg" className='infoPic'/>  
+                </IKContext>
              <p style={{"fontSize":"50%"}}><em>Credit: Camille Gévaudan</em></p>
              <p>The European Space Agency (ESA), the European Union Agency for the Space Programme (EUSPA), the French space agency CNES (National Centre for Space Studies), and the commercial companies Arianespace and Azercosmos conduct launches from Kourou. It was used by the ESA to send supplies to the International Space Station using the Automated Transfer Vehicle.</p>
             </>
@@ -318,7 +340,10 @@ export function InfoBox() {
             activeLaunchPad==='BSS' ? 
             <>
              <p>The Baikonur Cosmodrome (Kazakh: Байқоңыр ғарыш айлағы) is a spaceport in an area of southern Kazakhstan leased to Russia. </p>
-             <img src={"https://upload.wikimedia.org/wikipedia/commons/5/59/Soyuz_expedition_19_launch_pad.jpg"} className='infoPic'/>
+             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/5/59/Soyuz_expedition_19_launch_pad.jpg"} className='infoPic'/> */}
+             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+              <IKImage path="/soyuz_5kt71bONq.jpeg" className='infoPic'/>  
+            </IKContext>
              <p style={{"fontSize":"50%"}}><em>Credit: NASA KSC Media Archive</em></p>
              <p>The Cosmodrome is the world's first spaceport for orbital and human launches and the largest (in area) operational space launch facility. All crewed Russian spaceflights are launched from Baikonur.</p>
              <h5>Next mission:</h5> 
@@ -328,7 +353,10 @@ export function InfoBox() {
             activeLaunchPad==='SDSC' ? 
             <>
             <p>Satish Dhawan Space Centre is a rocket launch centre (spaceport) operated by Indian Space Research Organisation (ISRO). It is located in Sriharikota in Andhra Pradesh.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2a/PSLV_C45_EMISAT_campaign_23.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2a/PSLV_C45_EMISAT_campaign_23.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/PSLV_C45_EMISAT_campaign_23_JmiBV0Zod.jpeg" className='infoPic'/>  
+                </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: Indian Space Research Organisation</em></p>
             <p>The  Centre has  the  facilities for  solid propellant  processing,  static  testing  of  solid  motors,  launch  vehicle  integration  and  launch operations, range operations comprising telemetry, tracking and command network and mission control centre.</p>
             </>
@@ -336,7 +364,10 @@ export function InfoBox() {
             activeLaunchPad==='WSLC' ? 
             <>
              <p>The Wenchang Space Launch Site (Chinese: 文昌航天发射场[1][2]), located in Wenchang, Hainan, China, is a rocket launch site — one of the two spacecraft launch sites of Xichang Satellite Launch Center.</p>
-             <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2e/Tianwen-1_launch_04_%28cropped%29.jpg"} className='infoPic'/>
+             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2e/Tianwen-1_launch_04_%28cropped%29.jpg"} className='infoPic'/> */}
+             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/tianwen_A1iielWrO.jpeg" className='infoPic'/>  
+                </IKContext>
              <p style={{"fontSize":"50%"}}><em>Credit: China News Service</em></p>
              <p>It has been specially selected for its low latitude, which is only 19° north of the equator, which will allow for an increase in payload necessary for launching China's future space station. It is capable of launching the Long March 5, currently the most powerful Chinese rocket.</p>
             </>
@@ -344,7 +375,10 @@ export function InfoBox() {
             activeLaunchPad==='TSC' ? 
             <>
              <p>The Tanegashima Space Center (種子島宇宙センター, Tanegashima Uchū Sentā) is the largest rocket-launch complex in Japan. It is located on the southeast coast of Tanegashima island.</p>
-             <img src={"https://upload.wikimedia.org/wikipedia/commons/c/c9/Osaki_Range.jpg"} className='infoPic'/>
+             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/c/c9/Osaki_Range.jpg"} className='infoPic'/> */}
+             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/osaki_cdKgKyIx0.jpeg" className='infoPic'/>  
+                </IKContext>
              <p style={{"fontSize":"50%"}}><em>Credit: ウニウニ </em></p>
              <p>It was established in 1969 when the National Space Development Agency of Japan (NASDA) was formed, and is now run by JAXA. The activities that take place at TNSC include assembly, testing, launching, and tracking satellites, as well as rocket engine firing tests.</p>
             </>
@@ -352,7 +386,10 @@ export function InfoBox() {
             activeLaunchPad==='USC' ? 
             <>
               <p>The Uchinoura Space Center (内之浦宇宙空間観測所, Uchinoura Uchū Kūkan Kansokusho) is a space launch facility in the Japanese town of Kimotsuki, Kagoshima Prefecture. </p>
-              <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ab/M-V_with_Astro-E_satellite.jpg"} className='infoPic'/>
+              {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ab/M-V_with_Astro-E_satellite.jpg"} className='infoPic'/> */}
+              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/usc__QW5nlJ_oz.jpeg" className='infoPic'/>  
+                </IKContext>
               <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
               <p>All of Japan's scientific satellites were launched from Uchinoura prior to the M-V launch vehicles being decommissioned in 2006. It continues to be used for suborbital launches, and has also been used for the Epsilon orbital launch vehicle. Additionally, the center has antennas for communication with interplanetary space probes.</p>
             </>
@@ -360,7 +397,10 @@ export function InfoBox() {
             activeLaunchPad==='Semnan' ? 
             <>
                <p>Semnan Space Center (Persian:پایگاه فضایی سمنان) is the premier Iranian Space Center, located 50 km southeast of the city of Semnan in the north of the country.</p>
-               <img src={"https://upload.wikimedia.org/wikipedia/commons/b/b6/%D8%B3%DB%8C%D9%85%D8%B1%D8%BA_-_%D8%A7%D9%81%D8%AA%D8%AA%D8%A7%D8%AD_%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D9%85%D9%84%DB%8C_%D9%81%D8%B6%D8%A7%DB%8C%DB%8C_%D8%A7%D9%85%D8%A7%D9%85_%D8%AE%D9%85%DB%8C%D9%86%DB%8C%28%D8%B1%D9%87%29_%281%29.jpg"} className='infoPic'/>
+               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/b/b6/%D8%B3%DB%8C%D9%85%D8%B1%D8%BA_-_%D8%A7%D9%81%D8%AA%D8%AA%D8%A7%D8%AD_%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D9%85%D9%84%DB%8C_%D9%81%D8%B6%D8%A7%DB%8C%DB%8C_%D8%A7%D9%85%D8%A7%D9%85_%D8%AE%D9%85%DB%8C%D9%86%DB%8C%28%D8%B1%D9%87%29_%281%29.jpg"} className='infoPic'/> */}
+               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/iran_MuTq68S_D.jpeg" className='infoPic'/>  
+                </IKContext>
                <p style={{"fontSize":"50%"}}><em>Credit: Tasnim News Agency</em></p>
                <p>The spaceport comprises two launch pads: an older, medium-sized launch pad with a collapsible umbilical tower, and a newer, larger launch pad with a mobile gantry tower.</p>
             </>
@@ -368,7 +408,10 @@ export function InfoBox() {
             activeLaunchPad==='Palmachim' ? 
             <>
                 <p>The Palmachim Airbase (Hebrew: בָּסִיס חֵיל-הַאֲוִויר פַּלְמַחִים) is an Israeli military facility and spaceport located near the cities of Rishon LeZion and Yavne on the Mediterranean coast. </p>
-                <img src={"https://static.timesofisrael.com/www/uploads/2014/04/F070611TBA01.jpg"} className='infoPic'/>
+                {/* <img src={"https://static.timesofisrael.com/www/uploads/2014/04/F070611TBA01.jpg"} className='infoPic'/> */}
+                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/isr_P1laiaRLz1.jpeg" className='infoPic'/>  
+                </IKContext>
                 <p style={{"fontSize":"50%"}}><em>Credit: Flash 90</em></p>
                 <p>Palmachim is used to launch the Shavit space launch vehicle into retrograde orbit by launching over the Mediterranean, acting as Israel's primary spaceport. Palmachim is also used to test ballistic missiles, such as the Jericho.</p>
             </>
@@ -376,7 +419,10 @@ export function InfoBox() {
             activeLaunchPad==='Yasny' ? 
             <>
             <p>Yasny cosmodrome is located in a military airbase, northwest of the village of Dombarovsky, near Yasny in Russia's Orenburg Oblast.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/0/02/General_View_snyi.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/0/02/General_View_snyi.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/yasny_xccSUm8Ff.jpeg" className='infoPic'/>  
+                </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: ISC Kosmotras</em></p>
             <p>The civilian launches are operated by the Russian Air Force on behalf of the launcher's operator, Russian/Ukrainian consortium Kosmotras. Kosmotras has constructed additional facilities necessary for commercial satellite launch operations, including clean room integration facilities.</p>
             </>
@@ -384,7 +430,10 @@ export function InfoBox() {
             activeLaunchPad==='JSLC' ? 
             <>
             <p>Jiuquan Satellite Launch Center (Chinese: 酒泉卫星发射中心) is a Chinese space vehicle launch facility (spaceport) located in the Gobi Desert, Inner Mongolia. </p>
-            <img src={"https://news.satnews.com/wp-content/uploads/2021/05/China-Yaogan-34-launch.jpg"} className='infoPic'/>
+            {/* <img src={"https://news.satnews.com/wp-content/uploads/2021/05/China-Yaogan-34-launch.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+              <IKImage path="/JCLA_bzntudH90.jpeg" className='infoPic'/>  
+            </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: Xinhuanet</em></p>
             <p>The center covers 2800 km² and may have housing for as many as 20,000 people. The facilities and launch support equipment were likely modelled on Soviet counterparts and the Soviet Union likely provided technical support to Jiuquan.</p>
             </>
@@ -392,7 +441,10 @@ export function InfoBox() {
             activeLaunchPad==='Vostochny' ? 
             <>
             <p>The Vostochny Cosmodrome (Russian: Космодром Восточный) is a Russian spaceport (still partly under construction) above the 51st parallel north in the Amur Oblast, in the Russian Far East.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ac/%D0%A1%D1%82%D0%B0%D1%80%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%B4%D1%80%D0%BE%D0%BC%D0%B0_%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B5%D1%80%D0%B5%D0%B4_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%BC_%D0%BF%D1%83%D1%81%D0%BA%D0%BE%D0%BC.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ac/%D0%A1%D1%82%D0%B0%D1%80%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%B4%D1%80%D0%BE%D0%BC%D0%B0_%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B5%D1%80%D0%B5%D0%B4_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%BC_%D0%BF%D1%83%D1%81%D0%BA%D0%BE%D0%BC.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/vostochny_rEnB3lwC8.jpeg" className='infoPic'/>  
+                </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: Владислав Ларкин</em></p>
             <p>It is intended to reduce Russia's dependency on the Baikonur Cosmodrome in Kazakhstan. The first launch took place on 28 April 2016 at 02:01 UTC. As of 1 July 2021, eight launch attempts have been made with seven successes.</p>
             </>
@@ -400,7 +452,10 @@ export function InfoBox() {
             activeLaunchPad==='TSLC' ? 
             <>
             <p>The Taiyuan Satellite Launch Center also known as Base 25 (Chinese: 二十五基地), is a space and defense launch facility (spaceport) located in Kelan County, Xinzhou, Shanxi Province.</p>
-            <img src={"https://upload.wikimedia.org/wikipedia/en/2/2b/Taiyuan_1601_Satellite_Launch_Site.jpg"} className='infoPic'/>
+            {/* <img src={"https://upload.wikimedia.org/wikipedia/en/2/2b/Taiyuan_1601_Satellite_Launch_Site.jpg"} className='infoPic'/> */}
+            <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Taiyuan_1601_Satellite_Launch_Site_Y3i8QVdrN.jpeg" className='infoPic'/>  
+                </IKContext>
             <p style={{"fontSize":"50%"}}><em>Credit: 燕雁 </em></p>
             <p>The site is primarily used to launch meteorological satellites, Earth resource satellites and scientific satellites on Long March launch vehicles into Sun-synchronous orbits.</p> 
             </>
@@ -408,7 +463,10 @@ export function InfoBox() {
              activeLaunchPad==='Sohae' ? 
              <>
              <p>Sohae Satellite Launching Station (Korean: 서해위성발사장; Hanja: 西海衛星發射場) is a rocket launching site in Tongch'ang-ri, Cholsan County, North Pyongan Province, North Korea.</p>
-             <img src={"https://cdni.rt.com/files/2018.07/article/5b56792ddda4c88a668b4634.jpg"} className='infoPic'/>
+             {/* <img src={"https://cdni.rt.com/files/2018.07/article/5b56792ddda4c88a668b4634.jpg"} className='infoPic'/> */}
+             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/nk_Xk9VF2gVS.jpeg" className='infoPic'/>  
+                </IKContext>
              <p style={{"fontSize":"50%"}}><em>Credit: KCNA </em></p>
              <p>It was the site for the 13 April 2012 launch of the North Korean satellite Kwangmyŏngsŏng-3, which was launched to celebrate the 100th anniversary of the birth of Kim Il-Sung. The rocket launch failed, but on 12 December of the same year Kwangmyŏngsŏng-3 Unit 2 was successfully launched and brought into Earth orbit.</p> 
              </>
@@ -416,7 +474,10 @@ export function InfoBox() {
               activeLaunchPad==='Naro' ? 
               <>
               <p>The Naro Space Center is a South Korean spaceport in South Jeolla's Goheung County, operated by the state-run Korea Aerospace Research Institute.</p>
-              <img src={"https://rocketrundown.com/wp-content/uploads/2018/11/KSLV-II-suborbital-test-vehicle.jpg"} className='infoPic'/>
+              {/* <img src={"https://rocketrundown.com/wp-content/uploads/2018/11/KSLV-II-suborbital-test-vehicle.jpg"} className='infoPic'/> */}
+              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/KSLV-II-suborbital-test-vehicle_tPmoKQ89J.jpeg" className='infoPic'/>  
+                </IKContext>
               <p style={{"fontSize":"50%"}}><em>Credit: Korea Aerospace Research Institute </em></p>
               <p>It includes two launch pads, a control tower, rocket assembly and test facilities, facilities for satellite control testing and assembly, a media center, an electric power station, a space experience hall and a landing field. It has supported 5 launches including the KSLV-II launch in 2021, and will support SSLV launches in 2025.</p> 
               </>
@@ -424,7 +485,10 @@ export function InfoBox() {
                activeLaunchPad==='XSLC' ? 
                <>
                <p>The Xichang Satellite Launch Center (XSLC), also known as the Xichang Space Center, is a spaceport of China. It is located in Zeyuan Town (泽远镇) in Sichuan.</p>
-               <img src={"https://upload.wikimedia.org/wikipedia/commons/3/3d/Xichang_launch_center_4.jpg"} className='infoPic'/>
+               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/3/3d/Xichang_launch_center_4.jpg"} className='infoPic'/> */}
+               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Xichang_launch_center_4_3kA0y2AMf.jpeg" className='infoPic'/>  
+                </IKContext>
                <p style={{"fontSize":"50%"}}><em>Credit: CGWIC </em></p>
                <p>The facility became operational in 1984 and is used to launch numerous civil, scientific, and military payloads annually. It is notable as the site of Sino-European space cooperation, with the launch of the first of two Double Star scientific satellites in December 2003.</p> 
                </>
@@ -432,7 +496,10 @@ export function InfoBox() {
                activeLaunchPad==='RocketLab' ? 
                <>
                <p>Rocket Lab Launch Complex 1 (also known as Mahia Launch Complex or Spaceport) is a commercial spaceport located close to Ahuriri Point at the southern tip of Māhia Peninsula, on the east coast of New Zealand's North Island.</p>
-               <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2c/Rocket_Lab_Launch_Complex_1_%28Sept_2016%29.jpg"} className='infoPic'/>
+               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2c/Rocket_Lab_Launch_Complex_1_%28Sept_2016%29.jpg"} className='infoPic'/> */}
+               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/Rocket_Lab_Launch_Complex_1__Sept_2016__ydOJVsOFkA.jpeg" className='infoPic'/>  
+                </IKContext>
                <p style={{"fontSize":"50%"}}><em>Credit: Rodney Allen  </em></p>
                <p>It is owned and operated by private spaceflight company Rocket Lab and supports launches of the company's Electron rocket for CubeSat nanosatellites. </p> 
                </>
@@ -440,7 +507,10 @@ export function InfoBox() {
                activeLaunchPad==='PSC' ? 
                <>
                <p>The Pacific Spaceport Complex – Alaska, formerly known as the Kodiak Launch Complex (KLC), is a dual-use commercial and military spaceport for sub-orbital and orbital launch vehicles.</p>
-               <img src={"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/474963main-tower-picture-3008x2000-1521646940.jpg?resize=980:*"} className='infoPic'/>
+               {/* <img src={"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/474963main-tower-picture-3008x2000-1521646940.jpg?resize=980:*"} className='infoPic'/> */}
+               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/474963main-tower-picture-3008x2000-1521646940_7fQHwv_J_.jpeg" className='infoPic'/>  
+                </IKContext>
                <p style={{"fontSize":"50%"}}><em>Credit: ALASKA AEROSPACE CORPORATION </em></p>
                <p>The spaceport has two launch pads with a mission control center that includes 64 workstations with high-speed communications and data links. There is a clean room for preparing satellites for launch, a fully enclosed 17-story-tall rocket assembly building and two independent range and telemetry systems.</p> 
                </>
@@ -448,7 +518,10 @@ export function InfoBox() {
                activeLaunchPad==='MARS' ? 
                <>
                <p>The Mid-Atlantic Regional Spaceport is a commercial space launch facility located at the southern tip of NASA's Wallops Flight Facility on Wallops Island in Virginia, United States.</p>
-               <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2d/Mid-Atlantic_Regional_Spaceport_-_aerial_photo.jpg"} className='infoPic'/>
+               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2d/Mid-Atlantic_Regional_Spaceport_-_aerial_photo.jpg"} className='infoPic'/> */}
+               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+                  <IKImage path="/MARS_4QK1tzOSC.jpeg" className='infoPic'/>  
+                </IKContext>
                <p style={{"fontSize":"50%"}}><em>Credit: NASA Wallops Flight Facility  </em></p>
                <p>The Mid-Atlantic Regional Spaceport has three active launch pads. In October 2018, Rocket Lab announced that it had selected MARS as its second launch site, called Rocket Lab Launch Complex-2. The company began construction in February 2019, together with the Virginia Commercial Space Flight Authority (Virginia Space).</p> 
                </>
@@ -782,6 +855,7 @@ export function InfoBox() {
             <>
               <p>Click and drag the Earth to see all available inter-planetary launchpads.</p>
               <p>Click the launchpads (green or red ball) to have more information about them.</p>
+             
             </>
             : <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>}
           </>

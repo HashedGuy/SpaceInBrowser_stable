@@ -412,3 +412,7 @@ align-items: center;
 .loadingContainer p {
   color: #c6dd43;
 }
+
+.bioPic #Mathias :hover {
+  content: 'Matt';
+}

@@ -10,8 +10,17 @@ import { TextureLoader } from 'three';
 import MoonMap from "../assets/2k_moon.jpeg"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, showActions } from './globalState';
+import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 
 extend({ TextGeometry })
+
+const MoonImg = () => {
+  return (
+    <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
+      <IKImage path="/8k_earth_daymap_z76y-E3-X.jpg"/>  
+    </IKContext>
+  )
+}
 
 function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
   const [activeObject, setObject] = useRecoilState(clickedCBState)
