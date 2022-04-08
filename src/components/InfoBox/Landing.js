@@ -258,7 +258,12 @@ export function InfoBox() {
                 <p>Green circles &#128994; on the surface of the Earth show the rocket launch sites with confirmed crew mission launches. Some of them provide <span style={{"color": "red"}}>LIVE</span> streams!</p>
               </>
             : ''}
-            <a className='home-btn' onClick={()=>setAction('satellitePad')}>Show sites with satellite launch</a>
+            <a 
+              className='home-btn' 
+              onClick={()=>{
+                setCloseAudio(true)
+                setAction('satellitePad')}}
+            >Show sites with satellite launch</a>
             {showAction==='satellitePad' ? 
               <>
                 <p>Red circles 	&#128308; on the surface of the Earth show the rocket launch sites with confirmed satellite launches only (without crew mission launches).</p>
@@ -679,14 +684,16 @@ export function InfoBox() {
           <div 
             className={
               
-              ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') ? "headphoneBtn alertAudio" :
+              ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') || (activeStation!='') ? "headphoneBtn alertAudio" :
               (activeLaunchPad==='Starbase') || (activeLaunchPad==='KSS') || (activeLaunchPad==='CCSFS') ? "headphoneBtn alertLive" 
               : "headphoneBtn"}
-            onClick={()=>setCloseAudio(false)}
+             onClick={(
+               showAction==='satellitePad') || (activeLaunchPad==='BSS') || (activeLaunchPad==='JSLC') || (activeObject==='earth') ? '' 
+               : ()=>setCloseAudio(false)}
           >
           <BsHeadphones style={{"fontSize":"150%"}}/>
           {(activeLaunchPad==='Starbase') || (activeLaunchPad==='KSS') || (activeLaunchPad==='CCSFS') ? <p className="headphoneInfo">LIVE</p> :
-           ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') ? <p className="headphoneInfoAudio ">AUDIO</p>         
+           ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') || (activeStation!='') ? <p className="headphoneInfoAudio ">AUDIO</p>         
           : ''}
           </div>
           </>
@@ -831,7 +838,7 @@ export function InfoBox() {
         // :
         (activeObject === 'LEO') && (showAction === '') || (showAction === 'launchpad') || (showAction==='spaceStation') ? 
           <>
-          <p>You can observe two space stations travelling around the Earth by following yellow and red orbits.</p>
+          <p>You can observe two space stations travelling around the Earth by following along the yellow and red orbits.</p>
           </>
         : 
         (activeObject === 'moon') && (showAction != '') ? 
