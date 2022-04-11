@@ -7,6 +7,11 @@
     display: flex;
     width: 700px;
   }
+
+  .audioPlayerBg {
+    width: 20%;
+    margin-left: 1em;
+  }
   
   .playPause {
     background: transparent;
@@ -60,6 +65,10 @@
     width: 100%;
     height: 11px;
     outline: none;
+  }
+
+  .progressBarBg {
+    display: none;
   }
   
   /* progress bar - safari */

@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, launchpads, lights, showActions, stations } from '../globalState'
 import Whistler from '../../assets/sounds/Whistler.wav'
 import MartianWind from '../../assets/sounds/martianWind.mp3'
+import BgSound from '../../assets/sounds/videoplayback.mp3'
 import Kayla from '../../assets/kay.png'
 import Matt from '../../assets/matt.png'
 import Raja from '../../assets/raja.png'
@@ -18,7 +19,7 @@ import Zhai from '../../assets/zhai.png'
 import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
-import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones} from 'react-icons/bs'
+import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill} from 'react-icons/bs'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import ReactPlayer from 'react-player'
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
@@ -36,6 +37,19 @@ export function InfoBox() {
     const [activeStation, setStation] = useRecoilState(stations)
     const [closed, setClose] = useState(false)
     const [closedAudio, setCloseAudio] = useState(true)
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const audioPlayerBg = useRef()
+
+    const togglePlayPauseBg = () => {
+      const prevValue = isPlaying;
+      setIsPlaying(!prevValue);
+      if (!prevValue) {
+        audioPlayerBg.current.play();
+      } else {
+        audioPlayerBg.current.pause();
+      }
+    }
   
     const AudioPlayer = () => {
 
@@ -112,7 +126,7 @@ export function InfoBox() {
               (activeObject==='moon') && (showAction==='artemis') ? "https://images-assets.nasa.gov/audio/Ep116_Apollo%20vs%20ARTEMIS/Ep116_Apollo%20vs%20ARTEMIS~128k.mp3" :
               (activeObject==='LEO') ? Whistler :
               (activeObject==='mars') ? MartianWind
-              : "https://www.nasa.gov/mp3/577774main_STS-135Launchringtone-v2.mp3"} 
+              : {BgSound}} 
             preload="metadata">
             
         </audio>
@@ -127,6 +141,7 @@ export function InfoBox() {
         </div>
       )
     }
+    
     
     return(
         <Html wrapperClass="annotation" >
@@ -535,6 +550,7 @@ export function InfoBox() {
 
             {activeLaunchPad != '' ? <a onClick={()=>setLaunchPad('')} className="home-btn">Close &#x2715;</a> : ''}
           </div> : ''}
+            
           </div>
           <div className='addInfo'>
             {(activeObject === 'earth') || (activeObject === 'LEO')? <a className='home-btn inActive'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
@@ -673,10 +689,14 @@ export function InfoBox() {
               </a>
              
               <p style={{'marginRight':'8%'}}>Built by arbus</p>
+
+              
             </div>
              :
               ''}
+              
           </div>
+          
         </div>
         
         {closedAudio ? 
@@ -955,5 +975,22 @@ export function InfoBox() {
                     </>}
                   </div>
         </div>}
+        <div className='soundBackground'>
+          
+        <audio 
+          ref={audioPlayerBg} 
+          src={BgSound}
+          loop
+        >
+        </audio>
+       
+        <button onClick={togglePlayPauseBg} className="playPauseBg">
+            {isPlaying ? <BsFillVolumeUpFill className="playBtns" /> : <BsFillVolumeMuteFill className="playBtns" />}
+        </button>
+        <div class="content">
+          <div class="text"><p>Hans Zimmer <em>First Step</em></p></div>
+        </div>
+        </div>
+
       </Html>
     )}
