@@ -1,7 +1,7 @@
 import { Html } from '@react-three/drei'
 import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { clickedCBState, launchpads, lights, showActions, stations } from '../globalState'
+import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from '../globalState'
 import Whistler from '../../assets/sounds/Whistler.wav'
 import MartianWind from '../../assets/sounds/martianWind.mp3'
 import BgSound from '../../assets/sounds/videoplayback.mp3'
@@ -36,7 +36,7 @@ export function InfoBox() {
     const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
     const [activeStation, setStation] = useRecoilState(stations)
     const [closed, setClose] = useState(false)
-    const [closedAudio, setCloseAudio] = useState(true)
+    const [closedAudio, setCloseAudio] = useRecoilState(closedAudioG)
     const [isPlaying, setIsPlaying] = useState(false);
 
     const audioPlayerBg = useRef()
@@ -142,7 +142,6 @@ export function InfoBox() {
       )
     }
     
-    
     return(
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
@@ -178,7 +177,7 @@ export function InfoBox() {
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
             : activeObject === 'mars' ? "The planet we're colonizing next. Yes pls add smth here." 
             : activeObject === 'LEO' ? "This is where the most of the crew missions happening."
-            : ''}
+            : 'This is where the most of the crew missions happening.'}
           </h5>
 
           {activeObject === '' ? 
@@ -196,12 +195,15 @@ export function InfoBox() {
             {(activeLaunchPad!='') || (showAction==='spaceStation') ? '' : <a className={(showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') ? 'home-btn launchpad' : 'home-btn'} 
               onClick={()=>{
                 setAction('launchpad') 
-                setLight('ambient')}}>
+                setLight('ambient')
+                setCloseAudio(true)}}>
               Rocket launch sites
             </a>}
             {(showAction==='') || (showAction==='spaceStation') && (activeStation==='') ? 
               <a className={showAction==='spaceStation'?'home-btn launchpad':'home-btn'} 
-                 onClick={() => setAction('spaceStation')}>Space stations</a> : ''}
+                 onClick={() => {
+                   setAction('spaceStation')
+                   setCloseAudio(true)}}>Space stations</a> : ''}
             {showAction==='spaceStation' ? 
               <>
               {activeStation==='' ? 
@@ -287,7 +289,12 @@ export function InfoBox() {
             </>
 
             :''}
-            {(activeStation==='ISS') || (activeStation==='TSS') ? <a onClick={()=>setStation('')} className="home-btn">Close &#x2715;</a>:''}
+            {(activeStation==='ISS') || (activeStation==='TSS') ? 
+              <a 
+              onClick={()=>{
+                    setStation('')
+                    setCloseAudio(true)}} 
+              className="home-btn">Close &#x2715;</a>:''}
             {(showAction==='') || (activeLaunchPad!='') || (activeStation!='') ? '' : 
               <a className='home-btn' 
                  onClick={()=>{
@@ -548,19 +555,23 @@ export function InfoBox() {
 
             :''}
 
-            {activeLaunchPad != '' ? <a onClick={()=>setLaunchPad('')} className="home-btn">Close &#x2715;</a> : ''}
+            {activeLaunchPad != '' ? 
+              <a 
+                onClick={()=>{
+                  setLaunchPad('')
+                  setCloseAudio(true)}} className="home-btn">Close &#x2715;</a> : ''}
           </div> : ''}
             
           </div>
           <div className='addInfo'>
-            {(activeObject === 'earth') || (activeObject === 'LEO')? <a className='home-btn inActive'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
+            {(activeObject === 'earth') || (activeObject === 'LEO')? <a className='home-btn inActive population'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
             : activeObject === 'moon' ? 
-              <a className={showAction===''?"home-btn inActive" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
+              <a className={showAction===''?"home-btn inActive population" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
                   Population: 0 (12)
                   <br/>
                   <em className='credits'>Credit: NASA</em>
               </a>
-            : activeObject === 'mars' ? <a className='home-btn'>Population: 0</a>
+            : activeObject === 'mars' ? <a className='home-btn population'>Population: 0</a>
             : ''}
 
             
@@ -670,7 +681,11 @@ export function InfoBox() {
             
           
             {activeObject==='moon' ? 
-              <a className={showAction==='' ? "hidden-btn":'home-btn'} onClick={()=>setAction('')}>All lunar crew missions</a>
+              <a 
+                className={showAction==='' ? "hidden-btn":'home-btn'} 
+                onClick={()=>{
+                  setAction('')
+                  setCloseAudio(true)}}>All lunar crew missions</a>
               :''}
             {activeObject === '' ? 
           
@@ -679,10 +694,6 @@ export function InfoBox() {
               <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'>
                 <i className="fab fa-patreon"></i>
               </a>
-
-              {/* <a target="_blank" className='youtubeBtn' title='coming soon...'>
-                <i className="fab fa-youtube"></i> 
-              </a> */}
 
               <a  className='twBtn' href="https://twitter.com/multiplanet_guy" target="_blank">
                 <i className="fab fa-twitter"></i>
@@ -731,92 +742,92 @@ export function InfoBox() {
         (activeObject === 'moon') && (showAction==='') ? 
         <>
         <p>We Choose to Go to the Moon</p>
-        <p>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
+        <p className='audioDescription'>Let's listen to the famous <em>We choose to go to the Moon</em> speech by John F. Kennedy and the launch of Appolo 11.</p>
         </>
         :
         (activeObject === 'moon') && (showAction==='apollo11') ? 
         <>
         <p>Apollo 11 Mission Audio</p>
-        <p style={{"fontSize":"70%"}}> <em>All Highlights</em></p>
+        <p className='audioDescription'> <em>All Highlights</em></p>
         </>
         :
         (activeObject === 'moon') && (showAction==='apollo12') ? 
         <>
         <p>Apollo 12 Mission Audio</p>
-        <p style={{"fontSize":"70%"}}><em>All Highlights</em></p>
+        <p className='audioDescription'><em>All Highlights</em></p>
         </>
         :
         (activeObject === 'moon') && (showAction==='apollo14') ? 
         <>
         <p>Apollo 14 Mission Audio</p>
-        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        <p className='audioDescription'><em>All highlights</em></p>
         </>
         :
         (activeObject === 'moon') && (showAction==='apollo15') ? 
         <>
         <p>Apollo 15 Mission Audio</p>
-        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        <p className='audioDescription'><em>All highlights</em></p>
         </>
         :
         (activeObject === 'moon') && (showAction==='apollo16') ? 
         <>
         <p>Apollo 16 Mission Audio</p>
-        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        <p className='audioDescription'><em>All highlights</em></p>
         </>
         :
         (activeObject === 'moon') && (showAction==='apollo17') ? 
         <>
         <p>Apollo 17 Mission Audio</p>
-        <p style={{"fontSize":"70%"}}><em>All highlights</em></p>
+        <p className='audioDescription'><em>All highlights</em></p>
         </>
         :
         (activeObject === 'moon') && (showAction==='artemis') ? 
         <>
         <p>Houston We Have a Podcast by NASA</p>
-        <p style={{"fontSize":"70%"}}><em>Apollo vs Artemis</em></p>
+        <p className='audioDescription'><em>Apollo vs Artemis</em></p>
         </>
         :
         activeObject === 'mars' ? 
         <>
         <p>Martian wind</p>
-        <p style={{"fontSize":"70%"}}>This recording was made on Feb. 22, 2021, on the fourth sol (Martian day) by the SuperCam instrument on NASA's Perseverance rover after deployment of the rover's mast.</p>
+        <p className='audioDescription'>This recording was made on Feb. 22, 2021, on the fourth sol (Martian day) by the SuperCam instrument on NASA's Perseverance rover after deployment of the rover's mast.</p>
         </>
         :
         (activeObject === 'LEO') && (activeStation==='') && (activeLaunchPad==='') ? 
         <>
          <p>Atmospheric squeaking</p>
-         <p style={{"fontSize":"70%"}}>A 'whistler' is audibly emitted in the atmosphere.<a onClick={()=>setSpan(!disabledSpan)}>But what are 'whistlers' exactly?</a></p>
+         <p>A 'whistler' is audibly emitted in the atmosphere.<a onClick={()=>setSpan(!disabledSpan)}>But what are 'whistlers' exactly?</a></p>
          <p className={disabledSpan ? 'disabledSpan': 'enabledSpan'}>They are electromagnetic emissions produced in the atmosphere, but their cause is still partly unclear. They originate from thunderstorms or meteorites, or even after earthquakes. Once produced, the sounds travel along closed magnetic field lines from one hemisphere to the other.</p>
         </>
         :
         (activeObject === 'LEO') && (activeStation==='ISS') ?
         <> 
           <p>NASA Live</p>
-          <p style={{"fontSize":"70%"}}>NASA TV airs a variety of regularly scheduled, pre-recorded educational and public relations programming 24 hours a day on its various channels.</p>
+          <p className='audioDescription'>NASA TV airs a variety of regularly scheduled, pre-recorded educational and public relations programming 24 hours a day on its various channels.</p>
         </>
         :
         (activeObject === 'LEO') && (activeStation==='TSS') ?
         <> 
           <p>Tiangong Live</p>
-          <p style={{"fontSize":"70%"}}>Unfortunately, there's no live stream from Tiangong as NASA Live. Below is the latest live stream made by Shenzhou-13 crew.</p>
+          <p className='audioDescription'>Unfortunately, there's no live stream from Tiangong as NASA Live. Below is the latest live stream made by Shenzhou-13 crew.</p>
         </>
         :
         (activeObject === 'LEO') && (activeLaunchPad==='Starbase') ?
         <> 
           <p>Starbase Live</p>
-          <p style={{"fontSize":"70%"}}>Starbase LIVE provides 24/7 coverage of the exciting developments and testing progress.</p>
+          <p className='audioDescription'>Starbase LIVE provides 24/7 coverage of the exciting developments and testing progress.</p>
         </>
         :
         (activeObject === 'LEO') && (activeLaunchPad==='CCSFS') ?
         <> 
           <p>LIVE SpaceX Fleet Operations at Port Canaveral</p>
-          <p style={{"fontSize":"70%"}}>Booster returns aboard ASDS, rocket processing operations, fairing returns, launches and many more.</p>
+          <p className='audioDescription'>Booster returns aboard ASDS, rocket processing operations, fairing returns, launches and many more.</p>
         </>
          :
          (activeObject === 'LEO') && (activeLaunchPad==='KSS') ?
          <> 
            <p>Live: Artemis 1 SLS at the KSS</p>
-           <p style={{"fontSize":"70%"}}>The SLS rocket will launch NASA's Orion capsule on a loop around the Moon later this year.</p>
+           <p className='audioDescription'>The SLS rocket will launch NASA's Orion capsule on a loop around the Moon later this year.</p>
          </>
        :''}
         
@@ -956,6 +967,7 @@ export function InfoBox() {
                           setLight('')
                           setAction('')
                           setLaunchPad('')
+                          setCloseAudio(true)
                         }} 
                       title="Moon orbiting Earth">
                       <GiMoonOrbit/>
@@ -987,8 +999,8 @@ export function InfoBox() {
         <button onClick={togglePlayPauseBg} className="playPauseBg">
             {isPlaying ? <BsFillVolumeUpFill className="playBtns" /> : <BsFillVolumeMuteFill className="playBtns" />}
         </button>
-        <div class="content">
-          <div class="text"><p>Hans Zimmer <em>First Step</em></p></div>
+        <div className="content">
+          <div className="text"><p>Hans Zimmer <em>First Step</em></p></div>
         </div>
         </div>
 

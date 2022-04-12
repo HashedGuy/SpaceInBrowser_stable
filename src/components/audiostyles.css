@@ -157,3 +157,93 @@
     transform: scale(1.2);
     background: var(--selectedKnobby);
   }
+
+  /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  .audioPlayer {
+    width: 280px;
+  }
+
+  .playPause {
+    width: 4vh;
+    height: 3.5vh;
+  }
+
+  .currentTime {
+    margin-left: 15px;
+  }
+
+  .duration {
+    margin-left: 10px;
+  }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .audioPlayer {
+      width: 220px;
+    }
+
+    .playPause {
+      width: 3.5vh;
+      height: 3vh;
+    }
+
+    .play {
+      font-size: 30%;
+    }
+  }
+
+  /* Landscape */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) 
+and (-webkit-min-device-pixel-ratio: 2) {
+  .audioPlayer {
+    width: 220px;
+  }
+
+  .play {
+    font-size: 30%;
+  }
+}
+
+/* ----------- iPad Pro 10.5" ----------- */
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1112px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .audioPlayer {
+      width: 220px;
+      margin: 1em 0;
+    }
+
+    .playPause {
+      width: 4vh;
+      height: 3.5vh;
+    }
+
+    .play {
+      font-size: 30%;
+    }
+
+    .currentTime, .duration {
+      margin-left: 10px;
+    }
+  }

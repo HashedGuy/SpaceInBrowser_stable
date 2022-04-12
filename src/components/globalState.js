@@ -26,3 +26,8 @@ export const stations = atom({
     default:''
 })
 
+export const closedAudioG = atom({
+    key: 'closedAudio',
+    default: true
+})
+

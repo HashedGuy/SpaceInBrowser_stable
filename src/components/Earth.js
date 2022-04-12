@@ -3,7 +3,7 @@ import { OrbitControls, Stars, Html } from '@react-three/drei';
 import React, {useRef, useState} from 'react';
 import * as THREE from 'three'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { clickedCBState, launchpads, lights, showActions, stations } from './globalState';
+import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from './globalState';
 import { InfoBox } from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
@@ -41,6 +41,7 @@ export function Earth(props) {
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
   const [activeLaunchPad, setLaunchPad] = useRecoilState(launchpads)
+  const [closedAudio, setCloseAudio] = useRecoilState(closedAudioG)
   const showAction = useRecoilValue(showActions)
   const light = useRecoilValue(lights)
   const station = useRecoilValue(stations)
@@ -347,7 +348,9 @@ export function Earth(props) {
 
       <mesh
         position={[posBSS.x,posBSS.y,posBSS.z]}
-        onClick={()=>setLaunchPad('BSS')}
+        onClick={()=>{
+          setLaunchPad('BSS')
+          setCloseAudio(true)}}
         geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0x00ff00}/>
@@ -395,7 +398,9 @@ export function Earth(props) {
 
       <mesh
         position={[posJSLC.x,posJSLC.y,posJSLC.z]}
-        onClick={()=>setLaunchPad('JSLC')}
+        onClick={()=>{
+          setLaunchPad('JSLC')
+          setCloseAudio(true)}}
         geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0x00ff00}/>

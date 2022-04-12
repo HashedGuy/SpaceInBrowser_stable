@@ -503,3 +503,250 @@ align-items: center;
 .bioPic #Mathias :hover {
   content: 'Matt';
 }
+
+.audioDescription {
+  font-size: 70%;
+}
+
+.population {
+  margin: 1em;
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 20vh;
+      font-size: 70%;
+    }
+
+    .infoBox {
+      padding: 1em;
+    }
+
+    .soundBackground {
+      width: 5vh;
+      height: 5vh;
+      top: 94%;
+      left: 160%;
+    }
+
+    .extraInfo {
+      left: 230% !important;
+      top: 77%;
+      width: 20vh;
+      height: 20vh;
+      font-size: 70%;
+      padding: 1.5em;
+    }
+
+    .audioSection {
+      left: 215% !important;
+      width: 25vh;
+      height: 25vh;
+      font-size: 30%;
+      padding: 0 1.5em;
+    }
+
+    .mouseBtn {
+      left: 290% !important;
+      top: 92%;
+      font-size: 70%;
+    }
+
+    .headphoneBtn {
+      left: 290% !important;
+    }
+
+    .audioSection p {
+      margin-bottom: 1em;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 30vh;
+      font-size: 70%;
+      padding: 0 1.5em;
+    }
+
+    .audioSection {
+      height: 28vh;
+      width: 28vh;
+    }
+
+    .extraInfo, .audioSection {
+      left: 285% !important;
+    }
+
+    .mouseBtn, .headphoneBtn {
+      left: 330% !important;
+    }
+
+    .headphoneBtn {
+      top: 5% !important;
+    }
+
+    .audioSection {
+      top: 5%;
+    }
+
+    .soundBackground {
+      left: 180%;
+    }
+}
+
+/* ----------- iPad Pro 10.5" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 834px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    
+    .audioSection {
+      padding: 1em;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1112px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 25vh;
+      font-size: 70%;
+    }
+
+    .extraInfo {
+      top: 67%;
+    }
+
+    .extraInfo, .audioSection {
+      left: 360% !important;
+    }
+
+    .audioSection {
+      width: 30vh;
+      height: 30vh;
+    }
+
+    .headphoneBtn, .mouseBtn {
+      left: 420% !important;
+    }
+
+    .headphoneBtn {
+      top: 5%;
+    }
+}
+
+/* ----------- iPad Pro 12.9" ----------- */
+
+  /* Portrait */
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .infoBox {
+      padding: 0 1em;
+    }
+
+    .annotation {
+      /* width: 23vh; */
+    }
+
+    .soundBackground {
+      left: 155% !important;
+      top: 92%;
+      width: 8vh;
+      height: 8vh;
+    }
+
+    .extraInfo {
+      left: 235% !important;
+      top: 80%;
+      width: 20vh;
+      height: 20vh;
+    }
+
+    .audioSection {
+      left: 235% !important;
+      width: 20vh;
+      height: 20vh;
+    }
+
+    .mouseBtn {
+      left: 280% !important;
+      top: 94%;
+      width: 4vh;
+      height: 4vh;
+    }
+
+    .headphoneBtn {
+      left: 280% !important;
+      top: 5%;
+    }
+
+    .audioSection p {
+      margin-bottom: 0;
+    }
+
+    .audioDescription {
+      font-size: 60% !important;
+      margin-bottom: 1em !important;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1366px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 25vh;
+    }
+
+    .extraInfo, .audioSection {
+      left: 350% !important;
+      width: 27vh;
+      height: 25vh;
+      padding: 1.5em;
+    }
+
+    .extraInfo {
+      top: 70%;
+    }
+
+    .mouseBtn {
+      left: 420% !important;
+    }
+
+    .headphoneBtn {
+      left: 420% !important;
+    }
+
+    .soundBackground {
+      left: 220% !important;
+    }
+}
+
