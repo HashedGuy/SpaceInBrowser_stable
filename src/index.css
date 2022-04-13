@@ -42,7 +42,6 @@ audio {
     transform-origin: 0px 0px;
     z-index: 16639014;
     padding:1em;
-    border-radius: 5%;
     background-color: rgba(28, 28, 28, 0.3);
     display: flex;
     flex-direction: column;
@@ -238,7 +237,7 @@ audio {
   height: 95vh;
   text-align: center;
   justify-content: space-between;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .addInfo {
@@ -408,6 +407,16 @@ audio {
   color: black;
   background-color: aliceblue;
   cursor: default;
+}
+
+.logoTitletext {
+  font-weight: 500;
+  margin-left: 2%;
+}
+
+.logoTitleBeta {
+  font-weight: 200;
+  margin-left: 2%;
 }
 
 .infoLight {
@@ -658,7 +667,12 @@ align-items: center;
     .headphoneBtn {
       top: 5%;
     }
+
+    .infoBorders {
+      padding: 1em !important;
+    }
 }
+
 
 /* ----------- iPad Pro 12.9" ----------- */
 
@@ -755,13 +769,6 @@ align-items: center;
 }
 
 /* iPhone 6, 7, 8 ----------- */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-height: 667px) 
-  and (orientation : landscape) 
-  and (-webkit-device-pixel-ratio: 2){
-  /* Styles */
-  }
   
 @media only screen 
   and (min-device-width: 375px) 
@@ -838,6 +845,102 @@ align-items: center;
       margin-bottom: 2.5em !important;
     }
 }
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-height: 667px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 2){
+  /* Styles */
+    .annotation {
+      font-size: 30%;
+    }
+
+    .infoBorders, .addInfo {
+      padding: 2.5em;
+    }
+
+    .infoBorders h5 {
+      font-weight: 400;
+      margin-top: 5em !important;
+    }
+
+    .addInfo p {
+      font-size: 7px;
+      font-weight: 200;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .extraInfo {
+      left: 510% !important;
+      top: 70%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .soundBackground {
+      background-color: transparent !important;
+      left: 250%;
+      top: 90%;
+    }
+
+    .credits {
+      font-size: 6px !important;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 3em !important;
+    }
+
+    .logoTitleText, .logoTitleBeta {
+      font-size: 8px !important;
+    }
+
+    .population {
+      font-size: 8px;
+    }
+
+    .home-btn {
+      padding: .6em;
+    }
+
+    .infoBorders p {
+      font-size: 150%;
+    }
+
+    .viewDiv p {
+      font-size: 7px;
+      font-weight: 300;
+    }
+
+    .viewDiv a {
+      font-size: 8px;
+    }
+  }
 
 
 /* iPhone X ----------- */

@@ -155,8 +155,8 @@ export function InfoBox() {
                 setAction('')
                 setLaunchPad('')}}>
             <GiMoonOrbit/>
-            <span style={{"fontWeight":"500", "marginLeft":"2%"}}>Multiplanetary map</span>
-            <span style={{"fontWeight":"200", "marginLeft":"2%"}}>Beta 1.0</span>
+            <span className='logoTitleText'>Multiplanetary map</span><br className='br'/>
+            <span className='logoTitleBeta'>Beta 1.0</span>
             </p>
           </>}
           <h1>{
@@ -219,7 +219,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/iss_2Y2vU27Mh.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
+                <p className='credits'><em>Credit: NASA Image and Video</em></p>
                 <p>Since the first module was launched into low Earth orbit in 1998, the ISS has grown with modular additions from the principal space agencies involved in building and operating the space station: NASA, Roscosmos, ESA, JAXA and CSA. To date, 237 astronauts from 18 countries have visited the ISS.</p>
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
@@ -248,7 +248,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/tss_9bzokhBix.png" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit: Shujianyang</em></p>
+                <p className='credits'><em>Credit: Shujianyang</em></p>
                 <p>The first module, the Tianhe ("Harmony of the Heavens") core module, was launched on 29 April 2021, followed by multiple crewed and uncrewed missions and two more modules to be launched by 2022. The research conducted on the station will improve researchers' ability to conduct science experiments in space, beyond the duration and capacity offered by China's existing space laboratories.</p>
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
@@ -312,7 +312,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/VAB_and_SLS_vWeAvJ4pC.jpeg" className='infoPic'/>  
             </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
+            <p className='credits'><em>Credit: NASA Image and Video</em></p>
             <p>Although Kennedy is the NASA's main launch site, the center also is home to facilities that research and develop innovative solutions that government and commercial space ventures need for working and living on the surfaces of the Moon and other bodies in our solar system.</p>
             <h5>Next mission:</h5> 
             <p className="nextMission">SpaceX Falcon 9 Axiom Mission 1 (Ax-1)</p>
@@ -325,7 +325,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/CCSFS_klnuRorxI.jpeg" className='infoPic'/>  
             </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: Patrick Space Force Base</em></p>
+            <p className='credits'><em>Credit: Patrick Space Force Base</em></p>
             <p>A number of American space exploration pioneers were launched from CCSFS, including the first U.S. Earth satellite in 1958, first U.S. astronaut (1961), first U.S. astronaut in orbit (1962), first two-man U.S. spacecraft (1965), first U.S. unmanned lunar landing (1966), and first three-man U.S. spacecraft (1968).</p>
             <h5>Next mission:</h5> 
             <p className="nextMission">ULA Atlas V Boeing CST-100 Starliner Orbital Flight Test 2 (UNCREWED)</p>
@@ -338,7 +338,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/USA_-_Texas_-_Boca_Chica_-_Starbase__51287072615__iZdM4e3T2.jpeg" className='infoPic'/>  
             </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: Alexander Hatley from Spring, Texas, USA</em></p>
+            <p className='credits'><em>Credit: Alexander Hatley from Spring, Texas, USA</em></p>
             <p>The launch site was originally intended to support launches of the Falcon 9 and Falcon Heavy launch vehicles as well as "a variety of reusable suborbital launch vehicles", but in early 2018, SpaceX announced a change of plans, stating that the launch site would be used exclusively for SpaceX's next-generation launch vehicle, Starship.</p>
             </>
             :
@@ -349,7 +349,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Iridium-1_Mission__31450835954__TOxEeRQSk.jpeg" className='infoPic'/>  
                 </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: SpaceX</em></p>
+            <p className='credits'><em>Credit: SpaceX</em></p>
             <p>It has two pads, both of which are used by SpaceX for Falcon 9, one for launch operations, and other as Landing Zone 4 (LZ-4) for SpaceX landings.</p>
             </>
             :
@@ -360,7 +360,7 @@ export function InfoBox() {
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Ensemble_de_lancement_Vega_IaYTz2mFXF.jpeg" className='infoPic'/>  
                 </IKContext>
-             <p style={{"fontSize":"50%"}}><em>Credit: Camille Gévaudan</em></p>
+             <p className='credits'><em>Credit: Camille Gévaudan</em></p>
              <p>The European Space Agency (ESA), the European Union Agency for the Space Programme (EUSPA), the French space agency CNES (National Centre for Space Studies), and the commercial companies Arianespace and Azercosmos conduct launches from Kourou. It was used by the ESA to send supplies to the International Space Station using the Automated Transfer Vehicle.</p>
             </>
             :
@@ -371,7 +371,7 @@ export function InfoBox() {
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/soyuz_5kt71bONq.jpeg" className='infoPic'/>  
             </IKContext>
-             <p style={{"fontSize":"50%"}}><em>Credit: NASA KSC Media Archive</em></p>
+             <p className='credits'><em>Credit: NASA KSC Media Archive</em></p>
              <p>The Cosmodrome is the world's first spaceport for orbital and human launches and the largest (in area) operational space launch facility. All crewed Russian spaceflights are launched from Baikonur.</p>
              <h5>Next mission:</h5> 
              <p className="nextMission">Progress MS-20</p>
@@ -384,7 +384,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/PSLV_C45_EMISAT_campaign_23_JmiBV0Zod.jpeg" className='infoPic'/>  
                 </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: Indian Space Research Organisation</em></p>
+            <p className='credits'><em>Credit: Indian Space Research Organisation</em></p>
             <p>The  Centre has  the  facilities for  solid propellant  processing,  static  testing  of  solid  motors,  launch  vehicle  integration  and  launch operations, range operations comprising telemetry, tracking and command network and mission control centre.</p>
             </>
              :
@@ -395,7 +395,7 @@ export function InfoBox() {
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/tianwen_A1iielWrO.jpeg" className='infoPic'/>  
                 </IKContext>
-             <p style={{"fontSize":"50%"}}><em>Credit: China News Service</em></p>
+             <p className='credits'><em>Credit: China News Service</em></p>
              <p>It has been specially selected for its low latitude, which is only 19° north of the equator, which will allow for an increase in payload necessary for launching China's future space station. It is capable of launching the Long March 5, currently the most powerful Chinese rocket.</p>
             </>
             :
@@ -406,7 +406,7 @@ export function InfoBox() {
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/osaki_cdKgKyIx0.jpeg" className='infoPic'/>  
                 </IKContext>
-             <p style={{"fontSize":"50%"}}><em>Credit: ウニウニ </em></p>
+             <p className='credits'><em>Credit: ウニウニ </em></p>
              <p>It was established in 1969 when the National Space Development Agency of Japan (NASDA) was formed, and is now run by JAXA. The activities that take place at TNSC include assembly, testing, launching, and tracking satellites, as well as rocket engine firing tests.</p>
             </>
             :
@@ -417,7 +417,7 @@ export function InfoBox() {
               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/usc__QW5nlJ_oz.jpeg" className='infoPic'/>  
                 </IKContext>
-              <p style={{"fontSize":"50%"}}><em>Credit: NASA Image and Video</em></p>
+              <p className='credits'><em>Credit: NASA Image and Video</em></p>
               <p>All of Japan's scientific satellites were launched from Uchinoura prior to the M-V launch vehicles being decommissioned in 2006. It continues to be used for suborbital launches, and has also been used for the Epsilon orbital launch vehicle. Additionally, the center has antennas for communication with interplanetary space probes.</p>
             </>
             :
@@ -428,7 +428,7 @@ export function InfoBox() {
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/iran_MuTq68S_D.jpeg" className='infoPic'/>  
                 </IKContext>
-               <p style={{"fontSize":"50%"}}><em>Credit: Tasnim News Agency</em></p>
+               <p className='credits'><em>Credit: Tasnim News Agency</em></p>
                <p>The spaceport comprises two launch pads: an older, medium-sized launch pad with a collapsible umbilical tower, and a newer, larger launch pad with a mobile gantry tower.</p>
             </>
             :
@@ -439,7 +439,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/isr_P1laiaRLz1.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit: Flash 90</em></p>
+                <p className='credits'><em>Credit: Flash 90</em></p>
                 <p>Palmachim is used to launch the Shavit space launch vehicle into retrograde orbit by launching over the Mediterranean, acting as Israel's primary spaceport. Palmachim is also used to test ballistic missiles, such as the Jericho.</p>
             </>
             :
@@ -450,7 +450,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/yasny_xccSUm8Ff.jpeg" className='infoPic'/>  
                 </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: ISC Kosmotras</em></p>
+            <p className='credits'><em>Credit: ISC Kosmotras</em></p>
             <p>The civilian launches are operated by the Russian Air Force on behalf of the launcher's operator, Russian/Ukrainian consortium Kosmotras. Kosmotras has constructed additional facilities necessary for commercial satellite launch operations, including clean room integration facilities.</p>
             </>
             :
@@ -461,7 +461,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/JCLA_bzntudH90.jpeg" className='infoPic'/>  
             </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: Xinhuanet</em></p>
+            <p className='credits'><em>Credit: Xinhuanet</em></p>
             <p>The center covers 2800 km² and may have housing for as many as 20,000 people. The facilities and launch support equipment were likely modelled on Soviet counterparts and the Soviet Union likely provided technical support to Jiuquan.</p>
             </>
             :
@@ -472,7 +472,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/vostochny_rEnB3lwC8.jpeg" className='infoPic'/>  
                 </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: Владислав Ларкин</em></p>
+            <p className='credits'><em>Credit: Владислав Ларкин</em></p>
             <p>It is intended to reduce Russia's dependency on the Baikonur Cosmodrome in Kazakhstan. The first launch took place on 28 April 2016 at 02:01 UTC. As of 1 July 2021, eight launch attempts have been made with seven successes.</p>
             </>
             :
@@ -483,7 +483,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Taiyuan_1601_Satellite_Launch_Site_Y3i8QVdrN.jpeg" className='infoPic'/>  
                 </IKContext>
-            <p style={{"fontSize":"50%"}}><em>Credit: 燕雁 </em></p>
+            <p className='credits'><em>Credit: 燕雁 </em></p>
             <p>The site is primarily used to launch meteorological satellites, Earth resource satellites and scientific satellites on Long March launch vehicles into Sun-synchronous orbits.</p> 
             </>
              :
@@ -494,7 +494,7 @@ export function InfoBox() {
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/nk_Xk9VF2gVS.jpeg" className='infoPic'/>  
                 </IKContext>
-             <p style={{"fontSize":"50%"}}><em>Credit: KCNA </em></p>
+             <p className='credits'><em>Credit: KCNA </em></p>
              <p>It was the site for the 13 April 2012 launch of the North Korean satellite Kwangmyŏngsŏng-3, which was launched to celebrate the 100th anniversary of the birth of Kim Il-Sung. The rocket launch failed, but on 12 December of the same year Kwangmyŏngsŏng-3 Unit 2 was successfully launched and brought into Earth orbit.</p> 
              </>
               :
@@ -505,7 +505,7 @@ export function InfoBox() {
               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/KSLV-II-suborbital-test-vehicle_tPmoKQ89J.jpeg" className='infoPic'/>  
                 </IKContext>
-              <p style={{"fontSize":"50%"}}><em>Credit: Korea Aerospace Research Institute </em></p>
+              <p className='credits'><em>Credit: Korea Aerospace Research Institute </em></p>
               <p>It includes two launch pads, a control tower, rocket assembly and test facilities, facilities for satellite control testing and assembly, a media center, an electric power station, a space experience hall and a landing field. It has supported 5 launches including the KSLV-II launch in 2021, and will support SSLV launches in 2025.</p> 
               </>
                :
@@ -516,7 +516,7 @@ export function InfoBox() {
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Xichang_launch_center_4_3kA0y2AMf.jpeg" className='infoPic'/>  
                 </IKContext>
-               <p style={{"fontSize":"50%"}}><em>Credit: CGWIC </em></p>
+               <p className='credits'><em>Credit: CGWIC </em></p>
                <p>The facility became operational in 1984 and is used to launch numerous civil, scientific, and military payloads annually. It is notable as the site of Sino-European space cooperation, with the launch of the first of two Double Star scientific satellites in December 2003.</p> 
                </>
                :
@@ -527,7 +527,7 @@ export function InfoBox() {
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Rocket_Lab_Launch_Complex_1__Sept_2016__ydOJVsOFkA.jpeg" className='infoPic'/>  
                 </IKContext>
-               <p style={{"fontSize":"50%"}}><em>Credit: Rodney Allen  </em></p>
+               <p className='credits'><em>Credit: Rodney Allen  </em></p>
                <p>It is owned and operated by private spaceflight company Rocket Lab and supports launches of the company's Electron rocket for CubeSat nanosatellites. </p> 
                </>
                :
@@ -538,7 +538,7 @@ export function InfoBox() {
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/474963main-tower-picture-3008x2000-1521646940_7fQHwv_J_.jpeg" className='infoPic'/>  
                 </IKContext>
-               <p style={{"fontSize":"50%"}}><em>Credit: ALASKA AEROSPACE CORPORATION </em></p>
+               <p className='credits'><em>Credit: ALASKA AEROSPACE CORPORATION </em></p>
                <p>The spaceport has two launch pads with a mission control center that includes 64 workstations with high-speed communications and data links. There is a clean room for preparing satellites for launch, a fully enclosed 17-story-tall rocket assembly building and two independent range and telemetry systems.</p> 
                </>
                :
@@ -549,7 +549,7 @@ export function InfoBox() {
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/MARS_4QK1tzOSC.jpeg" className='infoPic'/>  
                 </IKContext>
-               <p style={{"fontSize":"50%"}}><em>Credit: NASA Wallops Flight Facility  </em></p>
+               <p className='credits'><em>Credit: NASA Wallops Flight Facility  </em></p>
                <p>The Mid-Atlantic Regional Spaceport has three active launch pads. In October 2018, Rocket Lab announced that it had selected MARS as its second launch site, called Rocket Lab Launch Complex-2. The company began construction in February 2019, together with the Virginia Commercial Space Flight Authority (Virginia Space).</p> 
                </>
 
@@ -598,7 +598,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Aldrin_Apollo_11_original_ycH08Gxy4.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
+                <p className='credits'><em>Credit: NASA Image and Video</em></p>
                 <p>Commander Neil Armstrong and lunar module pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC, and Armstrong became the first person to step onto the Moon's surface six hours and 39 minutes later, on July 21 at 02:56 UTC. Aldrin joined him 19 minutes later, and they spent about two and a quarter hours together exploring the site they had named Tranquility Base upon landing.</p>
                 
                 </>
@@ -609,7 +609,7 @@ export function InfoBox() {
                   <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                     <IKImage path="/Surveyor_3-Apollo_12_vGA6dZIFF.jpeg" className='infoPic'/>  
                   </IKContext>
-                  <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
+                  <p className='credits'><em>Credit:NASA Image and Video</em></p>
                   <p>It was launched on November 14, 1969, from the Kennedy Space Center, Florida. Commander Charles "Pete" Conrad and Lunar Module Pilot Alan L. Bean performed just over one day and seven hours of lunar surface activity while Command Module Pilot Richard F. Gordon remained in lunar orbit.</p>
                 </>
               : showAction === 'apollo14' ? 
@@ -619,7 +619,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Apollo_14_Shepard_nN-skDi91.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
+                <p className='credits'><em>Credit:NASA Image and Video</em></p>
                 <p>It was the last of the "H missions", landings at specific sites of scientific interest on the Moon for two-day stays with two lunar givehicular activities (EVAs or moonwalks).</p>
               </>
               : showAction === 'apollo15' ? 
@@ -629,7 +629,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/AS15-88-11866_-_Apollo_15_flag__rover__LM__Irwin_-_restoration1_Sr6q02sR-.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
+                <p className='credits'><em>Credit:NASA Image and Video</em></p>
                 <p> It was the first J mission, with a longer stay on the Moon and a greater focus on science than earlier landings. Apollo 15 saw the first use of the Lunar Roving Vehicle.</p>
                 
               </>
@@ -640,7 +640,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/John_W._Young_on_the_Moon_643917BPyg.jpg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
+                <p className='credits'><em>Credit:NASA Image and Video</em></p>
                 <p>It was the second of Apollo's "J missions", with an extended stay on the lunar surface, a focus on science, and the use of the Lunar Roving Vehicle (LRV). The landing and exploration were in the Descartes Highlands, a site chosen because some scientists expected it to be an area formed by volcanic action, though this proved to not be the case.</p>
               </>
               : showAction === 'apollo17' ? 
@@ -650,7 +650,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Eugene_Cernan_at_the_LM__Apollo_17_eibvGpjcJ.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit:NASA Image and Video</em></p>
+                <p className='credits'><em>Credit:NASA Image and Video</em></p>
                 <p>Commander Eugene Cernan and Lunar Module Pilot Harrison Schmitt walked on the Moon, while Command Module Pilot Ronald Evans orbited above. The mission's heavy emphasis on science meant the inclusion of a number of new experiments, including a biological experiment containing five mice carried in the command module.</p>
               </>
               : showAction === 'artemis' ? 
@@ -660,7 +660,7 @@ export function InfoBox() {
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/starship-lander-879x485_yLrwIC7yf.jpeg" className='infoPic'/>  
                 </IKContext>
-                <p style={{"fontSize":"50%"}}><em>Credit:SpaceX</em></p>
+                <p className='credits'><em>Credit:SpaceX</em></p>
                 <p>Scheduled for launch in 2025, Artemis 3 is planned to be the second crewed Artemis mission and the first crewed lunar landing since Apollo 17 in 1972.</p>
                 <p>Artemis 3 will land a crew at the Moon's south polar region. It is planned to have two astronauts on the surface of the Moon for about one week. The mission is intended to be the first to place a woman on the Moon.</p>
               </>
