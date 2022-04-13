@@ -512,6 +512,10 @@ align-items: center;
   margin: 1em;
 }
 
+.menuIcons {
+  display: flex;
+}
+
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
 /* Portrait */
@@ -748,5 +752,142 @@ align-items: center;
     .soundBackground {
       left: 220% !important;
     }
+}
+
+/* iPhone 6, 7, 8 ----------- */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-height: 667px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 2){
+  /* Styles */
+  }
+  
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-height: 667px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+    .annotation {
+      width: 15vh;
+      font-size: 30%;
+      padding: 5em;
+    }
+
+    .infoBorders h1 {
+      font-size: 250%;
+    }
+
+    .infoBorders h5 {
+      font-weight: 300;
+      margin-top: 2em;
+    }
+
+    .soundBackground {
+      left: 130%;
+      top: 93%;
+      width: 5vh;
+      height: 5vh;
+      background-color: transparent;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .extraInfo {
+      left: 210% !important;
+      top: 75%;
+      width: 7vh;
+      background-color: transparent;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .addInfo, .infoBorders {
+      padding: 1.5em;
+    }
+
+    .populationInfo p {
+      font-size: 20%;
+      font-weight: 200;
+      margin: 5em 0;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 2.5em !important;
+    }
+}
+
+
+/* iPhone X ----------- */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-height: 812px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 3){
+  /* Styles */
+  }
+  
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-height: 812px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+/* iPhone 6+, 7+, 8+ ----------- */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-height: 736px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 2){
+  /* Styles */
+}
+  
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-height: 736px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* iPhone XS Max, XR ----------- */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-height: 896px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 3){
+  /* Styles */
+  }
+  
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-height: 896px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 3){
+/* Styles */
 }
 

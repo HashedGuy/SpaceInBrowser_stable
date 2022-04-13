@@ -919,7 +919,7 @@ export function InfoBox() {
             : <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>}
           </>
           }
-           <div style={{"display":"flex"}}>
+           <div className='menuIcons'>
                     {activeObject==='LEO' ? '' : 
                     <>
                     <a className='home-btn earthBtn' 
