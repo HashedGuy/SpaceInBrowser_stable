@@ -154,7 +154,7 @@ export function InfoBox() {
                 setLight('')
                 setAction('')
                 setLaunchPad('')}}>
-            <GiMoonOrbit/>
+            <GiMoonOrbit className='giMoonOrbit'/>
             <span className='logoTitleText'>Multiplanetary map</span><br className='br'/>
             <span className='logoTitleBeta'>Beta 1.0</span>
             </p>
@@ -185,7 +185,7 @@ export function InfoBox() {
           
           </>
           : ''}
-          {activeObject === 'earth' ? <a className='home-btn' onClick={()=>setObject('LEO')}>Discover Low Earth Orbit</a>
+          {activeObject === 'earth' ? <a className='home-btn dleo' onClick={()=>setObject('LEO')}>Discover Low Earth Orbit</a>
           : ''
 
           }
