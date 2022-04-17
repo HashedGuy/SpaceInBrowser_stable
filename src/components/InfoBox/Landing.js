@@ -177,7 +177,7 @@ export function InfoBox() {
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
             : activeObject === 'mars' ? "The planet we're colonizing next. Yes pls add smth here." 
             : activeObject === 'LEO' ? "This is where the most of the crew missions happening."
-            : 'This is where the most of the crew missions happening.'}
+            : 'The opportunity of being multiplanetary species will be tested on Mars via the gateway on the Moon.'}
           </h5>
 
           {activeObject === '' ? 
