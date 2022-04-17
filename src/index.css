@@ -555,7 +555,7 @@ audio {
     }
 
     .extraInfo {
-      left: 230% !important;
+      left: 215% !important;
       top: 77%;
       width: 20vh;
       height: 20vh;
@@ -564,7 +564,7 @@ audio {
     }
 
     .audioSection {
-      left: 215% !important;
+      left: 200% !important;
       width: 25vh;
       height: 25vh;
       font-size: 30%;
@@ -578,7 +578,7 @@ audio {
     }
 
     .headphoneBtn {
-      left: 290% !important;
+      left: 285% !important;
     }
 
     .audioSection p {
@@ -707,7 +707,7 @@ audio {
 /* Landscape */
 @media only screen 
   and (min-device-width: 1112px) 
-  and (max-device-width: 1112px) 
+  and (max-device-width: 1194px) 
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -1140,8 +1140,8 @@ audio {
 
 /* iPhone X ----------- */
 @media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-height: 896px) 
+  and (min-device-width: 360px) 
+  and (max-device-height: 926px) 
   and (orientation : portrait) 
   and (-webkit-device-pixel-ratio: 3){
   /* Styles */
@@ -1177,7 +1177,7 @@ audio {
       left: 190% !important;
       top: 75%;
       width: 7vh;
-      background-color: transparent;
+      background-color: transparent !important;
     }
 
     .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
