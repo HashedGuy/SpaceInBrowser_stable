@@ -177,7 +177,7 @@ export function InfoBox() {
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
             : activeObject === 'mars' ? "The planet we're colonizing next. Yes pls add smth here." 
             : activeObject === 'LEO' ? "This is where the most of the crew missions happening."
-            : 'The opportunity of being multiplanetary species will be tested on Mars via the gateway on the Moon.'}
+            : <>The exploration of being multiplanetary species starts with Mars. <br/><br/> However, everything we must be able to do on the Mars, we must first do on the Moon.</>}
           </h5>
 
           {activeObject === '' ? 
@@ -241,6 +241,7 @@ export function InfoBox() {
               </>
               :''}
               {activeStation==='ISS' ? '' : <a className={activeStation==='TSS' ? 'home-btn launchpad' : 'home-btn'}  onClick={()=>setStation('TSS')}>Tiangong Space Station</a>}
+              {activeStation==='' ? <a className='home-btn axiom'>Axiom Station <br/><span className='credits'>Coming soon</span></a> : ''}
               {activeStation==='TSS' ? 
               <>
                 <p>Tiangong (Chinese: 天宫, 'Palace in the Sky') is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>

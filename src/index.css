@@ -530,6 +530,12 @@ audio {
   font-size: 135%;
 }
 
+.axiom {
+  pointer-events: none;
+  cursor: default;
+  opacity: .5;
+}
+
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
 /* Portrait */
