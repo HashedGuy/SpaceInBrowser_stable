@@ -870,12 +870,11 @@ h5, p {
 /* Landscape */
 @media only screen 
   and (min-device-width: 1366px) 
-  and (max-device-width: 1366px) 
-  and (orientation: landscape) 
+  and (max-device-width: 1366px)  
   and (-webkit-min-device-pixel-ratio: 2) {
 
     .annotation {
-      width: 25vh;
+      width: 25.5vh;
     }
 
     .extraInfo, .audioSection {
@@ -923,6 +922,7 @@ h5, p {
       font-size: 90%;
     }
 }
+
 
 /* iPhone 6, 7, 8 ----------- */
   
