@@ -20,6 +20,7 @@
     "react-globe": "^5.0.2",
     "react-globe.gl": "^2.22.0",
     "react-icons": "^4.3.1",
+    "react-modal-image-responsive": "^1.1.1",
     "react-player": "^2.10.0",
     "react-scripts": "^5.0.0",
     "recoil": "^0.6.1",

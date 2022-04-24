@@ -33,6 +33,10 @@ audio {
   margin-bottom: 1em;
 }
 
+h5, p {
+  line-height: 1.5em;
+}
+
 .annotation {
   color:aliceblue;
     width: 30vh;
@@ -47,6 +51,10 @@ audio {
     flex-direction: column;
     align-items: center;
     align-self: center;
+}
+
+.infoBox::-webkit-scrollbar-thumb {
+  background-color: #10ca1f !important;
 }
 
 .extraInfo {
@@ -74,7 +82,7 @@ audio {
   height: 12vh;
   padding: .5em;
   border-radius: 50%;
-  background-color: rgba(15, 56, 31, 0.205);
+  background-color: rgba(15, 56, 31, 0.055);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -314,11 +322,17 @@ audio {
   border-radius: 5px;
 }
 
+.bioGroups {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .bioPic {
   background-size: cover;
-  width: 20%;
+  width: 50px;
   cursor: pointer;
-  margin-left: 2%;
+  margin-left: 5px;
 }
 
 .bioPicR {

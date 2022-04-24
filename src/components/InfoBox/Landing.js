@@ -23,6 +23,7 @@ import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolum
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import ReactPlayer from 'react-player'
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
+import ModalImage from "react-modal-image-responsive";
 
 
 
@@ -141,7 +142,7 @@ export function InfoBox() {
         </div>
       )
     }
-    
+
     return(
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
@@ -173,11 +174,11 @@ export function InfoBox() {
           </h1>
           
           <h5>{
-            activeObject === 'earth' ? 'Our current home. Yes pls add smth here very soon.' 
+            activeObject === 'earth' ? 'Earth, our home planet, is a world unlike any other. It is the only place in the known universe confirmed to host life.' 
             : activeObject === 'moon' ? "Gateway to Mars! We've already been here but we're coming again soon."
-            : activeObject === 'mars' ? "The planet we're colonizing next. Yes pls add smth here." 
+            : activeObject === 'mars' ? "The planet we're colonizing next. A dusty, cold, desert world with a very thin atmosphere." 
             : activeObject === 'LEO' ? "This is where the most of the crew missions happening."
-            : <>The exploration of being multiplanetary species starts with Mars. <br/><br/> However, everything we must be able to do on the Mars, we must first do on the Moon.</>}
+            : <>The exploration of being multiplanetary species starts with Mars. <br/><br/> However, everything we need to be able to do on the Mars, we must first do on the Moon.</>}
           </h5>
 
           {activeObject === '' ? 
@@ -216,25 +217,95 @@ export function InfoBox() {
               <>
                 <p>The largest and most sophisticated of space station is the International Space Station (ISS).</p> 
                 {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/e/e1/The_station_pictured_from_the_SpaceX_Crew_Dragon_5_%28cropped%29.jpg"} className='infoPic'/> */}
-                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
-                  <IKImage path="/iss_2Y2vU27Mh.jpeg" className='infoPic'/>  
-                </IKContext>
+                <ModalImage
+                  small={'https://ik.imagekit.io/74qyv5bswgr/iss_2Y2vU27Mh.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1649069033413'}
+                  large={'https://ik.imagekit.io/74qyv5bswgr/iss_2Y2vU27Mh.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1649069033413'}
+                  alt="ISS"
+                  className='infoPic'
+                  hideDownload
+                  hideZoom
+                  imageBackgroundColor="transparent"
+                />
+                
                 <p className='credits'><em>Credit: NASA Image and Video</em></p>
                 <p>Since the first module was launched into low Earth orbit in 1998, the ISS has grown with modular additions from the principal space agencies involved in building and operating the space station: NASA, Roscosmos, ESA, JAXA and CSA. To date, 237 astronauts from 18 countries have visited the ISS.</p>
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
-                  <div>
-                    <img src={Matt} className='bioPic' title='Matthias Maurer'/>
+                  <div className='bioGroups'>
+                    {/* <img src={Matt} className='bioPic' title='Matthias Maurer'/>
                     <img src={Raja} className='bioPic' title='Raja Chari'/>
                     <img src={Tom} className='bioPic' title='Tom Marshburn'/>
-                    <img src={Kayla} className='bioPic' title='Kayla Barron'/>
+                    <img src={Kayla} className='bioPic' title='Kayla Barron'/> */}
+                    <ModalImage
+                      small={Matt}
+                      large={Matt}
+                      alt="Matthias Maurer"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Raja}
+                      large={Raja}
+                      alt="Raja Chari"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Tom}
+                      large={Tom}
+                      alt="Tom Marshbur"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Kayla}
+                      large={Kayla}
+                      alt="Kayla Barron"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
                   </div>
-                  <div>
-                    <img src={Oleg} className='bioPicR' title='Oleg Artemyev'/>
+                  <div className='bioGroups'>
+                    {/* <img src={Oleg} className='bioPicR' title='Oleg Artemyev'/>
                     <img src={Denis} className='bioPicR' title='Denis Matveev'/>
-                    <img src={Sergey} className='bioPicR' title='Sergey Korsakov'/>
+                    <img src={Sergey} className='bioPicR' title='Sergey Korsakov'/> */}
+                    <ModalImage
+                      small={Oleg}
+                      large={Oleg}
+                      alt="Oleg Artemyev"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Denis}
+                      large={Denis}
+                      alt="Denis Matveev"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Sergey}
+                      large={Sergey}
+                      alt="Sergey Korsakov"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
                   </div>
-                  <p className='hoverName'>Hover to see their names</p>
+                  <p className='hoverName'>Click to see their names</p>
 
                 {/* <ReactPlayer width='240px' height='180px' url="https://www.ustream.tv/channel/17074538" /> */}
                 </div>
@@ -246,19 +317,52 @@ export function InfoBox() {
               <>
                 <p>Tiangong (Chinese: 天宫, 'Palace in the Sky') is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>
                 {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/1/1a/Tiangong_Space_Station_Rendering_2021.10.png"} className='infoPic'/> */}
-                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
-                  <IKImage path="/tss_9bzokhBix.png" className='infoPic'/>  
-                </IKContext>
+                <ModalImage
+                  small={'https://ik.imagekit.io/74qyv5bswgr/tss_9bzokhBix.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649069096674'}
+                  large={'https://ik.imagekit.io/74qyv5bswgr/tss_9bzokhBix.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649069096674'}
+                  alt="TSS"
+                  className='infoPic'
+                  hideDownload
+                  hideZoom
+                  imageBackgroundColor="transparent"
+                />
                 <p className='credits'><em>Credit: Shujianyang</em></p>
                 <p>The first module, the Tianhe ("Harmony of the Heavens") core module, was launched on 29 April 2021, followed by multiple crewed and uncrewed missions and two more modules to be launched by 2022. The research conducted on the station will improve researchers' ability to conduct science experiments in space, beyond the duration and capacity offered by China's existing space laboratories.</p>
-                <h5 style={{"color":"gray"}}>Who's On Station?</h5>
+                <h5 style={{"color":"gray"}}>Who was On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
-                  <div>
-                    <img src={Zhai} className='bioPicC' title='Zhai Zhigang'/>
-                    <img src={Wang} className='bioPicC' title='Wang Yaping'/>
-                    <img src={Ye} className='bioPicC' title='Ye Guangfu'/>
+                  <div className='bioGroups'>
+                    {/* <img src={Zhai} className='bioPicC' title='Zhai Zhigang'/> */}
+                    <ModalImage
+                      small={Zhai}
+                      large={Zhai}
+                      alt="Zhai Zhigang"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Wang}
+                      large={Wang}
+                      alt="Wang Yaping"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Ye}
+                      large={Ye}
+                      alt="Ye Guangfu"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    {/* <img src={Wang} className='bioPicC' title='Wang Yaping'/> */}
+                    {/* <img src={Ye} className='bioPicC' title='Ye Guangfu'/> */}
                   </div>
-                  <p className='hoverName'>Hover to see their names</p>
+                  <p className='hoverName'>Click to see their names</p>
                 </div>
               </>
               :''}
@@ -339,6 +443,7 @@ export function InfoBox() {
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/USA_-_Texas_-_Boca_Chica_-_Starbase__51287072615__iZdM4e3T2.jpeg" className='infoPic'/>  
             </IKContext>
+          
             <p className='credits'><em>Credit: Alexander Hatley from Spring, Texas, USA</em></p>
             <p>The launch site was originally intended to support launches of the Falcon 9 and Falcon Heavy launch vehicles as well as "a variety of reusable suborbital launch vehicles", but in early 2018, SpaceX announced a change of plans, stating that the launch site would be used exclusively for SpaceX's next-generation launch vehicle, Starship.</p>
             </>
@@ -565,7 +670,7 @@ export function InfoBox() {
             
           </div>
           <div className='addInfo'>
-            {(activeObject === 'earth') || (activeObject === 'LEO')? <a className='home-btn inActive population'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
+            {(activeObject === 'earth') ? <a className='home-btn inActive population'>Population: 7,762 billion<br/><em className='credits'>Credits: World Bank, 2020</em></a>
             : activeObject === 'moon' ? 
               <a className={showAction===''?"home-btn inActive population" : "hidden-btn"} onClick={()=> setButton(!activeButton)}>
                   Population: 0 (12)
@@ -675,7 +780,7 @@ export function InfoBox() {
                :              
                activeObject === 'earth'?
                <>
-                 <p>Yes, life is here...</p>
+                
                </>
                : ''}
             </div>
