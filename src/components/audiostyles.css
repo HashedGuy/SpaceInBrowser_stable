@@ -247,3 +247,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
       margin-left: 10px;
     }
   }
+
+  /* Landscape */
+@media only screen 
+and (min-device-width: 1366px) 
+and (max-device-width: 1366px)  
+and (-webkit-min-device-pixel-ratio: 2) {
+  .audioPlayer {
+    width: 250px;
+  }
+}

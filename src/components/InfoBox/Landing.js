@@ -805,7 +805,7 @@ export function InfoBox() {
                 <i className="fab fa-twitter"></i>
               </a>
              
-              <p style={{'marginRight':'8%'}}>Built by arbus</p>
+              <a className='sunsetGuy'>By arbus</a>
 
               
             </div>
