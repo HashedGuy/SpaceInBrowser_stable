@@ -15,6 +15,7 @@ import Denis from '../../assets/denis.png'
 import Wang from '../../assets/wang2.png'
 import Ye from '../../assets/ye.png'
 import Zhai from '../../assets/zhai.png'
+import logoTransparent from '../../assets/logo_transparent.png'
 
 import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
@@ -155,23 +156,39 @@ export function InfoBox() {
                 setLight('')
                 setAction('')
                 setLaunchPad('')}}>
-            <GiMoonOrbit className='giMoonOrbit'/>
-            <span className='logoTitleText'>Multiplanetary map</span><br className='br'/>
-            <span className='logoTitleBeta'>Beta 1.0</span>
+             <img 
+              src={logoTransparent} 
+              className='logoSmallImg'
+              onClick={()=>{
+                setObject('')
+                setLight('')
+                setAction('')
+                setLaunchPad('')}}
+            />
+            {/* <span className='logoTitleBeta'>Beta 1.0</span> */}
             </p>
           </>}
-          <h1>{
-          activeObject === 'earth' ? 'Earth' 
-          : activeObject === 'moon' ? 'Moon'
-          : activeObject === 'mars' ? 'Mars'
-          : activeObject === 'LEO' ? 'Low Earth Orbit'
+          {
+          activeObject === 'earth' ? <h1>Earth</h1> 
+          : activeObject === 'moon' ? <h1>Moon</h1>
+          : activeObject === 'mars' ? <h1>Mars</h1>
+          : activeObject === 'LEO' ? <h1>Low Earth Orbit</h1>
           : 
           <>
-            <GiMoonOrbit /> 
-            <span style={{"fontWeight":"500", "marginLeft":"2%"}}>Multiplanetary map</span>
+            {/* <GiMoonOrbit />  */}
+            {/* <span style={{"fontWeight":"500", "marginLeft":"2%"}}>SpaceInBrowser</span> */}
+            <img 
+              src={logoTransparent} 
+              className='logoImg'
+              onClick={()=>{
+                setObject('')
+                setLight('')
+                setAction('')
+                setLaunchPad('')}}
+            />
             <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta Version 1.0</p>
           </>            }
-          </h1>
+         
           
           <h5>{
             activeObject === 'earth' ? 'Earth, our home planet, is a world unlike any other. It is the only place in the known universe confirmed to host life.' 
@@ -797,21 +814,21 @@ export function InfoBox() {
           
             <div className='iconSection'>
              
-              <a href='https://www.patreon.com/multiplanetary' target="_blank" className='patreonBtn'>
+              <a href='https://www.patreon.com/spaceinbrowser' target="_blank" className='patreonBtn'>
                 <i className="fab fa-patreon"></i>
               </a>
 
-              <a  className='twBtn' href="https://twitter.com/multiplanet_guy" target="_blank">
+              <a  className='twBtn' href="https://twitter.com/spaceinbrowser" target="_blank">
                 <i className="fab fa-twitter"></i>
-              </a>
-             
-              <a className='sunsetGuy'>By arbus</a>
-
-              
+              </a> 
+              <br/>
+              <p className='arbusWorld'>By <a href='https://twitter.com/curiousMurious' target='_blank'>arbus</a></p>
             </div>
              :
               ''}
-              
+               {/* <div>
+              <a className='sunsetGuy'>By arbus</a>
+              </div> */}
           </div>
           
         </div>
@@ -967,7 +984,7 @@ export function InfoBox() {
           (showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? 'extraInfo usefulInfo'
           
           : 'extraInfo'}>
-        <AiOutlineCloseCircle className='closeBtn' onClick={()=>setClose(true)}/>
+        {/* <AiOutlineCloseCircle className='closeBtn' onClick={()=>setClose(true)}/> */}
         {
         // (activeObject === 'mars') ? 
         //   <>

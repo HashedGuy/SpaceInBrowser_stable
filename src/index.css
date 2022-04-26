@@ -37,6 +37,10 @@ h5, p {
   line-height: 1.5em;
 }
 
+a {
+  text-decoration: none;
+}
+
 .annotation {
   color:aliceblue;
     width: 30vh;
@@ -53,9 +57,9 @@ h5, p {
     align-self: center;
 }
 
-.infoBox::-webkit-scrollbar-thumb {
+/* .infoBox::-webkit-scrollbar-thumb {
   background-color: #10ca1f !important;
-}
+} */
 
 .extraInfo {
   position: absolute;
@@ -243,12 +247,25 @@ h5, p {
 .infoBox {
   display: flex;
   flex-direction: column;
-  height: 95vh;
+  height: 96vh;
   text-align: center;
   justify-content: space-between;
   overflow-y: scroll;
 }
 
+.logoImg {
+  width: 120px;
+  cursor: pointer;
+}
+
+.logoSmallImg {
+  width: 80px;
+  transition: transform .2s ease-in-out;
+}
+
+.logoSmallImg:hover {
+  transform: scale(1.2);
+}
 .addInfo {
   display: flex;
   flex-direction: column;
@@ -550,6 +567,24 @@ h5, p {
   opacity: .5;
 }
 
+.sunsetGuy {
+  border: 1px solid aqua;
+  margin-top: 2em;
+  padding: .2em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.arbusWorld {
+  font-size: 100% !important;
+  margin-left: 1.3em;
+}
+
+.arbusWorld a {
+  cursor: pointer;
+  color: rgb(0, 255, 213);
+}
+
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
 /* Portrait */
@@ -799,6 +834,10 @@ h5, p {
       padding: 0 1em;
     }
 
+    .infoBorders h5 {
+      font-size: 140%;
+    }
+
     .annotation {
       /* width: 23vh; */
     }
@@ -1030,6 +1069,10 @@ h5, p {
     .gmoLoading {
       font-size: 85%;
     }
+
+    h5, p {
+      line-height: 3.5em;
+    }
 }
 
 @media only screen 
@@ -1223,7 +1266,7 @@ h5, p {
     }
 
     .populationInfo p {
-      font-size: 20%;
+      /* font-size: 20%; */
       font-weight: 200;
       margin: 5em 0;
     }
@@ -1254,6 +1297,14 @@ h5, p {
     }
     .iconSection a {
       margin-right: 2em;
+    }
+
+    h5 {
+      line-height: 3.5em;
+    }
+
+    p {
+      line-height: 4em;
     }
   }
   
@@ -1377,6 +1428,14 @@ h5, p {
     font-size: 50%;
     padding: 2em !important;
     margin-top: 10em !important;
+  }
+
+  h5 {
+    line-height: 3.5em;
+  }
+
+  p {
+    line-height: 1.5em;
   }
 }
 
