@@ -258,5 +258,6 @@ and (max-device-width: 1366px)
 and (-webkit-min-device-pixel-ratio: 2) {
   .audioPlayer {
     width: 250px;
+    margin: .5em;
   }
 }

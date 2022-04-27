@@ -922,14 +922,18 @@ a {
     }
 
     .extraInfo, .audioSection {
-      left: 350% !important;
+      left: 330% !important;
       width: 27vh;
       height: 25vh;
       padding: 1.5em;
     }
 
+    .audioSection {
+      top: 3%;
+    }
+
     .extraInfo {
-      top: 70%;
+      top: 68%;
     }
 
     .mouseBtn {
@@ -937,7 +941,8 @@ a {
     }
 
     .headphoneBtn {
-      left: 420% !important;
+      left: 400% !important;
+      top: 5% !important;
     }
 
     .soundBackground {
@@ -962,7 +967,7 @@ a {
       font-size: 120%;
     }
 
-    .infoBorders p {
+    .infoBorders h5, .infoBorders p {
       font-size: 90%;
     }
 
@@ -972,7 +977,7 @@ a {
 /* iPhone 6, 7, 8 ----------- */
   
 @media only screen 
-  and (min-device-width: 375px) 
+  and (min-device-width: 360px) 
   and (max-device-height: 667px) 
   and (orientation : portrait) 
   and (-webkit-device-pixel-ratio: 2){
@@ -1081,7 +1086,7 @@ a {
 }
 
 @media only screen 
-  and (min-device-width: 375px) 
+  and (min-device-width: 360px) 
   and (max-device-height: 667px) 
   and (orientation : landscape) 
   and (-webkit-device-pixel-ratio: 2){
@@ -1205,6 +1210,255 @@ a {
 
     .gmoLoading {
       font-size: 85%;
+    }
+  }
+
+/* Galaxy S8+ */
+
+@media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-height: 740px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 4){
+    .annotation {
+      width: 15vh;
+      font-size: 30%;
+      padding: 5em;
+    }
+
+    .infoBorders h1 {
+      font-size: 250%;
+    }
+
+    .infoBorders h5 {
+      font-weight: 300;
+      margin-top: 2em;
+      margin-bottom: 4em;
+    }
+
+    .soundBackground {
+      left: 130%;
+      top: 93%;
+      width: 5vh;
+      height: 5vh;
+      background-color: transparent !important;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .extraInfo {
+      left: 180% !important;
+      top: 75%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .addInfo, .infoBorders {
+      padding: 1.5em;
+    }
+
+    .populationInfo p {
+      /* font-size: 20%; */
+      font-weight: 200;
+      margin: 5em 0;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 2.5em !important;
+    }
+
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 65%;
+    }
+
+    .gmoLoading {
+      font-size: 85%;
+    }
+
+    h5 {
+      line-height: 3.5em;
+    }
+
+    p {
+      line-height: 4em;
+    }
+  }
+
+  @media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-height: 740px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 4){
+    .annotation {
+      font-size: 30%;
+      width: 40vh;
+    }
+
+    .infoBorders, .addInfo {
+      padding: 2.5em;
+    }
+
+    .infoBorders h5 {
+      font-weight: 400;
+      margin-top: 5em !important;
+    }
+
+    .addInfo p {
+      font-size: 7px;
+      font-weight: 200;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .extraInfo {
+      left: 380% !important;
+      top: 70%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .soundBackground {
+      background-color: transparent !important;
+      left: 250%;
+      top: 90%;
+    }
+
+    .credits {
+      font-size: 6px !important;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 3em !important;
+    }
+
+    .logoTitleText, .logoTitleBeta {
+      font-size: 8px !important;
+    }
+
+    .population {
+      font-size: 8px;
+    }
+
+    .home-btn {
+      padding: .6em;
+    }
+
+    .infoBorders h5 {
+      margin-bottom: 4em;
+    }
+
+    .infoBorders p {
+      font-size: 150%;
+    }
+    .viewDiv p {
+      font-size: 7px;
+      font-weight: 300;
+    }
+
+    .viewDiv a {
+      font-size: 8px;
+    }
+
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 65%;
+    }
+
+    .gmoLoading {
+      font-size: 85%;
+    }
+
+    h5 {
+      line-height: 3.5em;
+    }
+
+    p {
+      line-height: 1.6em;
     }
   }
 
@@ -1346,7 +1600,7 @@ a {
   }
 
   .extraInfo {
-    left: 400% !important;
+    left: 380% !important;
     top: 70%;
     width: 7vh;
     background-color: transparent !important;
@@ -1569,7 +1823,7 @@ a {
   font-weight: 200;
 }
 
-.extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+.extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
   display: none;
 }
 
@@ -1578,7 +1832,7 @@ a {
 }
 
 .extraInfo {
-  left: 420% !important;
+  left: 380% !important;
   top: 65%;
   width: 7vh;
   background-color: transparent !important;
