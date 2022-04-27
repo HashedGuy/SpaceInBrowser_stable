@@ -821,6 +821,10 @@ export function InfoBox() {
               <a  className='twBtn' href="https://twitter.com/spaceinbrowser" target="_blank">
                 <i className="fab fa-twitter"></i>
               </a> 
+
+              <a  className='ytBtn' href="https://www.youtube.com/channel/UCcr4eYlztyxKO7rPmNCrgdg" target="_blank">
+                <i className="fab fa-youtube"></i>
+              </a> 
               <br/>
               <p className='arbusWorld'>By <a href='https://twitter.com/curiousMurious' target='_blank'>arbus</a></p>
             </div>

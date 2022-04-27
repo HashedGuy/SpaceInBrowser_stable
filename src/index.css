@@ -396,7 +396,7 @@ a {
   color: #9C2E35;
 }
 
-.patreonBtn, .twBtn, .youtubeBtn {
+.patreonBtn, .twBtn, .ytBtn {
   color: aliceblue;
 }
 
@@ -407,6 +407,10 @@ a {
 
 .twBtn:hover {
   color: #1DA1F2;
+}
+
+.ytBtn:hover {
+  color: #FF0000;
 }
 
 .youtubeBtn:hover {
