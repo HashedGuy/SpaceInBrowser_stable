@@ -998,7 +998,7 @@ a {
       top: 93%;
       width: 5vh;
       height: 5vh;
-      background-color: transparent;
+      background-color: transparent !important;
     }
 
     .playBtns {
@@ -1006,10 +1006,10 @@ a {
     }
 
     .extraInfo {
-      left: 210% !important;
+      left: 200% !important;
       top: 75%;
       width: 7vh;
-      background-color: transparent;
+      background-color: transparent !important;
     }
 
     .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
@@ -1236,7 +1236,7 @@ a {
       top: 93%;
       width: 5vh;
       height: 5vh;
-      background-color: transparent;
+      background-color: transparent !important;
     }
 
     .playBtns {
@@ -1244,7 +1244,7 @@ a {
     }
 
     .extraInfo {
-      left: 190% !important;
+      left: 175% !important;
       top: 75%;
       width: 7vh;
       background-color: transparent !important;
@@ -1467,12 +1467,16 @@ a {
     margin-bottom: 4em;
   }
 
+  h5, p {
+    line-height: 3.5em;
+  }
+
   .soundBackground {
     left: 130%;
     top: 93%;
     width: 5vh;
     height: 5vh;
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   .playBtns {
@@ -1480,10 +1484,10 @@ a {
   }
 
   .extraInfo {
-    left: 190% !important;
+    left: 175% !important;
     top: 75%;
     width: 7vh;
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
