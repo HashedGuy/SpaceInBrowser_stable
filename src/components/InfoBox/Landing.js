@@ -437,7 +437,7 @@ export function InfoBox() {
             <p className='credits'><em>Credit: NASA Image and Video</em></p>
             <p>Although Kennedy is the NASA's main launch site, the center also is home to facilities that research and develop innovative solutions that government and commercial space ventures need for working and living on the surfaces of the Moon and other bodies in our solar system.</p>
             <h5>Next mission:</h5> 
-            <p className="nextMission">SpaceX Falcon 9 Axiom Mission 1 (Ax-1)</p>
+            <p className="nextMission">SpaceX Falcon 9 Starlink 4-16</p>
             </>
             :
             activeLaunchPad==='CCSFS' ? 
@@ -449,8 +449,8 @@ export function InfoBox() {
             </IKContext>
             <p className='credits'><em>Credit: Patrick Space Force Base</em></p>
             <p>A number of American space exploration pioneers were launched from CCSFS, including the first U.S. Earth satellite in 1958, first U.S. astronaut (1961), first U.S. astronaut in orbit (1962), first two-man U.S. spacecraft (1965), first U.S. unmanned lunar landing (1966), and first three-man U.S. spacecraft (1968).</p>
-            <h5>Next mission:</h5> 
-            <p className="nextMission">ULA Atlas V Boeing CST-100 Starliner Orbital Flight Test 2 (UNCREWED)</p>
+            {/* <h5>Next mission:</h5>  */}
+            {/* <p className="nextMission">ULA Atlas V Boeing CST-100 Starliner Orbital Flight Test 2 (UNCREWED)</p> */}
             </>
             :
             activeLaunchPad==='Starbase' ? 
@@ -963,7 +963,7 @@ export function InfoBox() {
        (activeStation==='TSS') ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=TlRPB_FNSF8" className="stream"/> :
         activeLaunchPad==='Starbase' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=mhJRzQsLZGg" className="stream"/> :
         activeLaunchPad==='CCSFS' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=gnt2wZBg89g" className="stream"/> :
-        activeLaunchPad==='KSS' ? <ReactPlayer width='220px' controls height='130px' url="https://www.youtube.com/watch?v=B6OJZsTJuTA" className="stream"/>
+        activeLaunchPad==='KSS' ? <ReactPlayer width='220px' controls height='130px' url="https://www.youtube.com/watch?v=DwmuRyfsA7s" className="stream"/>
        : <AudioPlayer/>
        }
         {(activeObject==='moon') || (activeObject==='mars') ? 
