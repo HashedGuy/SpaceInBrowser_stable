@@ -1578,8 +1578,8 @@ a {
 }
 
 .extraInfo {
-  left: 440% !important;
-  top: 70%;
+  left: 420% !important;
+  top: 65%;
   width: 7vh;
   background-color: transparent !important;
 }
@@ -1625,6 +1625,9 @@ a {
 
 .home-btn {
   padding: .6em;
+}
+h5 {
+  line-height: 3.5em;
 }
 
 .infoBorders h5 {
