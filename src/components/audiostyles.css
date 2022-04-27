@@ -169,6 +169,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
   .audioPlayer {
     width: 280px;
+    margin: 2em;
   }
 
   .playPause {

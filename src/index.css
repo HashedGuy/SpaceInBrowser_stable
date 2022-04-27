@@ -875,7 +875,8 @@ a {
     }
 
     .audioSection p {
-      margin-bottom: 0;
+      margin-bottom: 0; 
+      line-height: 6em !important;
     }
 
     .audioDescription {
