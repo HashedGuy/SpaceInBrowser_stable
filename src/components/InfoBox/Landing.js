@@ -868,7 +868,7 @@ export function InfoBox() {
                 <i className="fab fa-youtube"></i>
               </a> 
               <br/>
-              <p className='arbusWorld'>By <a href='https://twitter.com/curiousB_ing' target='_blank'>arbus</a></p>
+              <p className='arbusWorld'>By <a href='https://twitter.com/curiousB_ing' target='_blank' className='curiousBeing'>arbus</a></p>
             </div>
              :
               ''}

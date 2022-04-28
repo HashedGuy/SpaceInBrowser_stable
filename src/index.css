@@ -589,6 +589,10 @@ a {
   color: rgb(0, 255, 213);
 }
 
+.curiousBeing:hover {
+  color: rgba(127, 255, 212, 0.473);
+}
+
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
 /* Portrait */
