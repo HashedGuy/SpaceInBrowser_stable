@@ -96,10 +96,20 @@ a {
   justify-content: center;
   align-items: center; 
   cursor: pointer;
+  border: 1px solid #ca101067;
 }
 
 .soundBackground:hover {
   background-color: #ca101067;
+}
+
+.soundBackground p {
+  margin: 0;
+}
+
+.changeSong {
+  margin: 0;
+  font-size: 150%;
 }
 
 .playPauseBg {

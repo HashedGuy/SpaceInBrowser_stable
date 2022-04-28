@@ -5,6 +5,7 @@ import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations
 import Whistler from '../../assets/sounds/Whistler.wav'
 import MartianWind from '../../assets/sounds/martianWind.mp3'
 import BgSound from '../../assets/SpaceTrash.mp3'
+import BgSound2 from '../../assets/Interstaller.mp3'
 import Kayla from '../../assets/kay.png'
 import Matt from '../../assets/matt.png'
 import Raja from '../../assets/raja.png'
@@ -25,7 +26,7 @@ import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
 import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill} from 'react-icons/bs'
-import {AiOutlineCloseCircle} from 'react-icons/ai'
+import {AiOutlineCloseCircle, AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import ReactPlayer from 'react-player'
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 import ModalImage from "react-modal-image-responsive";
@@ -44,6 +45,7 @@ export function InfoBox() {
     const [closed, setClose] = useState(false)
     const [closedAudio, setCloseAudio] = useRecoilState(closedAudioG)
     const [isPlaying, setIsPlaying] = useState(false);
+    const [song, setSong] = useState('')
 
     const audioPlayerBg = useRef()
 
@@ -1160,7 +1162,7 @@ export function InfoBox() {
           
         <audio 
           ref={audioPlayerBg} 
-          src={BgSound}
+          src={song==='interstaller' ? BgSound2 : BgSound}
           loop
         >
         </audio>
@@ -1169,7 +1171,32 @@ export function InfoBox() {
             {isPlaying ? <BsFillVolumeUpFill className="playBtns" /> : <BsFillVolumeMuteFill className="playBtns" />}
         </button>
         <div className="content">
-          <div className="text"><p>Lazerhawk <em>Space Trash</em></p></div>
+          <div className="text">
+            {song==='interstaller' ? 
+            <>
+            {song==='interstaller' ? 
+              <AiFillCaretUp 
+                className ='changeSong' 
+                onClick={()=>{
+                  setSong('')
+                  togglePlayPauseBg()
+                }} 
+                title='Change the song'/>
+              : ''}
+            <p>Lazerhawk <em>Interstaller</em></p>
+            </>
+            : <p>Lazerhawk <em>Space Trash</em></p>} 
+            {song==='' ? 
+              <AiFillCaretDown 
+                className ='changeSong' 
+                onClick={()=>{
+                  setSong('interstaller')
+                  togglePlayPauseBg()
+                }} 
+                title='Change the song'/>
+              : ''}
+          </div>
+         
         </div>
         </div>
 
