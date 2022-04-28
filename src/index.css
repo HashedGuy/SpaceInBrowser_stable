@@ -1020,12 +1020,12 @@ a {
 
     .extraInfo {
       left: 200% !important;
-      top: 75%;
+      top: 40%;
       width: 7vh;
       background-color: transparent !important;
     }
 
-    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName, .fa-location-dot {
       display: none;
     }
 
@@ -1747,7 +1747,7 @@ a {
 
   .extraInfo {
     left: 175% !important;
-    top: 75%;
+    top: 60%;
     width: 7vh;
     background-color: transparent !important;
   }
@@ -2191,7 +2191,7 @@ a {
   
     .extraInfo {
       left: 175% !important;
-      top: 75%;
+      top: 60%;
       width: 7vh;
       background-color: transparent !important;
     }
