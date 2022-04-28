@@ -261,3 +261,19 @@ and (-webkit-min-device-pixel-ratio: 2) {
     margin: .5em;
   }
 }
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1194px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .audioPlayer {
+      width: 250px;
+      margin: .5em;
+    }
+
+    .duration {
+      margin-left: 1em;
+    }
+  }

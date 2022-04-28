@@ -615,7 +615,7 @@ a {
     }
 
     .extraInfo {
-      left: 215% !important;
+      left: 200% !important;
       top: 77%;
       width: 20vh;
       height: 20vh;
@@ -624,7 +624,7 @@ a {
     }
 
     .audioSection {
-      left: 200% !important;
+      left: 180% !important;
       width: 25vh;
       height: 25vh;
       font-size: 30%;
@@ -665,6 +665,14 @@ a {
 
     .infoBorders p {
       font-size: 75%;
+    }
+
+    p {
+      line-height: 2em;
+    }
+
+    .audioSection p {
+      line-height: 5em;
     }
 }
 
