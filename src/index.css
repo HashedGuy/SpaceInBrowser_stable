@@ -37,6 +37,10 @@ h5, p {
   line-height: 1.5em;
 }
 
+.infoBox p {
+  padding: 1em;
+}
+
 a {
   text-decoration: none;
 }
@@ -2194,8 +2198,8 @@ a {
     }
   
     .extraInfo {
-      left: 175% !important;
-      top: 60%;
+      left: 165% !important;
+      top: 50%;
       width: 7vh;
       background-color: transparent !important;
     }
@@ -2275,6 +2279,7 @@ a {
   .addInfo p {
     font-size: 7px;
     font-weight: 200;
+    padding: 1em;
   }
 
   .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
