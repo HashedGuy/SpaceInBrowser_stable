@@ -15,6 +15,10 @@ import Denis from '../../assets/denis.png'
 import Wang from '../../assets/wang2.png'
 import Ye from '../../assets/ye.png'
 import Zhai from '../../assets/zhai.png'
+import Robert from '../../assets/robert.png'
+import Jessica from '../../assets/jessica.png'
+import Kjell from '../../assets/kjell.png'
+import Samantha from '../../assets/samantha.png'
 import logoTransparent from '../../assets/logo_transparent.png'
 
 import audiostyles from "../audiostyles.css";
@@ -316,6 +320,44 @@ export function InfoBox() {
                       small={Sergey}
                       large={Sergey}
                       alt="Sergey Korsakov"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                  </div>
+                  <div className='bioGroups'>
+                    <ModalImage
+                      small={Robert}
+                      large={Robert}
+                      alt="Robert Hines"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Jessica}
+                      large={Jessica}
+                      alt="Jessica Watkins"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Kjell}
+                      large={Kjell}
+                      alt="Kjell Lindgren"
+                      className='bioPic'
+                      hideDownload
+                      hideZoom
+                      imageBackgroundColor="transparent"
+                    />
+                    <ModalImage
+                      small={Samantha}
+                      large={Samantha}
+                      alt="Samantha Cristoforetti"
                       className='bioPic'
                       hideDownload
                       hideZoom
