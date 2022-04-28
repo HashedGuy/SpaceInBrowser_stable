@@ -257,8 +257,21 @@ and (min-device-width: 1366px)
 and (max-device-width: 1366px)  
 and (-webkit-min-device-pixel-ratio: 2) {
   .audioPlayer {
-    width: 250px;
+    width: 200px;
     margin: .5em;
+  }
+
+  .duration {
+    margin-left: .5em;
+  }
+
+  .playPause {
+    width: 30px;
+    height: 30px;
+  }
+
+  .play {
+    font-size: 35%;
   }
 }
 
@@ -270,7 +283,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
   and (-webkit-min-device-pixel-ratio: 2) {
     .audioPlayer {
       width: 250px;
-      margin: .5em;
+      margin: 1em;
     }
 
     .duration {
