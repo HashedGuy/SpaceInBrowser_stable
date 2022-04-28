@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from '../globalState'
 import Whistler from '../../assets/sounds/Whistler.wav'
 import MartianWind from '../../assets/sounds/martianWind.mp3'
-import BgSound from '../../assets/sounds/videoplayback.mp3'
+import BgSound from '../../assets/SpaceTrash.mp3'
 import Kayla from '../../assets/kay.png'
 import Matt from '../../assets/matt.png'
 import Raja from '../../assets/raja.png'
@@ -1169,7 +1169,7 @@ export function InfoBox() {
             {isPlaying ? <BsFillVolumeUpFill className="playBtns" /> : <BsFillVolumeMuteFill className="playBtns" />}
         </button>
         <div className="content">
-          <div className="text"><p>Hans Zimmer <em>First Step</em></p></div>
+          <div className="text"><p>Lazerhawk <em>Space Trash</em></p></div>
         </div>
         </div>
 
