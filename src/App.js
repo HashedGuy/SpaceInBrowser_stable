@@ -13,6 +13,7 @@ import Mars from './components/Mars'
 import Moon from './components/Moon'
 import { clickedCBState } from './components/globalState'
 import {GiMoonOrbit} from 'react-icons/gi'
+import {BsPhoneLandscape} from 'react-icons/bs'
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -29,6 +30,8 @@ function Loader() {
         <h1>The universe is loading...</h1>
         <p>At least it doesn't take 13.8 billion years :) </p>
         <p>{prog} % </p>
+
+        <p className='landscape'>Please rotate your device to landscape <br/> for better interactivity <br/> <BsPhoneLandscape className='landscape'/></p>
       </div>
     </Html>)
 }

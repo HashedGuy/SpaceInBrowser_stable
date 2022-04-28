@@ -597,6 +597,11 @@ a {
   color: rgba(127, 255, 212, 0.473);
 }
 
+.landscape {
+  display: none;
+  color: palevioletred !important;
+}
+
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
 /* Portrait */
@@ -609,6 +614,10 @@ a {
     .annotation {
       width: 20vh;
       font-size: 70%;
+    }
+
+    .landscape {
+      display: inline;
     }
 
     .infoBox {
@@ -757,6 +766,10 @@ a {
       padding: 1em;
     }
 
+    .landscape {
+      display: inline;
+    }
+
     .giMoonOrbit {
       height: 1.5em !important;
       width: 1.5em !important;
@@ -860,6 +873,10 @@ a {
 
     .annotation {
       /* width: 23vh; */
+    }
+
+    .landscape {
+      display: inline;
     }
 
     .soundBackground {
@@ -1004,6 +1021,10 @@ a {
       padding: 5em;
     }
 
+    .landscape {
+      display: inline;
+    }
+
     .infoBorders h1 {
       font-size: 250%;
     }
@@ -1097,7 +1118,7 @@ a {
     }
 
     h5, p {
-      line-height: 3.5em;
+      line-height: 1rem;
     }
 }
 
@@ -1244,6 +1265,10 @@ a {
 
     .infoBorders h1 {
       font-size: 250%;
+    }
+
+    .landscape {
+      display: inline;
     }
 
     .infoBorders h5 {
@@ -1491,6 +1516,10 @@ a {
       padding: 5em;
     }
 
+    .landscape {
+      display: inline;
+    }
+
     .infoBorders h1 {
       font-size: 250%;
     }
@@ -1727,6 +1756,10 @@ a {
     padding: 5em;
   }
 
+  .landscape {
+    display: inline;
+  }
+
   .infoBorders h1 {
     font-size: 250%;
   }
@@ -1738,7 +1771,7 @@ a {
   }
 
   h5, p {
-    line-height: 3.5em;
+    line-height: 1rem;
   }
 
   .soundBackground {
@@ -1948,6 +1981,10 @@ a {
     width: 15vh;
     font-size: 30%;
     padding: 5em;
+  }
+
+  .landscape {
+    display: inline;
   }
 
   .infoBorders h1 {
@@ -2170,6 +2207,10 @@ a {
       font-size: 30%;
       padding: 5em;
     }
+
+    .landscape {
+      display: inline;
+    }
   
     .infoBorders h1 {
       font-size: 250%;
@@ -2182,7 +2223,7 @@ a {
     }
   
     h5, p {
-      line-height: 3.5em;
+      line-height: 1rem;
     }
   
     .soundBackground {
@@ -2339,8 +2380,8 @@ a {
   .home-btn {
     padding: .6em;
   }
-  h5 {
-    line-height: 3.5em;
+  h5, p {
+    line-height: .85rem;
   }
 
   .infoBorders h5 {
