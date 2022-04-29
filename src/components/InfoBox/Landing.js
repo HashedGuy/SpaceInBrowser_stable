@@ -1087,7 +1087,7 @@ export function InfoBox() {
               <p>Click the launchpads (green or red ball) to have more information about them.</p>
              
             </>
-            : <p>You can either double-click the cellestial body or press one of the below buttons to discover your next destination</p>}
+            : <p>You can either double-click the celestial body or press one of the below buttons to discover your next destination</p>}
           </>
           }
            <div className='menuIcons'>
