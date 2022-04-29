@@ -1066,16 +1066,16 @@ export function InfoBox() {
           <>
             {activeLight==='' ?
               <a className='lightBtn' onClick={()=>setLight('ambient')}>
-                  <BsLightbulb style={{"color":"yellow", "cursor":"pointer"}} title="Lighten the dark side"/>
+                  <BsLightbulb style={{"color":"yellow", "cursor":"pointer"}} title="Lighten the far side"/>
               </a> :
               <a className='lightBtn' onClick={()=>setLight('')}>
-                  <BsLightbulbOff style={{"color":"yellow", "cursor":"pointer"}} title="Back to the dark side"/>
+                  <BsLightbulbOff style={{"color":"yellow", "cursor":"pointer"}} title="Back to the far side"/>
               </a>
             }
             {activeLight==='ambient' ? 
               
-              <p>Click the yellow lightbulb to see the real {activeObject==='moon'? 'Moon' : 'Mars'} with its dark side.</p> :
-              <p>{activeObject==='moon'? 'Have you ever wondered how the Dark Side of the Moon look like' : 'Wanna see the dark side'}? Click the lightbulb and rotate to see!</p>}
+              <p>Click the yellow lightbulb to see the real {activeObject==='moon'? 'Moon' : 'Mars'} with its far side.</p> :
+              <p>{activeObject==='moon'? 'Have you ever wondered how the Far Side of the Moon look like' : 'Wanna see the far side'}? Click the lightbulb and rotate to see!</p>}
                
           </>
         :
