@@ -264,7 +264,7 @@ a {
   height: 96vh;
   text-align: center;
   justify-content: space-between;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .logoImg {

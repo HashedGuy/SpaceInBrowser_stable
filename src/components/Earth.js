@@ -308,6 +308,7 @@ export function Earth(props) {
 
       <mesh
         position={[posStarbase.x,posStarbase.y,posStarbase.z]}
+        
         onClick={()=>setLaunchPad('Starbase')}
         geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
