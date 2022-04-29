@@ -265,6 +265,7 @@ a {
   text-align: center;
   justify-content: space-between;
   overflow-y: auto;
+  user-select: none;
 }
 
 .logoImg {
