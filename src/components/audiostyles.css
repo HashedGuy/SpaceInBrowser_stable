@@ -158,9 +158,7 @@
     background: var(--selectedKnobby);
   }
 
-
-
-  /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 /* Portrait and Landscape */
 @media only screen 
 and (min-device-width: 768px) 
@@ -187,7 +185,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
-
 /* Portrait */
 @media only screen 
   and (min-device-width: 768px) 
@@ -224,7 +221,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 /* ----------- iPad Pro 10.5" ----------- */
-
 /* Landscape */
 @media only screen 
   and (min-device-width: 1112px) 

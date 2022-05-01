@@ -1,10 +1,10 @@
-import { useFrame, useLoader, lineBasicMaterial, extend } from '@react-three/fiber';
-import { OrbitControls, Stars, Html } from '@react-three/drei';
-import React, {useRef, useState} from 'react';
+import { useFrame, useLoader, extend } from '@react-three/fiber';
+import { OrbitControls, Stars } from '@react-three/drei';
+import React, {useRef} from 'react';
 import * as THREE from 'three'
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from './globalState';
-import { InfoBox } from './InfoBox/Landing';
+import {Landing} from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
 import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
@@ -48,11 +48,9 @@ export function Earth(props) {
 
   const earthRef = useRef();
   const cloudsRef = useRef();
-  const pinRef = useRef()
 
   let xRadius=5
   let zRadius=3.5
-  let yRadius=0
 
   function calcPosFromLatLngRad(lat, lng) {
     var phi = (90 - lat)*(Math.PI/180)
@@ -208,11 +206,11 @@ export function Earth(props) {
   });
 
   const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
-  // const text = new THREE.TextGeometry('LIVE', textOptions)
 
   return (
     <>
-      <InfoBox />
+      {/* <InfoBox /> */}
+      <Landing/>
       {light === 'ambient' ?
       <ambientLight intensity={1} color="#f6f3ea"/> : 
       <pointLight 
@@ -233,7 +231,6 @@ export function Earth(props) {
       <mesh 
         ref={cloudsRef} 
         geometry={sphere(1.001)}
-        // args={[1.05, 36, 36]}
         scale={
           activeObject === 'earth' ? 1 
           :
@@ -243,7 +240,7 @@ export function Earth(props) {
           :
           (activeObject === 'LEO') && (station === '') ? 3.5
           :
-          (activeObject === 'LEO') && (station != '') ? 4
+          (activeObject === 'LEO') && (station !=='') ? 4
           : .6
         }
       >
@@ -268,7 +265,7 @@ export function Earth(props) {
           :
           (activeObject === 'LEO') && (station === '') ? 3.5
           :
-          (activeObject === 'LEO') && (station != '') ? 4
+          (activeObject === 'LEO') && (station !== '') ? 4
           : .6
         }
 
@@ -502,22 +499,18 @@ export function Earth(props) {
       
       <Ecliptic color={'orange'} xRadius={1.05} zRadius={1.05} yRadius={.3}/> :
 
-      // activeObject === 'LEO' ? 
-      // <Ecliptic color={'orange'} xRadius={3.8} zRadius={3.8} yRadius={.2}/>
       (activeObject === 'LEO') && (station === '') ? <Ecliptic color={'orange'} xRadius={3.8} zRadius={3.8} yRadius={.2}/>
       :
-      (activeObject === 'LEO') && (station !='') ? <Ecliptic color={'orange'} xRadius={4.2} zRadius={4.2} yRadius={.2}/>
+      (activeObject === 'LEO') && (station !=='') ? <Ecliptic color={'orange'} xRadius={4.2} zRadius={4.2} yRadius={.2}/>
       
       : <Ecliptic xRadius={0} zRadius={0}/>  }
       
       {activeObject === 'earth' ? 
         <Ecliptic color={'red'} xRadius={1.052} zRadius={1.052} yRadius={-.4}/>
         :
-        // activeObject === 'LEO' ? 
-        // <Ecliptic color={'red'} xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
         (activeObject === 'LEO') && (station === '') ? <Ecliptic color={'red'} xRadius={3.85} zRadius={3.85} yRadius={-1.5}/>
         :
-        (activeObject === 'LEO') && (station !='') ? <Ecliptic color={'red'} xRadius={4.2} zRadius={4.2} yRadius={-1.5}/>
+        (activeObject === 'LEO') && (station !=='') ? <Ecliptic color={'red'} xRadius={4.2} zRadius={4.2} yRadius={-1.5}/>
         : <Ecliptic xRadius={0} zRadius={0}/>  }
      
     </>

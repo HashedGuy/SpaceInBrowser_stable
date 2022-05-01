@@ -23,6 +23,7 @@
     "react-modal-image-responsive": "^1.1.1",
     "react-player": "^2.10.0",
     "react-scripts": "^5.0.0",
+    "react-router-dom": "^6.3.0",
     "recoil": "^0.6.1",
     "styled-components": "^5.3.3",
     "three": "^0.137.5",

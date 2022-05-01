@@ -3,17 +3,18 @@ import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Html, useProgress } from '@react-three/drei'
 import styled from 'styled-components'
-import { RecoilRoot, useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState, useRecoilValue } from 'recoil'
+import { RecoilRoot} from 'recoil'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import Earth from './components/Earth'
-// import Starship from './components/models/Starship'
 import ISS from './components/models/ISS'
 import TSS from './components/models/TSS'
 import Mars from './components/Mars'
 import Moon from './components/Moon'
-import { clickedCBState } from './components/globalState'
 import {GiMoonOrbit} from 'react-icons/gi'
 import {BsPhoneLandscape} from 'react-icons/bs'
+import Versions from './components/InfoBox/Versions'
+// import  Landing  from './components/InfoBox/Landing';
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -36,24 +37,31 @@ function Loader() {
     </Html>)
 }
 
+function Animation() {
+  return(
+      <CanvasContainer>      
+        <Canvas>
+          <RecoilRoot>
+            <Suspense fallback={<Loader/>}>
+              <Earth />
+              <Mars />
+              <Moon />
+              <ISS />
+              <TSS />
+            </Suspense>
+            </RecoilRoot>
+          </Canvas>
+        </CanvasContainer>
+  )
+}
+
 export default function App() {
-  const activeObject = useRecoilValue(clickedCBState)
         return (
-              <CanvasContainer>
-                
-                <Canvas>
-                  <RecoilRoot>
-                {/* <PerspectiveCamera near={1} far={1.1}/>  */}
-                  <Suspense fallback={<Loader/>}>
-                    <Earth />
-                    <Mars />
-                    <Moon />
-                    {/* <Starship /> */}
-                    <ISS />
-                    <TSS />
-                  </Suspense>
-                  </RecoilRoot>
-                </Canvas>
-              </CanvasContainer>
+          <Router>
+            <Routes>
+            <Route path='/' element={<Animation/>}/>
+            <Route path='/docs' element={<Versions/>}/>
+          </Routes>
+       </Router>      
         )
 }

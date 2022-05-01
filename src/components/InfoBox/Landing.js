@@ -2,6 +2,8 @@ import { Html } from '@react-three/drei'
 import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from '../globalState'
+import {Link, Route, Routes} from 'react-router-dom'
+
 import Whistler from '../../assets/sounds/Whistler.wav'
 import MartianWind from '../../assets/sounds/martianWind.mp3'
 import BgSound from '../../assets/sounds/SpaceTrash.mp3'
@@ -33,7 +35,7 @@ import ModalImage from "react-modal-image-responsive";
 
 
 
-export function InfoBox() {
+export function Landing() {
     const [activeObject, setObject] = useRecoilState(clickedCBState)
     const [showAction, setAction] = useRecoilState(showActions)
     const [activeButton, setButton] = useState(false)
@@ -171,7 +173,6 @@ export function InfoBox() {
                 setAction('')
                 setLaunchPad('')}}
             />
-            {/* <span className='logoTitleBeta'>Beta 1.0</span> */}
             </p>
           </>}
           {
@@ -181,8 +182,6 @@ export function InfoBox() {
           : activeObject === 'LEO' ? <h1>Low Earth Orbit</h1>
           : 
           <>
-            {/* <GiMoonOrbit />  */}
-            {/* <span style={{"fontWeight":"500", "marginLeft":"2%"}}>SpaceInBrowser</span> */}
             <img 
               src={logoTransparent} 
               className='logoImg'
@@ -192,7 +191,7 @@ export function InfoBox() {
                 setAction('')
                 setLaunchPad('')}}
             />
-            <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta Version 1.0</p>
+          <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta Version 1.0.0</p>
           </>            }
          
           
@@ -239,7 +238,6 @@ export function InfoBox() {
               {activeStation==='ISS' ? 
               <>
                 <p>The largest and most sophisticated of space station is the International Space Station (ISS).</p> 
-                {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/e/e1/The_station_pictured_from_the_SpaceX_Crew_Dragon_5_%28cropped%29.jpg"} className='infoPic'/> */}
                 <ModalImage
                   small={'https://ik.imagekit.io/74qyv5bswgr/iss_2Y2vU27Mh.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1649069033413'}
                   large={'https://ik.imagekit.io/74qyv5bswgr/iss_2Y2vU27Mh.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1649069033413'}
@@ -255,10 +253,6 @@ export function InfoBox() {
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
                   <div className='bioGroups'>
-                    {/* <img src={Matt} className='bioPic' title='Matthias Maurer'/>
-                    <img src={Raja} className='bioPic' title='Raja Chari'/>
-                    <img src={Tom} className='bioPic' title='Tom Marshburn'/>
-                    <img src={Kayla} className='bioPic' title='Kayla Barron'/> */}
                     <ModalImage
                       small={Matt}
                       large={Matt}
@@ -297,9 +291,6 @@ export function InfoBox() {
                     />
                   </div>
                   <div className='bioGroups'>
-                    {/* <img src={Oleg} className='bioPicR' title='Oleg Artemyev'/>
-                    <img src={Denis} className='bioPicR' title='Denis Matveev'/>
-                    <img src={Sergey} className='bioPicR' title='Sergey Korsakov'/> */}
                     <ModalImage
                       small={Oleg}
                       large={Oleg}
@@ -367,8 +358,6 @@ export function InfoBox() {
                     />
                   </div>
                   <p className='hoverName'>Click to see their names</p>
-
-                {/* <ReactPlayer width='240px' height='180px' url="https://www.ustream.tv/channel/17074538" /> */}
                 </div>
               </>
               :''}
@@ -377,7 +366,6 @@ export function InfoBox() {
               {activeStation==='TSS' ? 
               <>
                 <p>Tiangong (Chinese: 天宫, 'Palace in the Sky') is a space station being constructed by China in low Earth orbit between 340 and 450 km (210 and 280 mi) above the surface.</p>
-                {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/1/1a/Tiangong_Space_Station_Rendering_2021.10.png"} className='infoPic'/> */}
                 <ModalImage
                   small={'https://ik.imagekit.io/74qyv5bswgr/tss_9bzokhBix.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649069096674'}
                   large={'https://ik.imagekit.io/74qyv5bswgr/tss_9bzokhBix.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649069096674'}
@@ -392,7 +380,6 @@ export function InfoBox() {
                 <h5 style={{"color":"gray"}}>Who was On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
                   <div className='bioGroups'>
-                    {/* <img src={Zhai} className='bioPicC' title='Zhai Zhigang'/> */}
                     <ModalImage
                       small={Zhai}
                       large={Zhai}
@@ -420,8 +407,6 @@ export function InfoBox() {
                       hideZoom
                       imageBackgroundColor="transparent"
                     />
-                    {/* <img src={Wang} className='bioPicC' title='Wang Yaping'/> */}
-                    {/* <img src={Ye} className='bioPicC' title='Ye Guangfu'/> */}
                   </div>
                   <p className='hoverName'>Click to see their names</p>
                 </div>
@@ -474,7 +459,6 @@ export function InfoBox() {
             {activeLaunchPad==='KSS' ? 
             <>
             <p>Kennedy Space Center, one of 10 NASA field centers, is a premier multi-user spaceport with more than 90 private-sector partners and nearly 250 partnership agreements.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/a0/VAB_and_SLS.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/VAB_and_SLS_vWeAvJ4pC.jpeg" className='infoPic'/>  
             </IKContext>
@@ -487,20 +471,16 @@ export function InfoBox() {
             activeLaunchPad==='CCSFS' ? 
             <>
             <p>Cape Canaveral Space Force Station is an installation of the United States Space Force's Space Launch Delta 45, located on Cape Canaveral in Brevard County, Florida.</p>
-            {/* <img src={"https://media.defense.gov/2021/Dec/07/2002904591/-1/-1/0/211203-X-KD758-1071.JPG"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/CCSFS_klnuRorxI.jpeg" className='infoPic'/>  
             </IKContext>
             <p className='credits'><em>Credit: Patrick Space Force Base</em></p>
             <p>A number of American space exploration pioneers were launched from CCSFS, including the first U.S. Earth satellite in 1958, first U.S. astronaut (1961), first U.S. astronaut in orbit (1962), first two-man U.S. spacecraft (1965), first U.S. unmanned lunar landing (1966), and first three-man U.S. spacecraft (1968).</p>
-            {/* <h5>Next mission:</h5>  */}
-            {/* <p className="nextMission">ULA Atlas V Boeing CST-100 Starliner Orbital Flight Test 2 (UNCREWED)</p> */}
             </>
             :
             activeLaunchPad==='Starbase' ? 
             <>
             <p>Starbase is a private rocket production facility, test site, and spaceport constructed by SpaceX, located at Boca Chica approximately 32 km (20 mi) east of Brownsville, Texas, on the US Gulf Coast.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/af/USA_-_Texas_-_Boca_Chica_-_Starbase_%2851287072615%29.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/USA_-_Texas_-_Boca_Chica_-_Starbase__51287072615__iZdM4e3T2.jpeg" className='infoPic'/>  
             </IKContext>
@@ -512,7 +492,6 @@ export function InfoBox() {
             activeLaunchPad==='SLC-4/VSFB' ? 
             <>
             <p>Space Launch Complex 4 (SLC-4) is a launch and landing site at Vandenberg Space Force Base, California, U.S.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/d/d4/Iridium-1_Mission_%2831450835954%29.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Iridium-1_Mission__31450835954__TOxEeRQSk.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -523,7 +502,6 @@ export function InfoBox() {
             activeLaunchPad==='GSS' ? 
             <>
              <p>The Guiana Space Centre (French: Centre spatial guyanais; CSG), also called Europe's Spaceport, is an European spaceport to the northwest of Kourou in French Guiana, a overseas territory of France in South America.</p>
-             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/5/54/Ensemble_de_lancement_Vega.jpg"} className='infoPic'/> */}
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Ensemble_de_lancement_Vega_IaYTz2mFXF.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -534,7 +512,6 @@ export function InfoBox() {
             activeLaunchPad==='BSS' ? 
             <>
              <p>The Baikonur Cosmodrome (Kazakh: Байқоңыр ғарыш айлағы) is a spaceport in an area of southern Kazakhstan leased to Russia. </p>
-             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/5/59/Soyuz_expedition_19_launch_pad.jpg"} className='infoPic'/> */}
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/soyuz_5kt71bONq.jpeg" className='infoPic'/>  
             </IKContext>
@@ -547,7 +524,6 @@ export function InfoBox() {
             activeLaunchPad==='SDSC' ? 
             <>
             <p>Satish Dhawan Space Centre is a rocket launch centre (spaceport) operated by Indian Space Research Organisation (ISRO). It is located in Sriharikota in Andhra Pradesh.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2a/PSLV_C45_EMISAT_campaign_23.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/PSLV_C45_EMISAT_campaign_23_JmiBV0Zod.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -558,7 +534,6 @@ export function InfoBox() {
             activeLaunchPad==='WSLC' ? 
             <>
              <p>The Wenchang Space Launch Site (Chinese: 文昌航天发射场[1][2]), located in Wenchang, Hainan, China, is a rocket launch site — one of the two spacecraft launch sites of Xichang Satellite Launch Center.</p>
-             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2e/Tianwen-1_launch_04_%28cropped%29.jpg"} className='infoPic'/> */}
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/tianwen_A1iielWrO.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -569,7 +544,6 @@ export function InfoBox() {
             activeLaunchPad==='TSC' ? 
             <>
              <p>The Tanegashima Space Center (種子島宇宙センター, Tanegashima Uchū Sentā) is the largest rocket-launch complex in Japan. It is located on the southeast coast of Tanegashima island.</p>
-             {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/c/c9/Osaki_Range.jpg"} className='infoPic'/> */}
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/osaki_cdKgKyIx0.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -580,7 +554,6 @@ export function InfoBox() {
             activeLaunchPad==='USC' ? 
             <>
               <p>The Uchinoura Space Center (内之浦宇宙空間観測所, Uchinoura Uchū Kūkan Kansokusho) is a space launch facility in the Japanese town of Kimotsuki, Kagoshima Prefecture. </p>
-              {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ab/M-V_with_Astro-E_satellite.jpg"} className='infoPic'/> */}
               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/usc__QW5nlJ_oz.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -591,7 +564,6 @@ export function InfoBox() {
             activeLaunchPad==='Semnan' ? 
             <>
                <p>Semnan Space Center (Persian:پایگاه فضایی سمنان) is the premier Iranian Space Center, located 50 km southeast of the city of Semnan in the north of the country.</p>
-               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/b/b6/%D8%B3%DB%8C%D9%85%D8%B1%D8%BA_-_%D8%A7%D9%81%D8%AA%D8%AA%D8%A7%D8%AD_%D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87_%D9%85%D9%84%DB%8C_%D9%81%D8%B6%D8%A7%DB%8C%DB%8C_%D8%A7%D9%85%D8%A7%D9%85_%D8%AE%D9%85%DB%8C%D9%86%DB%8C%28%D8%B1%D9%87%29_%281%29.jpg"} className='infoPic'/> */}
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/iran_MuTq68S_D.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -602,7 +574,6 @@ export function InfoBox() {
             activeLaunchPad==='Palmachim' ? 
             <>
                 <p>The Palmachim Airbase (Hebrew: בָּסִיס חֵיל-הַאֲוִויר פַּלְמַחִים) is an Israeli military facility and spaceport located near the cities of Rishon LeZion and Yavne on the Mediterranean coast. </p>
-                {/* <img src={"https://static.timesofisrael.com/www/uploads/2014/04/F070611TBA01.jpg"} className='infoPic'/> */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/isr_P1laiaRLz1.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -613,7 +584,6 @@ export function InfoBox() {
             activeLaunchPad==='Yasny' ? 
             <>
             <p>Yasny cosmodrome is located in a military airbase, northwest of the village of Dombarovsky, near Yasny in Russia's Orenburg Oblast.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/0/02/General_View_snyi.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/yasny_xccSUm8Ff.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -624,7 +594,6 @@ export function InfoBox() {
             activeLaunchPad==='JSLC' ? 
             <>
             <p>Jiuquan Satellite Launch Center (Chinese: 酒泉卫星发射中心) is a Chinese space vehicle launch facility (spaceport) located in the Gobi Desert, Inner Mongolia. </p>
-            {/* <img src={"https://news.satnews.com/wp-content/uploads/2021/05/China-Yaogan-34-launch.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
               <IKImage path="/JCLA_bzntudH90.jpeg" className='infoPic'/>  
             </IKContext>
@@ -635,7 +604,6 @@ export function InfoBox() {
             activeLaunchPad==='Vostochny' ? 
             <>
             <p>The Vostochny Cosmodrome (Russian: Космодром Восточный) is a Russian spaceport (still partly under construction) above the 51st parallel north in the Amur Oblast, in the Russian Far East.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/a/ac/%D0%A1%D1%82%D0%B0%D1%80%D1%82%D0%BE%D0%B2%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%B4%D1%80%D0%BE%D0%BC%D0%B0_%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B5%D1%80%D0%B5%D0%B4_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%BC_%D0%BF%D1%83%D1%81%D0%BA%D0%BE%D0%BC.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/vostochny_rEnB3lwC8.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -646,7 +614,6 @@ export function InfoBox() {
             activeLaunchPad==='TSLC' ? 
             <>
             <p>The Taiyuan Satellite Launch Center also known as Base 25 (Chinese: 二十五基地), is a space and defense launch facility (spaceport) located in Kelan County, Xinzhou, Shanxi Province.</p>
-            {/* <img src={"https://upload.wikimedia.org/wikipedia/en/2/2b/Taiyuan_1601_Satellite_Launch_Site.jpg"} className='infoPic'/> */}
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Taiyuan_1601_Satellite_Launch_Site_Y3i8QVdrN.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -657,7 +624,6 @@ export function InfoBox() {
              activeLaunchPad==='Sohae' ? 
              <>
              <p>Sohae Satellite Launching Station (Korean: 서해위성발사장; Hanja: 西海衛星發射場) is a rocket launching site in Tongch'ang-ri, Cholsan County, North Pyongan Province, North Korea.</p>
-             {/* <img src={"https://cdni.rt.com/files/2018.07/article/5b56792ddda4c88a668b4634.jpg"} className='infoPic'/> */}
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/nk_Xk9VF2gVS.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -668,7 +634,6 @@ export function InfoBox() {
               activeLaunchPad==='Naro' ? 
               <>
               <p>The Naro Space Center is a South Korean spaceport in South Jeolla's Goheung County, operated by the state-run Korea Aerospace Research Institute.</p>
-              {/* <img src={"https://rocketrundown.com/wp-content/uploads/2018/11/KSLV-II-suborbital-test-vehicle.jpg"} className='infoPic'/> */}
               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/KSLV-II-suborbital-test-vehicle_tPmoKQ89J.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -679,7 +644,6 @@ export function InfoBox() {
                activeLaunchPad==='XSLC' ? 
                <>
                <p>The Xichang Satellite Launch Center (XSLC), also known as the Xichang Space Center, is a spaceport of China. It is located in Zeyuan Town (泽远镇) in Sichuan.</p>
-               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/3/3d/Xichang_launch_center_4.jpg"} className='infoPic'/> */}
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Xichang_launch_center_4_3kA0y2AMf.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -690,7 +654,6 @@ export function InfoBox() {
                activeLaunchPad==='RocketLab' ? 
                <>
                <p>Rocket Lab Launch Complex 1 (also known as Mahia Launch Complex or Spaceport) is a commercial spaceport located close to Ahuriri Point at the southern tip of Māhia Peninsula, on the east coast of New Zealand's North Island.</p>
-               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2c/Rocket_Lab_Launch_Complex_1_%28Sept_2016%29.jpg"} className='infoPic'/> */}
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Rocket_Lab_Launch_Complex_1__Sept_2016__ydOJVsOFkA.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -701,7 +664,6 @@ export function InfoBox() {
                activeLaunchPad==='PSC' ? 
                <>
                <p>The Pacific Spaceport Complex – Alaska, formerly known as the Kodiak Launch Complex (KLC), is a dual-use commercial and military spaceport for sub-orbital and orbital launch vehicles.</p>
-               {/* <img src={"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/474963main-tower-picture-3008x2000-1521646940.jpg?resize=980:*"} className='infoPic'/> */}
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/474963main-tower-picture-3008x2000-1521646940_7fQHwv_J_.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -712,7 +674,6 @@ export function InfoBox() {
                activeLaunchPad==='MARS' ? 
                <>
                <p>The Mid-Atlantic Regional Spaceport is a commercial space launch facility located at the southern tip of NASA's Wallops Flight Facility on Wallops Island in Virginia, United States.</p>
-               {/* <img src={"https://upload.wikimedia.org/wikipedia/commons/2/2d/Mid-Atlantic_Regional_Spaceport_-_aerial_photo.jpg"} className='infoPic'/> */}
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/MARS_4QK1tzOSC.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -761,7 +722,6 @@ export function InfoBox() {
               {showAction === 'apollo11' ? 
                 <>
                 <p>Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed humans on the Moon. </p> 
-                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg" className='infoPic'/> */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Aldrin_Apollo_11_original_ycH08Gxy4.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -772,7 +732,6 @@ export function InfoBox() {
               : showAction === 'apollo12' ? 
                 <>
                   <p>Apollo 12 (November 14 – 24, 1969) was the sixth crewed flight in the United States Apollo program and the second to land on the Moon.</p>
-                  {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Surveyor_3-Apollo_12.jpg/1920px-Surveyor_3-Apollo_12.jpg" className='infoPic'/> */}
                   <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                     <IKImage path="/Surveyor_3-Apollo_12_vGA6dZIFF.jpeg" className='infoPic'/>  
                   </IKContext>
@@ -782,7 +741,6 @@ export function InfoBox() {
               : showAction === 'apollo14' ? 
               <>
                 <p>Apollo 14 (January 31, 1971 – February 9, 1971) was the eighth crewed mission in the United States Apollo program, the third to land on the Moon, and the first to land in the lunar highlands. </p>
-                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Apollo_14_Shepard.jpg/1920px-Apollo_14_Shepard.jpg" className='infoPic'/> */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Apollo_14_Shepard_nN-skDi91.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -792,7 +750,6 @@ export function InfoBox() {
               : showAction === 'apollo15' ? 
               <>
                 <p>Apollo 15 (July 26 – August 7, 1971) was the ninth crewed mission in the United States' Apollo program and the fourth to land on the Moon. </p>
-                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/AS15-88-11866_-_Apollo_15_flag%2C_rover%2C_LM%2C_Irwin_-_restoration1.jpg" className='infoPic'/> */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/AS15-88-11866_-_Apollo_15_flag__rover__LM__Irwin_-_restoration1_Sr6q02sR-.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -803,7 +760,6 @@ export function InfoBox() {
               : showAction === 'apollo16' ? 
               <>
                 <p>Apollo 16 (April 16 – 27, 1972) was the tenth crewed mission in the United States Apollo space program, administered by NASA, and the fifth and next-to-last to land on the Moon.</p>
-                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/John_W._Young_on_the_Moon.jpg/1920px-John_W._Young_on_the_Moon.jpg" className="infoPic"/>   */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/John_W._Young_on_the_Moon_643917BPyg.jpg" className='infoPic'/>  
                 </IKContext>
@@ -813,7 +769,6 @@ export function InfoBox() {
               : showAction === 'apollo17' ? 
               <>
                 <p>Apollo 17 (December 7 – 19, 1972) was the final mission of NASA's Apollo program, the most recent time humans have set foot on the Moon or traveled beyond low Earth orbit.</p>
-                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg/1920px-Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg" className='infoPic'/> */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/Eugene_Cernan_at_the_LM__Apollo_17_eibvGpjcJ.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -823,7 +778,6 @@ export function InfoBox() {
               : showAction === 'artemis' ? 
               <>
                 <p>Artemis 3 (officially Artemis III) is the first crewed Moon landing mission of the Artemis program and the third planned flight of NASA's Orion spacecraft on the Space Launch System (SLS).</p>
-                {/* <img src="https://spacenews.com/wp-content/uploads/2021/04/starship-lander-879x485.jpg" className='infoPic'/> */}
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
                   <IKImage path="/starship-lander-879x485_yLrwIC7yf.jpeg" className='infoPic'/>  
                 </IKContext>
@@ -874,9 +828,6 @@ export function InfoBox() {
             </div>
              :
               ''}
-               {/* <div>
-              <a className='sunsetGuy'>By arbus</a>
-              </div> */}
           </div>
           
         </div>
@@ -1032,12 +983,7 @@ export function InfoBox() {
           (showAction==='launchpad') || (showAction==='crewPad') || (showAction==='satellitePad') && (activeLaunchPad==='') ? 'extraInfo usefulInfo'
           
           : 'extraInfo'}>
-        {/* <AiOutlineCloseCircle className='closeBtn' onClick={()=>setClose(true)}/> */}
         {
-        // (activeObject === 'mars') ? 
-        //   <>
-        //   </>
-        // :
         (activeObject === 'LEO') && (showAction === '') || (showAction === 'launchpad') || (showAction==='spaceStation') ? 
           <>
           <p>You can observe two space stations travelling around the Earth by following along the yellow and red orbits.</p>
@@ -1196,7 +1142,6 @@ export function InfoBox() {
                 title='Change the song'/>
               : ''}
           </div>
-         
         </div>
         </div>
 

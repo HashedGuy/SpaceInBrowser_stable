@@ -1,6 +1,5 @@
-import { useFrame, useLoader, lineBasicMaterial, extend } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
-import React, {useRef, useState} from 'react';
+import { useFrame, useLoader,  extend } from '@react-three/fiber';
+import React, {useRef} from 'react';
 import * as THREE from 'three'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../assets/fontMedium.json"
@@ -10,26 +9,16 @@ import { TextureLoader } from 'three';
 import MoonMap from "../assets/2k_moon.jpeg"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { clickedCBState, showActions } from './globalState';
-import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 
 extend({ TextGeometry })
 
-const MoonImg = () => {
-  return (
-    <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
-      <IKImage path="/8k_earth_daymap_z76y-E3-X.jpg"/>  
-    </IKContext>
-  )
-}
-
 function Ecliptic({ xRadius = 1, zRadius = 1, yRadius = 1 }) {
-  const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const activeObject = useRecoilValue(clickedCBState)
   const points = [];
   for (let index = 0; index < 64; index++) {
     const angle = (index / 64) * 2 * Math.PI;
     const x = xRadius * Math.cos(angle);
     const z = zRadius * Math.sin(angle);
-    // const y = yRadius * Math.sin(angle);
     points.push(new THREE.Vector3(x, 0, z));
   }points.push(points[0]);const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
   return (
