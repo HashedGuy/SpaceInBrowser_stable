@@ -191,7 +191,7 @@ export function Landing() {
                 setAction('')
                 setLaunchPad('')}}
             />
-          <p style={{"fontSize":"30%", "fontWeight":"300"}}> <a href='' target='_blank'>Beta Version 1.0.0</a></p>
+          <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta Version 1.0.0</p>
           </>            }
          
           
