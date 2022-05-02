@@ -22,7 +22,7 @@ import Robert from '../../assets/astros/robert.png'
 import Jessica from '../../assets/astros/jessica.png'
 import Kjell from '../../assets/astros/kjell.png'
 import Samantha from '../../assets/astros/samantha.png'
-import logoTransparent from '../../assets/logo_transparent.png'
+import logoTransparent from '../../assets/logo2.png'
 
 import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
@@ -191,7 +191,7 @@ export function Landing() {
                 setAction('')
                 setLaunchPad('')}}
             />
-          <p style={{"fontSize":"30%", "fontWeight":"300"}}> Beta Version 1.0.0</p>
+          <p className='versionName' style={{}}> Beta Version 1.0.0</p>
           </>            }
          
           

@@ -37,10 +37,6 @@ h5, p {
   line-height: 1.5em;
 }
 
-.versionsContainer {
-  color: aliceblue;
-}
-
 .infoBox p {
   padding: 1em;
 }
@@ -79,6 +75,12 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.versionName {
+  font-size: 30%;
+  font-weight: 300;
+  color: rgb(148, 48, 148);
 }
 
 .soundBackground {
