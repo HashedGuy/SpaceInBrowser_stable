@@ -60,7 +60,7 @@ export default function App() {
           <Router>
             <Routes>
             <Route path='/' element={<Animation/>}/>
-            <Route path='/docs' element={<Versions/>}/>
+            {/* <Route path='/docs' element={<Versions/>}/> */}
           </Routes>
        </Router>      
         )
