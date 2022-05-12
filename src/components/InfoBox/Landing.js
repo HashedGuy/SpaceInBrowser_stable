@@ -48,6 +48,7 @@ export function Landing() {
     const [closedAudio, setCloseAudio] = useRecoilState(closedAudioG)
     const [isPlaying, setIsPlaying] = useState(false);
     const [song, setSong] = useState('')
+    const [dropdownVersion, setDropdownVersion] = useState(false)
 
     const audioPlayerBg = useRef()
 
@@ -191,7 +192,16 @@ export function Landing() {
                 setAction('')
                 setLaunchPad('')}}
             />
-          <p className='versionName' style={{}}> Beta Version 1.0.0</p>
+             <p className='versionName' style={{}}>Beta Version 1.0.0 &nbsp; <span className='versionDropdown' onClick={()=>setDropdownVersion(!dropdownVersion)} >&#x25BC;</span></p>
+            
+            {dropdownVersion ? 
+            <>
+               <a 
+              href='https://sib-beta101.netlify.app/' 
+             >
+                <p className='versionName' style={{}}>Beta Version 1.0.1 (not stable)</p>
+              </a>
+            </>: ''}
           </>            }
          
           
@@ -818,6 +828,9 @@ export function Landing() {
 
               <a  className='twBtn' href="https://twitter.com/spaceinbrowser" target="_blank">
                 <i className="fab fa-twitter"></i>
+              </a> 
+              <a  className='gitBtn' href="https://github.com/HashedGuy/SpaceInBrowser_stable" target="_blank">
+              <i className="fab fa-github"></i>
               </a> 
 
               <a  className='ytBtn' href="https://www.youtube.com/channel/UCcr4eYlztyxKO7rPmNCrgdg" target="_blank">

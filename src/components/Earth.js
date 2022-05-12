@@ -8,6 +8,7 @@ import {Landing} from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
 import EarthDayMap from "../assets/compressed/8k_earth_daymap(1).jpg"
+import EarthCountryMap from "../assets/compressed/feltTexture.png"
 import EarthNormalMap from "../assets/compressed/8k_earth_normal_map(1).jpg"
 import EarthSpecularMap from "../assets/compressed/8k_earth_specular_map(1).jpg"
 import EarthCloudsMap from "../assets/compressed/8k_earth_clouds-min.jpeg"
@@ -34,9 +35,9 @@ function Ecliptic({ xRadius, zRadius, yRadius, color }) {
 }
 
 export function Earth(props) {
-  const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(
+  const [colorMap, normalMap, specularMap, cloudsMap, countryMap] = useLoader(
     TextureLoader,
-    [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap]
+    [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap, EarthCountryMap]
   );
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
