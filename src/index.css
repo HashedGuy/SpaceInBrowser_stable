@@ -81,12 +81,17 @@ a {
   font-size: 30%;
   font-weight: 300;
   color: rgb(170, 71, 170);
-  cursor: pointer;
   margin-bottom: 0 !important;
   padding: 0 !important;
 }
 
 .versionDropdown:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.hovered {
+  cursor: pointer;
   opacity: .5;
 }
 

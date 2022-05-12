@@ -199,7 +199,7 @@ export function Landing() {
                <a 
               href='https://sib-beta101.netlify.app/' 
              >
-                <p className='versionName' style={{}}>Beta Version 1.0.1 (not stable)</p>
+                <p className='versionName hovered' style={{}}>Beta Version 1.0.1 (not stable)</p>
               </a>
             </>: ''}
           </>            }
