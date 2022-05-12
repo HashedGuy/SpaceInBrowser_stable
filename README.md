@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# SpaceInBrowser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![SIB Logo](/public/logo/logo_transparent_50.png#gh-dark-mode-only)
 
-## Available Scripts
+![SIB Logo](/public/logo/twitter_profile_image.png#gh-light-mode-only)
 
-In the project directory, you can run:
+Travel space in your browser: https://spaceinbrowser.com/ 
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+SpaceInBrowser is an indie 3D animation/simulation of space in WebL created by [@HashedGuy](https://github.com/HashedGuy). The project has been launched in a Beta version (1.0.0) on 29 April, 2022 on [HackerNews](https://news.ycombinator.com/item?id=31204353).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Libraries/Engines`
 
-### `npm test`
+- [ReactJS](https://reactjs.org/docs/getting-started.html)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [ThreeJS](https://threejs.org/docs/)
 
-### `npm run build`
+- [React-Three-Fiber](https://github.com/pmndrs/react-three-fiber)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React-Three-Gltfjsx](https://github.com/pmndrs/gltfjsx)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React-Three-Drei](https://github.com/pmndrs/drei)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Blender](https://docs.blender.org/)
 
-### `npm run eject`
+## Community
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Twitter](https://twitter.com/spaceinbrowser)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Discord](https://discord.gg/BD8AtqPm)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Donations
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [Patreon](https://www.patreon.com/spaceinbrowser)
+- BTC: 12YperDkC531Dsmu43FLB98WwRXyxxDnoq
+- ETH: 0xe329a597eda16261095261d4cccb7ba06a7ad1b8
 
-## Learn More
+## More information
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [SIB Documentation](https://sib1.netlify.app/docs)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
