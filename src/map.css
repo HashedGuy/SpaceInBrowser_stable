@@ -1,0 +1,24 @@
+.noMap {
+    display: none !important;
+}
+
+.launchpadPopName {
+    color: rgb(90, 86, 86);
+    font-size: 120%;
+}
+
+.popFlag {
+    border: 1px solid rgba(128, 128, 128, 0.192);
+}
+
+.mapGround {
+    border: 1px solid blue !important;
+}
+
+.mapGround:hover {
+    background-color: rgba(0, 0, 255, 0.411) !important;
+}
+
+.leaflet-container {
+    position: sticky !important;
+}

@@ -1,0 +1,287 @@
+[
+    {
+        "id":0,
+        "fullName":"SpaceX Starbase",
+        "shortName":"Starbase",
+        "gps": {
+            "lat":25.9875, 
+            "lng":-97.186389
+        },
+        "abbV":"SB",
+        "country":"US",
+        "launch":"Crew/Satellite",
+        "status":"Not completed"
+    },
+    {
+        "id":1,
+        "fullName":"Kennedy Space Center",
+        "shortName":"Kennedy",
+        "gps": {
+            "lat":28.608389, 
+            "lng":-80.604333
+        },
+        "abbV":"KSC",
+        "country":"US",
+        "launch":"Crew/Satellite",
+        "status":"Active"
+    },
+    {
+        "id":2,
+        "fullName":"Cape Canaveral Space Force Station",
+        "shortName":"Cape Canaveral",
+        "gps": {
+            "lat":28.4909268, 
+            "lng":-80.5800275
+        },
+        "abbV":"CCSFS",
+        "country":"US",
+        "launch":"Crew/Satellite",
+        "status":"Active"
+    },
+    {
+        "id":3,
+        "fullName":"Baikonur Cosmodrome",
+        "shortName":"Baikonur",
+        "gps": {
+            "lat":45.6232, 
+            "lng":63.3140
+        },
+        "abbV":"BC",
+        "country":"RU",
+        "launch":"Crew/Satellite",
+        "status":"Active"
+    },
+    {
+        "id":4,
+        "fullName":"Jiuquan Satellite Launch Center",
+        "shortName":"Jiuquan",
+        "gps": {
+            "lat":40.95806, 
+            "lng":100.29111
+        },
+        "abbV":"JSLC",
+        "country":"CN",
+        "launch":"Crew/Satellite",
+        "status":"Active"
+    },
+    {
+        "id":5,
+        "fullName":"Guiana Space Centre",
+        "shortName":"Guiana",
+        "gps": {
+            "lat":5.26258, 
+            "lng":-52.79074
+        },
+        "abbV":"GSS",
+        "country":"FR",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":6,
+        "fullName":"Pacific Spaceport Complex – Alaska",
+        "shortName":"Pacific",
+        "gps": {
+            "lat":57.435833, 
+            "lng":-152.337778
+        },
+        "abbV":"PSC",
+        "country":"US",
+        "launch":"Satellite only",
+        "status":"Active"
+    },{
+        "id":7,
+        "fullName":"Vandenberg Space Force Base",
+        "shortName":"Vandenberg",
+        "gps": {
+            "lat":34.6320, 
+            "lng":-120.6107
+        },
+        "abbV":"VSFB",
+        "country":"US",
+        "launch":"Satellite only",
+        "status":"Active"
+    },{
+        "id":8,
+        "fullName":"Mid-Atlantic Regional Spaceport",
+        "shortName":"MARS",
+        "gps": {
+            "lat":37.843333, 
+            "lng":-75.478056
+        },
+        "abbV":"MARS",
+        "country":"US",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":9,
+        "fullName":"Rocket Lab Launch Complex",
+        "shortName":"RocketLab",
+        "gps": {
+            "lat":-39.2615, 
+            "lng":177.864876
+        },
+        "abbV":"RL",
+        "country":"NZ",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":10,
+        "fullName":"Palmachim Airbase",
+        "shortName":"Palmachim",
+        "gps": {
+            "lat":31.897778, 
+            "lng":34.690556
+        },
+        "abbV":"PA",
+        "country":"ISR",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":11,
+        "fullName":"Semnan Space Center",
+        "shortName":"Semnan",
+        "gps": {
+            "lat":35.2346, 
+            "lng":53.9221
+        },
+        "abbV":"SSC",
+        "country":"IR",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":12,
+        "fullName":"Dombarovsky Air Base",
+        "shortName":"Yasny",
+        "gps": {
+            "lat":51.093889, 
+            "lng":59.842222
+        },
+        "abbV":"DAB",
+        "country":"RU",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":13,
+        "fullName":"Satish Dhawan Space Centre",
+        "shortName":"Satish Dhawan",
+        "gps": {
+            "lat":13.733, 
+            "lng":80.235
+        },
+        "abbV":"SDSC",
+        "country":"IND",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":14,
+        "fullName":"Vostochny Cosmodrome",
+        "shortName":"Vostochny",
+        "gps": {
+            "lat":51.869444, 
+            "lng":128.357222
+        },
+        "abbV":"VC",
+        "country":"RU",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":15,
+        "fullName":"Taiyuan Satellite Launch Center",
+        "shortName":"Taiyuan",
+        "gps": {
+            "lat":38.8486, 
+            "lng":111.6080
+        },
+        "abbV":"TSLC",
+        "country":"CN",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":16,
+        "fullName":"Sohae Satellite Launching Station",
+        "shortName":"Sohae",
+        "gps": {
+            "lat":39.660, 
+            "lng":124.705
+        },
+        "abbV":"SSLS",
+        "country":"PRK",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":17,
+        "fullName":"Xichang Satellite Launch Center",
+        "shortName":"Xichang",
+        "gps": {
+            "lat":28.246017, 
+            "lng":102.026556
+        },
+        "abbV":"XSLC",
+        "country":"CN",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":18,
+        "fullName":"Wenchang Space Launch Site",
+        "shortName":"Wenchang",
+        "gps": {
+            "lat":19.614354, 
+            "lng":110.951057
+        },
+        "abbV":"WSLC",
+        "country":"CN",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":19,
+        "fullName":"Naro Space Center",
+        "shortName":"Naro",
+        "gps": {
+            "lat":34.431944, 
+            "lng":127.535
+        },
+        "abbV":"NSC",
+        "country":"KOR",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":20,
+        "fullName":"Uchinoura Space Center",
+        "shortName":"Uchinoura",
+        "gps": {
+            "lat":31.2513, 
+            "lng":131.0761
+        },
+        "abbV":"USC"
+        ,
+        "country":"JP",
+        "launch":"Satellite only",
+        "status":"Active"
+    },
+    {
+        "id":21,
+        "fullName":"Tanegashima Space Center",
+        "shortName":"Tanegashima",
+        "gps": {
+            "lat":30.3999984, 
+            "lng":130.968662792
+        },
+        "abbV":"TSC",
+        "country":"JP",
+        "launch":"Satellite only",
+        "status":"Active"
+    }
+]

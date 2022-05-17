@@ -31,3 +31,8 @@ export const closedAudioG = atom({
     default: true
 })
 
+export const pinLocation = atom({
+    key: 'pinLocation',
+    default: [25.9875, -97.186389]
+})
+

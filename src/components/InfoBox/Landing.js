@@ -27,7 +27,7 @@ import logoTransparent from '../../assets/logo2.png'
 import audiostyles from "../audiostyles.css";
 import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
-import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill} from 'react-icons/bs'
+import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill, BsArrowDown} from 'react-icons/bs'
 import {AiOutlineCloseCircle, AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import ReactPlayer from 'react-player'
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
@@ -466,7 +466,7 @@ export function Landing() {
 
             {activeLaunchPad==='' ? '' : <a className='home-btn launchpad'>{activeLaunchPad}</a>}
 
-            {activeLaunchPad==='KSS' ? 
+            {activeLaunchPad==='KSC' ? 
             <>
             <p>Kennedy Space Center, one of 10 NASA field centers, is a premier multi-user spaceport with more than 90 private-sector partners and nearly 250 partnership agreements.</p>
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -488,7 +488,7 @@ export function Landing() {
             <p>A number of American space exploration pioneers were launched from CCSFS, including the first U.S. Earth satellite in 1958, first U.S. astronaut (1961), first U.S. astronaut in orbit (1962), first two-man U.S. spacecraft (1965), first U.S. unmanned lunar landing (1966), and first three-man U.S. spacecraft (1968).</p>
             </>
             :
-            activeLaunchPad==='Starbase' ? 
+            activeLaunchPad==='SB' ? 
             <>
             <p>Starbase is a private rocket production facility, test site, and spaceport constructed by SpaceX, located at Boca Chica approximately 32 km (20 mi) east of Brownsville, Texas, on the US Gulf Coast.</p>
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -499,7 +499,7 @@ export function Landing() {
             <p>The launch site was originally intended to support launches of the Falcon 9 and Falcon Heavy launch vehicles as well as "a variety of reusable suborbital launch vehicles", but in early 2018, SpaceX announced a change of plans, stating that the launch site would be used exclusively for SpaceX's next-generation launch vehicle, Starship.</p>
             </>
             :
-            activeLaunchPad==='SLC-4/VSFB' ? 
+            activeLaunchPad==='VSFB' ? 
             <>
             <p>Space Launch Complex 4 (SLC-4) is a launch and landing site at Vandenberg Space Force Base, California, U.S.</p>
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -519,7 +519,7 @@ export function Landing() {
              <p>The European Space Agency (ESA), the European Union Agency for the Space Programme (EUSPA), the French space agency CNES (National Centre for Space Studies), and the commercial companies Arianespace and Azercosmos conduct launches from Kourou. It was used by the ESA to send supplies to the International Space Station using the Automated Transfer Vehicle.</p>
             </>
             :
-            activeLaunchPad==='BSS' ? 
+            activeLaunchPad==='BC' ? 
             <>
              <p>The Baikonur Cosmodrome (Kazakh: Байқоңыр ғарыш айлағы) is a spaceport in an area of southern Kazakhstan leased to Russia. </p>
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -571,7 +571,7 @@ export function Landing() {
               <p>All of Japan's scientific satellites were launched from Uchinoura prior to the M-V launch vehicles being decommissioned in 2006. It continues to be used for suborbital launches, and has also been used for the Epsilon orbital launch vehicle. Additionally, the center has antennas for communication with interplanetary space probes.</p>
             </>
             :
-            activeLaunchPad==='Semnan' ? 
+            activeLaunchPad==='SSC' ? 
             <>
                <p>Semnan Space Center (Persian:پایگاه فضایی سمنان) is the premier Iranian Space Center, located 50 km southeast of the city of Semnan in the north of the country.</p>
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -581,7 +581,7 @@ export function Landing() {
                <p>The spaceport comprises two launch pads: an older, medium-sized launch pad with a collapsible umbilical tower, and a newer, larger launch pad with a mobile gantry tower.</p>
             </>
             :
-            activeLaunchPad==='Palmachim' ? 
+            activeLaunchPad==='PA' ? 
             <>
                 <p>The Palmachim Airbase (Hebrew: בָּסִיס חֵיל-הַאֲוִויר פַּלְמַחִים) is an Israeli military facility and spaceport located near the cities of Rishon LeZion and Yavne on the Mediterranean coast. </p>
                 <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -591,7 +591,7 @@ export function Landing() {
                 <p>Palmachim is used to launch the Shavit space launch vehicle into retrograde orbit by launching over the Mediterranean, acting as Israel's primary spaceport. Palmachim is also used to test ballistic missiles, such as the Jericho.</p>
             </>
             :
-            activeLaunchPad==='Yasny' ? 
+            activeLaunchPad==='DAB' ? 
             <>
             <p>Yasny cosmodrome is located in a military airbase, northwest of the village of Dombarovsky, near Yasny in Russia's Orenburg Oblast.</p>
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -611,7 +611,7 @@ export function Landing() {
             <p>The center covers 2800 km² and may have housing for as many as 20,000 people. The facilities and launch support equipment were likely modelled on Soviet counterparts and the Soviet Union likely provided technical support to Jiuquan.</p>
             </>
             :
-            activeLaunchPad==='Vostochny' ? 
+            activeLaunchPad==='VC' ? 
             <>
             <p>The Vostochny Cosmodrome (Russian: Космодром Восточный) is a Russian spaceport (still partly under construction) above the 51st parallel north in the Amur Oblast, in the Russian Far East.</p>
             <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -631,7 +631,7 @@ export function Landing() {
             <p>The site is primarily used to launch meteorological satellites, Earth resource satellites and scientific satellites on Long March launch vehicles into Sun-synchronous orbits.</p> 
             </>
              :
-             activeLaunchPad==='Sohae' ? 
+             activeLaunchPad==='SSLS' ? 
              <>
              <p>Sohae Satellite Launching Station (Korean: 서해위성발사장; Hanja: 西海衛星發射場) is a rocket launching site in Tongch'ang-ri, Cholsan County, North Pyongan Province, North Korea.</p>
              <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -641,7 +641,7 @@ export function Landing() {
              <p>It was the site for the 13 April 2012 launch of the North Korean satellite Kwangmyŏngsŏng-3, which was launched to celebrate the 100th anniversary of the birth of Kim Il-Sung. The rocket launch failed, but on 12 December of the same year Kwangmyŏngsŏng-3 Unit 2 was successfully launched and brought into Earth orbit.</p> 
              </>
               :
-              activeLaunchPad==='Naro' ? 
+              activeLaunchPad==='NSC' ? 
               <>
               <p>The Naro Space Center is a South Korean spaceport in South Jeolla's Goheung County, operated by the state-run Korea Aerospace Research Institute.</p>
               <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -661,7 +661,7 @@ export function Landing() {
                <p>The facility became operational in 1984 and is used to launch numerous civil, scientific, and military payloads annually. It is notable as the site of Sino-European space cooperation, with the launch of the first of two Double Star scientific satellites in December 2003.</p> 
                </>
                :
-               activeLaunchPad==='RocketLab' ? 
+               activeLaunchPad==='RL' ? 
                <>
                <p>Rocket Lab Launch Complex 1 (also known as Mahia Launch Complex or Spaceport) is a commercial spaceport located close to Ahuriri Point at the southern tip of Māhia Peninsula, on the east coast of New Zealand's North Island.</p>
                <IKContext urlEndpoint="https://ik.imagekit.io/74qyv5bswgr/stellarwind42">
@@ -851,14 +851,14 @@ export function Landing() {
             className={
               
               ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') || (activeStation!='') ? "headphoneBtn alertAudio" :
-              (activeLaunchPad==='Starbase') || (activeLaunchPad==='KSS') || (activeLaunchPad==='CCSFS') ? "headphoneBtn alertLive" 
+              (activeLaunchPad==='SB') || (activeLaunchPad==='KSC') || (activeLaunchPad==='CCSFS') ? "headphoneBtn alertLive" 
               : "headphoneBtn"}
              onClick={(
-               showAction==='satellitePad') || (activeLaunchPad==='BSS') || (activeLaunchPad==='JSLC') || (activeObject==='earth') ? '' 
+               showAction==='satellitePad') || (activeLaunchPad==='BC') || (activeLaunchPad==='JSLC') || (activeObject==='earth') ? '' 
                : ()=>setCloseAudio(false)}
           >
           <BsHeadphones style={{"fontSize":"150%"}}/>
-          {(activeLaunchPad==='Starbase') || (activeLaunchPad==='KSS') || (activeLaunchPad==='CCSFS') ? <p className="headphoneInfo">LIVE</p> :
+          {(activeLaunchPad==='SB') || (activeLaunchPad==='KSC') || (activeLaunchPad==='CCSFS') ? <p className="headphoneInfo">LIVE</p> :
            ((activeObject==='LEO') && (showAction==='')) || (activeObject==='moon') || (activeObject==='mars') || (activeStation!='') ? <p className="headphoneInfoAudio ">AUDIO</p>         
           : ''}
           </div>
@@ -947,7 +947,7 @@ export function Landing() {
           <p className='audioDescription'>Unfortunately, there's no live stream from Tiangong as NASA Live. Below is the latest live stream made by Shenzhou-13 crew.</p>
         </>
         :
-        (activeObject === 'LEO') && (activeLaunchPad==='Starbase') ?
+        (activeObject === 'LEO') && (activeLaunchPad==='SB') ?
         <> 
           <p>Starbase Live</p>
           <p className='audioDescription'>Starbase LIVE provides 24/7 coverage of the exciting developments and testing progress.</p>
@@ -959,9 +959,9 @@ export function Landing() {
           <p className='audioDescription'>Booster returns aboard ASDS, rocket processing operations, fairing returns, launches and many more.</p>
         </>
          :
-         (activeObject === 'LEO') && (activeLaunchPad==='KSS') ?
+         (activeObject === 'LEO') && (activeLaunchPad==='KSC') ?
          <> 
-           <p>Live: Artemis 1 SLS at the KSS</p>
+           <p>Live: Artemis 1 SLS at the KSC</p>
            <p className='audioDescription'>The SLS rocket will launch NASA's Orion capsule on a loop around the Moon later this year.</p>
          </>
        :''}
@@ -969,9 +969,9 @@ export function Landing() {
        {activeObject===''?'':
        (activeStation==='ISS') ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=nA9UZF-SZoQ" className="stream"/> :
        (activeStation==='TSS') ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=TlRPB_FNSF8" className="stream"/> :
-        activeLaunchPad==='Starbase' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=mhJRzQsLZGg" className="stream"/> :
+        activeLaunchPad==='SB' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=mhJRzQsLZGg" className="stream"/> :
         activeLaunchPad==='CCSFS' ? <ReactPlayer width='240px' height='130px' url="https://www.youtube.com/watch?v=gnt2wZBg89g" className="stream"/> :
-        activeLaunchPad==='KSS' ? <ReactPlayer width='220px' controls height='130px' url="https://www.youtube.com/watch?v=DwmuRyfsA7s" className="stream"/>
+        activeLaunchPad==='KSC' ? <ReactPlayer width='220px' controls height='130px' url="https://www.youtube.com/watch?v=DwmuRyfsA7s" className="stream"/>
        : <AudioPlayer/>
        }
         {(activeObject==='moon') || (activeObject==='mars') ? 
@@ -980,9 +980,9 @@ export function Landing() {
           <p className='credits'><em>Credit: Cluster (University of Iowa)</em></p> :
         (activeObject==='LEO') && (activeStation==='TSS') ?
           <p className='credits'><em>Credit: CNSpace</em></p> :
-        (activeObject==='LEO') && (activeLaunchPad==='Starbase') || (activeLaunchPad==='CCSFS') ? 
+        (activeObject==='LEO') && (activeLaunchPad==='SB') || (activeLaunchPad==='CCSFS') ? 
           <p className='credits'><em>Credit: NASASpaceflight</em></p> :
-          (activeObject==='LEO') && (activeLaunchPad==='KSS') ? 
+          (activeObject==='LEO') && (activeLaunchPad==='KSC') ? 
             <p className='credits'><em>Credit: Spaceflight Now</em></p> 
         : ''}
         </div>}
@@ -1117,8 +1117,13 @@ export function Landing() {
                     </>}
                   </div>
         </div>}
-        <div className='soundBackground'>
-          
+        <div className={activeObject==='LEO' ? 'soundBackground mapGround' : 'soundBackground'}>
+          {activeObject==='LEO' ? 
+          <>
+          <a href='#divMap' className='downDivMap'>2D Map <br/>of Launch Sites<br/><br/> <BsArrowDown style={{"fontSize":"150%"}}/></a>
+         
+          </>:
+        <>  
         <audio 
           ref={audioPlayerBg} 
           src={song==='interstaller' ? BgSound2 : BgSound}
@@ -1156,6 +1161,7 @@ export function Landing() {
               : ''}
           </div>
         </div>
+        </>}
         </div>
 
       </Html>

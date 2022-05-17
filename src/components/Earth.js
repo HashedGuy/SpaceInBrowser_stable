@@ -15,6 +15,7 @@ import EarthCloudsMap from "../assets/compressed/8k_earth_clouds-min.jpeg"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../assets/fontLight.json"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import Mapp from '../Mapp';
 
 extend({ TextGeometry })
 
@@ -70,11 +71,11 @@ export function Earth(props) {
     height: .009
   };
 
-  let pointKSS = {
+  let pointKSC = {
     lat:28.973469,
     lng:	-80.651070 
   }
-  let pointStarbase = {
+  let pointSB = {
     lat: 25.997053 ,
     lng:	-97.155281 
   }
@@ -86,7 +87,7 @@ export function Earth(props) {
     lat: 5.167713,
     lng:	-52.683994
   }
-  let pointBSS= {
+  let pointBC= {
     lat: 45.616669,
     lng: 63.316666
   }
@@ -122,7 +123,7 @@ export function Earth(props) {
     lat: 38.849086,
     lng: 111.608497
   }
-  let pointPalmachim= {
+  let pointPA= {
     lat: 31.897778,
     lng: 34.690556
   }
@@ -130,7 +131,7 @@ export function Earth(props) {
     lat: 57.435833,
     lng: -152.337778
   }
-  let pointYasny= {
+  let pointDAB= {
     lat: 51.093889,
     lng: 59.842222
   }
@@ -138,32 +139,32 @@ export function Earth(props) {
     lat: 37.843333,
     lng: -75.478056
   }
-  let pointSemnan= {
+  let pointSSC= {
     lat: 35.2346,
     lng: 53.9221
   }
-  let pointSohae= {
+  let pointSSLS= {
     lat: 39.66,
     lng: 124.705
   }
-  let pointNaro= {
+  let pointNSC= {
     lat: 34.431944,
     lng: 127.535
   }
-  let pointVostochny= {
+  let pointVC= {
     lat: 51.884395,
     lng: 128.333932
   }
-  let pointRocketLab= {
+  let pointRL= {
     lat: -39.2615,
     lng: 177.864876
   }
 
-  let posKSS = calcPosFromLatLngRad(pointKSS.lat, pointKSS.lng)
-  let posStarbase = calcPosFromLatLngRad(pointStarbase.lat, pointStarbase.lng)
+  let posKSC = calcPosFromLatLngRad(pointKSC.lat, pointKSC.lng)
+  let posSB = calcPosFromLatLngRad(pointSB.lat, pointSB.lng)
   let posCCSC = calcPosFromLatLngRad(pointCCSC.lat, pointCCSC.lng)
   let posGSS = calcPosFromLatLngRad(pointGSS.lat, pointGSS.lng)
-  let posBSS = calcPosFromLatLngRad(pointBSS.lat, pointBSS.lng)
+  let posBC = calcPosFromLatLngRad(pointBC.lat, pointBC.lng)
   let posVSFB = calcPosFromLatLngRad(pointVSFB.lat, pointVSFB.lng)
   let posWSLC = calcPosFromLatLngRad(pointWSLC.lat, pointWSLC.lng)
   let posSDSC = calcPosFromLatLngRad(pointSDSC.lat, pointSDSC.lng)
@@ -172,15 +173,15 @@ export function Earth(props) {
   let posJSLC = calcPosFromLatLngRad(pointJSLC.lat, pointJSLC.lng)
   let posXSLC = calcPosFromLatLngRad(pointXSLC.lat, pointXSLC.lng)
   let posTSLC = calcPosFromLatLngRad(pointTSLC.lat, pointTSLC.lng)
-  let posPalmachim = calcPosFromLatLngRad(pointPalmachim.lat, pointPalmachim.lng)
+  let posPA = calcPosFromLatLngRad(pointPA.lat, pointPA.lng)
   let posPSC = calcPosFromLatLngRad(pointPSC.lat, pointPSC.lng)
-  let posYasny = calcPosFromLatLngRad(pointYasny.lat, pointYasny.lng)
+  let posDAB = calcPosFromLatLngRad(pointDAB.lat, pointDAB.lng)
   let posMARS = calcPosFromLatLngRad(pointMARS.lat, pointMARS.lng)
-  let posSemnan = calcPosFromLatLngRad(pointSemnan.lat, pointSemnan.lng)
-  let posSohae = calcPosFromLatLngRad(pointSohae.lat, pointSohae.lng)
-  let posNaro = calcPosFromLatLngRad(pointNaro.lat, pointNaro.lng)
-  let posVostochny = calcPosFromLatLngRad(pointVostochny.lat, pointVostochny.lng)
-  let posRocketLab = calcPosFromLatLngRad(pointRocketLab.lat, pointRocketLab.lng)
+  let posSSC = calcPosFromLatLngRad(pointSSC.lat, pointSSC.lng)
+  let posSSLS = calcPosFromLatLngRad(pointSSLS.lat, pointSSLS.lng)
+  let posNSC = calcPosFromLatLngRad(pointNSC.lat, pointNSC.lng)
+  let posVC = calcPosFromLatLngRad(pointVC.lat, pointVC.lng)
+  let posRL = calcPosFromLatLngRad(pointRL.lat, pointRL.lng)
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() * .006;
@@ -210,8 +211,8 @@ export function Earth(props) {
 
   return (
     <>
-      {/* <InfoBox /> */}
       <Landing/>
+      
       {light === 'ambient' ?
       <ambientLight intensity={1} color="#f6f3ea"/> : 
       <pointLight 
@@ -288,16 +289,16 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-        position={[posKSS.x,posKSS.y,posKSS.z]}
-        onClick={()=>setLaunchPad('KSS')}
+        position={[posKSC.x,posKSC.y,posKSC.z]}
+        onClick={()=>setLaunchPad('KSC')}
         geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-        position={[posKSS.x,posKSS.y,posKSS.z]}
-        onClick={()=>setLaunchPad('KSS')}
+        position={[posKSC.x,posKSC.y,posKSC.z]}
+        onClick={()=>setLaunchPad('KSC')}
       >
         
         <textGeometry attach='geometry' args={['   LIVE', textOptions]} />
@@ -305,17 +306,17 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-        position={[posStarbase.x,posStarbase.y,posStarbase.z]}
+        position={[posSB.x,posSB.y,posSB.z]}
         
-        onClick={()=>setLaunchPad('Starbase')}
+        onClick={()=>setLaunchPad('SB')}
         geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0x00ff00}/>
       </mesh>
 
       <mesh
-        position={[posStarbase.x,posStarbase.y,posStarbase.z]}
-        onClick={()=>setLaunchPad('Starbase')}
+        position={[posSB.x,posSB.y,posSB.z]}
+        onClick={()=>setLaunchPad('SB')}
       >
         <textGeometry attach='geometry' args={['   LIVE', textOptions]} />
         <meshStandardMaterial attach='material' color={'red'} />
@@ -346,9 +347,9 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-        position={[posBSS.x,posBSS.y,posBSS.z]}
+        position={[posBC.x,posBC.y,posBC.z]}
         onClick={()=>{
-          setLaunchPad('BSS')
+          setLaunchPad('BC')
           setCloseAudio(true)}}
         geometry={showAction==='crewPad'? sphere(0.02) : sphere(0)}
       >
@@ -357,7 +358,7 @@ export function Earth(props) {
 
       <mesh
         position={[posVSFB.x,posVSFB.y,posVSFB.z]}
-        onClick={()=>setLaunchPad('SLC-4/VSFB')}
+        onClick={()=>setLaunchPad('VSFB')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
@@ -422,8 +423,8 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-        position={[posPalmachim.x,posPalmachim.y,posPalmachim.z]}
-        onClick={()=>setLaunchPad('Palmachim')}
+        position={[posPA.x,posPA.y,posPA.z]}
+        onClick={()=>setLaunchPad('PA')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
@@ -438,8 +439,8 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-        position={[posYasny.x,posYasny.y,posYasny.z]}
-        onClick={()=>setLaunchPad('Yasny')}
+        position={[posDAB.x,posDAB.y,posDAB.z]}
+        onClick={()=>setLaunchPad('DAB')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
@@ -454,40 +455,40 @@ export function Earth(props) {
       </mesh>
 
       <mesh
-        position={[posSemnan.x,posSemnan.y,posSemnan.z]}
-        onClick={()=>setLaunchPad('Semnan')}
+        position={[posSSC.x,posSSC.y,posSSC.z]}
+        onClick={()=>setLaunchPad('SSC')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-        position={[posSohae.x,posSohae.y,posSohae.z]}
-        onClick={()=>setLaunchPad('Sohae')}
+        position={[posSSLS.x,posSSLS.y,posSSLS.z]}
+        onClick={()=>setLaunchPad('SSLS')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-        position={[posNaro.x,posNaro.y,posNaro.z]}
-        onClick={()=>setLaunchPad('Naro')}
+        position={[posNSC.x,posNSC.y,posNSC.z]}
+        onClick={()=>setLaunchPad('NSC')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-        position={[posVostochny.x,posVostochny.y,posVostochny.z]}
-        onClick={()=>setLaunchPad('Vostochny')}
+        position={[posVC.x,posVC.y,posVC.z]}
+        onClick={()=>setLaunchPad('VC')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
       </mesh>
 
       <mesh
-        position={[posRocketLab.x,posRocketLab.y,posRocketLab.z]}
-        onClick={()=>setLaunchPad('RocketLab')}
+        position={[posRL.x,posRL.y,posRL.z]}
+        onClick={()=>setLaunchPad('RL')}
         geometry={showAction==='satellitePad'? sphere(0.02) : sphere(0)}
       >
         <meshBasicMaterial color={0xff0000}/>
