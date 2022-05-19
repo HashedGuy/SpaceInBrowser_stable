@@ -22,3 +22,39 @@
 .leaflet-container {
     position: sticky !important;
 }
+.mapContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.pMapp {
+  background-color: transparent;
+  margin: 0;
+  position: relative;
+  display: flex;
+}
+
+.mapBtn {
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    padding: .5em;
+    border-radius: 10px;
+    margin-top: 1.5em;
+    margin-right: .5em;
+    white-space: nowrap;
+}
+
+.mapBtn:hover {
+    background-color: rgb(245, 229, 9);
+    border: 0;
+}
+
+.mapboxgl-ctrl-attrib-button, .mapbox-improve-map {
+    display: none;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+    display: none;
+}

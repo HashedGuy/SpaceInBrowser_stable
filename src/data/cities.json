@@ -3,10 +3,9 @@
         "id":0,
         "fullName":"SpaceX Starbase",
         "shortName":"Starbase",
-        "gps": {
-            "lat":25.9875, 
-            "lng":-97.186389
-        },
+        "state": "Texas",
+        "latitude": 25.997053,
+        "longitude": -97.155281,
         "abbV":"SB",
         "country":"US",
         "launch":"Crew/Satellite",
@@ -16,10 +15,9 @@
         "id":1,
         "fullName":"Kennedy Space Center",
         "shortName":"Kennedy",
-        "gps": {
-            "lat":28.608389, 
-            "lng":-80.604333
-        },
+        "state": "Florida",
+        "latitude": 28.6050359132,
+        "longitude": -80.6026042562,
         "abbV":"KSC",
         "country":"US",
         "launch":"Crew/Satellite",
@@ -29,23 +27,29 @@
         "id":2,
         "fullName":"Cape Canaveral Space Force Station",
         "shortName":"Cape Canaveral",
-        "gps": {
-            "lat":28.4909268, 
-            "lng":-80.5800275
-        },
+        "state": "Florida",
+        "latitude": 28.5839,
+        "longitude": -80.5828,
         "abbV":"CCSFS",
         "country":"US",
         "launch":"Crew/Satellite",
         "status":"Active"
     },
     {
+        "city": "Houston",
+        "population": "2,100,263",
+        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Aerial_views_of_the_Houston%2C_Texas%2C_28005u.jpg/240px-Aerial_views_of_the_Houston%2C_Texas%2C_28005u.jpg",
+        "state": "Texas",
+        "latitude": 29.7805,
+        "longitude": -95.3863
+    },
+    {
         "id":3,
         "fullName":"Baikonur Cosmodrome",
         "shortName":"Baikonur",
-        "gps": {
-            "lat":45.6232, 
-            "lng":63.3140
-        },
+        "state": "Baikonur",
+        "latitude": 45.964689,
+        "longitude": 63.305511,
         "abbV":"BC",
         "country":"RU",
         "launch":"Crew/Satellite",
@@ -55,10 +59,9 @@
         "id":4,
         "fullName":"Jiuquan Satellite Launch Center",
         "shortName":"Jiuquan",
-        "gps": {
-            "lat":40.95806, 
-            "lng":100.29111
-        },
+        "state": "Jiuquan",
+        "latitude": 40.95806,
+        "longitude": 100.29111,
         "abbV":"JSLC",
         "country":"CN",
         "launch":"Crew/Satellite",
@@ -68,10 +71,9 @@
         "id":5,
         "fullName":"Guiana Space Centre",
         "shortName":"Guiana",
-        "gps": {
-            "lat":5.26258, 
-            "lng":-52.79074
-        },
+        "state": "N/A",
+        "latitude": 5.26258,
+        "longitude": -52.79074,
         "abbV":"GSS",
         "country":"FR",
         "launch":"Satellite only",
@@ -81,34 +83,33 @@
         "id":6,
         "fullName":"Pacific Spaceport Complex – Alaska",
         "shortName":"Pacific",
-        "gps": {
-            "lat":57.435833, 
-            "lng":-152.337778
-        },
+        "state": "Alaska",
+        "latitude": 57.434256,
+        "longitude": -152.339578,
         "abbV":"PSC",
         "country":"US",
         "launch":"Satellite only",
         "status":"Active"
-    },{
+    },
+    {
         "id":7,
         "fullName":"Vandenberg Space Force Base",
         "shortName":"Vandenberg",
-        "gps": {
-            "lat":34.6320, 
-            "lng":-120.6107
-        },
+        "state": "California",
+        "latitude": 34.632984,
+        "longitude": -120.615198,
         "abbV":"VSFB",
         "country":"US",
         "launch":"Satellite only",
         "status":"Active"
-    },{
+    },
+    {
         "id":8,
         "fullName":"Mid-Atlantic Regional Spaceport",
         "shortName":"MARS",
-        "gps": {
-            "lat":37.843333, 
-            "lng":-75.478056
-        },
+        "state": "Virginia",
+        "latitude": 37.843333,
+        "longitude": -75.478056,
         "abbV":"MARS",
         "country":"US",
         "launch":"Satellite only",
@@ -118,10 +119,9 @@
         "id":9,
         "fullName":"Rocket Lab Launch Complex",
         "shortName":"RocketLab",
-        "gps": {
-            "lat":-39.2615, 
-            "lng":177.864876
-        },
+        "state": "Mahia",
+        "latitude": -39.260538,
+        "longitude": 177.865203,
         "abbV":"RL",
         "country":"NZ",
         "launch":"Satellite only",
@@ -131,10 +131,9 @@
         "id":10,
         "fullName":"Palmachim Airbase",
         "shortName":"Palmachim",
-        "gps": {
-            "lat":31.897778, 
-            "lng":34.690556
-        },
+        "state": "N/A",
+        "latitude": 31.897778,
+        "longitude": 34.690556,
         "abbV":"PA",
         "country":"ISR",
         "launch":"Satellite only",
@@ -144,10 +143,9 @@
         "id":11,
         "fullName":"Semnan Space Center",
         "shortName":"Semnan",
-        "gps": {
-            "lat":35.2346, 
-            "lng":53.9221
-        },
+        "state": "N/A",
+        "latitude": 35.2346,
+        "longitude": 53.9221,
         "abbV":"SSC",
         "country":"IR",
         "launch":"Satellite only",
@@ -157,10 +155,9 @@
         "id":12,
         "fullName":"Dombarovsky Air Base",
         "shortName":"Yasny",
-        "gps": {
-            "lat":51.093889, 
-            "lng":59.842222
-        },
+        "state": "N/A",
+        "latitude": 51.093889,
+        "longitude": 59.842222,
         "abbV":"DAB",
         "country":"RU",
         "launch":"Satellite only",
@@ -170,10 +167,9 @@
         "id":13,
         "fullName":"Satish Dhawan Space Centre",
         "shortName":"Satish Dhawan",
-        "gps": {
-            "lat":13.733, 
-            "lng":80.235
-        },
+        "state": "N/A",
+        "latitude": 13.733,
+        "longitude": 80.235,
         "abbV":"SDSC",
         "country":"IND",
         "launch":"Satellite only",
@@ -183,12 +179,11 @@
         "id":14,
         "fullName":"Vostochny Cosmodrome",
         "shortName":"Vostochny",
-        "gps": {
-            "lat":51.869444, 
-            "lng":128.357222
-        },
-        "abbV":"VC",
-        "country":"RU",
+        "state": "N/A",
+        "latitude": 38.8486,
+        "longitude": 111.6080,
+        "abbV":"TSLC",
+        "country":"CN",
         "launch":"Satellite only",
         "status":"Active"
     },
@@ -196,10 +191,9 @@
         "id":15,
         "fullName":"Taiyuan Satellite Launch Center",
         "shortName":"Taiyuan",
-        "gps": {
-            "lat":38.8486, 
-            "lng":111.6080
-        },
+        "state": "N/A",
+        "latitude": 38.8486,
+        "longitude": 111.6080,
         "abbV":"TSLC",
         "country":"CN",
         "launch":"Satellite only",
@@ -209,10 +203,9 @@
         "id":16,
         "fullName":"Sohae Satellite Launching Station",
         "shortName":"Sohae",
-        "gps": {
-            "lat":39.660, 
-            "lng":124.705
-        },
+        "state": "N/A",
+        "latitude": 39.660,
+        "longitude": 124.705,
         "abbV":"SSLS",
         "country":"PRK",
         "launch":"Satellite only",
@@ -222,24 +215,10 @@
         "id":17,
         "fullName":"Xichang Satellite Launch Center",
         "shortName":"Xichang",
-        "gps": {
-            "lat":28.246017, 
-            "lng":102.026556
-        },
+        "state": "N/A",
+        "latitude": 28.246017,
+        "longitude": 102.026556,
         "abbV":"XSLC",
-        "country":"CN",
-        "launch":"Satellite only",
-        "status":"Active"
-    },
-    {
-        "id":18,
-        "fullName":"Wenchang Space Launch Site",
-        "shortName":"Wenchang",
-        "gps": {
-            "lat":19.614354, 
-            "lng":110.951057
-        },
-        "abbV":"WSLC",
         "country":"CN",
         "launch":"Satellite only",
         "status":"Active"
@@ -248,10 +227,9 @@
         "id":19,
         "fullName":"Naro Space Center",
         "shortName":"Naro",
-        "gps": {
-            "lat":34.431944, 
-            "lng":127.535
-        },
+        "state": "N/A",
+        "latitude": 34.431944,
+        "longitude": 127.535,
         "abbV":"NSC",
         "country":"KOR",
         "launch":"Satellite only",
@@ -261,10 +239,9 @@
         "id":20,
         "fullName":"Uchinoura Space Center",
         "shortName":"Uchinoura",
-        "gps": {
-            "lat":31.2513, 
-            "lng":131.0761
-        },
+        "state": "N/A",
+        "latitude": 31.2513,
+        "longitude": 131.0761,
         "abbV":"USC",
         "country":"JP",
         "launch":"Satellite only",
@@ -274,10 +251,9 @@
         "id":21,
         "fullName":"Tanegashima Space Center",
         "shortName":"Tanegashima",
-        "gps": {
-            "lat":30.3999984, 
-            "lng":130.968662792
-        },
+        "state": "N/A",
+        "latitude": 30.400991,
+        "longitude": 130.977573,
         "abbV":"TSC",
         "country":"JP",
         "launch":"Satellite only",

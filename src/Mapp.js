@@ -1,111 +1,73 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import {useCallback, useState, useMemo, useEffect} from 'react'
+import {useCallback, useState, useMemo, useEffect, useRef} from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import launchSitesData from './data/launchSites'
+import CITIES from './data/cities.json'
 import Flag from 'react-world-flags'
 import { useRecoilValue } from 'recoil';
-import { clickedCBState, launchpads } from './components/globalState';
+import { clickedCBState, launchpads, showActions } from './components/globalState';
+import Map from 'react-map-gl';
 
-let center = [25.9875, 17.186389]
-const zoom = 2
-
-function DisplayPosition({ map }) {
-    const [actInd, setActInd] = useState()
-    const [position, setPosition] = useState(() => map.getCenter())
-    const launchpad = useRecoilValue(launchpads)
-
-launchSitesData.map(ls=>{
-    if (launchpad===ls.abbV) { 
-    map.setView([ls.gps.lat, ls.gps.lng], 13)
-  }})
-
-  const onMove = useCallback(() => {
-    setPosition(map.getCenter())
-  }, [map])
-
-  useEffect(() => {
-    map.on('move', onMove)
-    return () => {
-      map.off('move', onMove)
-    }
-  }, [map, onMove])
-
-  const responsive = {
-    0: { items: 4 },
-    568: { items: 8 },
-    1024: { items: 12 },
-};
-
-const items = [
-    launchSitesData.map(ls=>(
-        <button 
-            key={ls.id}
-            className={actInd===ls.id ? "home-btn item selectedSite" : "home-btn item"} 
-            data-value={ls.id.toString()} 
-            onClick={()=> {
-                    map.setView([ls.gps.lat, ls.gps.lng], 13)
-                    setActInd(ls.id)
-            }}>
-            {ls.shortName}</button> 
-    ))
-];
+function ControlPanel(props) {
+  const lpKind = useRecoilValue(showActions)
+  console.log(lpKind)
   return (
-    <p className='pMapp'>
-          <AliceCarousel
-            mouseTracking
-            touchTracking
-            items={items[0]}
-            responsive={responsive}
-            controlsStrategy="responsive"
-            keyboardNavigation
-            activeIndex={actInd}
-        />
-    </p>
+    <div className='pMapp'>
+      {lpKind==='crewPad' ? 
+
+        CITIES.filter(city => city.launch === 'Satellite only').map((city, index) => (
+          <div key={`btn-${index}`} className="">
+            <button
+              className='mapBtn'
+              onClick={() => props.onSelectCity(city)}
+            >{city.shortName}</button>
+          </div>
+        ))
+      :
+        CITIES.filter(city => city.launch === 'Crew/Satellite').map((city, index) => (
+          <div key={`btn-${index}`} className="">
+            <button
+              className='mapBtn'
+              onClick={() => props.onSelectCity(city)}
+            >{city.shortName}</button>
+          </div>
+        ))
+      }
+      
+    </div>
   )
 }
 
+const MAPBOX_TOKEN = 'pk.eyJ1IjoiYXJidXN3IiwiYSI6ImNsM2FrMHFyaDA2ZnIzZHJ3ZXhkbmxucWoifQ.6jUSNrLYk3IEhNTiWcNZZw'; // Set your mapbox token here
+
+const initialViewState = {
+  latitude: 25.997053,
+  longitude: -97.155281,
+  zoom: 16,
+  bearing: 0,
+  pitch: 0
+};
+
 
 export default function Mapp() {
-  const [map, setMap] = useState(null)
-  const activeObject = useRecoilValue(clickedCBState)
-  const displayMap = useMemo(
-    () => (
-      <MapContainer
-        center={center}
-        zoom={zoom}
-        scrollWheelZoom={false}
-        style={{"height":"50vh"}}
-        ref={setMap}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
-        />
-        {launchSitesData.map(launchSite=> (
-           
-             <Marker 
-                key={launchSite.id}
-                position={[launchSite.gps.lat, launchSite.gps.lng]}>
-                    <Popup>
-                        <span className='launchpadPopName'>{launchSite.fullName}</span><br/><br/>
-                        <Flag height={20} className='popFlag' code={ launchSite.country }/><br/>
-                        Functionality: {launchSite.launch}<br/>
-                        Status: {launchSite.status} {launchSite.status==='Active' ? '🟢' : '🟠'}
-                    </Popup>
-           
-             </Marker>
-        ))}
-      </MapContainer>
-    ),
-    [],
-  )
+  const mapRef = useRef()
+
+  const onSelectCity = useCallback(({longitude, latitude}) => {
+    mapRef.current?.flyTo({center: [longitude, latitude], duration: 4000});
+  }, []);
 
   return (
-    <div 
-       className= {activeObject==='LEO'? 'divMap' : 'noMap'} 
-        id='divMap'>
-      {map ? <DisplayPosition map={map}/> : null}
-      {displayMap}
-    </div>
+    <div className='mapContainer' id='divMap'>
+    <ControlPanel onSelectCity={onSelectCity} />
+    <Map
+      ref={mapRef}
+      initialViewState={initialViewState}
+      mapStyle="mapbox://styles/mapbox/satellite-v9"
+      mapboxAccessToken={MAPBOX_TOKEN}
+      style={{width:"100vw", height:"40vh"}}
+    />
+   
+  </div>
   )
 }
