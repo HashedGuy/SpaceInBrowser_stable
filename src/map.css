@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 50vh;
+    height: 70vh;
 }
 
 .pMapp {
@@ -46,12 +46,28 @@
     white-space: nowrap;
 }
 
+.mapBtn:first-child {
+    margin-left: 1em;
+}
+
 .mapBtn:hover {
     background-color: rgb(245, 229, 9);
     border: 0;
 }
 
-.mapboxgl-ctrl-attrib-button, .mapbox-improve-map {
+.back {
+    background-color: gray;
+    color: black;
+    border: 0;
+    margin-left: 2em;
+}
+
+.back:hover {
+    background-color: black;
+    color: aliceblue;
+}
+
+.mapboxgl-ctrl-attrib-button, .mapbox-improve-map, .noMap {
     display: none;
 }
 
