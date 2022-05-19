@@ -1,12 +1,8 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import {useCallback, useState, useMemo, useEffect, useRef} from 'react'
-import AliceCarousel from 'react-alice-carousel';
+import {useCallback, useRef} from 'react'
 import 'react-alice-carousel/lib/alice-carousel.css';
-import launchSitesData from './data/launchSites'
 import CITIES from './data/cities.json'
-import Flag from 'react-world-flags'
 import { useRecoilValue } from 'recoil';
-import { clickedCBState, launchpads, showActions } from './components/globalState';
+import { showActions } from './components/globalState';
 import Map from 'react-map-gl';
 
 function ControlPanel(props) {
