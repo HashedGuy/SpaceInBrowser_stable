@@ -14,7 +14,7 @@ function ControlPanel(props) {
   console.log(lpKind)
   return (
     <div className='pMapp'>
-      {lpKind==='crewPad' ? 
+      {lpKind==='satellitePad' ? 
 
         CITIES.filter(city => city.launch === 'Satellite only').map((city, index) => (
           <div key={`btn-${index}`} className="">
@@ -54,7 +54,7 @@ export default function Mapp() {
   const mapRef = useRef()
 
   const onSelectCity = useCallback(({longitude, latitude}) => {
-    mapRef.current?.flyTo({center: [longitude, latitude], duration: 4000});
+    mapRef.current?.flyTo({center: [longitude, latitude], duration: 8000});
   }, []);
 
   return (
