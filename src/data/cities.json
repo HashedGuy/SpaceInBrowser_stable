@@ -1,5 +1,11 @@
 [
     {
+        "id":69,
+        "latitude": 25.997053,
+        "longitude": -97.155281,
+        "zoom": 1.5
+    },
+    {
         "id":0,
         "fullName":"SpaceX Starbase",
         "shortName":"Starbase",
@@ -9,7 +15,8 @@
         "abbV":"SB",
         "country":"US",
         "launch":"Crew/Satellite",
-        "status":"Not completed"
+        "status":"Not completed",
+        "zoom": 16
     },
     {
         "id":1,
@@ -21,7 +28,8 @@
         "abbV":"KSC",
         "country":"US",
         "launch":"Crew/Satellite",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":2,
@@ -33,15 +41,8 @@
         "abbV":"CCSFS",
         "country":"US",
         "launch":"Crew/Satellite",
-        "status":"Active"
-    },
-    {
-        "city": "Houston",
-        "population": "2,100,263",
-        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Aerial_views_of_the_Houston%2C_Texas%2C_28005u.jpg/240px-Aerial_views_of_the_Houston%2C_Texas%2C_28005u.jpg",
-        "state": "Texas",
-        "latitude": 29.7805,
-        "longitude": -95.3863
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":3,
@@ -53,7 +54,8 @@
         "abbV":"BC",
         "country":"RU",
         "launch":"Crew/Satellite",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":4,
@@ -65,7 +67,8 @@
         "abbV":"JSLC",
         "country":"CN",
         "launch":"Crew/Satellite",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":5,
@@ -77,7 +80,8 @@
         "abbV":"GSS",
         "country":"FR",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":6,
@@ -89,7 +93,8 @@
         "abbV":"PSC",
         "country":"US",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":7,
@@ -101,7 +106,8 @@
         "abbV":"VSFB",
         "country":"US",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":8,
@@ -113,7 +119,8 @@
         "abbV":"MARS",
         "country":"US",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":9,
@@ -125,7 +132,8 @@
         "abbV":"RL",
         "country":"NZ",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":10,
@@ -137,7 +145,8 @@
         "abbV":"PA",
         "country":"ISR",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":11,
@@ -149,7 +158,8 @@
         "abbV":"SSC",
         "country":"IR",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":12,
@@ -161,7 +171,8 @@
         "abbV":"DAB",
         "country":"RU",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":13,
@@ -173,7 +184,8 @@
         "abbV":"SDSC",
         "country":"IND",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":14,
@@ -185,7 +197,8 @@
         "abbV":"TSLC",
         "country":"CN",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":15,
@@ -197,7 +210,8 @@
         "abbV":"TSLC",
         "country":"CN",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":16,
@@ -209,7 +223,8 @@
         "abbV":"SSLS",
         "country":"PRK",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":17,
@@ -221,7 +236,8 @@
         "abbV":"XSLC",
         "country":"CN",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":19,
@@ -233,7 +249,8 @@
         "abbV":"NSC",
         "country":"KOR",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":20,
@@ -245,7 +262,8 @@
         "abbV":"USC",
         "country":"JP",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     },
     {
         "id":21,
@@ -257,6 +275,7 @@
         "abbV":"TSC",
         "country":"JP",
         "launch":"Satellite only",
-        "status":"Active"
+        "status":"Active",
+        "zoom": 16
     }
 ]

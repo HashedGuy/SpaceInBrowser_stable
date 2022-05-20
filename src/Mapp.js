@@ -2,7 +2,7 @@ import {useCallback, useRef, useState, useMemo} from 'react'
 import 'react-alice-carousel/lib/alice-carousel.css';
 import CITIES from './data/cities.json'
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { clickedCBState, showActions } from './components/globalState';
+import { clickedCBState, launchpads, showActions } from './components/globalState';
 import Map, { Marker, Popup, NavigationControl,
   FullscreenControl,
   ScaleControl,
@@ -28,6 +28,8 @@ function Pin({size = 20}) {
 
 function ControlPanel(props) {
   const [lpKind, setLpKind] = useRecoilState(showActions)
+  const [page, setPage] = useRecoilState(clickedCBState)
+  const [lp, setLp] = useRecoilState(launchpads)
   const [launchMenu, setLaunchMenu] = useState()
   console.log(lpKind)
   return (
@@ -39,13 +41,16 @@ function ControlPanel(props) {
           <div key={`btn-${index}`} className="">
             <button
               className='mapBtn'
-              onClick={() => props.onSelectCity(city)}
+              onClick={() => {
+                setLp(`${city.abbV}`)
+                props.onSelectCity(city)}}
             >{city.shortName}</button>
           </div>
         ))}
         <button 
             className='mapBtn back' 
             onClick={()=>{
+              props.onSelectCity(CITIES[0])
               setLpKind('')
               setLaunchMenu('options')}}>Back</button>
         </>
@@ -64,6 +69,7 @@ function ControlPanel(props) {
           <button 
             className='mapBtn back' 
             onClick={()=>{
+              props.onSelectCity(CITIES[0])
               setLpKind('')
               setLaunchMenu('options')}}>Back</button>
       </>
@@ -73,9 +79,22 @@ function ControlPanel(props) {
         <>
            <button className='mapBtn' onClick={()=>setLpKind('crewPad')}>Crew Launch Supported</button>
            <button className='mapBtn' onClick={()=>setLpKind('satellitePad')}>Satellite Launch Only</button>
+           <button 
+            className='mapBtn back' 
+            onClick={()=>{
+              props.onSelectCity(CITIES[0])
+              setLpKind('')
+              setLaunchMenu('')}}>Back</button>
         </>
         :
-        <button className='mapBtn' onClick={()=>setLaunchMenu('options')}>Rocket Launch Sites</button>}
+        <>
+        <button 
+          className='mapBtn' 
+          onClick={()=>{
+            setPage('LEO')
+            setLaunchMenu('options')}}>Rocket Launch Sites</button>
+         
+              </>}
       </div>}
       
     </div>
@@ -91,14 +110,15 @@ const initialViewState = {
   bearing: 0,
   pitch: 0
 };
+console.log(CITIES)
 
 
 export default function Mapp() {
   const mapRef = useRef()
   const page = useRecoilValue(clickedCBState)
 
-  const onSelectCity = useCallback(({longitude, latitude}) => {
-    mapRef.current?.flyTo({center: [longitude, latitude], zoom: 16, duration: 8000});
+  const onSelectCity = useCallback(({longitude, latitude, zoom}) => {
+    mapRef.current?.flyTo({center: [longitude, latitude], zoom: zoom, duration: 8000});
   }, []);
 
   const [popupInfo, setPopupInfo] = useState(null);
@@ -129,7 +149,7 @@ const pins = useMemo(
 
   return (
     <div className='mapContainer' id='divMap'>
-    <ControlPanel onSelectCity={onSelectCity} />
+    <ControlPanel onSelectCity={onSelectCity}/>
     <Map
       ref={mapRef}
       initialViewState={initialViewState}
@@ -154,7 +174,6 @@ const pins = useMemo(
         )} */}
     
     </Map>
-   
   </div>
   )
 }

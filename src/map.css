@@ -31,9 +31,11 @@
 
 .pMapp {
   background-color: transparent;
-  margin: 0;
+  margin: 1em 0;
   position: relative;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .mapBtn {
@@ -56,14 +58,14 @@
 }
 
 .back {
-    background-color: gray;
-    color: black;
+    background-color: rgb(167, 68, 68);
+    color: rgb(240, 232, 232);
     border: 0;
     margin-left: 2em;
 }
 
 .back:hover {
-    background-color: black;
+    background-color: rgb(223, 16, 16);
     color: aliceblue;
 }
 
