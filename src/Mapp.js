@@ -1,4 +1,4 @@
-import {useCallback, useRef, useState, useMemo} from 'react'
+import {useCallback, useRef, useState, useMemo, useEffect} from 'react'
 import 'react-alice-carousel/lib/alice-carousel.css';
 import CITIES from './data/cities.json'
 import { useRecoilValue, useRecoilState } from 'recoil';
@@ -116,10 +116,19 @@ console.log(CITIES)
 export default function Mapp() {
   const mapRef = useRef()
   const page = useRecoilValue(clickedCBState)
+  const [lp, setLp] = useRecoilState(launchpads)
 
   const onSelectCity = useCallback(({longitude, latitude, zoom}) => {
     mapRef.current?.flyTo({center: [longitude, latitude], zoom: zoom, duration: 8000});
   }, []);
+
+  useEffect(()=> {
+    CITIES.map(city => (
+      city.abbV === lp ?  mapRef.current?.flyTo({center: [city.longitude, city.latitude], zoom: city.zoom, duration: 8000}) 
+      : null
+  ))
+   
+  }, [lp])
 
   const [popupInfo, setPopupInfo] = useState(null);
 
